@@ -1,8 +1,19 @@
 @import './colors.scss';
 @import './fonts.scss';
 
+$breakpoints: ('sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+);
+
+$navbar-height: 80px;
+$page-height: calc(100vh - $navbar-height);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Gilroy';
+  color: $white;
 }
