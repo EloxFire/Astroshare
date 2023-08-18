@@ -39,7 +39,10 @@ export default function Contact() {
             <label htmlFor="message">Message</label>
             <textarea id="message" name="message" placeholder="Votre message" value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
           </div>
-          <button type='submit' disabled={loading}>Envoyer</button>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <button type='submit' disabled={loading}>Envoyer</button>
+            <small style={{ marginTop: '1vh' }}>En cliquant sur "envoyer" vous acceptez les conditions générales d'utilisation.</small>
+          </div>
         </form>
       </div>
     </div>
