@@ -15,4 +15,8 @@ export const routes = {
     path: '/contact',
     label: 'Contact',
   },
+  notFound: {
+    path: '*',
+    label: '404',
+  }
 }
