@@ -8,7 +8,7 @@ $breakpoints: ('sm': 576px,
 );
 
 $navbar-height: 80px;
-$page-height: calc(100vh - $navbar-height);
+$page-height: calc(100vh - 80px);
 
 
 * {

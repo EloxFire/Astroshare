@@ -3,13 +3,17 @@
 .home {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 40px 150px 40px 150px;
+  height: $page-height;
 
   &__left {
     width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    // background-color: red;
+    height: 100%;
 
     .title{
       margin-bottom: 2vh;
@@ -52,6 +56,23 @@
             background-position: center;
             margin-right: 10px;
           }
+
+          &:hover{
+            font-weight: 500;
+          }
+
+          // Underline animation comming from left to right
+          // &:hover::after{
+          //   content: '';
+          //   display: inline-block;
+          //   position: absolute;
+          //   bottom: -8px;
+          //   left: 0;
+          //   width: 100px;
+          //   height: 1px;
+          //   background-color: $white;
+          //   animation: underline 0.5s ease-in-out forwards;
+          // }
         }
       }
     }
@@ -63,9 +84,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // background-color: yellow;
+    height: 100%;
 
     img{
-      width: 80%;
+      max-width: 100%;
     }
   }
 }

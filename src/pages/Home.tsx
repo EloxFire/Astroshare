@@ -1,6 +1,5 @@
-import React from 'react'
-import '../styles/pages/home.scss'
 import CopyrightBadge from '../components/CopyrightBadge'
+import '../styles/pages/home.scss'
 
 export default function Home() {
   return (
@@ -15,9 +14,11 @@ export default function Home() {
         <div className="home__left__content">
           <h2>Explorez nos ressources :</h2>
           <div className="home__left__content__list">
-            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Test</a>
-            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Test</a>
-            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Test</a>
+            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Dossier personnel d'astronomie à compléter</a>
+            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Carte du ciel en direct</a>
+            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Fiches techniques : Les constellations</a>
+            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Fiches techniques : Le système solaire</a>
+            <a className="home__left__content__list--link" href="../assets/guide.pdf" download target='_self'>Guide : Matériel d'astronomie</a>
           </div>
         </div>
       </div>
