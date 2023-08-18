@@ -1,0 +1,36 @@
+@import '../globals.scss';
+
+.about-container{
+  height: auto;
+
+  &.right{
+    text-align: right;
+  }
+
+  &__title{
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__left{
+      
+
+      .title{
+        margin-bottom: 10vh;
+      }
+
+      .subtitles-container{
+        border-left: 2px solid $white;
+        border-bottom: 2px solid $white;
+        padding-left: 20px;
+        border-bottom-left-radius: 20px;
+      }
+    }
+  }
+}

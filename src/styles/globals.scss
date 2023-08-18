@@ -19,6 +19,13 @@ $page-height: calc(100vh - $navbar-height);
   color: $white;
 }
 
+p{
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
 .h1{
   font-size: 48px;
   font-weight: 900;
@@ -27,9 +34,18 @@ $page-height: calc(100vh - $navbar-height);
   text-transform: uppercase;
 }
 
-p{
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 1.5;
+.h2{
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.2;
   margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.h3{
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }

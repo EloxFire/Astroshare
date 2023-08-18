@@ -12,8 +12,7 @@ export default function Navbar() {
       <div className="navbar__links">
         <Link className="link" to={routes.home.path}>{routes.home.label}</Link>
         <Link className="link" to={routes.about.path}>{routes.about.label}</Link>
-        <Link className="link" to={routes.guide.path}>{routes.guide.label}</Link>
-        <Link className="link" to={routes.blog.path}>{routes.blog.label}</Link>
+        <Link className="link" to={routes.gallery.path}>{routes.gallery.label}</Link>
       </div>
       <div className="navbar__cta">
         <Link className="button-link" to={routes.contact.path}>{routes.contact.label}</Link>

@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
   height: $navbar-height;
-  padding: 0px 40px 0 40px;
+  padding: 0px 150px 0 150px;
 
   &__logo {
     width: 20%;
@@ -63,7 +63,7 @@
       cursor: pointer;
       text-decoration: none;
       border: 1px solid $white;
-      padding: 8px 10px 8px 10px;
+      padding: 8px 10px 5px 10px;
       transition: .3s;
 
       &:hover::before {

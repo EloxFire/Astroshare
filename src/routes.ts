@@ -7,13 +7,9 @@ export const routes = {
     path: '/a-propos',
     label: 'À propos',
   },
-  guide: {
-    path: '/guide',
-    label: 'Guide',
-  },
-  blog: {
-    path: '/blog',
-    label: 'Blog',
+  gallery: {
+    path: '/gallerie',
+    label: 'Gallerie',
   },
   contact: {
     path: '/contact',
