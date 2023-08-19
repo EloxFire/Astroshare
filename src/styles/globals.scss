@@ -1,10 +1,13 @@
 @import './colors.scss';
 @import './fonts.scss';
 
-$breakpoints: ('sm': 576px,
-  'md': 768px,
-  'lg': 992px,
-  'xl': 1200px,
+// Responsive breakpoints
+// Those breakpoint are specific to the project
+// We only have 3 use cases : mobile, tablet and desktop
+// Mobile < 1024px < Tablet < 1224px < Desktop
+$breakpoints: (
+  'tablet-min': '1023px',
+  'tablet-max': '1224px',
 );
 
 $navbar-height: 80px;
