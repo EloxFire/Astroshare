@@ -61,6 +61,22 @@
             font-weight: 500;
           }
 
+          &--bold{
+            font-weight: 500;
+
+            &::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-image: url('../../../public/images/arrow-right.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            margin-right: 10px;
+          }
+          }
+
           // Underline animation comming from left to right
           // &:hover::after{
           //   content: '';

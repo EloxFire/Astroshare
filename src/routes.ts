@@ -11,6 +11,10 @@ export const routes = {
     path: '/gallerie',
     label: 'Gallerie',
   },
+  ressources: {
+    path: '/ressources/:ressource_name',
+    label: 'Ressources',
+  },
   contact: {
     path: '/contact',
     label: 'Contact',

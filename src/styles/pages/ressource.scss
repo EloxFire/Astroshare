@@ -1,0 +1,17 @@
+@import '../globals.scss';
+
+.ressource{
+  height: $page-height;
+  padding: 40px 150px 40px 150px;
+  padding-top: 10vh;
+  display: flex;
+  flex-direction: row;
+
+  &__left{
+    width: 60%;
+  }
+
+  &__right{
+    width: 40%;
+  }
+}

@@ -1,3 +1,5 @@
+import { Ressource } from "./types";
+
 export const birthdate = new Date(2000, 11, 9);
 
 export const calculateAge = (birthday: Date) => { // birthday is a date
@@ -7,3 +9,15 @@ export const calculateAge = (birthday: Date) => { // birthday is a date
 }
 
 export const mailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+export const ressourcesNames = [
+  'personnal_book',
+]
+
+export const ressources: Ressource[] = [
+  {
+    slug: 'personnal_book',
+    name: 'Dossier personnel d\'astronomie',
+    description: 'Mon livre personnel',
+  }
+]
