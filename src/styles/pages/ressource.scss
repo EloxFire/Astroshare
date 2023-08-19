@@ -9,9 +9,58 @@
 
   &__left{
     width: 60%;
+    
+    &__subtitle{
+      font-size: 1.2rem;
+    }
+    
+    &__description{
+      white-space: pre-line;
+      margin-top: 3vh;
+      font-size: 1.2rem;
+    }
+
+    &__breadcrum{
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    &__infos{
+      margin-top: 3vh;
+
+      p{
+        margin-top: 5px;
+        margin-bottom: 0;
+        font-size: 1.1rem;
+      }
+    }
+
+    &__download-container{
+      margin-top: 3vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &__download-button{
+        background-color: $white;
+        color: $black;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    }
   }
 
   &__right{
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    img{
+      max-height: 100%;
+      max-width: 100%;
+    }
   }
 }
