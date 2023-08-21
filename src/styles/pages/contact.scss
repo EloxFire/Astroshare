@@ -39,11 +39,34 @@
       transition: all .3s;
       border: 1px solid transparent;
 
+      img{
+        max-height: 20px;
+        animation: spinning 1s ease-in-out infinite;
+      }
+
+      
+
       &:hover{
         background-color: transparent;
         color: $white;
         border: 1px solid $white;
+
+        &[disabled]{
+          background-color: $white;
+          color: $black;
+          border: 1px solid transparent;
+          cursor: not-allowed;
+        }
       }
     }
+  }
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/pages/ressource.scss'
 import { useParams } from 'react-router-dom'
 import { ressources } from '../scripts/helpers'
 import { Ressource } from '../scripts/types'
+import { Document, Page } from 'react-pdf';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
+import '../styles/pages/ressource.scss'
 
 export default function RessourceDetails() {
 
@@ -14,6 +17,15 @@ export default function RessourceDetails() {
     const ressource = ressources.find(ressource => ressource.slug === ressource_name)
     setRessourceInfos(ressource)
   }, [ressource_name])
+
+
+  const [numPages, setNumPages] = useState<number>(0);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages);
+    console.log('Loaded a document with ' + numPages + ' pages!');
+
+  }
 
   return (
     <div className="ressource">
@@ -33,7 +45,12 @@ export default function RessourceDetails() {
         </div>
       </div>
       <div className="ressource__right">
-        <img src={ressourceInfos?.image} alt={ressourceInfos?.name} />
+        {/* <img src={ressourceInfos?.image} alt={ressourceInfos?.name} /> */}
+        <div className="pdf-container">
+          <Document file='/images/pdfs/guide.pdf' onLoadSuccess={onDocumentLoadSuccess}>
+            <Page pageNumber={1} />
+          </Document>
+        </div>
       </div>
     </div>
   )
