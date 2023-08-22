@@ -5,7 +5,6 @@ import { Ressource } from '../scripts/types'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import '../styles/pages/ressource.scss'
-import PDF from '../components/PDF';
 
 export default function RessourceDetails() {
 
@@ -17,15 +16,6 @@ export default function RessourceDetails() {
     const ressource = ressources.find(ressource => ressource.slug === ressource_name)
     setRessourceInfos(ressource)
   }, [ressource_name])
-
-
-  const [numPages, setNumPages] = useState<number>(0);
-
-  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
-    setNumPages(numPages);
-    console.log('Loaded a document with ' + numPages + ' pages!');
-
-  }
 
   return (
     <div className="ressource">
@@ -41,14 +31,11 @@ export default function RessourceDetails() {
           <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
         </div>
         <div className="ressource__left__download-container">
-          <a href={ressourceInfos?.link} className="ressource__left__download-container__download-button">Télécharger le document</a>
+          <a href={ressourceInfos?.link} download={`Journal & Dossier de suivi personnel d'astronomie`} className="ressource__left__download-container__download-button">Télécharger le document</a>
         </div>
       </div>
       <div className="ressource__right">
-        {/* <img src={ressourceInfos?.image} alt={ressourceInfos?.name} /> */}
-        <div className="pdf-container">
-          <PDF path='/images/pdfs/guide.pdf' />
-        </div>
+        <img src={ressourceInfos?.image} alt={ressourceInfos?.name} />
       </div>
     </div>
   )

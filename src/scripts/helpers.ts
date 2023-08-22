@@ -12,6 +12,7 @@ export const mailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 export const ressourcesNames = [
   'personnal_book',
+  'technical_sheets_constellations',
 ]
 
 export const ressources: Ressource[] = [
@@ -24,6 +25,23 @@ export const ressources: Ressource[] = [
     level: "Débutant",
     format: ['PDF (complétable)'],
     tags: ['Apprentissage', 'Activité', 'Dossier personnel', 'Observation', 'Matériel'],
-    image: 'https://picsum.photos/2480/3508',
+    image: '/images/pdfs/guide.png',
+    link: '/docs/guide.pdf',
+    creadted: new Date(2023, 7, 22),
+    updated: new Date(2023, 7, 22),
+  },
+  {
+    slug: 'technical_sheets_constellations',
+    name: 'Fiches techniques : Les constellations',
+    subtitle: 'Fiches mémo pour vous aider dans vos observations',
+    description: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.\n\nVous trouverez dans ce document :\n- 44 fiches d'informations sur les constellations de l'hémisphère Nord",
+    notes: "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !",
+    level: "Débutant",
+    format: ['PDF'],
+    tags: ['Apprentissage', 'Activité', 'Fiches mémo', 'Observation', 'Constellations'],
+    image: '/images/pdfs/guide.png',
+    link: '/docs/guide.pdf',
+    creadted: new Date(2023, 7, 22),
+    updated: new Date(2023, 7, 22),
   }
 ]

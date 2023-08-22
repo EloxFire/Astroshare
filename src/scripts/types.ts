@@ -9,4 +9,6 @@ export type Ressource = {
   image?: string;
   link?: string;
   tags?: string[];
+  creadted?: Date;
+  updated: Date;
 }
