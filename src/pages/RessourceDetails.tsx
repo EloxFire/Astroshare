@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ressources } from '../scripts/helpers'
 import { Ressource } from '../scripts/types'
-import { Document, Page } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import '../styles/pages/ressource.scss'
+import PDF from '../components/PDF';
 
 export default function RessourceDetails() {
 
@@ -47,9 +47,7 @@ export default function RessourceDetails() {
       <div className="ressource__right">
         {/* <img src={ressourceInfos?.image} alt={ressourceInfos?.name} /> */}
         <div className="pdf-container">
-          <Document file='/images/pdfs/guide.pdf' onLoadSuccess={onDocumentLoadSuccess}>
-            <Page pageNumber={1} />
-          </Document>
+          <PDF path='/images/pdfs/guide.pdf' />
         </div>
       </div>
     </div>

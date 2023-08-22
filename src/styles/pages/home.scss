@@ -7,7 +7,7 @@
   padding: 40px 150px 40px 150px;
   height: $page-height;
 
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')){
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     flex-direction: column;
     padding: 40px 40px 40px 40px;
     height: auto;
@@ -22,34 +22,34 @@
     // background-color: red;
     height: 100%;
 
-    @media screen and (max-width: map-get($breakpoints, 'tablet-max')){
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
       width: 100%;
     }
 
-    .title{
+    .title {
       margin-bottom: 2vh;
     }
 
-    .subtitles-container{
+    .subtitles-container {
       border-left: 2px solid $white;
       border-bottom: 2px solid $white;
       padding-left: 20px;
       border-bottom-left-radius: 20px;
     }
 
-    &__content{
+    &__content {
       margin-top: 10vh;
 
-      h2{
+      h2 {
         margin-bottom: 2vh;
       }
 
 
-      &__list{
+      &__list {
         display: flex;
         flex-direction: column;
 
-        &--link{
+        &--link {
           text-decoration: none;
           color: $white;
           font-size: 1.2rem;
@@ -68,24 +68,24 @@
             margin-right: 10px;
           }
 
-          &:hover{
+          &:hover {
             font-weight: 500;
           }
 
-          &--bold{
+          &--bold {
             font-weight: 500;
 
             &::before {
-            content: '';
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background-image: url('../../../public/images/arrow-right.svg');
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            margin-right: 10px;
-          }
+              content: '';
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-image: url('../../../public/images/arrow-right.svg');
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              margin-right: 10px;
+            }
           }
 
           // Underline animation comming from left to right
@@ -110,11 +110,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     // background-color: yellow;
     height: 100%;
 
-    img{
+    img {
       max-width: 100%;
     }
   }
