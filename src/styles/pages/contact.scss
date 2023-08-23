@@ -1,19 +1,23 @@
 @import '../globals.scss';
 
-.contact{
+.contact {
   height: $page-height;
-  padding: 40px 150px 40px 150px;
   padding-top: 10vh;
 
-  &__form{
+  &__form {
     width: 40%;
 
-    &__group{
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      width: 100%;
+    }
+
+    &__group {
       margin-bottom: 30px;
       display: flex;
       flex-direction: column;
 
-      input, textarea{
+      input,
+      textarea {
         border: none;
         border-bottom: 1px solid $white;
         padding: 10px 0;
@@ -22,14 +26,14 @@
         background-color: transparent;
         transition: all .3s;
 
-        &:focus{
+        &:focus {
           outline: none;
           border-bottom: 1px solid $white;
         }
       }
     }
 
-    button{
+    button {
       border: none;
       background-color: $white;
       color: $black;
@@ -39,19 +43,19 @@
       transition: all .3s;
       border: 1px solid transparent;
 
-      img{
+      img {
         max-height: 20px;
         animation: spinning 1s ease-in-out infinite;
       }
 
-      
 
-      &:hover{
+
+      &:hover {
         background-color: transparent;
         color: $white;
         border: 1px solid $white;
 
-        &[disabled]{
+        &[disabled] {
           background-color: $white;
           color: $black;
           border: 1px solid transparent;
@@ -66,6 +70,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
