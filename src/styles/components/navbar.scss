@@ -6,8 +6,6 @@
   justify-content: space-between;
   align-items: center;
   height: $navbar-height;
-  // padding: 0px 150px 0 150px;
-  // background-color: green;
 
   &__logo {
     width: 20%;
@@ -91,54 +89,47 @@
         margin-right: 10px;
       }
     }
+  }
 
-    /* Style The Dropdown Button */
-    .dropbtn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 16px;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
+  &__burger {
+    display: none;
+    vertical-align: middle;
+
+    p {
+      margin: 0;
+      font-size: 1.2rem;
     }
 
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
-      position: relative;
-      display: inline-block;
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      display: block;
     }
+  }
 
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-      display: none;
+  &__mobile {
+    display: none;
+
+    &__active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $black;
+      height: 100vh;
+      width: 100%;
       position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-      z-index: 1;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      overflow-x: hidden;
     }
 
-    /* Links inside the dropdown */
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
+    .link {
+      margin: 20px 0 20px 0;
+      text-transform: uppercase;
+      cursor: pointer;
       text-decoration: none;
-      display: block;
-    }
-
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {
-      background-color: #f1f1f1
-    }
-
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {
-      background-color: #3e8e41;
+      color: $white;
+      font-size: 1.2rem;
     }
   }
 }
