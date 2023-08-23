@@ -6,8 +6,6 @@
   justify-content: space-between;
   align-items: center;
   height: $navbar-height;
-  // padding: 0px 150px 0 150px;
-  // background-color: green;
 
   &__logo {
     width: 20%;
@@ -17,6 +15,10 @@
       color: $white;
       text-transform: uppercase;
       font-weight: 900;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -25,6 +27,10 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      display: none;
+    }
 
     .link {
       margin: 0 20px 0 20px;
@@ -58,6 +64,10 @@
     flex-direction: row;
     justify-content: flex-end;
 
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      display: none;
+    }
+
     .button-link {
       // margin: 0 20px 0 20px;
       text-transform: uppercase;
@@ -78,6 +88,48 @@
         background-position: center;
         margin-right: 10px;
       }
+    }
+  }
+
+  &__burger {
+    display: none;
+    vertical-align: middle;
+
+    p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      display: block;
+    }
+  }
+
+  &__mobile {
+    display: none;
+
+    &__active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: $black;
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      overflow-x: hidden;
+    }
+
+    .link {
+      margin: 20px 0 20px 0;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      color: $white;
+      font-size: 1.2rem;
     }
   }
 }
