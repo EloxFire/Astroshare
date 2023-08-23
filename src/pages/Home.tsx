@@ -6,7 +6,6 @@ import { ressourcesNames } from '../scripts/helpers'
 export default function Home() {
   return (
     <div className="home">
-      <CopyrightBadge />
       <div className="home__left">
         <h1 className="h1 title">L'astronomie, simplement.</h1>
         <div className="subtitles-container">
@@ -18,9 +17,6 @@ export default function Home() {
           <div className="home__left__content__list">
             <Link className="home__left__content__list--link" to={`/ressources/${ressourcesNames[0]}`}>Dossier personnel d'astronomie à compléter</Link>
             <Link className="home__left__content__list--link" to={`/ressources/${ressourcesNames[1]}`}>Fiches techniques : Les constellations</Link>
-            <a className="home__left__content__list--link" href="../assets/guide.pdf" download>Carte du ciel en direct</a>
-            <a className="home__left__content__list--link" href="../assets/guide.pdf" download>Fiches techniques : Le système solaire</a>
-            <a className="home__left__content__list--link" href="../assets/guide.pdf" download>Guide : Matériel d'astronomie</a>
             <p className="home__left__content__list--link--bold">Et plus encore à venir !</p>
           </div>
         </div>

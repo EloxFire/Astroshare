@@ -4,4 +4,12 @@
   background-color: $black;
   min-height: 100vh;
   height: auto;
+  padding: 0 150px 0 150px;
+  position: relative;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    padding: 0 40px 40px 40px;
+    height: auto;
+    min-height: auto;
+  }
 }

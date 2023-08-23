@@ -5,8 +5,7 @@
 // Those breakpoint are specific to the project
 // We only have 3 use cases : mobile, tablet and desktop
 // Mobile < 1024px < Tablet < 1224px < Desktop
-$breakpoints: (
-  'tablet-min': '1023px',
+$breakpoints: ('tablet-min': '1023px',
   'tablet-max': '1224px',
 );
 
@@ -22,33 +21,49 @@ $page-height: calc(100vh - 80px);
   color: $white;
 }
 
-p{
+p {
   font-size: 21px;
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 20px;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    font-size: 18px;
+  }
 }
 
-.h1{
+.h1 {
   font-size: 48px;
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 20px;
   text-transform: uppercase;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    font-size: 31px;
+  }
 }
 
-.h2{
+.h2 {
   font-size: 36px;
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 20px;
   text-transform: uppercase;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    font-size: 24px;
+  }
 }
 
-.h3{
+.h3 {
   font-size: 24px;
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 20px;
   text-transform: uppercase;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    font-size: 18px;
+  }
 }

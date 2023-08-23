@@ -4,12 +4,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 40px 150px 40px 150px;
+  // padding: 40px 150px 40px 150px;
   height: $page-height;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     flex-direction: column;
-    padding: 40px 40px 40px 40px;
+    padding: 40px 0;
     height: auto;
   }
 
@@ -68,10 +68,6 @@
             margin-right: 10px;
           }
 
-          &:hover {
-            font-weight: 500;
-          }
-
           &--bold {
             font-weight: 500;
 
@@ -87,19 +83,6 @@
               margin-right: 10px;
             }
           }
-
-          // Underline animation comming from left to right
-          // &:hover::after{
-          //   content: '';
-          //   display: inline-block;
-          //   position: absolute;
-          //   bottom: -8px;
-          //   left: 0;
-          //   width: 100px;
-          //   height: 1px;
-          //   background-color: $white;
-          //   animation: underline 0.5s ease-in-out forwards;
-          // }
         }
       }
     }
@@ -113,6 +96,15 @@
     align-items: flex-end;
     // background-color: yellow;
     height: 100%;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      margin-top: 10vh;
+    }
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      width: 90%;
+      margin-top: 5vh;
+    }
 
     img {
       max-width: 100%;
