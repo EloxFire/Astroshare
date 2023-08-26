@@ -10,6 +10,7 @@ export default function RessourceDetails() {
 
   const { ressource_name } = useParams()
   const [ressourceInfos, setRessourceInfos] = useState<Ressource | undefined>(undefined)
+  const [selectedPackage, setSelectedPackage] = useState<string>('/docs/cheat_sheets/constellations/north.zip')
 
   useEffect(() => {
     // Find the ressource in the ressources array
@@ -31,7 +32,16 @@ export default function RessourceDetails() {
           <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
         </div>
         <div className="ressource__left__download-container">
-          <a href={ressourceInfos?.link} download={`Journal & Dossier de suivi personnel d'astronomie`} className="ressource__left__download-container__download-button">Télécharger le document</a>
+          <a href={selectedPackage} download={ressourceInfos?.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a>
+          <select onChange={(e) => setSelectedPackage(e.target.value)}>
+            {
+              ressourceInfos?.links?.map((package_link, package_index) => {
+                return (
+                  <option key={`ressource_package_${package_index}`} value={package_link}>{ressourceInfos?.downloadNames[package_index]}</option>
+                )
+              })
+            }
+          </select>
         </div>
       </div>
       <div className="ressource__right">

@@ -85,6 +85,19 @@
         padding: 10px 20px;
         cursor: pointer;
       }
+
+      select {
+        margin-left: 20px;
+        padding: 10px 20px;
+        border: 1px solid $black;
+        cursor: pointer;
+        color: $black;
+
+        option {
+          color: $black;
+          border-radius: 0;
+        }
+      }
     }
   }
 
