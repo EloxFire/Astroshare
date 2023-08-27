@@ -24,16 +24,29 @@
       justify-content: space-evenly;
     }
 
-    img {
-      max-height: 45vh;
-      margin-bottom: 2vh;
+    &__image {
+      position: relative;
 
-      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-        max-height: 30vh;
+      img {
+        max-height: 45vh;
+        margin-bottom: 2vh;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          max-height: 30vh;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          max-height: 20vh;
+        }
       }
 
-      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-        max-height: 20vh;
+      small {
+        position: absolute;
+        left: 0;
+        padding: 5px;
+        // transform: translate(-50%, 0);
+        color: $white;
+        background-color: rgba(0, 0, 0, .3);
       }
     }
   }
