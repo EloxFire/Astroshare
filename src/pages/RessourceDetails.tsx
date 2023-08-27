@@ -10,11 +10,15 @@ export default function RessourceDetails() {
 
   const { ressource_name } = useParams()
   const [ressourceInfos, setRessourceInfos] = useState<Ressource | undefined>(undefined)
+  const [selectedPackage, setSelectedPackage] = useState<string>('')
 
   useEffect(() => {
     // Find the ressource in the ressources array
     const ressource = ressources.find(ressource => ressource.slug === ressource_name)
     setRessourceInfos(ressource)
+    let defaultLink = ressource?.links?.[0];
+    console.log(defaultLink);
+    setSelectedPackage(defaultLink || '')
   }, [ressource_name])
 
   return (
@@ -31,7 +35,20 @@ export default function RessourceDetails() {
           <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
         </div>
         <div className="ressource__left__download-container">
-          <a href={ressourceInfos?.link} download={`Journal & Dossier de suivi personnel d'astronomie`} className="ressource__left__download-container__download-button">Télécharger le document</a>
+          <a href={selectedPackage} download={ressourceInfos?.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a>
+          {
+            ressourceInfos?.links && ressourceInfos?.links?.length > 1 && (
+              <select onChange={(e) => setSelectedPackage(e.target.value)}>
+                {
+                  ressourceInfos?.links?.map((package_link, package_index) => {
+                    return (
+                      <option key={`ressource_package_${package_index}`} value={package_link}>{ressourceInfos?.downloadNames[package_index]}</option>
+                    )
+                  })
+                }
+              </select>
+            )
+          }
         </div>
       </div>
       <div className="ressource__right">
