@@ -4,7 +4,29 @@
   padding-top: 10vh;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    padding-top: 5vh;
-    height: auto;
+    display: none;
+  }
+}
+
+.gallery-mobile {
+  display: none;
+
+  .link {
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-image: url('../../../public/images/arrow-right.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    display: block;
+    height: $page-height;
   }
 }
