@@ -1,4 +1,4 @@
-import { Ressource } from "./types";
+import { Ressource } from "../types";
 
 export const birthdate = new Date(2000, 11, 9);
 

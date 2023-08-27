@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import CopyrightBadge from '../components/CopyrightBadge'
 import '../styles/pages/home.scss'
-import { ressourcesNames } from '../scripts/helpers'
+import { ressourcesNames } from '../scripts/helpers/helpers'
 
 export default function Home() {
   return (

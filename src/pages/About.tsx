@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/pages/about.scss'
-import { calculateAge } from '../scripts/helpers'
+import { calculateAge } from '../scripts/helpers/helpers'
 
 export default function About() {
   return (
