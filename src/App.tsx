@@ -6,6 +6,7 @@ import Layout from "./pages/Layout";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import RessourceDetails from "./pages/RessourceDetails";
+import Gallery from "./pages/Gallery";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path={routes.home.path} element={<Layout component={<Home />} />} />
         {/* <Route path={routes.about.path} element={<Layout component={<About />} />} /> */}
         <Route path={routes.contact.path} element={<Layout component={<Contact />} />} />
+        <Route path={routes.gallery.path} element={<Layout component={<Gallery />} />} />
         <Route path={routes.ressources.path} element={<Layout component={<RessourceDetails />} />} />
         <Route path={routes.notFound.path} element={<NotFound />} />
       </Routes>

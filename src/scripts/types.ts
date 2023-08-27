@@ -13,3 +13,8 @@ export type Ressource = {
   creadted?: Date;
   updated: Date;
 }
+
+export type Image = {
+  url: string;
+  alt: string;
+}

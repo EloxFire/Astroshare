@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ressources } from '../scripts/helpers'
+import { ressources } from '../scripts/helpers/helpers'
 import { Ressource } from '../scripts/types'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';

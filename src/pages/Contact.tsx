@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { mailRegex } from '../scripts/helpers'
+import { mailRegex } from '../scripts/helpers/helpers'
 import CopyrightBadge from '../components/CopyrightBadge'
 import emailjs from '@emailjs/browser';
 import '../styles/pages/contact.scss'

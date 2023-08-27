@@ -1,0 +1,10 @@
+@import '../globals.scss';
+
+.gallery {
+  padding-top: 10vh;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    padding-top: 5vh;
+    height: auto;
+  }
+}
