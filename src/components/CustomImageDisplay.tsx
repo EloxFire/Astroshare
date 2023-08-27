@@ -22,6 +22,7 @@ export default function CustomImageDisplay({ slides }: CustomImageDisplayProps) 
             return (
               <div className="custom-image-display__wrap__image" key={index}>
                 <img src={slide.url} alt={slide.alt} onClick={() => { setSlideNumber(index); setOpenModal(true) }} />
+                <small>{slide.alt}</small>
               </div>
             )
           })
