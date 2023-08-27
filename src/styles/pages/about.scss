@@ -1,12 +1,23 @@
 @import '../globals.scss';
 
-.about{
+.about {
   padding-top: 10vh;
   height: auto;
   padding-bottom: 40px;
 
-  .content{
-    .images-container{
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    padding-top: 5vh;
+  }
+
+  .content {
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      p {
+        text-align: justify;
+      }
+    }
+
+    .images-container {
       height: 40vh;
       width: 100%;
       display: flex;
@@ -15,8 +26,25 @@
       justify-content: space-between;
       margin-bottom: 5vh;
 
-      img{
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        height: auto;
+      }
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        justify-content: center;
+      }
+
+      img {
         max-height: 100%;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          max-height: 30vh;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          max-width: 100%;
+          margin-bottom: 2vh;
+        }
       }
     }
   }
