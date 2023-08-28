@@ -41,6 +41,7 @@ export default function CustomImageDisplay({ slides }: CustomImageDisplayProps) 
               <img src={slides[slideNumber].url} alt={slides[slideNumber].alt} />
             </div>
             <div className="custom-image-display__modal__content__image-infos">
+              <small style={{ marginBottom: '1vh' }}>Informations de l'image :</small>
               <small className="top-element">Date : {dayjs(slides[slideNumber].date).format('DD/MM/YYYY')}</small>
               {slides[slideNumber].resolution && <small className="top-element">Resolution : {slides[slideNumber].resolution}</small>}
               {slides[slideNumber].fileFormat && <small className="top-element">Format : {slides[slideNumber].fileFormat}</small>}

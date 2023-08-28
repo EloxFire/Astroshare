@@ -119,6 +119,8 @@
         flex-direction: column;
         width: 20vw;
         height: 64vh;
+        border-left: 2px solid $white;
+        padding: 0 10px 0 10px;
 
         @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
           display: none;
