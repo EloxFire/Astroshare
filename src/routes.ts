@@ -19,6 +19,10 @@ export const routes = {
     path: '/contact',
     label: 'Contact',
   },
+  privacy: {
+    path: '/politique-de-confidentialite',
+    label: 'Politique de confidentialité',
+  },
   notFound: {
     path: '*',
     label: '404',
