@@ -3,7 +3,6 @@ import { mailRegex } from '../scripts/helpers/helpers'
 import CopyrightBadge from '../components/CopyrightBadge'
 import emailjs from '@emailjs/browser';
 import '../styles/pages/contact.scss'
-import Mailjet from 'node-mailjet';
 
 export default function Contact() {
 
@@ -18,70 +17,27 @@ export default function Contact() {
     if (mailRegex.test(email) === false) return;
     e.preventDefault();
 
-    setLoading(true)
-    const mailjet = Mailjet.apiConnect(
-      process.env.REACT_APP_MAILJET_API_KEY_PUBLIC as string,
-      process.env.REACT_APP_MAILJET_API_KEY_PRIVATE as string,
-    )
-
-    const mailRequest = mailjet.post('template', { version: 'v3.1' }).request({
-      Messages: [
-        {
-          From: {
-            Email: "contact@astroshare.fr",
-            Name: "AstroShare"
-          },
-          To: [
-            {
-              Email: email,
-              Name: name
-            }
-          ],
-          TemplateID: 5057604,
-          TemplateLanguage: true,
-          Subject: "AstroShare - Contact",
-          Variables: {}
-        }
-      ]
-    });
-
-    try {
-      const response = await mailRequest;
-      console.log(response.body);
-      setResponse(true)
-      setTimeout(() => {
-        setResponse(undefined)
-      }, 3000)
-      setLoading(false)
-    } catch (error) {
-      setResponse(false)
-      setTimeout(() => {
-        setResponse(undefined)
-      }, 3000)
-      setLoading(false)
+    const mail = {
+      name: name,
+      email: email,
+      message: message
     }
 
-    // const mail = {
-    //   name: name,
-    //   email: email,
-    //   message: message
-    // }
-
-    // setLoading(true)
-    // emailjs.send('Astroshare', 'general_template', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
-    //   .then((result) => {
-    //     setResponse(true)
-    //     setTimeout(() => {
-    //       setResponse(undefined)
-    //     }, 3000)
-    //     setLoading(false)
-    //   }, (error) => {
-    //     setResponse(false)
-    //     setTimeout(() => {
-    //       setResponse(undefined)
-    //     }, 3000)
-    //     setLoading(false)
-    //   });
+    setLoading(true)
+    emailjs.send('Astroshare', 'general_template', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
+      .then((result) => {
+        setResponse(true)
+        setTimeout(() => {
+          setResponse(undefined)
+        }, 3000)
+        setLoading(false)
+      }, (error) => {
+        setResponse(false)
+        setTimeout(() => {
+          setResponse(undefined)
+        }, 3000)
+        setLoading(false)
+      });
   }
 
   return (

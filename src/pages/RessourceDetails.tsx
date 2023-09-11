@@ -5,12 +5,14 @@ import { Ressource } from '../scripts/types'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 import '../styles/pages/ressource.scss'
+import DownloadModal from '../components/DownloadModal';
 
 export default function RessourceDetails() {
 
   const { ressource_name } = useParams()
   const [ressourceInfos, setRessourceInfos] = useState<Ressource | undefined>(undefined)
   const [selectedPackage, setSelectedPackage] = useState<string>('')
+  const [downloadModal, setDownloadModal] = useState<boolean>(false)
 
   useEffect(() => {
     // Find the ressource in the ressources array
@@ -35,7 +37,8 @@ export default function RessourceDetails() {
           <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
         </div>
         <div className="ressource__left__download-container">
-          <a href={selectedPackage} download={ressourceInfos?.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a>
+          <button className="ressource__left__download-container__download-button" onClick={() => setDownloadModal(true)}>Télécharger le document</button>
+          {/* <a href={selectedPackage} download={ressourceInfos?.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a> */}
           {
             ressourceInfos?.links && ressourceInfos?.links?.length > 1 && (
               <select onChange={(e) => setSelectedPackage(e.target.value)}>
@@ -54,6 +57,14 @@ export default function RessourceDetails() {
       <div className="ressource__right">
         <img src={ressourceInfos?.image} alt={ressourceInfos?.name} />
       </div>
+      {
+        downloadModal &&
+        <DownloadModal
+          downloadUrl={selectedPackage}
+          onClose={() => setDownloadModal(false)}
+          downloadName={ressourceInfos?.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]}
+        />
+      }
     </div>
   )
 }

@@ -5,6 +5,7 @@
   padding-top: 10vh;
   display: flex;
   flex-direction: row;
+  position: relative;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     height: auto;
@@ -84,14 +85,22 @@
         color: $black;
         padding: 10px 20px;
         cursor: pointer;
+        border: none;
+        outline: none;
+        height: 40px;
+        font-size: 1rem;
+        font-weight: 600;
       }
 
       select {
         margin-left: 20px;
-        padding: 10px 20px;
+        padding: 10px 20px 10px 20px;
         border: 1px solid $black;
         cursor: pointer;
         color: $black;
+        height: 40px;
+        font-size: 1rem;
+        font-weight: 600;
 
         option {
           color: $black;
