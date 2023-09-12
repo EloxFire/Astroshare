@@ -62,7 +62,7 @@ export default function DownloadModal({ downloadUrl, downloadName, onClose }: Do
           </p>
           <input onChange={handleMailCompletion} ref={inputRef} type="email" placeholder='Votre adresse mail' />
           <p className="download-modal__container__body__description--disclaimer">
-            En téléchargeant ce document, vous acceptez de recevoir des emails de la part d'Astroshare et vous reconnaissez avoir pris connaissance de notre <a href={routes.privacy.path} target='_blank' rel='noreferrer'>politique de confidentialité</a>.
+            En téléchargeant ce document, vous reconnaissez avoir pris connaissance de notre <a href={routes.privacy.path} target='_blank' rel='noreferrer'>politique de confidentialité</a>.
           </p>
         </div>
         <div className="download-modal__container__footer">
