@@ -12,10 +12,10 @@ export default function Contact() {
   const [loading, setLoading] = useState<boolean>(false)
   const [response, setResponse] = useState<boolean | undefined>(undefined)
 
-  const handleSend = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSend = async (e: React.FormEvent<HTMLFormElement>) => {
     if (name === '' || email === '' || message === '') return;
     if (mailRegex.test(email) === false) return;
+    e.preventDefault();
 
     const mail = {
       name: name,
@@ -24,7 +24,7 @@ export default function Contact() {
     }
 
     setLoading(true)
-    emailjs.send('Astroshare', 'general_template', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
+    emailjs.send('Astroshare', 'astroshare_contact', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
       .then((result) => {
         setResponse(true)
         setTimeout(() => {

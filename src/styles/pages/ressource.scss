@@ -5,6 +5,7 @@
   padding-top: 10vh;
   display: flex;
   flex-direction: row;
+  position: relative;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     height: auto;
@@ -75,6 +76,12 @@
       justify-content: flex-start;
       align-items: center;
 
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
       @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
         justify-content: center;
       }
@@ -84,14 +91,34 @@
         color: $black;
         padding: 10px 20px;
         cursor: pointer;
+        border: none;
+        outline: none;
+        height: 40px;
+        font-size: 1rem;
+        font-weight: 600;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          width: 100%;
+        }
       }
 
       select {
         margin-left: 20px;
-        padding: 10px 20px;
+        padding: 10px 20px 10px 20px;
         border: 1px solid $black;
         cursor: pointer;
         color: $black;
+        height: 40px;
+        font-size: 1rem;
+        font-weight: 600;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          margin-left: 0;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          width: 100%;
+        }
 
         option {
           color: $black;
