@@ -76,6 +76,12 @@
       justify-content: flex-start;
       align-items: center;
 
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
       @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
         justify-content: center;
       }
@@ -90,6 +96,10 @@
         height: 40px;
         font-size: 1rem;
         font-weight: 600;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          width: 100%;
+        }
       }
 
       select {
@@ -101,6 +111,14 @@
         height: 40px;
         font-size: 1rem;
         font-weight: 600;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          margin-left: 0;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          width: 100%;
+        }
 
         option {
           color: $black;
