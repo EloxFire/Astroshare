@@ -33,22 +33,25 @@ export default function DownloadModal({ downloadUrl, downloadName, onClose }: Do
 
     const email = {
       email: mail,
+      document_name: downloadName,
+      document_link: downloadUrl
     }
 
     setLoading(true)
-    emailjs.send('Astroshare', 'general_template', email, 'user_OimdLZV4uZQJjsxfr0Cgc')
+    emailjs.send('Astroshare', 'astroshare_download', email, 'user_OimdLZV4uZQJjsxfr0Cgc')
       .then((result) => {
+        setLoading(false)
         setResponse(true)
         setTimeout(() => {
           setResponse(undefined)
-        }, 3000)
-        setLoading(false)
+          onClose()
+        }, 2000)
       }, (error) => {
+        setLoading(false)
         setResponse(false)
         setTimeout(() => {
           setResponse(undefined)
         }, 3000)
-        setLoading(false)
       });
   }
 
@@ -67,7 +70,10 @@ export default function DownloadModal({ downloadUrl, downloadName, onClose }: Do
         </div>
         <div className="download-modal__container__footer">
           <button onClick={onClose} className="download-modal__container__footer__close">Annuler</button>
-          <a aria-disabled={disabled} href={downloadUrl} download={downloadName} style={{ pointerEvents: disabled ? 'none' : 'all' }} className="download-modal__container__footer__download">Télécharger le document</a>
+          {loading && <p style={{ padding: 0, margin: 0 }}>Envoi en cours...</p>}
+          {response === true && <p style={{ color: 'green', padding: 0, margin: 0 }}>Document envoyé, regardez vos mails !</p>}
+          {response === false && <p style={{ color: 'red', padding: 0, margin: 0 }}>Une erreur est survenue, veuillez réessayer.</p>}
+          <button disabled={disabled} onClick={handleSend} className="download-modal__container__footer__close">Télécharger le document</button>
         </div>
       </div>
     </div>

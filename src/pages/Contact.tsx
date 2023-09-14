@@ -24,7 +24,7 @@ export default function Contact() {
     }
 
     setLoading(true)
-    emailjs.send('Astroshare', 'general_template', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
+    emailjs.send('Astroshare', 'astroshare_contact', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
       .then((result) => {
         setResponse(true)
         setTimeout(() => {
