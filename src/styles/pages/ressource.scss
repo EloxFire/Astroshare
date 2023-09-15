@@ -36,17 +36,45 @@
       }
     }
 
-    &__description {
-      white-space: pre-line;
+    &__description-container{
+      max-height: 35vh;
+      overflow: auto;
       margin-top: 3vh;
-      font-size: 1.2rem;
+      border-bottom: 1px solid rgba($white, 0.2);
+      padding-bottom: 20px;
 
-      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-        font-size: 1rem;
+      /* width */
+      &::-webkit-scrollbar {
+        width: 5px;
+        border-radius: 8px;
       }
 
-      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-        text-align: justify;
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: $white;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: rgba($black, 0.5);
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgba($black, 0.8);
+      }
+
+      &__description {
+        white-space: pre-line;
+        font-size: 1.2rem;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          font-size: 1rem;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          text-align: justify;
+        }
       }
     }
 

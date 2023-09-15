@@ -5,6 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { pdfjs } from 'react-pdf';
 import { Analytics } from '@vercel/analytics/react';
+// Switch dayjs to french locale
+import 'dayjs/locale/fr';
+import dayjs from 'dayjs';
+dayjs.locale('fr');
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.js',

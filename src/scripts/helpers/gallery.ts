@@ -107,4 +107,48 @@ export const images: Image[] = [
       eyePieceMagnification: 125,
     }
   },
+  {
+    url: '/images/gallery/08.min.jpg',
+    alt: 'Jupiter',
+    date: new Date('2023-09-14'),
+    resolution: '6000x4000',
+    fileFormat: 'JPG',
+    cameraSettings: {
+      name: 'Canon EOS 2000D',
+      iso: 3200,
+      shutter: "1/30",
+      focalLength: "50mm"
+    },
+    scopeSettings: {
+      name: 'Omegon 150/750',
+      mount: 'Omegon EQ-320',
+      focal: 750,
+      diameter: 150,
+      focalRatio: 'f/5',
+      eyePiece: 'Cronus 6mm',
+      eyePieceMagnification: 125,
+    }
+  },
+  {
+    url: '/images/gallery/09.min.jpg',
+    alt: 'Saturne',
+    date: new Date('2023-09-14'),
+    resolution: '6000x4000',
+    fileFormat: 'JPG',
+    cameraSettings: {
+      name: 'Canon EOS 2000D',
+      iso: 3200,
+      shutter: "1/8",
+      focalLength: "50mm"
+    },
+    scopeSettings: {
+      name: 'Omegon 150/750',
+      mount: 'Omegon EQ-320',
+      focal: 750,
+      diameter: 150,
+      focalRatio: 'f/5',
+      eyePiece: 'Cronus 6mm',
+      eyePieceMagnification: 125,
+    }
+  },
 ]

@@ -7,6 +7,7 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 import DownloadModal from '../components/DownloadModal';
 import { FiChevronLeft } from 'react-icons/fi'
 import '../styles/pages/ressource.scss'
+import dayjs from 'dayjs';
 
 export default function RessourceDetails() {
 
@@ -30,12 +31,15 @@ export default function RessourceDetails() {
         {/* <small className="ressource__left__breadcrum">Ressources &gt; {ressourceInfos?.level} &gt; {ressourceInfos?.name}</small> */}
         <h1 className="h2 title ressource__left__title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
         {ressourceInfos?.subtitle && <p className="ressource__left__subtitle">{ressourceInfos?.subtitle}</p>}
-        <p className="ressource__left__description">{ressourceInfos?.description}</p>
-        {ressourceInfos?.notes && <small>{ressourceInfos?.notes}</small>}
+        <div className="ressource__left__description-container">
+          <p className="ressource__left__description-container__description">{ressourceInfos?.description}</p>
+          {ressourceInfos?.notes && <small>{ressourceInfos?.notes}</small>}
+        </div>
         <div className="ressource__left__infos">
           <p className="ressource__left__infos__item">Format du docuent : {ressourceInfos?.format?.join(', ')}</p>
           <p className="ressource__left__infos__item">Niveau : {ressourceInfos?.level}</p>
           <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
+          <p className="ressource__left__infos__item">Dernière mise à jour : {dayjs(ressourceInfos?.updated).format('DD MMMM YYYY')}</p>
         </div>
         <div className="ressource__left__download-container">
           <button className="ressource__left__download-container__download-button" onClick={() => setDownloadModal(true)}>Télécharger le document</button>

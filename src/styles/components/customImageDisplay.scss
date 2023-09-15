@@ -19,6 +19,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    height: auto;
+    padding-bottom: 10vh;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
       justify-content: space-evenly;
@@ -30,6 +32,9 @@
       img {
         max-height: 45vh;
         margin-bottom: 2vh;
+        border: 1px solid rgba($white, .2);
+        border-radius: 10px;
+        // margin: 5px;
 
         @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
           max-height: 30vh;
