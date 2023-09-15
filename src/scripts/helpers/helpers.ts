@@ -52,8 +52,10 @@ export const ressources: Ressource[] = [
       '/docs/cheat_sheets/constellations/ursa_major.pdf',
       '/docs/cheat_sheets/constellations/hercules.pdf',
       '/docs/cheat_sheets/constellations/sagittarius.pdf',
+      '/docs/cheat_sheets/constellations/cygnus.pdf',
+      '/docs/cheat_sheets/constellations/lyra.pdf',
     ],
     creadted: new Date(2023, 7, 22),
-    updated: new Date(2023, 7, 22),
+    updated: new Date(2023, 9, 15),
   }
 ]
