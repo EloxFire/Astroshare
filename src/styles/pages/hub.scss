@@ -1,0 +1,12 @@
+@import '../globals.scss';
+
+.hub {
+  height: $page-height;
+  padding-top: 10vh;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    min-height: 100vh;
+    height: auto;
+    padding-top: 5vh;
+  }
+}
