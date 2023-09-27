@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { ressources } from '../scripts/helpers/helpers'
-import { Ressource } from '../scripts/types'
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import DownloadModal from '../components/DownloadModal';
+import { useEffect, useState } from 'react'
 import { FiChevronLeft } from 'react-icons/fi'
-import '../styles/pages/ressource.scss'
+import { Ressource } from '../scripts/types'
+import { ressources } from '../scripts/helpers/ressources';
+import { Link, useParams } from 'react-router-dom'
+import DownloadModal from '../components/DownloadModal';
 import dayjs from 'dayjs';
+import '../styles/pages/ressource.scss'
 
 export default function RessourceDetails() {
 

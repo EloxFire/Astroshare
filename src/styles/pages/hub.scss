@@ -1,12 +1,14 @@
 @import '../globals.scss';
 
 .hub {
-  height: $page-height;
-  padding-top: 10vh;
+  @extend .global-page;
 
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    min-height: 100vh;
-    height: auto;
-    padding-top: 5vh;
+  .categories-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8vh;
   }
 }

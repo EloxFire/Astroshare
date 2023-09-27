@@ -1,0 +1,31 @@
+import { Ressource } from "../../../types";
+import { ressourceType, resssourcesCategories } from "../../helpers";
+
+export const constellations_cheat_sheets: Ressource = {
+  slug: 'technical_sheets_constellations',
+  name: 'Fiches techniques : Les constellations',
+  category: resssourcesCategories.general,
+  downloadNames: [
+    "Toutes les constelations de l'hémisphère nord",
+    "Fiche technique : La Grande Ourse",
+    "Fiche technique : Hercule",
+    "Fiche technique : Sagittaire",
+  ],
+  subtitle: 'Fiches mémo pour vous aider dans vos observations',
+  description: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.\n\nVous trouverez dans ce document :\n- 44 fiches d'informations sur les constellations de l'hémisphère Nord",
+  notes: "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !",
+  level: "Débutant",
+  format: [ressourceType.pdf, ressourceType.zip],
+  tags: ['Apprentissage', 'Activité', 'Fiches mémo', 'Observation', 'Constellations'],
+  image: '/images/pdfs/cheat_sheets.png',
+  links: [
+    '/docs/cheat_sheets/constellations/north.zip',
+    '/docs/cheat_sheets/constellations/ursa_major.pdf',
+    '/docs/cheat_sheets/constellations/hercules.pdf',
+    '/docs/cheat_sheets/constellations/sagittarius.pdf',
+    '/docs/cheat_sheets/constellations/cygnus.pdf',
+    '/docs/cheat_sheets/constellations/lyra.pdf',
+  ],
+  creadted: new Date(2023, 7, 22),
+  updated: new Date(2023, 9, 15),
+}

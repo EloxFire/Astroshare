@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import CopyrightBadge from '../components/CopyrightBadge'
+import { personnal_book } from '../scripts/helpers/ressources/general/personnal_book'
+import { constellations_cheat_sheets } from '../scripts/helpers/ressources/general/constellation_cheat_sheets'
 import '../styles/pages/home.scss'
-import { ressourcesNames } from '../scripts/helpers/helpers'
 
 export default function Home() {
   return (
@@ -13,11 +13,11 @@ export default function Home() {
           <p>Apprenez à maitriser votre matériel, complétez le catalogue de Messier, faites vos premiers pas en Astrophotographie et plus encore !</p>
         </div>
         <div className="home__left__content">
-          <h2>Explorez nos ressources :</h2>
+          <h2>Ressources les plus aimées :</h2>
           <div className="home__left__content__list">
-            <Link className="home__left__content__list--link" to={`/ressources/${ressourcesNames[0]}`}>Dossier personnel d'astronomie à compléter</Link>
-            <Link className="home__left__content__list--link" to={`/ressources/${ressourcesNames[1]}`}>Fiches techniques : Les constellations</Link>
-            <p className="home__left__content__list--link--bold">Et plus encore à venir !</p>
+            <Link className="home__left__content__list--link" to={`/ressources/${personnal_book.category}/${personnal_book.slug}`}>Dossier personnel d'astronomie à compléter</Link>
+            <Link className="home__left__content__list--link" to={`/ressources/${constellations_cheat_sheets.category}/${constellations_cheat_sheets.slug}`}>Fiches techniques : Les constellations</Link>
+            {/* <p className="home__left__content__list--link--bold">Venez découvrir toutes nos </p> */}
           </div>
         </div>
       </div>

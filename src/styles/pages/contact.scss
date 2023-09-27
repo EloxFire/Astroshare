@@ -1,8 +1,7 @@
 @import '../globals.scss';
 
 .contact {
-  height: $page-height;
-  padding-top: 10vh;
+  @extend .global-page;
 
   &__form {
     width: 40%;

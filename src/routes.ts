@@ -12,11 +12,11 @@ export const routes = {
     label: 'Gallerie',
   },
   hub: {
-    path: '/hub',
+    path: '/ressources',
     label: 'Ressources',
   },
   ressources_category: {
-    path: '/hub/:category',
+    path: '/ressources/:category',
     label: 'Categorie',
   },
   ressource: {
