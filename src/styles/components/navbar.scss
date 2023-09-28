@@ -10,6 +10,12 @@
   &__logo {
     width: 20%;
 
+    .home-link{
+      text-decoration: none;
+      margin: 0;
+      padding: 0;
+    }
+
 
     .title {
       color: $white;

@@ -29,7 +29,9 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar__logo">
-        <h1 className="title">Astroshare</h1>
+        <Link className="home-link" to={routes.home.path}>
+          <h1 className="title">Astroshare</h1>
+        </Link>
       </div>
       <div className="navbar__links">
         <Link className="link" to={routes.home.path}>{routes.home.label}</Link>
