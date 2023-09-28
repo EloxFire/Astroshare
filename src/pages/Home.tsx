@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { personnal_book } from '../scripts/helpers/ressources/general/personnal_book'
 import { constellations_cheat_sheets } from '../scripts/helpers/ressources/general/constellation_cheat_sheets'
+import { optical_notion } from '../scripts/helpers/ressources/material/optical_notions'
 import '../styles/pages/home.scss'
 
 export default function Home() {
@@ -15,9 +15,8 @@ export default function Home() {
         <div className="home__left__content">
           <h2>Ressources les plus aimées :</h2>
           <div className="home__left__content__list">
-            <Link className="home__left__content__list--link" to={`/ressources/${personnal_book.category}/${personnal_book.slug}`}>Dossier personnel d'astronomie à compléter</Link>
-            <Link className="home__left__content__list--link" to={`/ressources/${constellations_cheat_sheets.category}/${constellations_cheat_sheets.slug}`}>Fiches techniques : Les constellations</Link>
-            {/* <p className="home__left__content__list--link--bold">Venez découvrir toutes nos </p> */}
+            <Link className="home__left__content__list--link" to={`/ressources/${optical_notion.category}/${optical_notion.slug}`}>{optical_notion.name}</Link>
+            <Link className="home__left__content__list--link" to={`/ressources/${constellations_cheat_sheets.category}/${constellations_cheat_sheets.slug}`}>{constellations_cheat_sheets.name}</Link>
           </div>
         </div>
       </div>
