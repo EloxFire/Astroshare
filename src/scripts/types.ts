@@ -5,7 +5,6 @@ export type Ressource = {
   downloadNames: string[];
   subtitle?: string;
   description: string;
-  shortDescription: string;
   notes?: string;
   level: string;
   format?: string[];

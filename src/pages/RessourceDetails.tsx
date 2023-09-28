@@ -19,7 +19,6 @@ export default function RessourceDetails() {
     const ressource = ressources.find(ressource => ressource.slug === ressource_name)
     setRessourceInfos(ressource)
     let defaultLink = ressource?.links?.[0];
-    console.log(defaultLink);
     setSelectedPackage(defaultLink || '')
   }, [ressource_name])
 
