@@ -27,7 +27,7 @@ export default function RessourceDetails() {
     <div className="ressource">
       <div className="ressource__left">
         {/* <small className="ressource__left__breadcrum">Ressources &gt; {ressourceInfos?.level} &gt; {ressourceInfos?.name}</small> */}
-        <h1 className="h2 title ressource__left__title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
+        <h1 className="h2 title ressource__left__title"><Link to={`/ressources/${ressourceInfos?.category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
         {ressourceInfos?.subtitle && <p className="ressource__left__subtitle">{ressourceInfos?.subtitle}</p>}
         <div className="ressource__left__description-container">
           <p className="ressource__left__description-container__description">{ressourceInfos?.description}</p>

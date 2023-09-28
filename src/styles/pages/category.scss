@@ -2,4 +2,9 @@
 
 .category{
   @extend .global-page;
+
+  .ressources-container{
+    max-height: 60vh;
+    overflow: auto;
+  }
 }

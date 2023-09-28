@@ -19,6 +19,7 @@ export type RessourceCategory = {
   name: string;
   slug: string;
   description: string;
+  longDescription: string;
   icon?: string;
 }
 
