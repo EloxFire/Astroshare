@@ -14,6 +14,6 @@ export const personnal_book: Ressource = {
   tags: ['Apprentissage', 'Activité', 'Dossier personnel', 'Observation', 'Matériel'],
   image: '/images/pdfs/guide.png',
   links: ['/docs/guide.pdf'],
-  creadted: new Date(2023, 7, 22), // 22 august 2023
-  updated: new Date(2023, 7, 22), // 22 august 2023
+  creadted: new Date(2023, 8, 28), // 28 september 2023
+  updated: new Date(2023, 8, 28), // 28 september 2023
 }

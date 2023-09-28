@@ -2,30 +2,36 @@ import { Ressource } from "../../../types";
 import { ressourceType, ressourcesLevels, resssourcesCategories } from "../../helpers";
 
 export const constellations_cheat_sheets: Ressource = {
-  slug: 'technical_sheets_constellations',
+  slug: 'constellations_cheat_sheets',
   name: 'Fiches techniques : Les constellations',
   category: resssourcesCategories.general,
   downloadNames: [
-    "Toutes les constelations de l'hémisphère nord",
+    "Toutes les constelations de l'hémisphère nord (incomplet)",
     "Fiche technique : La Grande Ourse",
     "Fiche technique : Hercule",
-    "Fiche technique : Sagittaire",
+    "Fiche technique : Le Sagittaire",
+    "Fiche technique : Le Cygne",
+    "Fiche technique : La Lyre",
+    "Fiche technique : Cassiopée",
+    "Fiche technique : Céphée",
   ],
   subtitle: 'Fiches mémo sur les informations principales des constellations de l\'hémisphère nord',
-  description: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.\n\nVous trouverez dans ce document :\n- 44 fiches d'informations sur les constellations de l'hémisphère Nord",
+  description: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.\n\n&#9888; Toutes les constellations ne sont pas encore disponibles. N'hésitez pas à vérifier régulièrement les mises a jours &#9888;\n\nVous trouverez dans ce document :\n- 7 fiches d'informations sur les constellations de l'hémisphère Nord",
   notes: "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !",
   level: ressourcesLevels.beginner,
   format: [ressourceType.pdf, ressourceType.zip],
   tags: ['Apprentissage', 'Activité', 'Fiches mémo', 'Observation', 'Constellations'],
   image: '/images/pdfs/cheat_sheets.png',
   links: [
-    '/docs/cheat_sheets/constellations/north.zip',
+    '/docs/cheat_sheets/constellations/north_constellations.zip',
     '/docs/cheat_sheets/constellations/ursa_major.pdf',
     '/docs/cheat_sheets/constellations/hercules.pdf',
     '/docs/cheat_sheets/constellations/sagittarius.pdf',
     '/docs/cheat_sheets/constellations/cygnus.pdf',
     '/docs/cheat_sheets/constellations/lyra.pdf',
+    '/docs/cheat_sheets/constellations/cassiopeia.pdf',
+    '/docs/cheat_sheets/constellations/cepheus.pdf',
   ],
   creadted: new Date(2023, 7, 22), // 22 august 2023
-  updated: new Date(2023, 8, 15), // 15 september 2023
+  updated: new Date(2023, 8, 28), // 28 september 2023
 }

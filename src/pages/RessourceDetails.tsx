@@ -29,7 +29,7 @@ export default function RessourceDetails() {
         <h1 className="h2 title ressource__left__title"><Link to={`/ressources/${ressourceInfos?.category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
         {ressourceInfos?.subtitle && <p className="ressource__left__subtitle">{ressourceInfos?.subtitle}</p>}
         <div className="ressource__left__description-container">
-          <p className="ressource__left__description-container__description">{new DOMParser().parseFromString(ressourceInfos!.description, 'text/html').body.textContent}</p>
+          <p className="ressource__left__description-container__description">{ressourceInfos?.description !== undefined && new DOMParser().parseFromString(ressourceInfos?.description, 'text/html').body.textContent}</p>
           {ressourceInfos?.notes && <small>{ressourceInfos?.notes}</small>}
         </div>
         <div className="ressource__left__infos">

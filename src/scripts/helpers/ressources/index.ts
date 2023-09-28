@@ -5,7 +5,7 @@ import { optical_notion } from "./material/optical_notions"
 import { northen_constellations_maps } from "./observation/northen_constellations_maps"
 
 export const ressources: Ressource[] = [
-  personnal_book,
+  //personnal_book, REMOVED WHILE NOT FINISHED
   constellations_cheat_sheets,
   northen_constellations_maps,
   optical_notion,
