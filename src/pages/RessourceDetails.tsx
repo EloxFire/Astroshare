@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { ressources } from '../scripts/helpers/helpers'
-import { Ressource } from '../scripts/types'
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import DownloadModal from '../components/DownloadModal';
+import { useEffect, useState } from 'react'
 import { FiChevronLeft } from 'react-icons/fi'
-import '../styles/pages/ressource.scss'
+import { Ressource } from '../scripts/types'
+import { ressources } from '../scripts/helpers/ressources';
+import { Link, useParams } from 'react-router-dom'
+import DownloadModal from '../components/DownloadModal';
 import dayjs from 'dayjs';
+import '../styles/pages/ressource.scss'
 
 export default function RessourceDetails() {
 
@@ -21,7 +19,6 @@ export default function RessourceDetails() {
     const ressource = ressources.find(ressource => ressource.slug === ressource_name)
     setRessourceInfos(ressource)
     let defaultLink = ressource?.links?.[0];
-    console.log(defaultLink);
     setSelectedPackage(defaultLink || '')
   }, [ressource_name])
 
@@ -29,10 +26,10 @@ export default function RessourceDetails() {
     <div className="ressource">
       <div className="ressource__left">
         {/* <small className="ressource__left__breadcrum">Ressources &gt; {ressourceInfos?.level} &gt; {ressourceInfos?.name}</small> */}
-        <h1 className="h2 title ressource__left__title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
+        <h1 className="h2 title ressource__left__title"><Link to={`/ressources/${ressourceInfos?.category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
         {ressourceInfos?.subtitle && <p className="ressource__left__subtitle">{ressourceInfos?.subtitle}</p>}
         <div className="ressource__left__description-container">
-          <p className="ressource__left__description-container__description">{ressourceInfos?.description}</p>
+          <p className="ressource__left__description-container__description">{ressourceInfos?.description !== undefined && new DOMParser().parseFromString(ressourceInfos?.description, 'text/html').body.textContent}</p>
           {ressourceInfos?.notes && <small>{ressourceInfos?.notes}</small>}
         </div>
         <div className="ressource__left__infos">

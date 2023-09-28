@@ -1,7 +1,7 @@
 @import '../globals.scss';
 
 .gallery {
-  padding-top: 10vh;
+  @extend .global-page;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     display: none;

@@ -32,6 +32,16 @@ p {
   }
 }
 
+.global-page{
+  min-height: $page-height;
+  padding-top: 10vh;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    height: auto;
+    padding-top: 5vh;
+  }
+}
+
 .h1 {
   font-size: 48px;
   font-weight: 900;

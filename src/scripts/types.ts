@@ -1,6 +1,7 @@
 export type Ressource = {
   slug: string;
   name: string;
+  category: string;
   downloadNames: string[];
   subtitle?: string;
   description: string;
@@ -12,6 +13,14 @@ export type Ressource = {
   tags?: string[];
   creadted?: Date;
   updated: Date;
+}
+
+export type RessourceCategory = {
+  name: string;
+  slug: string;
+  description: string;
+  longDescription: string;
+  icon?: string;
 }
 
 export type Image = {

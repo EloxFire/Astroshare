@@ -11,9 +11,17 @@ export const routes = {
     path: '/gallerie',
     label: 'Gallerie',
   },
-  ressources: {
-    path: '/ressources/:ressource_name',
+  hub: {
+    path: '/ressources',
     label: 'Ressources',
+  },
+  ressources_category: {
+    path: '/ressources/:category',
+    label: 'Categorie',
+  },
+  ressource: {
+    path: '/ressources/:category/:ressource_name',
+    label: 'Ressource',
   },
   contact: {
     path: '/contact',

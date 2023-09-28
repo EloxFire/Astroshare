@@ -1,16 +1,11 @@
 @import '../globals.scss';
 
 .ressource {
-  height: $page-height;
-  padding-top: 10vh;
+  @extend .global-page;
+
   display: flex;
   flex-direction: row;
   position: relative;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    height: auto;
-    padding-top: 5vh;
-  }
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
     flex-direction: column;
@@ -171,7 +166,7 @@
     }
 
     img {
-      max-height: 90%;
+      max-height: 70vh;
       max-width: 100%;
 
       @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {

@@ -1,16 +1,10 @@
 @import '../globals.scss';
 
 .privacy {
+  @extend .global-page;
+
   display: flex;
   flex-direction: column;
-  padding-top: 10vh;
-  min-height: $page-height;
-  height: auto;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    height: auto;
-    padding-top: 5vh;
-  }
 
   h1 {
     margin-bottom: 2vh;
