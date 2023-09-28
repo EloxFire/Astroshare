@@ -1,10 +1,14 @@
 import { Ressource, RessourceCategory } from "../../types"
 import { constellations_cheat_sheets } from "./general/constellation_cheat_sheets"
 import { personnal_book } from "./general/personnal_book"
+import { optical_notion } from "./material/optical_notions"
+import { northen_constellations_maps } from "./observation/northen_constellations_maps"
 
 export const ressources: Ressource[] = [
   personnal_book,
   constellations_cheat_sheets,
+  northen_constellations_maps,
+  optical_notion,
 ]
 
 export const ressourcesCategories: RessourceCategory[] = [

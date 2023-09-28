@@ -18,7 +18,6 @@
     align-items: flex-start;
   }
 
-
   &__left{
     display: flex;
     flex-direction: row;
@@ -40,13 +39,17 @@
         max-height: 10vh;
       }
     }
-  
-    background-color: green;
-    
+
     &__text-container{
       max-width: 90%;
-      background-color: blue;
       height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        justify-content: flex-start;
+      }
 
       &__title{
         margin: 0;
@@ -58,11 +61,11 @@
         position: relative;
         margin: 0;
         font-size: 1.2rem;
-        font-weight: 300;
-        max-width: 100%;
-        white-space: nowrap; /* Prevent text from wrapping to the next line */
-        text-overflow: ellipsis; /* Display an ellipsis (...) when text overflows */
-        overflow: hidden; /* Hide overflowing text */
+        // font-weight: 300;
+        // max-width: 100%;
+        // white-space: nowrap; /* Prevent text from wrapping to the next line */
+        // text-overflow: ellipsis; /* Display an ellipsis (...) when text overflows */
+        // overflow: hidden; /* Hide overflowing text */
       }
     }
   }

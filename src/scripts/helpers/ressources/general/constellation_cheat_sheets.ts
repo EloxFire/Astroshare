@@ -13,6 +13,7 @@ export const constellations_cheat_sheets: Ressource = {
   ],
   subtitle: 'Fiches mémo pour vous aider dans vos observations',
   description: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.\n\nVous trouverez dans ce document :\n- 44 fiches d'informations sur les constellations de l'hémisphère Nord",
+  shortDescription: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.",
   notes: "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !",
   level: ressourcesLevels.beginner,
   format: [ressourceType.pdf, ressourceType.zip],
@@ -27,5 +28,5 @@ export const constellations_cheat_sheets: Ressource = {
     '/docs/cheat_sheets/constellations/lyra.pdf',
   ],
   creadted: new Date(2023, 7, 22), // 22 august 2023
-  updated: new Date(2023, 9, 15), // 15 october 2023
+  updated: new Date(2023, 8, 15), // 15 september 2023
 }

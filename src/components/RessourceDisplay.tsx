@@ -13,7 +13,7 @@ export default function RessourceDisplay({ ressource, currentCategory }: Ressour
         <img className="ressource-display__left__image" src={ressource.image} alt="Aperçu de la ressource" />
         <div className="ressource-display__left__text-container">
           <p className="ressource-display__left__text-container__title">{ressource.name}</p>
-          <p className="ressource-display__left__text-container__description">{ressource.description.split('. ')[0]}{ressource.description.split('.')[1]}</p>
+          <p className="ressource-display__left__text-container__description">{ressource.shortDescription}</p>
         </div>
       </div>
       <div className="ressource-display__right">
