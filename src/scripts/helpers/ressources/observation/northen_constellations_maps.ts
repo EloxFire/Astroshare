@@ -9,7 +9,7 @@ export const northen_constellations_maps: Ressource = {
   subtitle: 'Repérez vous dans le ciel et trouvez les objets qui vous intéressent grâce à ces cartes des constellations',
   description: "Ce document contenant les cartes des constellations de l'hémisphère Nord vous permettra de vous repérer dans le ciel et de trouver les objets qui vous intéressent. Vous trouverez également pour chaque constellation les objets les plus intéressants à observer.\n\n&#9888; Toutes les constellations ne sont pas encore disponibles. N'hésitez pas à vérifier régulièrement les mises a jours &#9888;\n\nVous trouverez dans ce document :\n- 20 cartes des constellations majeures de l'hémisphère Nord",
   notes: "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !",
-  level: ressourcesLevels.beginner,
+  level: ressourcesLevels.all,
   format: [ressourceType.pdf],
   tags: ['Apprentissage', 'Observation'],
   image: '/images/pdfs/northen_constellation_maps.jpg',

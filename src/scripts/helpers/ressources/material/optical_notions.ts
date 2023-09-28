@@ -3,7 +3,7 @@ import { ressourceType, ressourcesLevels, resssourcesCategories } from "../../he
 
 export const optical_notion: Ressource = {
   slug: 'optical_notions',
-  name: 'Notions d\'optique',
+  name: 'Télescopes et notions d\'optique',
   category: resssourcesCategories.material,
   downloadNames: ["Télescopes et notions d'optique"],
   subtitle: 'Découvrez le fonctionnement de l\'optique dans les télescopes',

@@ -28,6 +28,7 @@ export const resssourcesCategories = {
 }
 
 export const ressourcesLevels = {
+  all: 'Tous niveaux',
   beginner: 'Débutant',
   intermediate: 'Intermédiaire',
   advanced: 'Avancé',
