@@ -1,178 +1,42 @@
 @import '../globals.scss';
 
 .custom-image-display {
-  width: 100%;
-  // position: relative;
+  // background-color: red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-  &__page-filter {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .9);
-    z-index: 800;
-  }
-
-  &__wrap {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height: auto;
-    padding-bottom: 10vh;
-
-    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-      justify-content: space-evenly;
-    }
-
-    &__image {
-      position: relative;
-
-      img {
-        max-height: 45vh;
-        margin-bottom: 2vh;
-        border: 1px solid rgba($white, .2);
-        border-radius: 10px;
-        // margin: 5px;
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-          max-height: 30vh;
-        }
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-          max-height: 20vh;
-        }
-      }
-
-      small {
-        position: absolute;
-        left: 0;
-        padding: 5px;
-        // transform: translate(-50%, 0);
-        color: $white;
-        background-color: rgba(0, 0, 0, .3);
-      }
-    }
-  }
-
-
-  &__modal {
-    z-index: 1000;
-    background-color: rgba(0, 0, 0, 1);
-    border: 2px solid $white;
-    border-radius: 19px;
-    color: $black;
-    position: fixed;
-    width: 80vw;
-    height: 80vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  &__item{
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
-
-    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-      height: 50vh;
+    img{
+      height: 40vh;
+      width: 40vh;
+      border: 2px solid $white;
+      margin-bottom: 3vh;
+      object-fit: cover;
     }
 
-    &__header {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      align-items: center;
-      padding: 0 40px 0 40px;
-      height: 8vh;
-      border-bottom: 1px solid $black;
-
-      &__close-button {
-        background-color: $white;
-        border: none;
-        color: $black;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 5px 10px 5px 10px;
-        cursor: pointer;
-        border: none;
-        outline: none;
+    &__caption{
+      position: absolute;
+      top: 2px;
+      background-color: rgba($black, .3);
+      color: $white;
+      padding: 0.5rem;
+      font-size: .8rem;
+      font-weight: 700;
+      
+      &__title{
+        right: 2px;
       }
-    }
-
-    &__content {
-      display: flex;
-      flex-direction: row;
-      height: 64vh;
-      width: 80vw;
-      justify-content: space-between;
-
-      &__image-container {
-        height: 64vh;
-        max-width: 60vw;
-        display: flex;
-        justify-content: flex-start;
-
-        img {
-          max-height: 100%;
-          max-width: 100%;
-        }
+      
+      &__date{
+        right: 2px;
       }
 
-      &__image-infos {
-        display: flex;
-        flex-direction: column;
-        width: 20vw;
-        height: 64vh;
-        border-left: 2px solid $white;
-        padding: 0 10px 0 10px;
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-          display: none;
-        }
-
-        .top-element,
-        .child-element {
-          margin-bottom: 5px;
-        }
-
-        .child-element {
-          padding-left: 10px;
-        }
-      }
-    }
-
-    &__footer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px 0 40px;
-      height: 8vh;
-
-      border-top: 1px solid $black;
-      // background-color: $black;
-
-      p {
-        padding: 0;
-        margin: 0;
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-          font-size: .8rem;
-        }
-      }
-
-      &__swipe-button {
-        background-color: $white;
-        border: none;
-        color: $black;
-        font-weight: 600;
-        font-size: 1rem;
-        padding: 5px 10px 5px 10px;
-        cursor: pointer;
-        border: none;
-        outline: none;
-      }
     }
   }
 }
