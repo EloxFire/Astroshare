@@ -23,20 +23,22 @@
     &__caption{
       position: absolute;
       top: 2px;
+      left: 2px;
       background-color: rgba($black, .3);
       color: $white;
       padding: 0.5rem;
       font-size: .8rem;
       font-weight: 700;
-      
-      &__title{
-        right: 2px;
-      }
-      
-      &__date{
-        right: 2px;
-      }
+    }
 
+    &__date{
+      @extend .custom-image-display__item__caption;
+      right: 2px;
+      left: auto;
     }
   }
+}
+
+.image-modal-background{
+
 }

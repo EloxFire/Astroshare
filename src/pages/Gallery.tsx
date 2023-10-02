@@ -1,11 +1,10 @@
-import React from 'react'
 import CustomImageDisplay from '../components/CustomImageDisplay'
 import { images } from '../scripts/helpers/gallery'
 import '../styles/pages/gallery.scss'
 import { FiChevronLeft } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-export default function Galery() {
+export default function Gallery() {
   return (
     <>
       <div className="gallery">

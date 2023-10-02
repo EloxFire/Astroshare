@@ -58,6 +58,28 @@ export const images: Image[] = [
 
   },
   {
+    url: '/images/gallery/07.min.jpg',
+    alt: 'Saturne',
+    date: new Date('2023-07-09'),
+    resolution: '6020x4015',
+    fileFormat: 'RAW',
+    cameraSettings: {
+      name: 'Canon EOS 2000D',
+      iso: 6400,
+      shutter: "1/5",
+      focalLength: "50mm"
+    },
+    scopeSettings: {
+      name: 'Omegon 150/750',
+      mount: 'Omegon EQ-320',
+      focal: 750,
+      diameter: 150,
+      focalRatio: 'f/5',
+      eyePiece: 'Cronus 6mm',
+      eyePieceMagnification: 125,
+    }
+  },
+  {
     url: '/images/gallery/05.min.jpg',
     alt: 'Super Lune',
     date: new Date('2023-08-01'),
@@ -83,28 +105,6 @@ export const images: Image[] = [
       aperture: "f/11",
       shutter: "1/40",
       focalLength: "300mm",
-    }
-  },
-  {
-    url: '/images/gallery/07.min.jpg',
-    alt: 'Saturne',
-    date: new Date('2023-07-09'),
-    resolution: '6020x4015',
-    fileFormat: 'RAW',
-    cameraSettings: {
-      name: 'Canon EOS 2000D',
-      iso: 6400,
-      shutter: "1/5",
-      focalLength: "50mm"
-    },
-    scopeSettings: {
-      name: 'Omegon 150/750',
-      mount: 'Omegon EQ-320',
-      focal: 750,
-      diameter: 150,
-      focalRatio: 'f/5',
-      eyePiece: 'Cronus 6mm',
-      eyePieceMagnification: 125,
     }
   },
   {
