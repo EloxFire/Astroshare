@@ -29,6 +29,7 @@ export type Image = {
   date: Date; // date of the image
   resolution?: string; // resolution of the image
   fileFormat?: string; // file format of the image
+  tags?: string[]; // tags for the image to use with filters bar
   cameraSettings?: {
     name: string; // Canon EOS 2000D
     iso?: number; // 6400
@@ -49,5 +50,10 @@ export type Image = {
   },
   processingSettings?: {
     software?: string; // Photoshop
+    stacking?: string; // Oui / Non
+    stackingSoftware?: string; // DeepSkyStacker
+    stackingFrames?: number; // 100
+    stackingTime?: string; // 1h - per frame
+    stackingTimeTotal?: string; // 100h
   }
 }

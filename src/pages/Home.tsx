@@ -22,6 +22,7 @@ export default function Home() {
       </div>
       <div className="home__right">
         <img src="/images/mars.png" alt="Planète mars" />
+        {/* <div className="sketchfab-embed-wrapper"> <iframe title="Planet Mars" frameBorder="0" allowFullScreen allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1a2862763b1c428ba914691248ddb8fa/embed?autostart=1"> </iframe> </div> */}
       </div>
     </div>
   )

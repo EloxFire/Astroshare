@@ -3,6 +3,8 @@ import { mailRegex } from '../scripts/helpers/helpers'
 import CopyrightBadge from '../components/CopyrightBadge'
 import emailjs from '@emailjs/browser';
 import '../styles/pages/contact.scss'
+import { FiChevronLeft } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 export default function Contact() {
 
@@ -44,7 +46,7 @@ export default function Contact() {
     <div className="contact">
       <CopyrightBadge />
       <div className="contact__header">
-        <h1 className="h2 title">Me contacter</h1>
+        <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Me contacter</h1>
         <p>N'hésitez pas à me contacter pour toute question ou soucis.</p>
       </div>
       <div className="contact__form">
@@ -63,7 +65,7 @@ export default function Contact() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <button type='submit' disabled={loading}>{loading ? <img src='/images/loader.svg' alt='Loader' /> : "Envoyer"}</button>
-            <small style={{ marginTop: '1vh' }}>En cliquant sur "envoyer" vous acceptez les conditions générales d'utilisation.</small>
+            <small style={{ marginTop: '1vh' }}>En cliquant sur "Envoyer" vous acceptez les conditions générales d'utilisation.</small>
           </div>
           {response === true && <p style={{ color: 'green' }}>Votre message a bien été envoyé !</p>}
           {response === false && <p style={{ color: 'red' }}>Une erreur est survenue, veuillez réessayer.</p>}
