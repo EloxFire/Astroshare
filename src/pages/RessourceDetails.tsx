@@ -33,7 +33,7 @@ export default function RessourceDetails() {
           {ressourceInfos?.notes && <small>{ressourceInfos?.notes}</small>}
         </div>
         <div className="ressource__left__infos">
-          <p className="ressource__left__infos__item">Format du docuent : {ressourceInfos?.format?.join(', ')}</p>
+          <p className="ressource__left__infos__item">Format du document : {ressourceInfos?.format?.join(', ')}</p>
           <p className="ressource__left__infos__item">Niveau : {ressourceInfos?.level}</p>
           <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
           <p className="ressource__left__infos__item">Dernière mise à jour : {dayjs(ressourceInfos?.updated).format('DD MMMM YYYY')}</p>

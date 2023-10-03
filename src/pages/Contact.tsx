@@ -65,7 +65,7 @@ export default function Contact() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <button type='submit' disabled={loading}>{loading ? <img src='/images/loader.svg' alt='Loader' /> : "Envoyer"}</button>
-            <small style={{ marginTop: '1vh' }}>En cliquant sur "envoyer" vous acceptez les conditions générales d'utilisation.</small>
+            <small style={{ marginTop: '1vh' }}>En cliquant sur "Envoyer" vous acceptez les conditions générales d'utilisation.</small>
           </div>
           {response === true && <p style={{ color: 'green' }}>Votre message a bien été envoyé !</p>}
           {response === false && <p style={{ color: 'red' }}>Une erreur est survenue, veuillez réessayer.</p>}
