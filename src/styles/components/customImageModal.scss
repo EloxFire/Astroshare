@@ -60,6 +60,9 @@
     bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
 
     .close-button{
       font-size: 2rem;

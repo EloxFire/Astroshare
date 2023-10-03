@@ -15,10 +15,9 @@ export default function Gallery() {
         />
       </div>
       <div className="gallery-mobile">
-        <h1>Galerie photos</h1>
-        <p>Afin de garantir une bonne experience, la gallerie photo n'est disponible que sur PC.</p>
-        <p>Merci de votre comprehension.</p>
-        <a className="link" href="/">Retour à l'accueil</a>
+        <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
+        <p style={{ textAlign: 'center' }}>Afin de garantir une bonne experience, la galerie photo n'est disponible que sur PC ou grand ecran.</p>
+        <p style={{ textAlign: 'center' }}>Merci de votre comprehension.</p>
       </div>
     </>
   )

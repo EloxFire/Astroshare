@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { Image } from "../scripts/types"
-import '../styles/components/customImageModal.scss'
+import { FiArrowRightCircle, FiArrowLeftCircle, FiXCircle } from 'react-icons/fi'
 import dayjs from 'dayjs'
+import '../styles/components/customImageModal.scss'
 
 interface CustomImageModalProps {
   slide: Image
@@ -25,14 +26,6 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
       case "Escape":
         onClose()
         break;
-      // case "ArrowRight":
-      //   onNext()
-      //   console.log('next');
-      //   break;
-      // case "ArrowLeft":
-      //   onPrevious()
-      //   console.log('previous');
-      // break;
       default:
         break;
     }
@@ -42,9 +35,9 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
   return (
     <div className="custom-image-modal">
       <div className="controls">
-        <button className="close-button">&#10229;</button>
-        <button className="close-button">&#x2716;</button>
-        <button className="close-button">&#10230;</button>
+        <button className="close-button" onClick={onPrevious}><FiArrowLeftCircle /></button>
+        <button className="close-button" onClick={onClose}><FiXCircle /></button>
+        <button className="close-button" onClick={onNext}><FiArrowRightCircle /></button>
       </div>
       <div className="custom-image-modal__container">
         <img src={slide.url} alt={slide.alt} />

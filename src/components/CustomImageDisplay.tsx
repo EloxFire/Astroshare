@@ -22,24 +22,24 @@ export default function CustomImageDisplay({ images }: CustomImageDisplayProps) 
     setImageModal(true)
   }
 
-  // const handleNextImage = () => {
-  //   console.log(slideIndex);
-  //   if (slideIndex === images.length - 1) {
-  //     setSlideIndex(0)
-  //   } else {
-  //     setSlideIndex((prev) => prev + 1)
-  //   }
-  // }
+  const handleNextImage = () => {
+    console.log(slideIndex);
+    if (slideIndex === images.length - 1) {
+      setSlideIndex(0)
+    } else {
+      setSlideIndex((prev) => prev + 1)
+    }
+  }
 
-  // const handlePreviousImage = () => {
-  //   console.log(slideIndex);
+  const handlePreviousImage = () => {
+    console.log(slideIndex);
 
-  //   if (slideIndex === 0) {
-  //     setSlideIndex(images.length - 1)
-  //   } else {
-  //     setSlideIndex((prev) => prev - 1)
-  //   }
-  // }
+    if (slideIndex === 0) {
+      setSlideIndex(images.length - 1)
+    } else {
+      setSlideIndex((prev) => prev - 1)
+    }
+  }
 
   return (
     <>
@@ -57,8 +57,8 @@ export default function CustomImageDisplay({ images }: CustomImageDisplayProps) 
           <CustomImageModal
             slide={images[slideIndex]}
             onClose={() => setImageModal(false)}
-          // onNext={handleNextImage}
-          // onPrevious={handlePreviousImage}
+            onNext={handleNextImage}
+            onPrevious={handlePreviousImage}
           />
         )
       }
