@@ -5,6 +5,8 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@react-pdf/renderer": "^3.1.12",
+    "@react-three/drei": "^9.86.3",
+    "@react-three/fiber": "^8.14.4",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,6 +14,7 @@
     "@types/node": "^16.18.40",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@types/three": "^0.156.0",
     "@vercel/analytics": "^1.0.2",
     "dayjs": "^1.11.9",
     "node-mailjet": "^6.0.4",
@@ -22,6 +25,7 @@
     "react-pdf": "^7.3.3",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "three": "^0.157.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },

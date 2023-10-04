@@ -23,6 +23,8 @@
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
       width: 100%;
+      height: 100vh;
+      justify-content: flex-start;
     }
 
     .title {
@@ -97,7 +99,9 @@
     height: 100%;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      display: none;
       margin-top: 10vh;
+      // height: auto;
     }
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
