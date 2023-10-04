@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { constellations_cheat_sheets } from '../scripts/helpers/ressources/general/constellation_cheat_sheets'
 import { optical_notion } from '../scripts/helpers/ressources/material/optical_notions'
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera } from '@react-three/drei';
+import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss'
 
 export default function Home() {
@@ -21,8 +24,12 @@ export default function Home() {
         </div>
       </div>
       <div className="home__right">
-        <img src="/images/mars.png" alt="Planète mars" />
-        {/* <div className="sketchfab-embed-wrapper"> <iframe title="Planet Mars" frameBorder="0" allowFullScreen allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1a2862763b1c428ba914691248ddb8fa/embed?autostart=1"> </iframe> </div> */}
+        <Canvas>
+          <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={75} near={0.1} far={1000} />
+          <directionalLight position={[8, 5, 5]} intensity={3} />
+          <ambientLight intensity={2} />
+          <MarsModel />
+        </Canvas>
       </div>
     </div>
   )
