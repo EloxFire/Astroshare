@@ -1,0 +1,77 @@
+@import '../globals.scss';
+
+.custom-image-modal{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba($black, .95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__container{
+    height: 60vh;
+    width: 80vw;
+    background-color: $black;
+    border: 2px solid $white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    img{
+      max-height: 100%;
+    }
+
+    &__right{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 10px;
+      border-left: 2px solid $white;
+      max-height: 60vh;
+      overflow: auto;
+
+      &__title{
+        font-size: 1.8rem;
+        font-weight: bold;
+        border-bottom: 1px solid white;
+        margin-bottom: 10px;
+      }
+
+      &__property{
+        font-size: 1rem;
+        margin: 0;
+        padding-left: 20px;
+        
+        &--title{
+          font-size: 1.2rem;
+          margin: 0;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .controls{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    .close-button{
+      font-size: 2rem;
+      color: rgba($white, .5);
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+}

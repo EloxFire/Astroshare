@@ -33,3 +33,5 @@ export const ressourcesLevels = {
   intermediate: 'Intermédiaire',
   advanced: 'Avancé',
 }
+
+export const genericRessourceNotes = "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !"
