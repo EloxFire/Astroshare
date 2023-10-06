@@ -24,10 +24,11 @@ export default function Home() {
         </div>
       </div>
       <div className="home__right">
+        <p className="h1 model-title">MARS</p>
         <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={75} near={0.1} far={1000} />
-          <directionalLight position={[8, 5, 5]} intensity={3} />
-          <ambientLight intensity={2} />
+          <PerspectiveCamera makeDefault position={[0, 0, 2]} fov={75} near={0.1} far={1000} />
+          <directionalLight position={[4, 1, 5]} intensity={3} />
+          <ambientLight intensity={0.1} />
           <MarsModel />
         </Canvas>
       </div>

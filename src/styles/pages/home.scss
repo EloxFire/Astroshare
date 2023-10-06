@@ -89,15 +89,27 @@
 
   &__right {
     width: 50%;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: flex-end;
-    // background-color: yellow;
     height: 100%;
+    position: relative;
+
+    .model-title{
+      position: absolute;
+      top: 40%;
+      right: 0;
+      // left:;
+      // transform: translateY(-60%);
+      transform: rotate(90deg);
+      color: $white;
+      font-size: 10rem;
+      font-weight: 900;
+      opacity: 0.5;
+      margin-right: -80px;
+      letter-spacing: 80px;
+    }
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-      margin-top: 10vh;
+      width: 100%;
+      height: 50vh;
     }
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
