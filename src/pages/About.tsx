@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../styles/pages/about.scss'
 import { calculateAge } from '../scripts/helpers/helpers'
 
 export default function About() {
+
+  useEffect(() => {
+    document.title = "Astroshare | À propos"
+  }, [])
+
   return (
     <div className="about">
       <h1 className="h1 title">À propos</h1>

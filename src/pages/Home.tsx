@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { constellations_cheat_sheets } from '../scripts/helpers/ressources/general/constellation_cheat_sheets'
 import { optical_notion } from '../scripts/helpers/ressources/material/optical_notions'
@@ -7,6 +8,11 @@ import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss';
 
 export default function Home() {
+
+  useEffect(() => {
+    document.title = "Astroshare"
+  }, [])
+
   return (
     <div className="home">
       <div className="home__left">

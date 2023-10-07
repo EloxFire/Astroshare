@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
 import '../styles/pages/hub.scss'
@@ -6,6 +6,11 @@ import { ressourcesCategories } from '../scripts/helpers/ressources'
 import RessourceCategory from '../components/RessourceCategory'
 
 export default function Hub() {
+
+  useEffect(() => {
+    document.title = "Astroshare | Hub de ressources"
+  }, [])
+
   return (
     <div className="hub">
       <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Hub de ressources</h1>
