@@ -1,26 +1,31 @@
 import React, { useRef } from 'react';
-
 import { useFrame, useLoader } from '@react-three/fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import * as THREE from 'three';
 
 interface MarsModelProps {
-  scale: number[];
+  scale?: number[];
 }
 
 export default function MarsModel({ scale }: MarsModelProps) {
-  const gltf = useLoader(GLTFLoader, '/images/mars.glb');
-  const modelRef = useRef<any>();
+  const ref = useRef<any>();
 
-  // console.log(gltf);
+  const texture = useLoader(THREE.TextureLoader, '/images/model/4k_mars.webp');
+  const normalMap = useLoader(THREE.TextureLoader, '/images/model/4k_mars_normal.jpg');
 
-  if (gltf.scene) {
-    gltf.scene.scale.set(0.0095, 0.0095, 0.0095);
-  }
   useFrame(() => {
-    if (modelRef.current) {
-      modelRef.current.rotation.y += 0.0015;
+    if (ref.current) {
+      ref.current.rotation.y += 0.0015;
     }
-  });
+  })
 
-  return <primitive ref={modelRef} object={gltf.scene} scale={scale} />;
+  if (!texture && !normalMap) {
+    return <>Loading model...</>;
+  }
+
+  return (
+    <mesh ref={ref} position={[0, 0, 0]}>
+      <sphereGeometry args={[.85, 200, 200]} />
+      <meshStandardMaterial map={texture} normalMap={normalMap} />
+    </mesh>
+  )
 }
