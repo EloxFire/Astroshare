@@ -4,9 +4,7 @@ import { optical_notion } from '../scripts/helpers/ressources/material/optical_n
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import MarsModel from '../components/MarsModel';
-import '../styles/pages/home.scss'
-import { Suspense } from 'react';
-import ModelLoading from '../components/ModelLoading';
+import '../styles/pages/home.scss';
 
 export default function Home() {
   return (

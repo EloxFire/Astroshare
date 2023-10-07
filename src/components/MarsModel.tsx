@@ -1,15 +1,10 @@
+import React, { useRef } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
-import React, { useRef, useState } from 'react';
 import * as THREE from 'three';
 
 interface MarsModelProps {
   scale?: number[];
 }
-
-type LoadedAssets = {
-  texture: THREE.Texture;
-  normalMap: THREE.Texture;
-};
 
 export default function MarsModel({ scale }: MarsModelProps) {
   const ref = useRef<any>();
