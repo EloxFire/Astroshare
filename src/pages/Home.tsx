@@ -1,18 +1,12 @@
 import { Link } from 'react-router-dom'
 import { constellations_cheat_sheets } from '../scripts/helpers/ressources/general/constellation_cheat_sheets'
 import { optical_notion } from '../scripts/helpers/ressources/material/optical_notions'
-import { Canvas } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import MarsModel from '../components/MarsModel';
-import { useRef } from 'react';
-import { useAspectRatio } from '../hooks/useAspectRatio';
-import '../styles/pages/home.scss'
+import '../styles/pages/home.scss';
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const aspectRatio = useAspectRatio(containerRef);
-  const scale = [aspectRatio / 100, aspectRatio / 100, aspectRatio / 100];
-
   return (
     <div className="home">
       <div className="home__left">
@@ -29,11 +23,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div ref={containerRef} className="home__right">
+      <div className="home__right">
+        {/* <p className="h1 model-title">MARS</p> */}
         <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={75} near={0.1} far={1000} />
-          <directionalLight position={[8, 5, 5]} intensity={3} />
-          <MarsModel scale={scale} />
+          <PerspectiveCamera makeDefault position={[0, 0, 2]} fov={75} near={0.1} far={1000} />
+          <directionalLight position={[4, 1, 5]} intensity={3} />
+          <ambientLight intensity={0.1} />
+          <MarsModel />
         </Canvas>
       </div>
     </div>
