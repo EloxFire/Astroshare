@@ -95,16 +95,16 @@
     .model-title{
       position: absolute;
       top: 40%;
-      right: 0;
+      right: -5vw;
       // left:;
       // transform: translateY(-60%);
       transform: rotate(90deg);
       color: $white;
-      font-size: 10rem;
+      font-size: 8rem;
       font-weight: 900;
       opacity: 0.5;
-      margin-right: -80px;
-      letter-spacing: 80px;
+      margin-right: -40px;
+      letter-spacing: 40px;
     }
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {

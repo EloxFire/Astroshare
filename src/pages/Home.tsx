@@ -5,6 +5,8 @@ import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss'
+import { Suspense } from 'react';
+import ModelLoading from '../components/ModelLoading';
 
 export default function Home() {
   return (
@@ -24,7 +26,7 @@ export default function Home() {
         </div>
       </div>
       <div className="home__right">
-        <p className="h1 model-title">MARS</p>
+        {/* <p className="h1 model-title">MARS</p> */}
         <Canvas>
           <PerspectiveCamera makeDefault position={[0, 0, 2]} fov={75} near={0.1} far={1000} />
           <directionalLight position={[4, 1, 5]} intensity={3} />

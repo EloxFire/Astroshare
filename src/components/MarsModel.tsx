@@ -1,17 +1,21 @@
 import { useFrame, useLoader } from '@react-three/fiber';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import * as THREE from 'three';
 
 interface MarsModelProps {
   scale?: number[];
 }
 
-export default function MarsModel({ scale }: MarsModelProps) {
+type LoadedAssets = {
+  texture: THREE.Texture;
+  normalMap: THREE.Texture;
+};
 
+export default function MarsModel({ scale }: MarsModelProps) {
   const ref = useRef<any>();
 
   const texture = useLoader(THREE.TextureLoader, '/images/model/4k_mars.webp');
-  const normalMap = useLoader(THREE.TextureLoader, '/images/model/test_normal.jpg');
+  const normalMap = useLoader(THREE.TextureLoader, '/images/model/4k_mars_normal.jpg');
 
   useFrame(() => {
     if (ref.current) {
@@ -19,16 +23,14 @@ export default function MarsModel({ scale }: MarsModelProps) {
     }
   })
 
+  if (!texture && !normalMap) {
+    return <>Loading model...</>;
+  }
+
   return (
-    <mesh
-      ref={ref}
-      position={[0, 0, 0]}
-    >
-      <sphereGeometry args={[.8, 200, 200]} />
-      <meshStandardMaterial
-        map={texture}
-        normalMap={normalMap}
-      />
+    <mesh ref={ref} position={[0, 0, 0]}>
+      <sphereGeometry args={[.85, 200, 200]} />
+      <meshStandardMaterial map={texture} normalMap={normalMap} />
     </mesh>
   )
 }
