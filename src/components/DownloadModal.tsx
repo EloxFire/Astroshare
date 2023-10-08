@@ -55,6 +55,12 @@ export default function DownloadModal({ downloadUrl, downloadName, onClose }: Do
       });
   }
 
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      onClose()
+    }
+  })
+
   return (
     <div className="download-modal">
       <div className="download-modal__container">

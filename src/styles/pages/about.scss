@@ -1,50 +1,54 @@
 @import '../globals.scss';
 
 .about {
-  padding-top: 10vh;
-  height: auto;
-  padding-bottom: 40px;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    padding-top: 5vh;
-  }
+  @extend .global-page;
+  padding-bottom: 5vh;
 
   .content {
+    margin-top: 8vh;
+    display: flex;
+    flex-direction: row;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-      p {
-        text-align: justify;
-      }
+      flex-direction: column;
     }
 
-    .images-container {
-      height: 40vh;
-      width: 100%;
+    &__left{
+      width: 60%;
+      padding-right: 40px;
+    }
+
+    &__right{
+      width: 40%;
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 5vh;
+      flex-direction: column;
+      align-items: center;
 
       @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-        height: auto;
+         flex-direction: row;
+         margin-top: 5vh;
+         flex-wrap: wrap;
+         justify-content: space-evenly;
       }
 
       @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-        justify-content: center;
+         justify-content: space-evenly;
       }
 
-      img {
-        max-height: 100%;
+      img{
+        height: 35vh;
+        width: 35vh;
+        border: 2px solid $white;
+        object-fit: cover;
+        margin: 20px;
+      }
+    }
 
-        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-          max-height: 30vh;
-        }
+     &__left, &__right{
+      text-align: justify;
 
-        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-          max-width: 100%;
-          margin-bottom: 2vh;
-        }
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        width: 100%;
       }
     }
   }
