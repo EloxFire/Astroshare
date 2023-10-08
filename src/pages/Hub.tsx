@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import '../styles/pages/hub.scss'
 import { ressourcesCategories } from '../scripts/helpers/ressources'
 import RessourceCategory from '../components/RessourceCategory'
+import '../styles/pages/hub.scss'
 
 export default function Hub() {
 
