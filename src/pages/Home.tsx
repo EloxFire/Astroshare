@@ -24,8 +24,8 @@ export default function Home() {
         <div className="home__left__content">
           <h2>Ressources les plus aimées :</h2>
           <div className="home__left__content__list">
-            <Link className="home__left__content__list--link" to={`/ressources/${optical_notion.category}/${optical_notion.slug}`}>{optical_notion.name}</Link>
-            <Link className="home__left__content__list--link" to={`/ressources/${constellations_cheat_sheets.category}/${constellations_cheat_sheets.slug}`}>{constellations_cheat_sheets.name}</Link>
+            <Link className="home__left__content__list--link" to={`/ressource_details/${optical_notion.category}/${optical_notion.slug}`}>{optical_notion.name}</Link>
+            <Link className="home__left__content__list--link" to={`/ressource_details/${constellations_cheat_sheets.category}/${constellations_cheat_sheets.slug}`}>{constellations_cheat_sheets.name}</Link>
           </div>
         </div>
       </div>
