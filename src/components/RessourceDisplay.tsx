@@ -4,6 +4,7 @@ import '../styles/components/ressourceDisplay.scss'
 interface RessourceDisplayProps {
   ressource: Ressource;
   currentCategory: string;
+  external: boolean;
 }
 
 export default function RessourceDisplay({ ressource, currentCategory }: RessourceDisplayProps) {
