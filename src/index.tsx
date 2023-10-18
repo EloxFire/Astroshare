@@ -18,7 +18,7 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_API_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
