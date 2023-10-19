@@ -3,17 +3,30 @@ import '../styles/pages/ressource.scss'
 import { Link, useParams } from 'react-router-dom'
 import { Ressource } from '../scripts/types'
 import { FiChevronLeft } from 'react-icons/fi'
-import { ressources } from '../scripts/helpers/ressources'
+import { getRessource } from '../scripts/helpers/api/ressources'
 
 export default function RessourcePage() {
 
   const { category, ressource_name } = useParams()
-  const [currentRessource, setCurrentRessource] = useState<Ressource | undefined>(undefined)
+  const [currentRessource, setCurrentRessource] = useState<any>()
 
   useEffect(() => {
-    const current_ressource = ressources.find(ressource => ressource.slug === ressource_name)
-    setCurrentRessource(current_ressource)
     document.title = `Astroshare | ${ressource_name}`
+  }, [ressource_name])
+
+  useEffect(() => {
+    const fetchRessource = async () => {
+      if (ressource_name !== undefined) {
+        try {
+          const ressource = await getRessource(ressource_name)
+          setCurrentRessource(ressource)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    }
+
+    fetchRessource()
   }, [ressource_name])
 
   return (
