@@ -19,8 +19,12 @@ export const routes = {
     path: '/ressources/:category',
     label: 'Categorie',
   },
+  ressource_details: {
+    path: '/ressource_details/:category/:ressource_name',
+    label: 'Détails de la ressource',
+  },
   ressource: {
-    path: '/ressources/:category/:ressource_name',
+    path: '/ressource/:category/:ressource_name',
     label: 'Ressource',
   },
   contact: {

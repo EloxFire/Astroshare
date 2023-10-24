@@ -10,6 +10,7 @@ import Gallery from "./pages/Gallery";
 import Privacy from "./pages/Privacy";
 import Hub from "./pages/Hub";
 import Category from "./pages/Category";
+import RessourcePage from "./pages/Ressource";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
         <Route path={routes.gallery.path} element={<Layout component={<Gallery />} />} />
         <Route path={routes.hub.path} element={<Layout component={<Hub />} />} />
         <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
-        <Route path={routes.ressource.path} element={<Layout component={<RessourceDetails />} />} />
+        <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} />
+        <Route path={routes.ressource.path} element={<Layout component={<RessourcePage />} />} />
         <Route path={routes.privacy.path} element={<Layout component={<Privacy />} />} />
         <Route path={routes.notFound.path} element={<NotFound />} />
       </Routes>

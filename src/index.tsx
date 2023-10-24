@@ -3,17 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { pdfjs } from 'react-pdf';
 import { Analytics } from '@vercel/analytics/react';
-// Switch dayjs to french locale
 import 'dayjs/locale/fr';
 import dayjs from 'dayjs';
-dayjs.locale('fr');
+import './firebase'
 
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.js',
-  import.meta.url,
-).toString();
+
+dayjs.locale('fr');
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

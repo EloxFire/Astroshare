@@ -15,11 +15,10 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeys)
-
     return () => {
       window.removeEventListener('keydown', handleKeys)
     }
-  }, [])
+  })
 
   const handleKeys = (e: KeyboardEvent) => {
     switch (e.key) {
@@ -30,7 +29,6 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
         break;
     }
   }
-
 
   return (
     <div className="custom-image-modal">

@@ -5,7 +5,7 @@ import { ressources } from '../scripts/helpers/ressources';
 import { Link, useParams } from 'react-router-dom'
 import DownloadModal from '../components/DownloadModal';
 import dayjs from 'dayjs';
-import '../styles/pages/ressource.scss'
+import '../styles/pages/ressourceDetails.scss'
 
 export default function RessourceDetails() {
 
@@ -23,23 +23,23 @@ export default function RessourceDetails() {
   }, [ressource_name])
 
   return (
-    <div className="ressource">
-      <div className="ressource__left">
+    <div className="ressource-details">
+      <div className="ressource-details__left">
         {/* <small className="ressource__left__breadcrum">Ressources &gt; {ressourceInfos?.level} &gt; {ressourceInfos?.name}</small> */}
-        <h1 className="h2 title ressource__left__title"><Link to={`/ressources/${ressourceInfos?.category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
-        {ressourceInfos?.subtitle && <p className="ressource__left__subtitle">{ressourceInfos?.subtitle}</p>}
-        <div className="ressource__left__description-container">
-          <p className="ressource__left__description-container__description">{ressourceInfos?.description !== undefined && new DOMParser().parseFromString(ressourceInfos?.description, 'text/html').body.textContent}</p>
+        <h1 className="h2 title ressource-details__left__title"><Link to={`/ressources/${ressourceInfos?.category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressourceInfos?.name}</h1>
+        {ressourceInfos?.subtitle && <p className="ressource-details__left__subtitle">{ressourceInfos?.subtitle}</p>}
+        <div className="ressource-details__left__description-container">
+          <p className="ressource-details__left__description-container__description">{ressourceInfos?.description !== undefined && new DOMParser().parseFromString(ressourceInfos?.description, 'text/html').body.textContent}</p>
           {ressourceInfos?.notes && <small>{ressourceInfos?.notes}</small>}
         </div>
-        <div className="ressource__left__infos">
-          <p className="ressource__left__infos__item">Format du document : {ressourceInfos?.format?.join(', ')}</p>
-          <p className="ressource__left__infos__item">Niveau : {ressourceInfos?.level}</p>
-          <p className="ressource__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
-          <p className="ressource__left__infos__item">Dernière mise à jour : {dayjs(ressourceInfos?.updated).format('DD MMMM YYYY')}</p>
+        <div className="ressource-details__left__infos">
+          <p className="ressource-details__left__infos__item">Format du document : {ressourceInfos?.format?.join(', ')}</p>
+          <p className="ressource-details__left__infos__item">Niveau : {ressourceInfos?.level}</p>
+          <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressourceInfos?.tags?.join(', ')}</p>
+          <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressourceInfos?.updated).format('DD MMMM YYYY')}</p>
         </div>
-        <div className="ressource__left__download-container">
-          <button className="ressource__left__download-container__download-button" onClick={() => setDownloadModal(true)}>Télécharger le document</button>
+        <div className="ressource-details__left__download-container">
+          <button className="ressource-details__left__download-container__download-button" onClick={() => setDownloadModal(true)}>Télécharger le document</button>
           {/* <a href={selectedPackage} download={ressourceInfos?.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a> */}
           {
             ressourceInfos?.links && ressourceInfos?.links?.length > 1 && (
@@ -47,7 +47,7 @@ export default function RessourceDetails() {
                 {
                   ressourceInfos?.links?.map((package_link, package_index) => {
                     return (
-                      <option key={`ressource_package_${package_index}`} value={package_link}>{ressourceInfos?.downloadNames[package_index]}</option>
+                      <option key={`ressource-details__package__${package_index}`} value={package_link}>{ressourceInfos?.downloadNames[package_index]}</option>
                     )
                   })
                 }
@@ -56,7 +56,7 @@ export default function RessourceDetails() {
           }
         </div>
       </div>
-      <div className="ressource__right">
+      <div className="ressource-details__right">
         <img src={ressourceInfos?.image} alt={ressourceInfos?.name} />
       </div>
       {
