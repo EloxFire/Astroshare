@@ -15,23 +15,19 @@ export default function RessourcePage() {
   }, [ressource_name])
 
   useEffect(() => {
-    const fetchRessource = async () => {
+    const fetchData = async () => {
       if (ressource_name !== undefined) {
-        try {
-          const ressource = await getRessource(ressource_name)
-          setCurrentRessource(ressource)
-        } catch (error) {
-          console.log(error)
-        }
+        const r = await getRessource(ressource_name)
+        setCurrentRessource(r)
       }
     }
 
-    fetchRessource()
+    fetchData()
   }, [ressource_name])
 
   return (
     <div className="ressource">
-      <h1 className="h2 title"><Link to={`/ressources/${category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{currentRessource?.name}</h1>
+      <h1 className="h2 title"><Link to={`/ressources/${category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{currentRessource?.id.toString()}</h1>
     </div>
   )
 }
