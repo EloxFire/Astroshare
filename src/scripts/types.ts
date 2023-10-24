@@ -11,6 +11,7 @@ export type Ressource = {
   image?: string;
   links?: string[];
   tags?: string[];
+  file?: any;
   creadted?: Date;
   updated: Date;
 }

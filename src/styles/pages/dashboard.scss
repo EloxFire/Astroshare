@@ -2,21 +2,70 @@
 
 .dashboard{
   @extend .global-page;
+  height: auto;
 
   .content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 10vh;
 
     .right, .left{
       width: 50%;
       display: flex;
       flex-direction: column;
-      height: 65vh;
+      // height: 65vh;
     }
 
     .left{
       border-right: 2px solid $white;
+      padding-right: 50px;
+
+      form{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        input, select, textarea{
+          margin-top: 20px;
+          margin-bottom: 8px;
+          width: 70%;
+          background-color: transparent;
+          border: 1px solid $white;
+          padding: 8px;
+          font-size: 1rem;
+
+          &:first-child{
+            margin-top: 0px;
+          }
+        }
+
+        option{
+          background-color: $black;
+          color: $white;
+          border-radius: 0;
+        }
+
+        fieldset{
+          border: none;
+          margin-top: 20px;
+          margin-bottom: 8px;
+
+          .radio-input{
+          input{
+            margin: 0;
+          }
+
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-color: transparent;
+          font-size: 1rem;
+          margin-right: 20px;
+        
+        }
+        }
+      }
     }
 
     .right{

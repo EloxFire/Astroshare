@@ -32,6 +32,16 @@ p {
   }
 }
 
+code{
+  font-family: 'Fira Code', monospace;
+  font-style: italic;
+  font-size: 1rem;
+  background-color: rgba($white, 0.8);
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: $black;
+}
+
 .global-page{
   min-height: $page-height;
   padding-top: 10vh;
