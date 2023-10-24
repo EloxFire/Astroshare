@@ -11,6 +11,7 @@ import Privacy from "./pages/Privacy";
 import Hub from "./pages/Hub";
 import Category from "./pages/Category";
 import RessourcePage from "./pages/Ressource";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} />
         <Route path={routes.ressource.path} element={<Layout component={<RessourcePage />} />} />
         <Route path={routes.privacy.path} element={<Layout component={<Privacy />} />} />
+        <Route path={routes.dashboard.path} element={<Layout component={<Dashboard />} />} />
         <Route path={routes.notFound.path} element={<NotFound />} />
       </Routes>
     </Router>

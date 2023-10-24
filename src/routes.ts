@@ -35,6 +35,10 @@ export const routes = {
     path: '/politique-de-confidentialite',
     label: 'Politique de confidentialité',
   },
+  dashboard: {
+    path: '/dashboard',
+    label: 'Dashboard',
+  },
   notFound: {
     path: '*',
     label: '404',

@@ -1,0 +1,26 @@
+@import '../globals.scss';
+
+.dashboard{
+  @extend .global-page;
+
+  .content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .right, .left{
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      height: 65vh;
+    }
+
+    .left{
+      border-right: 2px solid $white;
+    }
+
+    .right{
+      padding-left: 50px;
+    }
+  }
+}
