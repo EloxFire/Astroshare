@@ -5,13 +5,13 @@ import Layout from "./pages/Layout";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import RessourceDetails from "./pages/RessourceDetails";
 import Gallery from "./pages/Gallery";
 import Privacy from "./pages/Privacy";
 import Hub from "./pages/Hub";
 import Category from "./pages/Category";
-import RessourcePage from "./pages/Ressource";
-import Dashboard from "./pages/Dashboard";
+import RessourceDetails from "./pages/ressources/RessourceDetails";
+import RessourcePage from "./pages/ressources/Ressource";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   return (

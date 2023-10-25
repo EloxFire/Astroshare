@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { FiChevronLeft } from 'react-icons/fi'
-import { Ressource } from '../scripts/types'
-import { ressources } from '../scripts/helpers/ressources';
 import { Link, useParams } from 'react-router-dom'
-import DownloadModal from '../components/DownloadModal';
 import dayjs from 'dayjs';
-import '../styles/pages/ressourceDetails.scss'
+import { ressources } from '../../scripts/helpers/ressources';
+import { Ressource } from '../../scripts/types';
+import DownloadModal from '../../components/DownloadModal';
+import '../../styles/pages/ressources/ressourceDetails.scss'
 
 export default function RessourceDetails() {
 

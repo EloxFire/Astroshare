@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import '../styles/pages/ressource.scss'
 import { Link, useParams } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { getRessource } from '../scripts/helpers/api/ressources'
+import { getRessource } from '../../scripts/helpers/api/ressources'
+import '../../styles/pages/ressources/ressource.scss'
 
 export default function RessourcePage() {
 
