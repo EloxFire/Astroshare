@@ -39,6 +39,10 @@ export const routes = {
     path: '/dashboard',
     label: 'Dashboard',
   },
+  dashboard_add_ressource: {
+    path: '/dashboard/add-ressource',
+    label: 'Ajouter une ressource',
+  },
   notFound: {
     path: '*',
     label: '404',
