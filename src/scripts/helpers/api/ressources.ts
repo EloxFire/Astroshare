@@ -1,5 +1,4 @@
-import { collection, getDocs, getFirestore, query, where, doc, setDoc } from "firebase/firestore";
-import { uuid } from "uuidv4";
+import { collection, getDocs, getFirestore, query, where, addDoc, updateDoc } from "firebase/firestore";
 import { Ressource } from "../../types";
 
 // Get a ressource by its slug
@@ -12,11 +11,17 @@ export const getRessource = async (ressource_slug: string) => {
 }
 
 export const uploadNewRessource = async (ressource: Ressource) => {
-  const db = getFirestore();
+  console.log("Adding new ressource");
 
   try {
-    await setDoc(doc(db, "Ressources", uuid()), ressource);
+    const db = getFirestore();
+    const ressourcesRef = collection(db, "Ressources");
+    const docRef = await addDoc(ressourcesRef, ressource);
+    updateDoc(docRef, {
+      ref: docRef.id
+    });
+    console.log("Document written with ID: ", docRef.id);
   } catch (error) {
-    console.log(error);
+    console.error("Error adding document:", error);
   }
 }
