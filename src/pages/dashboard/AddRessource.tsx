@@ -24,15 +24,28 @@ export default function AddRessource() {
 
   // Handle multiple chips select and de-select (format, level)
   // Needs to be formated as an array of strings
-  const handleMultiSelect = (key: string, value: string) => {
-    let elements = [];
-    ressourceToAdd[key] !== undefined && elements = ressourceToAdd[key] as string[];
-    if (elements.includes(value)) {
-      elements = elements.filter((element) => element !== value)
+  const handleMultiSelect = (key: 'format' | 'level', value: string) => {
+    if (ressourceToAdd && ressourceToAdd[key] !== undefined) {
+      const temp = ressourceToAdd[key] || [];
+      if (!temp.includes(value)) {
+        temp.push(value);
+      } else {
+        const index = temp.indexOf(value);
+        if (index > -1) {
+          temp.splice(index, 1);
+
+        }
+      }
+      if (temp.length === 0) {
+        delete ressourceToAdd[key];
+        console.log(ressourceToAdd);
+        setRessourceToAdd(ressourceToAdd);
+      } else {
+        setRessourceToAdd({ ...ressourceToAdd, [key]: temp } as Ressource)
+      }
     } else {
-      elements.push(value)
+      setRessourceToAdd({ ...ressourceToAdd, [key]: [value] } as Ressource)
     }
-    setRessourceToAdd({ ...ressourceToAdd, [key]: elements } as Ressource)
   }
 
   const addNewRessource = () => {

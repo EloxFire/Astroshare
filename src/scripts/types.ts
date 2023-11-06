@@ -6,7 +6,7 @@ export type Ressource = {
   subtitle?: string;
   description: string;
   notes?: string;
-  level: string;
+  level: string[];
   format?: string[];
   image?: string;
   links?: string[];
