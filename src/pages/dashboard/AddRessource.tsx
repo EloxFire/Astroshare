@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import '../../styles/pages/dashboard/addRessource.scss'
 import { Ressource } from '../../scripts/types'
 import { ressourceType, ressourcesLevels } from '../../scripts/helpers/helpers'
-import Chip from '../../components/Chip'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources'
+import Chip from '../../components/Chip'
+import '../../styles/pages/dashboard/addRessource.scss'
 
 export default function AddRessource() {
 
@@ -11,7 +11,23 @@ export default function AddRessource() {
     document.title = 'Astroshare | Ajouter une ressource'
   }, [])
 
-  const [ressourceToAdd, setRessourceToAdd] = useState<Ressource | undefined>();
+  const [ressourceToAdd, setRessourceToAdd] = useState<Ressource>({
+    name: '',
+    subtitle: '',
+    description: '',
+    notes: '',
+    format: [],
+    level: [],
+    tags: [],
+    category: '',
+    downloadNames: [],
+    slug: '',
+    updated: new Date(),
+    creadted: new Date(),
+    files: [],
+    image: '',
+    links: [],
+  });
 
   const handleInputChange = (key: string, value: string, parse?: boolean) => {
     if (parse) {
@@ -51,6 +67,7 @@ export default function AddRessource() {
   const addNewRessource = () => {
     try {
       ressourceToAdd && uploadNewRessource(ressourceToAdd)
+      setRessourceToAdd(undefined)
     } catch (error) {
       console.log(error)
     }
@@ -59,11 +76,11 @@ export default function AddRessource() {
   return (
     <div className="add-ressource-details">
       <div className="add-ressource-details__left">
-        <input className="add-ressource-details__left__title" placeholder='Titre de la ressource' onChange={(e) => { handleInputChange('name', e.target.value); handleInputChange('slug', e.target.value.trim().toLowerCase().replaceAll(' ', '-')) }} />
-        <input className="add-ressource-details__left__subtitle" placeholder='Sous-titre de la ressource' onChange={(e) => handleInputChange('subtitle', e.target.value)} />
+        <input className="add-ressource-details__left__title" placeholder='Titre de la ressource' value={ressourceToAdd?.name} onChange={(e) => { handleInputChange('name', e.target.value) }} />
+        <input className="add-ressource-details__left__subtitle" placeholder='Sous-titre de la ressource' value={ressourceToAdd?.subtitle} onChange={(e) => handleInputChange('subtitle', e.target.value)} />
         <div className="add-ressource-details__left__description-container">
-          <textarea className="add-ressource-details__left__description-container__description" rows={10} placeholder='Desription longue de la ressource' onChange={(e) => handleInputChange('description', e.target.value)} />
-          <input className="add-ressource-details__left__description-container__notes" type="text" placeholder='Notes additionnelles de la ressource' onChange={(e) => handleInputChange('notes', e.target.value)} />
+          <textarea className="add-ressource-details__left__description-container__description" rows={10} value={ressourceToAdd?.description} placeholder='Desription longue de la ressource' onChange={(e) => handleInputChange('description', e.target.value)} />
+          <input className="add-ressource-details__left__description-container__notes" type="text" value={ressourceToAdd?.notes} placeholder='Notes additionnelles de la ressource' onChange={(e) => handleInputChange('notes', e.target.value)} />
         </div>
         <div className="add-ressource-details__left__infos">
           <div className="add-ressource-details__left__infos__item">
