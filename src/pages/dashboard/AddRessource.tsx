@@ -67,7 +67,6 @@ export default function AddRessource() {
   const addNewRessource = () => {
     try {
       ressourceToAdd && uploadNewRessource(ressourceToAdd)
-      setRessourceToAdd(undefined)
     } catch (error) {
       console.log(error)
     }
