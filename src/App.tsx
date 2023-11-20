@@ -13,6 +13,7 @@ import RessourceDetails from "./pages/ressources/RessourceDetails";
 import RessourcePage from "./pages/ressources/Ressource";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
+import AddImage from "./pages/dashboard/AddImage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         {/* Admin routes */}
         <Route path={routes.dashboard.path} element={<Layout component={<Dashboard />} />} />
         <Route path={routes.dashboard_add_ressource.path} element={<Layout component={<AddRessource />} />} />
+        <Route path={routes.dashboard_add_image.path} element={<Layout component={<AddImage />} />} />
       </Routes>
     </Router>
   );

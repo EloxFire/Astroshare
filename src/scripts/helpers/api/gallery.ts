@@ -1,4 +1,7 @@
-import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, updateDoc, where, addDoc } from "firebase/firestore";
+import { Image } from "../../types";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+import dayjs from "dayjs";
 
 // Get an image in the gallery bi its ID
 export const getImageById = async (image_id: string) => {
@@ -16,4 +19,30 @@ export const getImages = async () => {
   const ressourceQuery = query(ressourcesRef);
   const ressources = await getDocs(ressourceQuery)
   return ressources;
+}
+
+export const uploadNewImage = async (image: Image) => {
+  console.log("Adding new image to gallery");
+
+  try {
+    const db = getFirestore();
+    const galleryRef = collection(db, "Gallery");
+    const docRef = await addDoc(galleryRef, image);
+    updateDoc(docRef, {
+      ref: docRef.id
+    });
+    console.log("Document written with ID : ", docRef.id);
+  } catch (error) {
+    console.error("Error adding image metadata document:", error);
+  }
+
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, `gallery/${image.alt}-${dayjs().format("DD-MM-YYYY-HH-mm-ss")}`);
+
+    await uploadBytes(storageRef, image.file)
+    console.log("Image uploaded to storage");
+  } catch (error) {
+    console.error("Error uploading image to storage:", error);
+  }
 }

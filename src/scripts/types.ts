@@ -25,7 +25,8 @@ export type RessourceCategory = {
 }
 
 export type Image = {
-  url: string; // url to the image
+  url?: string; // url to the image
+  file?: any; // file of the image
   alt: string; // alt text for the image
   date: Date; // date of the image
   resolution?: string; // resolution of the image

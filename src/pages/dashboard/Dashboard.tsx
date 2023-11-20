@@ -13,6 +13,7 @@ export default function Dashboard() {
       <p className="dashboard-title h3">Dashboard</p>
       <div className="content">
         <Link to={routes.dashboard_add_ressource.path} className="dashboard__add-ressource">Ajouter une ressource</Link>
+        <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource">Ajouter une image</Link>
       </div>
     </div>
   )

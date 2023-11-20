@@ -4,6 +4,9 @@ import { ressourceType, ressourcesLevels } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources'
 import Chip from '../../components/Chip'
 import '../../styles/pages/dashboard/addRessource.scss'
+import { Link } from 'react-router-dom'
+import { routes } from '../../routes'
+import { FiChevronLeft } from 'react-icons/fi'
 
 export default function AddRessource() {
 
@@ -74,42 +77,45 @@ export default function AddRessource() {
 
   return (
     <div className="add-ressource-details">
-      <div className="add-ressource-details__left">
-        <input className="add-ressource-details__left__title" placeholder='Titre de la ressource' value={ressourceToAdd?.name} onChange={(e) => { handleInputChange('name', e.target.value) }} />
-        <input className="add-ressource-details__left__subtitle" placeholder='Sous-titre de la ressource' value={ressourceToAdd?.subtitle} onChange={(e) => handleInputChange('subtitle', e.target.value)} />
-        <div className="add-ressource-details__left__description-container">
-          <textarea className="add-ressource-details__left__description-container__description" rows={10} value={ressourceToAdd?.description} placeholder='Desription longue de la ressource' onChange={(e) => handleInputChange('description', e.target.value)} />
-          <input className="add-ressource-details__left__description-container__notes" type="text" value={ressourceToAdd?.notes} placeholder='Notes additionnelles de la ressource' onChange={(e) => handleInputChange('notes', e.target.value)} />
-        </div>
-        <div className="add-ressource-details__left__infos">
-          <div className="add-ressource-details__left__infos__item">
-            <p>Format du document :</p>
-            {
-              Object.entries(ressourceType).map(([key, value]) => {
-                return (
-                  <Chip key={`add-ressource-details__left__infos__item__${key}`} label={value} onClick={() => handleMultiSelect('format', value)} />
-                )
-              })
-            }
+      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
+      <div className="add-ressource-details__content">
+        <div className="add-ressource-details__content__left">
+          <input className="add-ressource-details__content__left__title" placeholder='Titre de la ressource' value={ressourceToAdd?.name} onChange={(e) => { handleInputChange('name', e.target.value) }} />
+          <input className="add-ressource-details__content__left__subtitle" placeholder='Sous-titre de la ressource' value={ressourceToAdd?.subtitle} onChange={(e) => handleInputChange('subtitle', e.target.value)} />
+          <div className="add-ressource-details__content__left__description-container">
+            <textarea className="add-ressource-details__content__left__description-container__description" rows={10} value={ressourceToAdd?.description} placeholder='Desription longue de la ressource' onChange={(e) => handleInputChange('description', e.target.value)} />
+            <input className="add-ressource-details__content__left__description-container__notes" type="text" value={ressourceToAdd?.notes} placeholder='Notes additionnelles de la ressource' onChange={(e) => handleInputChange('notes', e.target.value)} />
           </div>
-          <div className="add-ressource-details__left__infos__item">
-            <p>Niveau :</p>
-            {
-              Object.entries(ressourcesLevels).map(([key, value]) => {
-                return (
-                  <Chip key={`add-ressource-details__left__infos__item__${key}`} label={value} onClick={() => handleMultiSelect('level', value)} />
-                )
-              })
-            }
+          <div className="add-ressource-details__content__left__infos">
+            <div className="add-ressource-details__content__left__infos__item">
+              <p>Format du document :</p>
+              {
+                Object.entries(ressourceType).map(([key, value]) => {
+                  return (
+                    <Chip key={`add-ressource-details__content__left__infos__item__${key}`} label={value} onClick={() => handleMultiSelect('format', value)} />
+                  )
+                })
+              }
+            </div>
+            <div className="add-ressource-details__content__left__infos__item">
+              <p>Niveau :</p>
+              {
+                Object.entries(ressourcesLevels).map(([key, value]) => {
+                  return (
+                    <Chip key={`add-ressource-details__content__left__infos__item__${key}`} label={value} onClick={() => handleMultiSelect('level', value)} />
+                  )
+                })
+              }
+            </div>
           </div>
+          <input className="custom-input" placeholder="Tags de la ressource (séparés d'une virgule)" onChange={(e) => handleInputChange('tags', e.target.value, true)} />
+          <button style={{ color: 'black' }} onClick={() => addNewRessource()}>Add ressource</button>
         </div>
-        <input className="custom-input" placeholder="Tags de la ressource (séparés d'une virgule)" onChange={(e) => handleInputChange('tags', e.target.value, true)} />
-        <button style={{ color: 'black' }} onClick={() => addNewRessource()}>Add ressource</button>
-      </div>
-      <div className="add-ressource-details__left">
-        {
-          JSON.stringify(ressourceToAdd)
-        }
+        <div className="add-ressource-details__content__right">
+          {
+            JSON.stringify(ressourceToAdd)
+          }
+        </div>
       </div>
     </div>
   )
