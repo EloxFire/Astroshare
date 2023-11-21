@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { Image } from "../types";
 
 export const images: Image[] = [
@@ -6,7 +7,7 @@ export const images: Image[] = [
     alt: "Ceinture d'Orion",
     resolution: '6000x3368',
     fileFormat: 'jpg',
-    date: new Date('2021-03-09'),
+    date: dayjs('2021-03-09'),
     cameraSettings: {
       name: 'Canon EOS 2000D',
       iso: 1600,
@@ -18,7 +19,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/02.min.jpg',
     alt: 'Comète Neowise',
-    date: new Date('2020-07-18'),
+    date: dayjs('2020-07-18'),
     resolution: '1440x1440',
     fileFormat: 'jpg',
     processingSettings: {
@@ -28,7 +29,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/03.min.jpg',
     alt: 'Mon setup',
-    date: new Date('2020-09-11'),
+    date: dayjs('2020-09-11'),
     resolution: '4000x3000',
     fileFormat: 'jpg',
     cameraSettings: {
@@ -45,7 +46,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/04.min.jpg',
     alt: 'Mon setup aux AAAOV',
-    date: new Date('2021-05-27'),
+    date: dayjs('2021-05-27'),
     resolution: '3000x4000',
     fileFormat: 'jpg',
     cameraSettings: {
@@ -60,7 +61,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/07.min.jpg',
     alt: 'Saturne',
-    date: new Date('2023-07-09'),
+    date: dayjs('2023-07-09'),
     resolution: '6020x4015',
     fileFormat: 'RAW',
     cameraSettings: {
@@ -82,7 +83,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/05.min.jpg',
     alt: 'Super Lune',
-    date: new Date('2023-08-01'),
+    date: dayjs('2023-08-01'),
     resolution: '1920x1280',
     fileFormat: 'jpg',
     cameraSettings: {
@@ -96,7 +97,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/06.min.jpg',
     alt: 'Super Lune',
-    date: new Date('2023-08-01'),
+    date: dayjs('2023-08-01'),
     resolution: '1920x1280',
     fileFormat: 'jpg',
     cameraSettings: {
@@ -110,7 +111,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/08.min.jpg',
     alt: 'Jupiter',
-    date: new Date('2023-09-14'),
+    date: dayjs('2023-09-14'),
     resolution: '6000x4000',
     fileFormat: 'JPG',
     cameraSettings: {
@@ -132,7 +133,7 @@ export const images: Image[] = [
   {
     url: '/images/gallery/09.min.jpg',
     alt: 'Saturne',
-    date: new Date('2023-09-14'),
+    date: dayjs('2023-09-14'),
     resolution: '6000x4000',
     fileFormat: 'JPG',
     cameraSettings: {
