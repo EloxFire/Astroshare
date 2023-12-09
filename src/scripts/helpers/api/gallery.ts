@@ -21,7 +21,7 @@ export const getImages = async () => {
   return ressources;
 }
 
-export const uploadNewImage = async (image: Image) => {
+export const uploadNewImage = async (image: any) => {
   console.log("Adding new image to gallery");
 
   try {

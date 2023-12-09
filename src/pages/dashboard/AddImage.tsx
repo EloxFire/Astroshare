@@ -14,7 +14,7 @@ export default function AddImage() {
   }, [])
 
   const [imageTitle, setImageTitle] = useState<string | undefined>()
-  const [imageDate, setImageDate] = useState<Dayjs | undefined>()
+  const [imageDate, setImageDate] = useState<Dayjs | undefined | string>()
   const [imageResolution, setImageResolution] = useState<string | undefined>()
   const [imageFormat, setImageFormat] = useState<string | undefined>()
   const [imageTags, setImageTags] = useState<string[] | undefined>([])
@@ -45,9 +45,9 @@ export default function AddImage() {
       return;
     }
 
-    const imageToAdd: Image = {
+    const imageToAdd = {
       alt: imageTitle,
-      date: dayjs(imageDate, 'DD-MM-YYYY'),
+      // date: imageDate,
       resolution: imageResolution,
       fileFormat: imageFormat,
       tags: imageTags === undefined ? [] : imageTags,
@@ -92,7 +92,7 @@ export default function AddImage() {
       <div className="add-ressource-details__content">
         <div className="add-ressource-details__content__left">
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Titre de l'image" value={imageTitle} onChange={(e) => { setImageTitle(e.target.value) }} />
-          <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Date de l'image (DD-MM-YYYY)" onChange={(e) => { setImageDate(dayjs(e.target.value)) }} />
+          <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Date de l'image (DD-MM-YYYY)" onChange={(e) => { setImageDate(e.target.value) }} />
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Resolution (1920x1080)" onChange={(e) => { setImageResolution(e.target.value) }} />
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Format (png, pdf, etc...)" onChange={(e) => { setImageFormat(e.target.value) }} />
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Tags (séparés d'une virgule sans espaces)" onChange={(e) => { setImageTags(e.target.value.split(',')) }} />

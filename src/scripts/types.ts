@@ -30,7 +30,7 @@ export type Image = {
   url?: string; // url to the image
   file?: any; // file of the image
   alt: string; // alt text for the image
-  date: Dayjs; // date of the image
+  date: Dayjs | string | undefined; // date of the image
   resolution?: string; // resolution of the image
   fileFormat?: string; // file format of the image
   tags?: string[]; // tags for the image to use with filters bar
