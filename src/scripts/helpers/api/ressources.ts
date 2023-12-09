@@ -1,6 +1,14 @@
 import { collection, getDocs, getFirestore, query, where, addDoc, updateDoc } from "firebase/firestore";
 import { Ressource } from "../../types";
 
+// Get Ressources collection documents count
+export const getRessourcesCount = async () => {
+  const db = getFirestore();
+  const ressourcesRef = collection(db, "Ressources");
+  const ressources = await getDocs(ressourcesRef);
+  return ressources.size;
+}
+
 // Get a ressource by its slug
 export const getRessource = async (ressource_slug: string) => {
   const db = getFirestore();

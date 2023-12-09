@@ -3,25 +3,33 @@ import { Image } from "../../types";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import dayjs from "dayjs";
 
+// Get Gallery collection documents count
+export const getGalleryCount = async () => {
+  const db = getFirestore();
+  const galleryRef = collection(db, "Gallery");
+  const gallery = await getDocs(galleryRef);
+  return gallery.size;
+}
+
 // Get an image in the gallery bi its ID
 export const getImageById = async (image_id: string) => {
   const db = getFirestore();
-  const ressourcesRef = collection(db, "Gallery");
-  const ressourceQuery = query(ressourcesRef, where("id", "==", image_id));
-  const ressource = await getDocs(ressourceQuery)
-  return ressource.docs[0].data();
+  const galleryRef = collection(db, "Gallery");
+  const ressourceQuery = query(galleryRef, where("id", "==", image_id));
+  const gallery = await getDocs(ressourceQuery)
+  return gallery.docs[0].data();
 }
 
 // Get all images in the gallery
 export const getImages = async () => {
   const db = getFirestore();
-  const ressourcesRef = collection(db, "Gallery");
-  const ressourceQuery = query(ressourcesRef);
-  const ressources = await getDocs(ressourceQuery)
-  return ressources;
+  const galleryRef = collection(db, "Gallery");
+  const ressourceQuery = query(galleryRef);
+  const gallery = await getDocs(ressourceQuery)
+  return gallery;
 }
 
-export const uploadNewImage = async (image: any) => {
+export const uploadNewImage = async (image: any | Image) => { // TODO REMOVE ANY TYPE
   console.log("Adding new image to gallery");
 
   try {

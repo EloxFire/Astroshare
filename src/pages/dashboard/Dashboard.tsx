@@ -8,7 +8,7 @@ import { useStats } from '../../contexts/StatsContext'
 
 export default function Dashboard() {
 
-  const { ressourcesCount, imagesCount, downloadsCount, visitsCount } = useStats()
+  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, visitsCount } = useStats()
 
   useEffect(() => {
     document.title = 'Astroshare | Dashboard'
@@ -23,21 +23,21 @@ export default function Dashboard() {
             <p className="title">Statistiques</p>
             <div className="stats-row">
               <div className="dashboard-stat">
-                <p className="dashboard-stat__number">{ressourcesCount}</p>
+                {statsLoading ? <div className="dashboard-stat__loader"></div> : <p className="dashboard-stat__number">{ressourcesCount}</p>}
                 <p className="dashboard-stat__name">Ressources</p>
               </div>
               <div className="dashboard-stat">
-                <p className="dashboard-stat__number">{imagesCount}</p>
+                {statsLoading ? <p className="dashboard-stat__loader"></p> : <p className="dashboard-stat__number">{imagesCount}</p>}
                 <p className="dashboard-stat__name">Images</p>
               </div>
             </div>
             <div className="stats-row">
               <div className="dashboard-stat">
-                <p className="dashboard-stat__number">{downloadsCount}</p>
+                {statsLoading ? <p className="dashboard-stat__loader"></p> : <p className="dashboard-stat__number">{downloadsCount}</p>}
                 <p className="dashboard-stat__name">Téléchargements</p>
               </div>
               <div className="dashboard-stat">
-                <p className="dashboard-stat__number">{visitsCount}</p>
+                {statsLoading ? <p className="dashboard-stat__loader"></p> : <p className="dashboard-stat__number">{visitsCount}</p>}
                 <p className="dashboard-stat__name">Visites</p>
               </div>
             </div>
