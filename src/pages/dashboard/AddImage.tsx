@@ -5,6 +5,8 @@ import { FiChevronLeft } from 'react-icons/fi'
 import dayjs from 'dayjs'
 import '../../styles/pages/dashboard/addImage.scss'
 import { imageProperties } from '../../scripts/helpers/helpers'
+import Alert from '../../components/Alert'
+import { uploadNewImage } from '../../scripts/helpers/api/gallery'
 
 export default function AddImage() {
 
@@ -18,62 +20,45 @@ export default function AddImage() {
   const [additionnalProperty, setAdditionnalProperty] = useState<string>("")
   const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
   const [optionnalProperties, setOptionnalProperties] = useState<any>({})
-  // const [imageResolution, setImageResolution] = useState<string | undefined>()
-  // const [imageFormat, setImageFormat] = useState<string | undefined>()
-  // const [imageTags, setImageTags] = useState<string[] | undefined>([])
-  // const [imageCameraName, setImageCameraName] = useState<string | undefined>()
-  // const [imageCameraIso, setImageCameraIso] = useState<number | undefined>()
-  // const [imageCameraShutterSpeed, setImageCameraShutterSpeed] = useState<string | undefined>()
-  // const [imageCameraAperture, setImageCameraAperture] = useState<string | undefined>()
-  // const [imageCameraFps, setImageCameraFps] = useState<number | undefined>()
-  // const [imageCameraFocal, setImageCameraFocal] = useState<string | undefined>()
-  // const [imageTelescopeName, setImageTelescopeName] = useState<string | undefined>()
-  // const [imageTelescopeMount, setImageTelescopeMount] = useState<string | undefined>()
-  // const [imageTelescopeFocal, setImageTelescopeFocal] = useState<number | undefined>()
-  // const [imageTelescopeDiameter, setImageTelescopeDiameter] = useState<number | undefined>()
-  // const [imageTelescopeFocalRatio, setImageTelescopeFocalRatio] = useState<string | undefined>()
-  // const [imageTelescopeEyepiece, setImageTelescopeEyepiece] = useState<string | undefined>()
-  // const [imageTelescopeMagnification, setImageTelescopeMagnification] = useState<number | undefined>()
-  // const [imageTelescopeBarlow, setImageTelescopeBarlow] = useState<string | undefined>()
-  // const [imageSoftware, setImageSoftware] = useState<string | undefined>()
-  // const [imageStacking, setImageStacking] = useState<string | undefined>()
-  // const [imageStackingSoftware, setImageStackingSoftware] = useState<string | undefined>()
-  // const [imageStackingImages, setImageStackingImages] = useState<number | undefined>()
-  // const [imageExposurePerImage, setImageExposurePerImage] = useState<string | undefined>()
-  // const [imageTotalExposure, setImageTotalExposure] = useState<string | undefined>()
+  const [uploading, setUploading] = useState<boolean>(false)
 
-  const addNewImage = () => {
+  const addNewImage = async () => {
     if (imageFile === null || imageTitle === '') {
       console.log("Missing required fields");
       return;
     }
 
-    console.log(optionnalProperties);
+    const imageToAdd = {
+      file: imageFile,
+      alt: imageTitle,
+      date: imageDate,
+      ...optionnalProperties
+    }
 
-
-
-    // try {
-    //   imageToAdd && uploadNewImage(imageToAdd)
-    // } catch (error) {
-    //   console.log(error)
-    // }
+    try {
+      setUploading(true)
+      await uploadNewImage(imageToAdd)
+      setUploading(false)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const appendNewProperty = (key: string, value: string | number) => {
     if (optionnalProperties[key] !== undefined && value === "") {
-      const temp = optionnalProperties
-      console.log("delete", key);
-
+      const temp = { ...optionnalProperties }
+      delete temp[key]
+      setOptionnalProperties(temp)
     }
-    // console.log(optionnalProperties[key]);
-
 
     key.includes('.') ? setOptionnalProperties({ ...optionnalProperties, [key.split('.')[0]]: { ...optionnalProperties[key.split('.')[0]], [key.split('.')[1]]: value } }) : setOptionnalProperties({ ...optionnalProperties, [key]: value })
     setAdditionnalProperty("")
+    setAdditionnalPropertyValue("")
   }
 
   return (
     <div className="dashboard-add-image">
+      {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
       <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une image</p>
       <div className="dashboard-add-image__content">
         <div className="left">
@@ -81,7 +66,7 @@ export default function AddImage() {
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Date de l'image" value={imageDate} onChange={(e) => { setImageDate(e.target.value) }} />
           <div className="additionnal-property">
             <p className="title">Ajouter une propriété optionnelle</p>
-            <select className="custom-select" onChange={(e) => setAdditionnalProperty(e.target.value)}>
+            <select disabled={uploading} className="custom-select" value={additionnalProperty} onChange={(e) => setAdditionnalProperty(e.target.value)}>
               <option value="">Selectionner une option</option>
               {
                 Object.keys(imageProperties).map((key, index) => {
@@ -100,7 +85,7 @@ export default function AddImage() {
             </select>
             <div className="property-input-container">
               <input type='text' className="custom-input" style={{ marginBottom: '0px' }} placeholder="Valeur" value={additionnalPropertyValue} onChange={(e) => { setAdditionnalPropertyValue(e.target.value) }} />
-              <button onClick={() => appendNewProperty(additionnalProperty, additionnalPropertyValue)}>Ajouter la propriété</button>
+              <button disabled={uploading} onClick={() => appendNewProperty(additionnalProperty, additionnalPropertyValue)}>Ajouter la propriété</button>
             </div>
             <div className="added-properties">
               <small>Propriétés supplémentaires : <br /></small>
@@ -111,7 +96,7 @@ export default function AddImage() {
               </small>
             </div>
           </div>
-          <button className="submit-button" onClick={() => addNewImage()}>Ajouter l'image</button>
+          <button disabled={uploading} className="submit-button" onClick={() => addNewImage()}>{!uploading ? "Ajouter l'image" : <div className="loader"></div>}</button>
         </div>
         <div className="right">
           <label htmlFor="image-file" className="drop-container" id="dropcontainer">
