@@ -38,7 +38,7 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
         <button className="close-button" onClick={onNext}><FiArrowRightCircle /></button>
       </div>
       <div className="custom-image-modal__container">
-        <img src={slide.url} alt={slide.alt} />
+        <img src={slide.file} alt={slide.alt} />
         <div className="custom-image-modal__container__right">
           <p className="custom-image-modal__container__right__title">{slide.alt}</p>
           {slide.cameraSettings && <p className="custom-image-modal__container__right__property--title">Informations générales :</p>}

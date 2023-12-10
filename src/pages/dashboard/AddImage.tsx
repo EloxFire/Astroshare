@@ -32,6 +32,7 @@ export default function AddImage() {
       file: imageFile,
       alt: imageTitle,
       date: imageDate,
+      uploadedAt: dayjs(),
       ...optionnalProperties
     }
 
@@ -39,6 +40,12 @@ export default function AddImage() {
       setUploading(true)
       await uploadNewImage(imageToAdd)
       setUploading(false)
+      setImageDate(dayjs().format("DD-MM-YYYY"))
+      setImageFile(null)
+      setImageTitle("")
+      setAdditionnalPropertyValue("")
+      setAdditionnalProperty("")
+      setOptionnalProperties({})
     } catch (error) {
       console.log(error)
     }

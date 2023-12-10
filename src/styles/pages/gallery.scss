@@ -2,6 +2,7 @@
 
 .gallery {
   @extend .global-page;
+  padding-bottom: 10vh;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     display: none;

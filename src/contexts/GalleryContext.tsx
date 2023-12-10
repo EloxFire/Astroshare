@@ -18,9 +18,10 @@ export function GalleryProvider({ children }: GalleryProviderProps) {
 
 
   useEffect(() => {
-    // async function in useEffect
     async function fetchStats() {
       const data = await getImages();
+      console.log(data.docs);
+
       data.docs.forEach((doc: any) => {
         setPictures((pictures: Image[]) => [...pictures, doc.data()]);
       })
