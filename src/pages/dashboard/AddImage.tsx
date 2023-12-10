@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Image } from '../../scripts/types'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { uploadNewImage } from '../../scripts/helpers/api/gallery'
-import dayjs, { Dayjs } from 'dayjs'
-import '../../styles/pages/dashboard/addRessource.scss'
+import dayjs from 'dayjs'
+import '../../styles/pages/dashboard/addImage.scss'
+import { imageProperties } from '../../scripts/helpers/helpers'
 
 export default function AddImage() {
 
@@ -13,84 +12,115 @@ export default function AddImage() {
     document.title = 'Astroshare | Ajouter une image'
   }, [])
 
-  const [imageTitle, setImageTitle] = useState<string | undefined>()
-  const [imageDate, setImageDate] = useState<Dayjs | undefined | string>()
-  const [imageResolution, setImageResolution] = useState<string | undefined>()
-  const [imageFormat, setImageFormat] = useState<string | undefined>()
-  const [imageTags, setImageTags] = useState<string[] | undefined>([])
-  const [imageCameraName, setImageCameraName] = useState<string | undefined>()
-  const [imageCameraIso, setImageCameraIso] = useState<number | undefined>()
-  const [imageCameraShutterSpeed, setImageCameraShutterSpeed] = useState<string | undefined>()
-  const [imageCameraAperture, setImageCameraAperture] = useState<string | undefined>()
-  const [imageCameraFps, setImageCameraFps] = useState<number | undefined>()
-  const [imageCameraFocal, setImageCameraFocal] = useState<string | undefined>()
-  const [imageTelescopeName, setImageTelescopeName] = useState<string | undefined>()
-  const [imageTelescopeMount, setImageTelescopeMount] = useState<string | undefined>()
-  const [imageTelescopeFocal, setImageTelescopeFocal] = useState<number | undefined>()
-  const [imageTelescopeDiameter, setImageTelescopeDiameter] = useState<number | undefined>()
-  const [imageTelescopeFocalRatio, setImageTelescopeFocalRatio] = useState<string | undefined>()
-  const [imageTelescopeEyepiece, setImageTelescopeEyepiece] = useState<string | undefined>()
-  const [imageTelescopeMagnification, setImageTelescopeMagnification] = useState<number | undefined>()
-  const [imageTelescopeBarlow, setImageTelescopeBarlow] = useState<string | undefined>()
-  const [imageSoftware, setImageSoftware] = useState<string | undefined>()
-  const [imageStacking, setImageStacking] = useState<string | undefined>()
-  const [imageStackingSoftware, setImageStackingSoftware] = useState<string | undefined>()
-  const [imageStackingImages, setImageStackingImages] = useState<number | undefined>()
-  const [imageExposurePerImage, setImageExposurePerImage] = useState<string | undefined>()
-  const [imageTotalExposure, setImageTotalExposure] = useState<string | undefined>()
+  const [imageTitle, setImageTitle] = useState<string>("")
+  const [imageDate, setImageDate] = useState<string>(dayjs().format("DD-MM-YYYY"))
   const [imageFile, setImageFile] = useState<any>(null);
+  const [additionnalProperty, setAdditionnalProperty] = useState<string>("")
+  const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
+  const [optionnalProperties, setOptionnalProperties] = useState<any>({})
+  // const [imageResolution, setImageResolution] = useState<string | undefined>()
+  // const [imageFormat, setImageFormat] = useState<string | undefined>()
+  // const [imageTags, setImageTags] = useState<string[] | undefined>([])
+  // const [imageCameraName, setImageCameraName] = useState<string | undefined>()
+  // const [imageCameraIso, setImageCameraIso] = useState<number | undefined>()
+  // const [imageCameraShutterSpeed, setImageCameraShutterSpeed] = useState<string | undefined>()
+  // const [imageCameraAperture, setImageCameraAperture] = useState<string | undefined>()
+  // const [imageCameraFps, setImageCameraFps] = useState<number | undefined>()
+  // const [imageCameraFocal, setImageCameraFocal] = useState<string | undefined>()
+  // const [imageTelescopeName, setImageTelescopeName] = useState<string | undefined>()
+  // const [imageTelescopeMount, setImageTelescopeMount] = useState<string | undefined>()
+  // const [imageTelescopeFocal, setImageTelescopeFocal] = useState<number | undefined>()
+  // const [imageTelescopeDiameter, setImageTelescopeDiameter] = useState<number | undefined>()
+  // const [imageTelescopeFocalRatio, setImageTelescopeFocalRatio] = useState<string | undefined>()
+  // const [imageTelescopeEyepiece, setImageTelescopeEyepiece] = useState<string | undefined>()
+  // const [imageTelescopeMagnification, setImageTelescopeMagnification] = useState<number | undefined>()
+  // const [imageTelescopeBarlow, setImageTelescopeBarlow] = useState<string | undefined>()
+  // const [imageSoftware, setImageSoftware] = useState<string | undefined>()
+  // const [imageStacking, setImageStacking] = useState<string | undefined>()
+  // const [imageStackingSoftware, setImageStackingSoftware] = useState<string | undefined>()
+  // const [imageStackingImages, setImageStackingImages] = useState<number | undefined>()
+  // const [imageExposurePerImage, setImageExposurePerImage] = useState<string | undefined>()
+  // const [imageTotalExposure, setImageTotalExposure] = useState<string | undefined>()
 
   const addNewImage = () => {
-    if (imageFile === null || imageTitle === '' || imageTitle === undefined || imageCameraName === '' || imageCameraName === undefined) {
+    if (imageFile === null || imageTitle === '') {
+      console.log("Missing required fields");
       return;
     }
 
-    const imageToAdd = {
-      alt: imageTitle,
-      // date: imageDate,
-      resolution: imageResolution,
-      fileFormat: imageFormat,
-      tags: imageTags === undefined ? [] : imageTags,
-      cameraSettings: {
-        name: imageCameraName,
-        iso: imageCameraIso,
-        shutter: imageCameraShutterSpeed,
-        aperture: imageCameraAperture,
-        fps: imageCameraFps,
-        focalLength: imageCameraFocal
-      },
-      scopeSettings: {
-        name: imageTelescopeName,
-        mount: imageTelescopeMount,
-        focal: imageTelescopeFocal,
-        diameter: imageTelescopeDiameter,
-        focalRatio: imageTelescopeFocalRatio,
-        eyePiece: imageTelescopeEyepiece,
-        eyePieceMagnification: imageTelescopeMagnification,
-        barlow: imageTelescopeBarlow
-      },
-      processingSettings: {
-        software: imageSoftware,
-        stacking: imageStacking,
-        stackingSoftware: imageStackingSoftware,
-        stackingFrames: imageStackingImages,
-        stackingTime: imageExposurePerImage,
-        stackingTimeTotal: imageTotalExposure
-      },
-      file: imageFile
+    console.log(optionnalProperties);
+
+
+
+    // try {
+    //   imageToAdd && uploadNewImage(imageToAdd)
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  }
+
+  const appendNewProperty = (key: string, value: string | number) => {
+    if (optionnalProperties[key] !== undefined && value === "") {
+      const temp = optionnalProperties
+      console.log("delete", key);
+
     }
-    try {
-      imageToAdd && uploadNewImage(imageToAdd)
-    } catch (error) {
-      console.log(error)
-    }
+    // console.log(optionnalProperties[key]);
+
+
+    key.includes('.') ? setOptionnalProperties({ ...optionnalProperties, [key.split('.')[0]]: { ...optionnalProperties[key.split('.')[0]], [key.split('.')[1]]: value } }) : setOptionnalProperties({ ...optionnalProperties, [key]: value })
+    setAdditionnalProperty("")
   }
 
   return (
-    <div className="add-ressource-details">
+    <div className="dashboard-add-image">
       <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une image</p>
-      <div className="add-ressource-details__content">
-        <div className="add-ressource-details__content__left">
+      <div className="dashboard-add-image__content">
+        <div className="left">
+          <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Titre de l'image" value={imageTitle} onChange={(e) => { setImageTitle(e.target.value) }} />
+          <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Date de l'image" value={imageDate} onChange={(e) => { setImageDate(e.target.value) }} />
+          <div className="additionnal-property">
+            <p className="title">Ajouter une propriété optionnelle</p>
+            <select className="custom-select" onChange={(e) => setAdditionnalProperty(e.target.value)}>
+              <option value="">Selectionner une option</option>
+              {
+                Object.keys(imageProperties).map((key, index) => {
+                  return (key !== "cameraSettings" && key !== "scopeSettings" && key !== "processingSettings" && key !== 'file' && key !== 'alt' && key !== 'date') &&
+                    <option key={index} value={key}>{key}</option>
+                })
+              }
+              {
+                Object.keys(imageProperties).map((key, subIndex) => {
+                  return (key === "cameraSettings" || key === "scopeSettings" || key === "processingSettings") &&
+                    Object.keys(imageProperties[key]).map((subKey, subIndex) => {
+                      return <option key={subIndex} value={`${key}.${subKey}`}>{key} - {subKey}</option>
+                    })
+                })
+              }
+            </select>
+            <div className="property-input-container">
+              <input type='text' className="custom-input" style={{ marginBottom: '0px' }} placeholder="Valeur" value={additionnalPropertyValue} onChange={(e) => { setAdditionnalPropertyValue(e.target.value) }} />
+              <button onClick={() => appendNewProperty(additionnalProperty, additionnalPropertyValue)}>Ajouter la propriété</button>
+            </div>
+            <div className="added-properties">
+              <small>Propriétés supplémentaires : <br /></small>
+              <small>
+                {
+                  JSON.stringify(optionnalProperties)
+                }
+              </small>
+            </div>
+          </div>
+          <button className="submit-button" onClick={() => addNewImage()}>Ajouter l'image</button>
+        </div>
+        <div className="right">
+          <label htmlFor="image-file" className="drop-container" id="dropcontainer">
+            <span className="drop-title">Sélectionnez un fichier</span>
+            <input type="file" id="image-file" accept="image/*" onChange={(e) => { setImageFile(e.target.files![0]); if (imageTitle === "") { setImageTitle(e.target.files![0].name) } }} required />
+            {imageFile && <img className="image" src={URL.createObjectURL(imageFile)} alt='' />}
+          </label>
+        </div>
+        {/* <div className="add-ressource-details__content__left">
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Titre de l'image" value={imageTitle} onChange={(e) => { setImageTitle(e.target.value) }} />
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Date de l'image (DD-MM-YYYY)" onChange={(e) => { setImageDate(e.target.value) }} />
           <input type='text' className="add-ressource-details__content__left__subtitle" style={{ marginBottom: '20px' }} placeholder="Resolution (1920x1080)" onChange={(e) => { setImageResolution(e.target.value) }} />
@@ -121,7 +151,7 @@ export default function AddImage() {
         </div>
         <div className="add-ressource-details__content__right" style={{ textAlign: 'center' }}>
           {imageFile && <img style={{ maxWidth: '90%' }} src={URL.createObjectURL(imageFile)} alt='' />}
-        </div>
+        </div> */}
       </div>
     </div>
   )

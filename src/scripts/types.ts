@@ -35,7 +35,7 @@ export type Image = {
   fileFormat?: string; // file format of the image
   tags?: string[]; // tags for the image to use with filters bar
   cameraSettings?: {
-    name: string; // Canon EOS 2000D
+    name?: string; // Canon EOS 2000D
     iso?: number; // 6400
     shutter?: string; // 1/30
     aperture?: string;  // f-1.4
