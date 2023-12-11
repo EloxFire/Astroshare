@@ -1,10 +1,24 @@
-@import '../globals.scss';
+@import '../../globals.scss';
+@import '../../pages/ressources/ressourceDetails.scss';
 
-.ressource-details {
+.custom-input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgba($white, .5);
+  margin-bottom: 10px;
+
+  &::placeholder{
+    // text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.add-ressource-details {
   @extend .global-page;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
@@ -12,15 +26,28 @@
   }
 
 
-  &__left {
+  &__content{
+    display: flex;
+    flex-direction: row;
+
+
+    &__left {
     width: 60%;
+    display: flex;
+    flex-direction: column;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
       width: 100%;
     }
 
+    &__title{
+      font-size: 2rem;
+      @extend .custom-input;
+    }
+    
     &__subtitle {
       font-size: 1.2rem;
+      @extend .custom-input;
 
       @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
         font-size: 1rem;
@@ -37,6 +64,8 @@
       margin-top: 3vh;
       border-bottom: 1px solid rgba($white, 0.2);
       padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
 
       /* width */
       &::-webkit-scrollbar {
@@ -62,6 +91,7 @@
       &__description {
         white-space: pre-line;
         font-size: 1.2rem;
+        @extend .custom-input;
 
         @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
           font-size: 1rem;
@@ -70,6 +100,11 @@
         @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
           text-align: justify;
         }
+      }
+
+      &__notes{
+        @extend .custom-input;
+        font-size: 1.2rem;
       }
     }
 
@@ -81,71 +116,21 @@
     &__infos {
       margin-top: 3vh;
 
-      p {
-        margin-top: 5px;
-        margin-bottom: 0;
-        font-size: 1.1rem;
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      &__item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        
+        p {
+          margin-top: 5px;
+          margin-bottom: 0;
           font-size: 1rem;
-        }
-      }
-    }
 
-    &__download-container {
-      margin-top: 3vh;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-
-      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-        justify-content: center;
-      }
-
-      &__download-button {
-        background-color: $white;
-        color: $black;
-        padding: 10px 20px;
-        cursor: pointer;
-        border: none;
-        outline: none;
-        height: 40px;
-        font-size: 1rem;
-        font-weight: 600;
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-          width: 100%;
-        }
-      }
-
-      select {
-        margin-left: 20px;
-        padding: 10px 20px 10px 20px;
-        border: 1px solid $black;
-        cursor: pointer;
-        color: $black;
-        height: 40px;
-        font-size: 1rem;
-        font-weight: 600;
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-          margin-left: 0;
-        }
-
-        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-          width: 100%;
-        }
-
-        option {
-          color: $black;
-          border-radius: 0;
+          @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+            font-size: 1rem;
+          }
         }
       }
     }
@@ -173,5 +158,6 @@
         max-height: 100%;
       }
     }
+  }
   }
 }

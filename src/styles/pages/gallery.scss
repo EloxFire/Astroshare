@@ -2,9 +2,35 @@
 
 .gallery {
   @extend .global-page;
+  padding-bottom: 10vh;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     display: none;
+  }
+
+  .filters{
+    display: flex;
+    flex-direction: row;
+
+    .filter{
+      input[type="radio"]{
+        display: none;
+      }
+      label{
+        display: inline-block;
+        padding: 10px 20px;
+        border: 1px solid $black;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+          background-color: $black;
+          color: $white;
+        }
+      
+      }
+    }
   }
 }
 

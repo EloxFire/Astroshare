@@ -32,6 +32,16 @@ p {
   }
 }
 
+code{
+  font-family: 'Fira Code', monospace;
+  font-style: italic;
+  font-size: 1rem;
+  background-color: rgba($white, 0.8);
+  padding: 2px 5px;
+  border-radius: 5px;
+  color: $black;
+}
+
 .global-page{
   min-height: $page-height;
   padding-top: 10vh;
@@ -76,4 +86,15 @@ p {
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     font-size: 18px;
   }
+}
+
+.loader{
+  width: 20px;
+  height: 20px;
+  border: 3px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }
