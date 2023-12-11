@@ -35,6 +35,18 @@ export const routes = {
     path: '/politique-de-confidentialite',
     label: 'Politique de confidentialité',
   },
+  dashboard: {
+    path: '/dashboard',
+    label: 'Dashboard',
+  },
+  dashboard_add_ressource: {
+    path: '/dashboard/add-ressource',
+    label: 'Ajouter une ressource',
+  },
+  dashboard_add_image: {
+    path: '/dashboard/add-image',
+    label: 'Ajouter une image',
+  },
   notFound: {
     path: '*',
     label: '404',

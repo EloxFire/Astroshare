@@ -38,7 +38,7 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
         <button className="close-button" onClick={onNext}><FiArrowRightCircle /></button>
       </div>
       <div className="custom-image-modal__container">
-        <img src={slide.url} alt={slide.alt} />
+        <img src={slide.file} alt={slide.alt} />
         <div className="custom-image-modal__container__right">
           <p className="custom-image-modal__container__right__title">{slide.alt}</p>
           {slide.cameraSettings && <p className="custom-image-modal__container__right__property--title">Informations générales :</p>}
@@ -61,8 +61,8 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
           {slide.scopeSettings?.eyePieceMagnification && <p className="custom-image-modal__container__right__property">Grossissement : {slide.scopeSettings?.eyePieceMagnification}x</p>}
           {slide.scopeSettings?.barlow && <p className="custom-image-modal__container__right__property">Barlow : {slide.scopeSettings?.barlow}</p>}
           {slide.processingSettings && <p className="custom-image-modal__container__right__property--title">Post-processing :</p>}
-          {slide.processingSettings?.software && <p className="custom-image-modal__container__right__property">Logiciel : {slide.processingSettings.software}</p>}
           {slide.processingSettings?.stacking && <p className="custom-image-modal__container__right__property">Stacking : {slide.processingSettings?.stacking}</p>}
+          {slide.processingSettings?.software && <p className="custom-image-modal__container__right__property">Logiciel : {slide.processingSettings.software}</p>}
           {slide.processingSettings?.stackingSoftware && <p className="custom-image-modal__container__right__property">Logiciel de stacking : {slide.processingSettings?.stackingSoftware}</p>}
           {slide.processingSettings?.stackingFrames && <p className="custom-image-modal__container__right__property">Nombre d'images : {slide.processingSettings?.stackingFrames}</p>}
           {slide.processingSettings?.stackingTime && <p className="custom-image-modal__container__right__property">Exposition par image : {slide.processingSettings?.stackingTime}</p>}

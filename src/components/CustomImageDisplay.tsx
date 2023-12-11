@@ -44,9 +44,14 @@ export default function CustomImageDisplay({ images }: CustomImageDisplayProps) 
   return (
     <>
       <div className="custom-image-display">
+        {
+          images.length === 0 && (
+            <p style={{ textAlign: 'center' }}>Aucune image disponible pour le moment.</p>
+          )
+        }
         {images.map((image, image_index) => (
           <figure key={image_index} className="custom-image-display__item" onClick={() => handleImageClick(image_index)}>
-            <img src={image.url} alt={image.alt} />
+            <img src={image.file} alt={image.alt} />
             <figcaption className="custom-image-display__item__caption">{image.alt.slice(0, 30)}{image.alt.length >= 30 && "..."}</figcaption>
             <p className="custom-image-display__item__date">{dayjs(image.date).format('DD MMMM YYYY')}</p>
           </figure>

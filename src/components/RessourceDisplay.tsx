@@ -19,7 +19,7 @@ export default function RessourceDisplay({ ressource, currentCategory }: Ressour
       </div>
       <div className="ressource-display__right">
         <a href={`/ressource_details/${currentCategory}/${ressource.slug}`} className="ressource-display__right__button" >Détails et téléchargement</a>
-        <a href={`/ressource/${currentCategory}/${ressource.slug}`} className="ressource-display__right__button" >Ressource en ligne</a>
+        {/* <a href={`/ressource/${currentCategory}/${ressource.slug}`} className="ressource-display__right__button" >Ressource en ligne</a> */}
       </div>
     </div>
   )

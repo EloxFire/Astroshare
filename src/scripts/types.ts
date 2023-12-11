@@ -1,3 +1,5 @@
+import { Dayjs } from "dayjs";
+
 export type Ressource = {
   slug: string;
   name: string;
@@ -6,11 +8,12 @@ export type Ressource = {
   subtitle?: string;
   description: string;
   notes?: string;
-  level: string;
+  level: string[];
   format?: string[];
   image?: string;
   links?: string[];
   tags?: string[];
+  files?: any;
   creadted?: Date;
   updated: Date;
 }
@@ -24,14 +27,15 @@ export type RessourceCategory = {
 }
 
 export type Image = {
-  url: string; // url to the image
+  url?: string; // url to the image
+  file?: any; // file of the image
   alt: string; // alt text for the image
-  date: Date; // date of the image
+  date: Dayjs | string | undefined; // date of the image
   resolution?: string; // resolution of the image
   fileFormat?: string; // file format of the image
   tags?: string[]; // tags for the image to use with filters bar
   cameraSettings?: {
-    name: string; // Canon EOS 2000D
+    name?: string; // Canon EOS 2000D
     iso?: number; // 6400
     shutter?: string; // 1/30
     aperture?: string;  // f-1.4

@@ -34,4 +34,40 @@ export const ressourcesLevels = {
   advanced: 'Avancé',
 }
 
+export const imageProperties = {
+  url: "Url de l'image",
+  file: "Fichier de l'image",
+  alt: "Titre de l'image",
+  date: "Date de l'image",
+  resolution: "Résolution de l'image",
+  fileFormat: "Format du fichier",
+  tags: "Tags de l'image",
+  cameraSettings: {
+    name: "Nom de l'appareil photo",
+    iso: "ISO (Number)",
+    shutter: "Vitesse d'obturation",
+    aperture: "Ouverture",
+    fps: "FPS (Number)",
+    focalLength: "Longueur focale",
+  },
+  scopeSettings: {
+    name: "Nom du télescope",
+    mount: "Monture",
+    focal: "Longueur focale (Number)",
+    diameter: "Diamètre (Number)",
+    focalRatio: "Rapport focal",
+    eyePiece: "Oculaire",
+    eyePieceMagnification: "Grossissement (Number)",
+    barlow: "Barlow",
+  },
+  processingSettings: {
+    software: "Logiciel de traitement",
+    stacking: "Empilement (Oui / Non)",
+    stackingSoftware: "Logiciel d'empilement",
+    stackingFrames: "Nombre d'images empilées",
+    stackingTime: "Temps d'acquisition par image",
+    stackingTimeTotal: "Temps total d'acquisition",
+  }
+}
+
 export const genericRessourceNotes = "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !"

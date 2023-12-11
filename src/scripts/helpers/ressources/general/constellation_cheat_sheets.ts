@@ -18,7 +18,7 @@ export const constellations_cheat_sheets: Ressource = {
   subtitle: 'Fiches mémo sur les informations principales des constellations de l\'hémisphère nord',
   description: "Les fiches mémo sont des fiches d'informations sur les constellations. Elles vous permettront de vous aider dans vos observations et de vous guider dans le ciel nocturne.\n\n&#9888; Toutes les constellations ne sont pas encore disponibles. N'hésitez pas à vérifier régulièrement les mises a jour &#9888;\n\nVous trouverez dans ce document :\n- 7 fiches d'informations sur les constellations de l'hémisphère Nord",
   notes: genericRessourceNotes,
-  level: ressourcesLevels.beginner,
+  level: [ressourcesLevels.beginner],
   format: [ressourceType.pdf, ressourceType.zip],
   tags: ['Apprentissage', 'Activité', 'Fiches mémo', 'Observation', 'Constellations'],
   image: '/images/pdfs/cheat_sheets.png',
