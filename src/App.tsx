@@ -14,6 +14,7 @@ import RessourcePage from "./pages/ressources/Ressource";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
 import AddImage from "./pages/dashboard/AddImage";
+import Guard from "./components/Auth/Guard";
 
 function App() {
   return (
@@ -33,9 +34,9 @@ function App() {
         <Route path={routes.privacy.path} element={<Layout component={<Privacy />} />} />
         <Route path={routes.notFound.path} element={<NotFound />} />
         {/* Admin routes */}
-        <Route path={routes.dashboard.path} element={<Layout component={<Dashboard />} />} />
-        <Route path={routes.dashboard_add_ressource.path} element={<Layout component={<AddRessource />} />} />
-        <Route path={routes.dashboard_add_image.path} element={<Layout component={<AddImage />} />} />
+        <Route path={routes.dashboard.path} element={<Layout component={<Guard children={<Dashboard />} />} />} />
+        <Route path={routes.dashboard_add_ressource.path} element={<Guard children={<AddRessource />} />} />
+        <Route path={routes.dashboard_add_image.path} element={<Guard children={<AddImage />} />} />
       </Routes>
     </Router>
   );
