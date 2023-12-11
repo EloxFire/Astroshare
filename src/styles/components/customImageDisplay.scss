@@ -1,7 +1,7 @@
 @import '../globals.scss';
 
 .custom-image-display {
-  // background-color: red;
+  background-color: red;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -13,8 +13,8 @@
     flex-direction: column;
 
     img{
-      height: 40vh;
-      width: 40vh;
+      height: 38vh;
+      width: 38vh;
       border: 2px solid $white;
       margin-bottom: 3vh;
       object-fit: cover;
@@ -37,8 +37,4 @@
       left: auto;
     }
   }
-}
-
-.image-modal-background{
-
 }
