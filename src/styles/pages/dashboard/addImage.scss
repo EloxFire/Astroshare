@@ -78,9 +78,21 @@
           margin-left: 20px;
           width: 40%;
           font-size: .8rem;
+
+          .loader{
+            border-width: 2px;
+            width: 10px;
+            height: 10px;
+          }
+
           &:hover{
             background-color: $white;
             color: $black;
+
+            .loader{
+              border-color: $black;
+              border-bottom-color: transparent;
+            }
           }
         }
       }
@@ -102,9 +114,20 @@
         background-color: $black;
         width: 100%;
 
+        .loader{
+          border-width: 2px;
+          width: 10px;
+          height: 10px;
+        }
+
         &:hover{
           background-color: $white;
           color: $black;
+
+          .loader{
+            border-color: $black;
+            border-bottom-color: transparent;
+          }
         }
       }
     }
