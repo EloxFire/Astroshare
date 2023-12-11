@@ -33,7 +33,7 @@ export type Image = {
   date: Dayjs | string | undefined; // date of the image
   resolution?: string; // resolution of the image
   fileFormat?: string; // file format of the image
-  tags?: string[]; // tags for the image to use with filters bar
+  tags?: string; // tags for the image to use with filters bar
   cameraSettings?: {
     name?: string; // Canon EOS 2000D
     iso?: number; // 6400

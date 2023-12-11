@@ -11,24 +11,24 @@
   .filters{
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
 
     .filter{
-      input[type="radio"]{
-        display: none;
-      }
-      label{
-        display: inline-block;
-        padding: 10px 20px;
-        border: 1px solid $black;
-        border-radius: 5px;
-        margin-right: 10px;
+      margin-right: 20px;
+      font-size: 1rem;
+      padding: 5px 10px;
+      border: 1px solid $white;
+      background-color: $black;
+
+      &:hover{
         cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        &:hover{
-          background-color: $black;
-          color: $white;
-        }
-      
+        background-color: $white;
+        color: $black;
+      }
+
+      &.active{
+        background-color: $white;
+        color: $black;
       }
     }
   }

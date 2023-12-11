@@ -44,11 +44,6 @@ export default function CustomImageDisplay({ images }: CustomImageDisplayProps) 
   return (
     <>
       <div className="custom-image-display">
-        {
-          images.length === 0 && (
-            <p style={{ textAlign: 'center' }}>Aucune image disponible pour le moment.</p>
-          )
-        }
         {images.map((image, image_index) => (
           <figure key={image_index} className="custom-image-display__item" onClick={() => handleImageClick(image_index)}>
             <img src={image.file} alt={image.alt} />
