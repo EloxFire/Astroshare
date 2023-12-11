@@ -63,6 +63,11 @@ export default function AddImage() {
     setAdditionnalPropertyValue("")
   }
 
+  const deleteImage = () => {
+    setImageFile(null)
+    setImageTitle("")
+  }
+
   return (
     <div className="dashboard-add-image">
       {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
@@ -106,11 +111,16 @@ export default function AddImage() {
           <button disabled={uploading} className="submit-button" onClick={() => addNewImage()}>{!uploading ? "Ajouter l'image" : <div className="loader"></div>}</button>
         </div>
         <div className="right">
-          <label htmlFor="image-file" className="drop-container" id="dropcontainer">
+          <div className="drop-container">
             <span className="drop-title">Sélectionnez un fichier</span>
-            <input type="file" id="image-file" accept="image/*" onChange={(e) => { setImageFile(e.target.files![0]); if (imageTitle === "") { setImageTitle(e.target.files![0].name) } }} required />
-            {imageFile && <img className="image" src={URL.createObjectURL(imageFile)} alt='' />}
-          </label>
+            <input type="file" accept="image/*" onChange={(e) => { setImageFile(e.target.files![0]); if (imageTitle === "") { setImageTitle(e.target.files![0].name) } }} required />
+            {imageFile && (
+              <div className="image-preview">
+                <img className="image" src={URL.createObjectURL(imageFile)} alt='' />
+                <button onClick={() => deleteImage()}>X</button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
