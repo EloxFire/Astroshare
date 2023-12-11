@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Ressource } from '../../scripts/types'
-import { ressourceType, ressourcesLevels } from '../../scripts/helpers/helpers'
+import { ressourceProperties } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources'
 import Chip from '../../components/Chip'
 import '../../styles/pages/dashboard/addRessource.scss'
@@ -14,107 +14,136 @@ export default function AddRessource() {
     document.title = 'Astroshare | Ajouter une ressource'
   }, [])
 
-  const [ressourceToAdd, setRessourceToAdd] = useState<Ressource>({
-    name: '',
-    subtitle: '',
-    description: '',
-    notes: '',
-    format: [],
-    level: [],
-    tags: [],
-    category: '',
-    downloadNames: [],
-    slug: '',
-    updated: new Date(),
-    creadted: new Date(),
-    files: [],
-    image: '',
-    links: [],
-  });
+  const [ressourceName, setRessourceName] = useState<string>("")
+  const [ressourceSlug, setRessourceSlug] = useState<string>("")
+  const [ressourceCategory, setRessourceCategory] = useState<string>("")
+  const [ressourceDownloadNames, setRessourceDownloadNames] = useState<string>("")
+  const [ressourceDescription, setRessourceDescription] = useState<string>("")
+  const [ressourceLevel, setRessourceLevel] = useState<string>("")
+  const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
 
-  const handleInputChange = (key: string, value: string, parse?: boolean) => {
-    if (parse) {
-      const parsedValue = value.split(',').map((element) => element.trim())
-      setRessourceToAdd({ ...ressourceToAdd, [key]: parsedValue } as Ressource)
-    } else {
-      setRessourceToAdd({ ...ressourceToAdd, [key]: value } as Ressource)
+  const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
+  const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
+  const [ressourceOptionnalProperties, setRessourceOptionnalProperties] = useState<any>({})
+  const [uploading, setUploading] = useState<boolean>(false)
+
+  const appendNewProperty = (key: string, value: string | number) => {
+    if (ressourceOptionnalProperties[key] !== undefined && value === "") {
+      const temp = { ...ressourceOptionnalProperties }
+      delete temp[key]
+      setRessourceOptionnalProperties(temp)
+    }
+
+    if (key !== "" && value !== "") {
+      setRessourceOptionnalProperties({ ...ressourceOptionnalProperties, [key]: value })
+      setSelectedAdditionalProperty("")
+      setAdditionnalPropertyValue("")
     }
   }
 
-  // Handle multiple chips select and de-select (format, level)
-  // Needs to be formated as an array of strings
-  const handleMultiSelect = (key: 'format' | 'level', value: string) => {
-    if (ressourceToAdd && ressourceToAdd[key] !== undefined) {
-      const temp = ressourceToAdd[key] || [];
-      if (!temp.includes(value)) {
-        temp.push(value);
-      } else {
-        const index = temp.indexOf(value);
-        if (index > -1) {
-          temp.splice(index, 1);
-
-        }
-      }
-      if (temp.length === 0) {
-        delete ressourceToAdd[key];
-        console.log(ressourceToAdd);
-        setRessourceToAdd(ressourceToAdd);
-      } else {
-        setRessourceToAdd({ ...ressourceToAdd, [key]: temp } as Ressource)
-      }
-    } else {
-      setRessourceToAdd({ ...ressourceToAdd, [key]: [value] } as Ressource)
+  const handleFiles = (files: any) => {
+    const temp = [...ressourceFiles]
+    for (let i = 0; i < files.length; i++) {
+      temp.push(files[i])
     }
+    setRessourceFiles(temp)
   }
 
-  const addNewRessource = () => {
+  const deleteFile = (index: number) => {
+    const temp = [...ressourceFiles]
+    temp.splice(index, 1)
+    setRessourceFiles(temp)
+  }
+
+  const addNewRessource = async () => {
+    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "") {
+      console.log("Missing required fields");
+      return;
+    }
+
+    const ressourceToAdd: Ressource = {
+      name: ressourceName,
+      slug: ressourceSlug,
+      category: ressourceCategory,
+      downloadNames: ressourceDownloadNames,
+      description: ressourceDescription,
+      level: ressourceLevel,
+      files: ressourceFiles,
+      createdAd: new Date(),
+      updatedAt: new Date(),
+      ...ressourceOptionnalProperties
+    }
+
     try {
-      ressourceToAdd && uploadNewRessource(ressourceToAdd)
+      setUploading(true)
+      await uploadNewRessource(ressourceToAdd)
+      setUploading(false)
+      setRessourceName("")
+      setRessourceSlug("")
+      setRessourceCategory("")
+      setRessourceDownloadNames("")
+      setRessourceDescription("")
+      setRessourceLevel("")
+      setRessourceFiles([])
+      setRessourceOptionnalProperties({})
     } catch (error) {
-      console.log(error)
+
     }
   }
 
   return (
-    <div className="add-ressource-details">
+    <div className="dashboard-add-ressource">
+      {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
       <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
-      <div className="add-ressource-details__content">
-        <div className="add-ressource-details__content__left">
-          <input className="add-ressource-details__content__left__title" placeholder='Titre de la ressource' value={ressourceToAdd?.name} onChange={(e) => { handleInputChange('name', e.target.value) }} />
-          <input className="add-ressource-details__content__left__subtitle" placeholder='Sous-titre de la ressource' value={ressourceToAdd?.subtitle} onChange={(e) => handleInputChange('subtitle', e.target.value)} />
-          <div className="add-ressource-details__content__left__description-container">
-            <textarea className="add-ressource-details__content__left__description-container__description" rows={10} value={ressourceToAdd?.description} placeholder='Desription longue de la ressource' onChange={(e) => handleInputChange('description', e.target.value)} />
-            <input className="add-ressource-details__content__left__description-container__notes" type="text" value={ressourceToAdd?.notes} placeholder='Notes additionnelles de la ressource' onChange={(e) => handleInputChange('notes', e.target.value)} />
-          </div>
-          <div className="add-ressource-details__content__left__infos">
-            <div className="add-ressource-details__content__left__infos__item">
-              <p>Format du document :</p>
+      <div className="dashboard-add-ressource__content">
+        <div className="left">
+          <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Nom de la ressource" value={ressourceName} onChange={(e) => { setRessourceName(e.target.value) }} />
+          <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Slug de la ressource" value={ressourceSlug} onChange={(e) => { setRessourceSlug(e.target.value.replaceAll(' ', '-').trim()) }} />
+          <div className="additionnal-property">
+            <p className="title">Ajouter une propriété optionnelle</p>
+            <select disabled={uploading} className="custom-select" value={selectedAdditionalProperty} onChange={(e) => setSelectedAdditionalProperty(e.target.value)}>
+              <option value="">Selectionner une option</option>
               {
-                Object.entries(ressourceType).map(([key, value]) => {
-                  return (
-                    <Chip key={`add-ressource-details__content__left__infos__item__${key}`} label={value} onClick={() => handleMultiSelect('format', value)} />
-                  )
+                Object.keys(ressourceProperties).map((key, index) => {
+                  return (key !== "cameraSettings" && key !== "scopeSettings" && key !== "processingSettings" && key !== 'file' && key !== 'alt' && key !== 'date') &&
+                    <option key={index} value={key}>{key}</option>
                 })
               }
+            </select>
+            <div className="property-input-container">
+              <input type='text' className="custom-input" style={{ marginBottom: '0px' }} placeholder="Valeur" value={additionnalPropertyValue} onChange={(e) => { setAdditionnalPropertyValue(e.target.value) }} />
+              <button disabled={uploading} onClick={() => appendNewProperty(selectedAdditionalProperty, additionnalPropertyValue)}>{!uploading ? "Ajouter la propriété" : <div className="loader"></div>}</button>
             </div>
-            <div className="add-ressource-details__content__left__infos__item">
-              <p>Niveau :</p>
-              {
-                Object.entries(ressourcesLevels).map(([key, value]) => {
-                  return (
-                    <Chip key={`add-ressource-details__content__left__infos__item__${key}`} label={value} onClick={() => handleMultiSelect('level', value)} />
-                  )
-                })
-              }
+            <div className="added-properties">
+              <small>Propriétés supplémentaires : <br /></small>
+              <small>
+                {
+                  JSON.stringify(ressourceOptionnalProperties)
+                }
+              </small>
             </div>
           </div>
-          <input className="custom-input" placeholder="Tags de la ressource (séparés d'une virgule)" onChange={(e) => handleInputChange('tags', e.target.value, true)} />
-          <button style={{ color: 'black' }} onClick={() => addNewRessource()}>Add ressource</button>
+          <button disabled={uploading} className="submit-button" onClick={() => addNewRessource()}>{!uploading ? "Ajouter la ressource" : <div className="loader"></div>}</button>
         </div>
-        <div className="add-ressource-details__content__right">
-          {
-            JSON.stringify(ressourceToAdd)
-          }
+        <div className="right">
+          <div className="drop-container">
+            <span className="drop-title">Sélectionnez un ou plusieurs fichiers</span>
+            <input type="file" accept="*.pdf, *.md, *.mdx" multiple onChange={(e) => { handleFiles(e.target.files); if (ressourceName === "") { setRessourceName(e.target.files![0].name) } }} required />
+            <div className="files-preview">
+              {
+                ressourceFiles &&
+                ressourceFiles.map((file, fileIndex) => {
+                  return (
+                    <div className="file">
+                      <embed height="820px" width="350px" key={fileIndex} className="image" src={URL.createObjectURL(file)} title={file.name} />
+                      <small className="file-name">{file.name.substr(0, 30)}</small>
+                      <button onClick={() => deleteFile(fileIndex)}>X</button>
+                    </div>
+                  )
+                })
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>

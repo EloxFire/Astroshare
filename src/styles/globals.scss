@@ -88,6 +88,43 @@ code{
   }
 }
 
+.custom-input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba($white, .5);
+  margin-bottom: 10px;
+  width: 100%;
+
+  &::placeholder{
+    // text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.custom-select{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 8px 10px 5px 10px;
+  outline: none;
+  border: none;
+  border: 1px solid rgba($white, .5);
+  margin-bottom: 20px;
+  width: 100%;
+  color: $white;
+
+  &::placeholder{
+    font-weight: 700;
+  }
+
+  option{
+    color: $black;
+  }
+}
+
 .loader{
   width: 20px;
   height: 20px;

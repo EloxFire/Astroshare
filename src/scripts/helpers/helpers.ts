@@ -36,9 +36,6 @@ export const ressourcesLevels = {
 
 export const imageProperties = {
   url: "Url de l'image",
-  file: "Fichier de l'image",
-  alt: "Titre de l'image",
-  date: "Date de l'image",
   resolution: "Résolution de l'image",
   fileFormat: "Format du fichier",
   tags: "Tags de l'image",
@@ -68,6 +65,15 @@ export const imageProperties = {
     stackingTime: "Temps d'acquisition par image",
     stackingTimeTotal: "Temps total d'acquisition",
   }
+}
+
+export const ressourceProperties = {
+  subtitle: "Sous-titre",
+  notes: "Notes",
+  format: "Format",
+  image: "Image",
+  links: "Liens",
+  tags: "Tags",
 }
 
 export const genericRessourceNotes = "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !"
