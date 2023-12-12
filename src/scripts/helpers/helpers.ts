@@ -39,6 +39,7 @@ export const imageProperties = {
   resolution: "Résolution de l'image",
   fileFormat: "Format du fichier",
   tags: "Tags de l'image",
+  place: "Lieu de prise de vue",
   cameraSettings: {
     name: "Nom de l'appareil photo",
     iso: "ISO (Number)",

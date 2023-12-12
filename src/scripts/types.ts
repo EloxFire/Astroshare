@@ -34,6 +34,7 @@ export type Image = {
   resolution?: string; // resolution of the image
   fileFormat?: string; // file format of the image
   tags?: string; // tags for the image to use with filters bar
+  place?: string; // place where the image was taken
   cameraSettings?: {
     name?: string; // Canon EOS 2000D
     iso?: number; // 6400
