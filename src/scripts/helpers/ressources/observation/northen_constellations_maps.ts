@@ -12,6 +12,7 @@ export const northen_constellations_maps: Ressource = {
   level: [ressourcesLevels.all],
   format: [ressourceType.pdf],
   tags: ['Apprentissage', 'Observation'],
+  type: "PDF",
   image: '/images/pdfs/northen_constellation_maps.jpg',
   links: ['/docs/guide.pdf'],
   creadted: new Date(2023, 8, 28), // 28 septembre 2023

@@ -11,6 +11,7 @@ export const personnal_book: Ressource = {
   notes: genericRessourceNotes,
   level: [ressourcesLevels.beginner],
   format: [ressourceType.fillable],
+  type: "PDF",
   tags: ['Apprentissage', 'Activité', 'Dossier personnel', 'Observation', 'Matériel'],
   image: '/images/pdfs/guide.png',
   links: ['/docs/guide.pdf'],

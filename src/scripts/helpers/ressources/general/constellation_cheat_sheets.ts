@@ -20,6 +20,7 @@ export const constellations_cheat_sheets: Ressource = {
   notes: genericRessourceNotes,
   level: [ressourcesLevels.beginner],
   format: [ressourceType.pdf, ressourceType.zip],
+  type: "PDF",
   tags: ['Apprentissage', 'Activité', 'Fiches mémo', 'Observation', 'Constellations'],
   image: '/images/pdfs/cheat_sheets.png',
   links: [

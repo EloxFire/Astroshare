@@ -16,10 +16,10 @@ export default function RessourceDetails() {
 
   useEffect(() => {
     // Find the ressource in the ressources array
-    const ressource = ressources.find(ressource => ressource.slug === ressource_name)
-    setRessourceInfos(ressource)
-    let defaultLink = ressource?.links?.[0];
-    setSelectedPackage(defaultLink || '')
+    // const ressource = ressources.find(ressource => ressource.slug === ressource_name)
+    // setRessourceInfos(ressource)
+    // let defaultLink = ressource?.links?.[0];
+    // setSelectedPackage(defaultLink || '')
   }, [ressource_name])
 
   return (

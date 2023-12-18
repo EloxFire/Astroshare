@@ -13,6 +13,7 @@ export const optical_notion: Ressource = {
   format: [ressourceType.pdf],
   tags: ['Apprentissage', 'Matériel', 'Optique'],
   image: '/images/pdfs/optical_notions.jpg',
+  type: "PDF",
   links: ['/docs/guide.pdf'],
   creadted: new Date(2023, 8, 28), // 28 septembre 2023
   updated: new Date(2023, 8, 28), // 28 septembre 2023

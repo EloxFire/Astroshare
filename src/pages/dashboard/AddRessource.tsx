@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Ressource } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources'
-import Chip from '../../components/Chip'
 import '../../styles/pages/dashboard/addRessource.scss'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
@@ -20,6 +19,7 @@ export default function AddRessource() {
   const [ressourceDownloadNames, setRessourceDownloadNames] = useState<string>("")
   const [ressourceDescription, setRessourceDescription] = useState<string>("")
   const [ressourceLevel, setRessourceLevel] = useState<string>("")
+  const [ressourceType, setRessourceType] = useState<string>("")
   const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
 
   const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
@@ -56,7 +56,7 @@ export default function AddRessource() {
   }
 
   const addNewRessource = async () => {
-    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "") {
+    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "" || ressourceFiles.length === 0) {
       console.log("Missing required fields");
       return;
     }
@@ -69,6 +69,7 @@ export default function AddRessource() {
       description: ressourceDescription,
       level: ressourceLevel,
       files: ressourceFiles,
+      type: ressourceType,
       createdAd: new Date(),
       updatedAt: new Date(),
       ...ressourceOptionnalProperties
@@ -97,8 +98,15 @@ export default function AddRessource() {
       <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
+          <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Type de ressource (pdf ou online)" value={ressourceType} onChange={(e) => { setRessourceType(e.target.value.toLocaleLowerCase().trim()) }} />
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Nom de la ressource" value={ressourceName} onChange={(e) => { setRessourceName(e.target.value) }} />
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Slug de la ressource" value={ressourceSlug} onChange={(e) => { setRessourceSlug(e.target.value.replaceAll(' ', '-').trim()) }} />
+          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} />
+          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(e.target.value) }} />
+          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
+          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
+
+
           <div className="additionnal-property">
             <p className="title">Ajouter une propriété optionnelle</p>
             <select disabled={uploading} className="custom-select" value={selectedAdditionalProperty} onChange={(e) => setSelectedAdditionalProperty(e.target.value)}>

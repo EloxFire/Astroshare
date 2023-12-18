@@ -5,17 +5,18 @@ export type Ressource = {
   slug: string;
   category: string;
   downloadNames: string[];
-  subtitle?: string;
-  description: string;
-  notes?: string;
   level: string[];
+  type: string
+  description: string;
+  subtitle?: string;
+  notes?: string;
   format?: string[];
   image?: string;
   links?: string[];
   tags?: string[];
   files?: any[];
   creadted?: Date;
-  updated: Date;
+  updated?: Date;
 }
 
 export type RessourceCategory = {
