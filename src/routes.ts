@@ -8,8 +8,8 @@ export const routes = {
     label: 'À propos',
   },
   gallery: {
-    path: '/gallerie',
-    label: 'Gallerie',
+    path: '/galerie',
+    label: 'Galerie',
   },
   hub: {
     path: '/ressources',

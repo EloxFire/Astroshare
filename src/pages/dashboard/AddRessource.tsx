@@ -6,6 +6,7 @@ import '../../styles/pages/dashboard/addRessource.scss'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
+import Alert from '../../components/Alert'
 
 export default function AddRessource() {
 
@@ -26,6 +27,7 @@ export default function AddRessource() {
   const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
   const [ressourceOptionnalProperties, setRessourceOptionnalProperties] = useState<any>({})
   const [uploading, setUploading] = useState<boolean>(false)
+  const [error, setError] = useState<string>("")
 
   const appendNewProperty = (key: string, value: string | number) => {
     if (ressourceOptionnalProperties[key] !== undefined && value === "") {
@@ -58,6 +60,10 @@ export default function AddRessource() {
   const addNewRessource = async () => {
     if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "" || ressourceFiles.length === 0) {
       console.log("Missing required fields");
+      setError("Veuillez remplir tous les champs obligatoires")
+      setTimeout(() => {
+        setError("")
+      }, 3000)
       return;
     }
 
@@ -94,11 +100,18 @@ export default function AddRessource() {
 
   return (
     <div className="dashboard-add-ressource">
-      {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
+      {
+        error !== "" &&
+        <Alert type='error' message={error} />
+      }
       <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
-          <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Type de ressource (pdf ou online)" value={ressourceType} onChange={(e) => { setRessourceType(e.target.value.toLocaleLowerCase().trim()) }} />
+          <div className="types-container">
+            <p className="types-title">Type de ressource</p>
+            <button className={`type-selector ${ressourceType === "pdf" && 'active'}`} onClick={() => setRessourceType('pdf')}>PDF</button>
+            <button className={`type-selector ${ressourceType === "online" && 'active'}`} onClick={() => setRessourceType('online')}>Online</button>
+          </div>
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Nom de la ressource" value={ressourceName} onChange={(e) => { setRessourceName(e.target.value) }} />
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Slug de la ressource" value={ressourceSlug} onChange={(e) => { setRessourceSlug(e.target.value.replaceAll(' ', '-').trim()) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} />
