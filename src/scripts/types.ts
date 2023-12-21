@@ -1,12 +1,12 @@
 import { Dayjs } from "dayjs";
 
 export type Ressource = {
+  type: string
   name: string;
   slug: string;
   category: string;
   downloadNames: string[];
   level: string[];
-  type: string
   description: string;
   subtitle?: string;
   notes?: string;

@@ -1,12 +1,13 @@
 import { collection, getDocs, getFirestore, query, updateDoc, where, addDoc } from "firebase/firestore";
-import { Image } from "../../types";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { dbCollections } from "../constants";
+import { Image } from "../../types";
 import dayjs from "dayjs";
 
 // Get Gallery collection documents count
 export const getGalleryCount = async () => {
   const db = getFirestore();
-  const galleryRef = collection(db, "Gallery");
+  const galleryRef = collection(db, dbCollections.gallery);
   const gallery = await getDocs(galleryRef);
   return gallery.size;
 }
@@ -14,7 +15,7 @@ export const getGalleryCount = async () => {
 // Get an image in the gallery bi its ID
 export const getImageById = async (image_id: string) => {
   const db = getFirestore();
-  const galleryRef = collection(db, "Gallery");
+  const galleryRef = collection(db, dbCollections.gallery);
   const ressourceQuery = query(galleryRef, where("id", "==", image_id));
   const gallery = await getDocs(ressourceQuery)
   return gallery.docs[0].data();
@@ -23,7 +24,7 @@ export const getImageById = async (image_id: string) => {
 // Get all images in the gallery
 export const getImages = async () => {
   const db = getFirestore();
-  const galleryRef = collection(db, "Gallery");
+  const galleryRef = collection(db, dbCollections.gallery);
   const ressourceQuery = query(galleryRef);
   const gallery = await getDocs(ressourceQuery)
   return gallery;
@@ -45,7 +46,7 @@ export const uploadNewImage = async (image: any | Image) => { // TODO REMOVE ANY
 
   try {
     const db = getFirestore();
-    const galleryRef = collection(db, "Gallery");
+    const galleryRef = collection(db, dbCollections.gallery);
     const docRef = await addDoc(galleryRef, image);
     updateDoc(docRef, {
       ref: docRef.id

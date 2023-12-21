@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Ressource } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources'
-import '../../styles/pages/dashboard/addRessource.scss'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import Alert from '../../components/Alert'
+import '../../styles/pages/dashboard/addRessource.scss'
 
 export default function AddRessource() {
 
@@ -67,11 +67,19 @@ export default function AddRessource() {
       return;
     }
 
+    if (ressourceDownloadNames.split(',').length !== ressourceFiles.length) {
+      setError("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement")
+      setTimeout(() => {
+        setError("")
+      }, 3000)
+      return;
+    }
+
     const ressourceToAdd: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
       category: ressourceCategory,
-      downloadNames: ressourceDownloadNames,
+      downloadNames: ressourceDownloadNames.split(','),
       description: ressourceDescription,
       level: ressourceLevel,
       files: ressourceFiles,
@@ -85,14 +93,14 @@ export default function AddRessource() {
       setUploading(true)
       await uploadNewRessource(ressourceToAdd)
       setUploading(false)
-      setRessourceName("")
-      setRessourceSlug("")
-      setRessourceCategory("")
-      setRessourceDownloadNames("")
-      setRessourceDescription("")
-      setRessourceLevel("")
-      setRessourceFiles([])
-      setRessourceOptionnalProperties({})
+      // setRessourceName("")
+      // setRessourceSlug("")
+      // setRessourceCategory("")
+      // setRessourceDownloadNames("")
+      // setRessourceDescription("")
+      // setRessourceLevel("")
+      // setRessourceFiles([])
+      // setRessourceOptionnalProperties({})
     } catch (error) {
 
     }
@@ -115,9 +123,9 @@ export default function AddRessource() {
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Nom de la ressource" value={ressourceName} onChange={(e) => { setRessourceName(e.target.value) }} />
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Slug de la ressource" value={ressourceSlug} onChange={(e) => { setRessourceSlug(e.target.value.replaceAll(' ', '-').trim()) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} />
+          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(e.target.value) }} />
-          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
-          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
+          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Description de la ressource' value={ressourceDescription} onChange={(e) => { setRessourceDescription(e.target.value) }} />
 
 
           <div className="additionnal-property">
