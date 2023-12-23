@@ -68,6 +68,7 @@ export default function AddRessource() {
     }
 
     if (ressourceDownloadNames.split(',').length !== ressourceFiles.length) {
+      console.log("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement");
       setError("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement")
       setTimeout(() => {
         setError("")

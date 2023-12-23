@@ -1,4 +1,4 @@
-import { collection, getDocs, getFirestore, query, where, addDoc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, where, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { Ressource } from "../../types";
 import { dbCollections } from "../constants";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
@@ -21,42 +21,41 @@ export const getRessource = async (ressource_slug: string) => {
 }
 
 export const uploadNewRessource = async (ressource: Ressource) => {
-  console.log("Adding new ressource");
+  const storage = getStorage();
+  const db = getFirestore();
 
-  console.log(ressource);
-
-  // Upload files to storage
-  let filesUrls: string[] = [];
-  try {
-    const storage = getStorage();
-
-    ressource.files?.forEach(async (file, file_index) => {
-      const storageRef = ref(storage, `ressources/${ressource.slug}/${ressource.downloadNames[file_index]}`);
-      const fileRef = await uploadBytes(storageRef, file);
-      const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
-      filesUrls.push(fileUrl);
-    })
-  } catch (error) {
-    console.error("Error uploading ressource files to storage:", error);
-  }
-
-  console.log(filesUrls);
-
-  ressource.files = filesUrls;
-
-  console.log(ressource);
-
+  const tempRessource = ressource;
+  const filesToUpload = ressource.files!;
+  const { files, ...ressourceToUpload } = tempRessource;
 
   try {
-    const db = getFirestore();
+    console.log("Writing ressource to database");
+
     const ressourcesRef = collection(db, dbCollections.ressources);
-    const docRef = await addDoc(ressourcesRef, ressource);
+    const docRef = await addDoc(ressourcesRef, ressourceToUpload);
     updateDoc(docRef, {
       ref: docRef.id
     });
     console.log("Ressource written with ID : ", docRef.id);
+
+    // Upload files to storage
+    try {
+      filesToUpload.forEach(async (file, file_index) => {
+        const storageRef = ref(storage, `ressources/${ressource.slug}/${ressource.downloadNames[file_index]}`);
+        const fileRef = await uploadBytes(storageRef, file);
+        const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
+        console.log("File uploaded to storage:", fileRef.metadata.ref!);
+        updateDoc(docRef, {
+          files: arrayUnion(fileUrl)
+        })
+        console.log(`File n°${file_index} url added to ressource document`);
+
+
+      })
+    } catch (error) {
+      console.error("Error uploading ressource files to storage:", error);
+    }
   } catch (error) {
     console.error("Error adding document:", error);
   }
-
 }
