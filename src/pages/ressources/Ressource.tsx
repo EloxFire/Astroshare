@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { getRessource } from '../../scripts/helpers/api/ressources/ressources'
 import '../../styles/pages/ressources/ressource.scss'
+import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
 
 export default function RessourcePage() {
 
@@ -16,7 +16,7 @@ export default function RessourcePage() {
   useEffect(() => {
     const fetchData = async () => {
       if (ressource_name !== undefined) {
-        const r = await getRessource(ressource_name)
+        const r = await getRessourceBySlug(ressource_name)
         setCurrentRessource(r)
       }
     }

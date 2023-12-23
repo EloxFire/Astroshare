@@ -19,12 +19,8 @@ export const routes = {
     path: '/ressources/:category',
     label: 'Categorie',
   },
-  ressource_details: {
-    path: '/ressource_details/:category/:ressource_name',
-    label: 'Détails de la ressource',
-  },
   ressource: {
-    path: '/ressource/:category/:ressource_name',
+    path: '/ressource/:category/:ressource_slug',
     label: 'Ressource',
   },
   contact: {
@@ -46,6 +42,10 @@ export const routes = {
   dashboard_add_image: {
     path: '/dashboard/add-image',
     label: 'Ajouter une image',
+  },
+  dahsboard_add_category: {
+    path: '/dashboard/add-category',
+    label: 'Ajouter une catégorie',
   },
   notFound: {
     path: '*',

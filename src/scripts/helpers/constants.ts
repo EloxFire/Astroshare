@@ -3,5 +3,6 @@ export const dbCollections = {
   gallery: 'Gallery',
   visitsStats: 'Visits',
   downloadStats: 'Downloads',
-  users: 'Users'
+  users: 'Users',
+  categories: 'Categories',
 }
