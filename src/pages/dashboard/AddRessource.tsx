@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Ressource } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
-import { uploadNewRessource } from '../../scripts/helpers/api/ressources'
+import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'

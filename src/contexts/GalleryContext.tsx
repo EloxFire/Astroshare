@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
-import { getImages } from '../scripts/helpers/api/gallery';
+import { getImages } from '../scripts/helpers/api/gallery/gallery';
 import { Image } from '../scripts/types';
 
 const GalleryContext = createContext<any>({});

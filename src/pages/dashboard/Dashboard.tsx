@@ -44,10 +44,11 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="content__right">
+          <p className="title">Gestion</p>
           <div className="controls">
-            <p className="title">Gestion</p>
             <Link to={routes.dashboard_add_ressource.path} className="dashboard__add-ressource button-link">Ajouter une ressource</Link>
             <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource button-link">Ajouter une image</Link>
+            <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource button-link">Créer une nouvelle catégorie</Link>
           </div>
         </div>
       </div>

@@ -1,24 +1,7 @@
-import { collection, getDocs, getFirestore, query, where, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
-import { Ressource } from "../../types";
-import { dbCollections } from "../constants";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
-
-// Get Ressources collection documents count
-export const getRessourcesCount = async () => {
-  const db = getFirestore();
-  const ressourcesRef = collection(db, dbCollections.ressources);
-  const ressources = await getDocs(ressourcesRef);
-  return ressources.size;
-}
-
-// Get a ressource by its slug
-export const getRessource = async (ressource_slug: string) => {
-  const db = getFirestore();
-  const ressourcesRef = collection(db, dbCollections.ressources);
-  const ressourceQuery = query(ressourcesRef, where("slug", "==", ressource_slug));
-  const ressource = await getDocs(ressourceQuery)
-  return ressource.docs[0].data();
-}
+import { getFirestore, collection, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { Ressource } from "../../../types";
+import { dbCollections } from "../../constants";
 
 export const uploadNewRessource = async (ressource: Ressource) => {
   const storage = getStorage();

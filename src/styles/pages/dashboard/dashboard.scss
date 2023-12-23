@@ -14,13 +14,13 @@
       width: 50%;
       display: flex;
       flex-direction: column;
+      padding-top: 5vh;
     }
 
     &__left{
       padding-right: 50px;
 
       .stats{
-        margin-top: 5vh;
         .title{
           font-size: 1.5rem;
           font-weight: 700;
@@ -60,14 +60,16 @@
 
     &__right{
       padding-left: 50px;
+      
+      .title{
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
 
       .controls{
-        margin-top: 5vh;
-
-        .title{
-          font-size: 1.5rem;
-          font-weight: 700;
-        }
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
 
         .button-link {
           text-transform: uppercase;
@@ -76,6 +78,7 @@
           border: 1px solid $white;
           padding: 8px 10px 5px 10px;
           margin-right: 20px;
+          margin-bottom: 20px;
         }
       }
     }

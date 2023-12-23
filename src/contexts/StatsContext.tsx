@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
-import { getRessourcesCount } from '../scripts/helpers/api/ressources';
-import { getGalleryCount } from '../scripts/helpers/api/gallery';
-import { getDownloadsCount, getVisitsCount } from '../scripts/helpers/api/global';
+import { getRessourcesCount } from '../scripts/helpers/api/ressources/getRessourcesCount';
+import { getGalleryCount } from '../scripts/helpers/api/gallery/getGalleryCount';
+import { getDownloadsCount } from '../scripts/helpers/api/downloads/getDownloadsCount';
+import { getVisitsCount } from '../scripts/helpers/api/visits/getVisitsCount';
 
 const StatsContext = createContext<any>({});
 
