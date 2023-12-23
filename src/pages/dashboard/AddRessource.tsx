@@ -94,14 +94,14 @@ export default function AddRessource() {
       setUploading(true)
       await uploadNewRessource(ressourceToAdd)
       setUploading(false)
-      // setRessourceName("")
-      // setRessourceSlug("")
-      // setRessourceCategory("")
-      // setRessourceDownloadNames("")
-      // setRessourceDescription("")
-      // setRessourceLevel("")
-      // setRessourceFiles([])
-      // setRessourceOptionnalProperties({})
+      setRessourceName("")
+      setRessourceSlug("")
+      setRessourceCategory("")
+      setRessourceDownloadNames("")
+      setRessourceDescription("")
+      setRessourceLevel("")
+      setRessourceFiles([])
+      setRessourceOptionnalProperties({})
     } catch (error) {
 
     }
