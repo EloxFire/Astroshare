@@ -8,9 +8,13 @@ export const uploadNewCategory = async (category: RessourceCategory) => {
   const storage = getStorage();
   console.log("Adding new ressource category");
 
+
+  const tempCategory = category;
+  const { icon, ...categoryToUpload } = tempCategory;
+
   try {
     const categoriesRef = collection(db, dbCollections.categories);
-    const docRef = await addDoc(categoriesRef, category);
+    const docRef = await addDoc(categoriesRef, categoryToUpload);
     updateDoc(docRef, {
       ref: docRef.id
     });
