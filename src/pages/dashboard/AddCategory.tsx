@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { uploadNewImage } from '../../scripts/helpers/api/gallery/uploadNewImage'
+import { uploadNewCategory } from '../../scripts/helpers/api/categories/uploadNewCategory'
 import '../../styles/pages/dashboard/addCategory.scss'
 
 export default function AddCategory() {
@@ -35,7 +35,7 @@ export default function AddCategory() {
 
     try {
       setUploading(true)
-      await uploadNewImage(categoryToAdd)
+      await uploadNewCategory(categoryToAdd)
       setUploading(false)
       setCategoryName("")
       setCategorySlug("")
