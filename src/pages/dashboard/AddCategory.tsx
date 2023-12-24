@@ -29,6 +29,7 @@ export default function AddCategory() {
       slug: categorySlug,
       description: categoryDescription,
       longDescription: categoryLongDescription,
+      icon: categoryIcon,
       uploadedAt: new Date(),
       createdAt: new Date(),
     }
