@@ -20,7 +20,7 @@ export const routes = {
     label: 'Categorie',
   },
   ressource: {
-    path: '/ressource/:category/:ressource_slug',
+    path: '/ressources/:category/:ressource_slug',
     label: 'Ressource',
   },
   contact: {

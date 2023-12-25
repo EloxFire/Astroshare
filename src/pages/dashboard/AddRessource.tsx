@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Ressource } from '../../scripts/types'
+import { Ressource, RessourceCategory } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
 import { Link } from 'react-router-dom'
@@ -7,8 +7,11 @@ import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import Alert from '../../components/Alert'
 import '../../styles/pages/dashboard/addRessource.scss'
+import { useCategories } from '../../contexts/CategoriesContext'
 
 export default function AddRessource() {
+
+  const { categories } = useCategories();
 
   useEffect(() => {
     document.title = 'Astroshare | Ajouter une ressource'
@@ -123,7 +126,17 @@ export default function AddRessource() {
           </div>
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Nom de la ressource" value={ressourceName} onChange={(e) => { setRessourceName(e.target.value) }} />
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Slug de la ressource" value={ressourceSlug} onChange={(e) => { setRessourceSlug(e.target.value.replaceAll(' ', '-').trim()) }} />
-          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} />
+          <select disabled={uploading} className="custom-select" value={ressourceCategory} onChange={(e) => setRessourceCategory(e.target.value)}>
+            <option value="">Catégorie de la ressource</option>
+            {
+              categories.map((category: RessourceCategory, index: number) => {
+                return (
+                  <option key={index} value={category.slug}>{category.name}</option>
+                )
+              })
+            }
+          </select>
+          {/* <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} /> */}
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(e.target.value) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Description de la ressource' value={ressourceDescription} onChange={(e) => { setRessourceDescription(e.target.value) }} />

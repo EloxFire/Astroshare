@@ -6,6 +6,6 @@ export const getRessourceByCategorySlug = async (category_slug: string) => {
   const db = getFirestore();
   const ressourcesRef = collection(db, dbCollections.ressources);
   const ressourceQuery = query(ressourcesRef, where("category", "==", category_slug));
-  const ressource = await getDocs(ressourceQuery)
-  return ressource.docs[0].data();
+  const ressources = await getDocs(ressourceQuery)
+  return ressources;
 }

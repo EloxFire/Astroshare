@@ -10,12 +10,13 @@ import Privacy from "./pages/Privacy";
 import Hub from "./pages/Hub";
 import Category from "./pages/Category";
 // import RessourceDetails from "./pages/ressources/RessourceDetails";
-import RessourcePage from "./pages/ressources/Ressource";
+import RessourcePage from "./pages/ressources/RessourcePage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
 import AddImage from "./pages/dashboard/AddImage";
 import Guard from "./components/auth/Guard";
 import AddCategory from "./pages/dashboard/AddCategory";
+import RessourceDetails from "./pages/ressources/RessourceDetails";
 
 function App() {
   return (

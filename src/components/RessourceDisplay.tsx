@@ -11,14 +11,14 @@ export default function RessourceDisplay({ ressource, currentCategory }: Ressour
   return (
     <div className="ressource-display">
       <div className="ressource-display__left">
-        <img className="ressource-display__left__image" src={ressource.image} alt="Aperçu de la ressource" />
+        <img className="ressource-display__left__image" src={ressource.files![0]} alt="Aperçu de la ressource" />
         <div className="ressource-display__left__text-container">
           <p className="ressource-display__left__text-container__title">{ressource.name}</p>
           <p className="ressource-display__left__text-container__description">{ressource.subtitle}</p>
         </div>
       </div>
       <div className="ressource-display__right">
-        <a href={`/ressource_details/${currentCategory}/${ressource.slug}`} className="ressource-display__right__button" >Détails et téléchargement</a>
+        <a href={`/ressources/${currentCategory}/${ressource.slug}`} className="ressource-display__right__button" >Détails et téléchargement</a>
         {/* <a href={`/ressource/${currentCategory}/${ressource.slug}`} className="ressource-display__right__button" >Ressource en ligne</a> */}
       </div>
     </div>

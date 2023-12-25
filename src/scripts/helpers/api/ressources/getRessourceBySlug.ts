@@ -7,5 +7,7 @@ export const getRessourceBySlug = async (ressource_slug: string) => {
   const ressourcesRef = collection(db, dbCollections.ressources);
   const ressourceQuery = query(ressourcesRef, where("slug", "==", ressource_slug));
   const ressource = await getDocs(ressourceQuery)
-  return ressource.docs[0].data();
+  // console.log(ressource);
+
+  return ressource;
 }
