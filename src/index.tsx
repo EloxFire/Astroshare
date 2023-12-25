@@ -10,6 +10,7 @@ import reportWebVitals from './reportWebVitals';
 import './index.css';
 import './firebase'
 import { CategoriesProvider } from './contexts/CategoriesContext';
+import { RessourcesProvider } from './contexts/RessourcesContext';
 
 dayjs.locale('fr');
 
@@ -17,14 +18,16 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <GalleryProvider>
-    <CategoriesProvider>
-      <StatsProvider>
-        <App />
-        <Analytics />
-      </StatsProvider>
-    </CategoriesProvider>
-  </GalleryProvider>
+  <RessourcesProvider>
+    <GalleryProvider>
+      <CategoriesProvider>
+        <StatsProvider>
+          <App />
+          <Analytics />
+        </StatsProvider>
+      </CategoriesProvider>
+    </GalleryProvider>
+  </RessourcesProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

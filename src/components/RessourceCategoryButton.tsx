@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import '../styles/components/ressourceCategory.scss'
 import { useEffect, useState } from 'react'
-import { ressources } from '../scripts/helpers/ressources'
 import { Ressource } from '../scripts/types'
+import { useRessources } from '../contexts/RessourcesContext'
+import '../styles/components/ressourceCategory.scss'
 
 interface RessourceCategoryButtonProps {
   name: string
@@ -14,13 +14,14 @@ interface RessourceCategoryButtonProps {
 
 export default function RessourceCategoryButton({ name, slug, description, longDescription, icon }: RessourceCategoryButtonProps) {
 
-  const [ressourcesCount, setRessourcesCount] = useState<number>(0)
+  const { ressources } = useRessources();
+  const [ressourcesCount, setRessourcesCount] = useState(0);
 
   useEffect(() => {
     let matchingRessources: Ressource[] = [];
-    matchingRessources = ressources.filter(ressource => ressource.category === slug)
+    matchingRessources = ressources.filter((r: Ressource) => r.category === slug)
     setRessourcesCount(matchingRessources.length)
-  }, [slug])
+  }, [slug, ressources])
 
   return (
     <Link to={`/ressources/${slug}`} className="ressource-category">
