@@ -9,6 +9,7 @@ import dayjs from 'dayjs';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import './firebase'
+import { CategoriesProvider } from './contexts/CategoriesContext';
 
 dayjs.locale('fr');
 
@@ -17,10 +18,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <GalleryProvider>
-    <StatsProvider>
-      <App />
-      <Analytics />
-    </StatsProvider>
+    <CategoriesProvider>
+      <StatsProvider>
+        <App />
+        <Analytics />
+      </StatsProvider>
+    </CategoriesProvider>
   </GalleryProvider>
 );
 
