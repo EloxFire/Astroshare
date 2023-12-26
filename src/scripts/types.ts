@@ -1,21 +1,24 @@
 import { Dayjs } from "dayjs";
 
 export type Ressource = {
+  type: string
   name: string;
   slug: string;
   category: string;
   downloadNames: string[];
-  subtitle?: string;
-  description: string;
-  notes?: string;
   level: string[];
+  description: string;
+  filePreview?: any;
+  subtitle?: string;
+  notes?: string;
   format?: string[];
   image?: string;
   links?: string[];
   tags?: string[];
   files?: any[];
+  totalDownloads?: number;
   creadted?: Date;
-  updated: Date;
+  updated?: Date;
 }
 
 export type RessourceCategory = {
@@ -23,7 +26,7 @@ export type RessourceCategory = {
   slug: string;
   description: string;
   longDescription: string;
-  icon?: string;
+  icon?: any;
 }
 
 export type Image = {
