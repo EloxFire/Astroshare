@@ -16,6 +16,7 @@ export type Ressource = {
   links?: string[];
   tags?: string[];
   files?: any[];
+  totalDownloads?: number;
   creadted?: Date;
   updated?: Date;
 }

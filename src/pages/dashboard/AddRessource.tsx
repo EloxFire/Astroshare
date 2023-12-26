@@ -104,6 +104,7 @@ export default function AddRessource() {
       files: ressourceFiles,
       filePreview: ressourceFilePreview[0],
       type: ressourceType,
+      totalDownloads: 0,
       createdAd: new Date(),
       updatedAt: new Date(),
       ...ressourceOptionnalProperties
