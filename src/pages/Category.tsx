@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { Ressource, RessourceCategory } from "../scripts/types"
-import { ressources } from "../scripts/helpers/ressources"
 import { Link, useParams } from "react-router-dom"
 import { FiChevronLeft } from "react-icons/fi"
 import '../styles/pages/category.scss'
@@ -13,23 +12,25 @@ export default function Category() {
   const { category } = useParams()
   const { categories } = useCategories()
   const [selectedCategory, setSelectedCategory] = useState<RessourceCategory | undefined>(undefined)
-  const [currentCategoryRessources, setCurrentCategoryRessources] = useState<Ressource[]>([])
+  const [currentRessources, setCurrentRessources] = useState<Ressource[]>([])
 
   useEffect(() => {
     setSelectedCategory(categories.find((c: RessourceCategory) => c.slug === category))
+  }, [categories, category])
 
+  useEffect(() => {
     const fetchRessources = async () => {
       if (category !== undefined) {
         const r = await getRessourceByCategorySlug(category)
 
         r.docs.forEach((doc: any) => {
-          setCurrentCategoryRessources((currentCategoryRessources: Ressource[]) => [...currentCategoryRessources, doc.data()])
+          setCurrentRessources((currentRessources: Ressource[]) => [...currentRessources, doc.data()])
         })
       }
     }
 
     fetchRessources()
-  }, [categories, category])
+  }, [category])
 
   return (
     <div className="category">
@@ -37,11 +38,16 @@ export default function Category() {
       <p>{selectedCategory?.longDescription}</p>
       <div className="ressources-container">
         {
-          currentCategoryRessources?.map((r, ressource_index) => {
-            return (
-              <RessourceDisplay key={ressource_index} ressource={r} currentCategory={selectedCategory!.slug} />
-            )
-          })
+          currentRessources.length > 0 ?
+            currentRessources.map((r, ressource_index) => {
+              return (
+                <RessourceDisplay key={ressource_index} ressource={r} currentCategory={category!} />
+              )
+            })
+            :
+            <div className="ressources-container__empty">
+              <p>Aucune ressource pour le moment</p>
+            </div>
         }
       </div>
     </div>
