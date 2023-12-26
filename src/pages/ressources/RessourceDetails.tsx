@@ -30,7 +30,7 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
           <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressource.updated).format('DD MMMM YYYY')}</p>
         </div>
         <div className="ressource-details__left__download-container">
-          <button className="ressource-details__left__download-container__download-button" onClick={() => setDownloadModal(true)}>Télécharger le document</button>
+          <button className="ressource-details__left__download-container__download-button" onClick={() => { setDownloadModal(true); setSelectedPackage(ressource.files![0]) }}>Télécharger le document</button>
           {/* <a href={selectedPackage} download={ressource.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a> */}
           {
             ressource.links && ressource.links?.length > 1 && (
