@@ -3,14 +3,16 @@ import { routes } from '../routes'
 import { mailRegex } from '../scripts/helpers/helpers'
 import emailjs from '@emailjs/browser';
 import '../styles/components/downloadModal.scss'
+import { incrementRessourceDownloadCount } from '../scripts/helpers/api/ressources/incrementRessourceDownloadCount';
 
 interface DownloadModalProps {
   downloadUrl: string
   downloadName: string | undefined
+  ressourceSlug: string
   onClose: () => void
 }
 
-export default function DownloadModal({ downloadUrl, downloadName, onClose }: DownloadModalProps) {
+export default function DownloadModal({ downloadUrl, downloadName, onClose, ressourceSlug }: DownloadModalProps) {
 
   const [disabled, setDisabled] = useState<boolean>(true)
   const [mail, setMail] = useState<string>('')
@@ -53,6 +55,9 @@ export default function DownloadModal({ downloadUrl, downloadName, onClose }: Do
           setResponse(undefined)
         }, 3000)
       });
+
+    const statsRes = await incrementRessourceDownloadCount(ressourceSlug)
+    console.log("Stats res :", statsRes)
   }
 
   window.addEventListener('keydown', (e) => {

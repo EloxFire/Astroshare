@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
-import '../../styles/pages/dashboard/dashboard.scss'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import { useStats } from '../../contexts/StatsContext'
 import StatNumber from '../../components/stats/StatNumber'
+import '../../styles/pages/dashboard/dashboard.scss'
 
 
 export default function Dashboard() {
 
-  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, visitsCount, categoriesCount } = useStats()
+  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, categoriesCount } = useStats()
 
   useEffect(() => {
     document.title = 'Astroshare | Dashboard'
@@ -28,9 +28,7 @@ export default function Dashboard() {
             </div>
             <div className="stats-row">
               <StatNumber value={downloadsCount} name="Téléchargements" loading={statsLoading} />
-              <StatNumber value={visitsCount} name="Visites" loading={statsLoading} />
-            </div>
-            <div className="stats-row">
+              {/* <StatNumber value={visitsCount} name="Visites" loading={statsLoading} /> */}
               <StatNumber value={categoriesCount} name="Categories" loading={statsLoading} />
             </div>
           </div>

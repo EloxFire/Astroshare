@@ -55,6 +55,7 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
         <DownloadModal
           downloadUrl={selectedPackage}
           onClose={() => setDownloadModal(false)}
+          ressourceSlug={ressource.slug}
           downloadName={ressource.downloadNames[ressource.links?.indexOf(selectedPackage) || 0]}
         />
       }

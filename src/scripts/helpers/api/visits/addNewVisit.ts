@@ -1,8 +1,9 @@
 import { collection, getFirestore, doc, getDoc, updateDoc } from "firebase/firestore";
+import { dbCollections } from "../../constants";
 
 export const addNewVisit = async () => {
   const firestore = getFirestore();
-  const visitisCollectionRef = collection(firestore, "Visits");
+  const visitisCollectionRef = collection(firestore, dbCollections.visitsStats);
   const countDocRef = doc(visitisCollectionRef, "count");
 
   const countDocSnapshot = await getDoc(countDocRef);

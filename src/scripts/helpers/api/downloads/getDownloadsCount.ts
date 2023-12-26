@@ -1,9 +1,10 @@
 import { collection, getFirestore, doc, getDoc } from "firebase/firestore";
+import { dbCollections } from "../../constants";
 
 // Get global downloads count value
 export const getDownloadsCount = async () => {
   const firestore = getFirestore();
-  const downloadsCollectionRef = collection(firestore, "Downloads");
+  const downloadsCollectionRef = collection(firestore, dbCollections.downloadStats);
   const countDocRef = doc(downloadsCollectionRef, "count");
 
   const countDocSnapshot = await getDoc(countDocRef);
