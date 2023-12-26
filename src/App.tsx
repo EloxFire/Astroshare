@@ -17,6 +17,7 @@ import AddImage from "./pages/dashboard/AddImage";
 import Guard from "./components/auth/Guard";
 import AddCategory from "./pages/dashboard/AddCategory";
 import RessourceDetails from "./pages/ressources/RessourceDetails";
+import RessourceCommutator from "./pages/ressources/RessourceCommutator";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
         {/* Ressources routes */}
         {/* <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} /> */}
-        <Route path={routes.ressource.path} element={<Layout component={<RessourcePage />} />} />
+        <Route path={routes.ressource.path} element={<Layout component={<RessourceCommutator />} />} />
         {/* Other routes */}
         <Route path={routes.privacy.path} element={<Layout component={<Privacy />} />} />
         <Route path={routes.notFound.path} element={<NotFound />} />

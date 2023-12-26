@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { Ressource, RessourceCategory } from "../scripts/types"
 import { Link, useParams } from "react-router-dom"
 import { FiChevronLeft } from "react-icons/fi"
-import '../styles/pages/category.scss'
-import RessourceDisplay from "../components/RessourceDisplay"
 import { useCategories } from "../contexts/CategoriesContext"
 import { getRessourceByCategorySlug } from "../scripts/helpers/api/ressources/getRessourcesByCategory"
+import RessourceDisplay from "../components/RessourceDisplay"
+import '../styles/pages/category.scss'
 
 export default function Category() {
 
@@ -46,7 +46,7 @@ export default function Category() {
             })
             :
             <div className="ressources-container__empty">
-              <p>Aucune ressource pour le moment</p>
+              <p>Aucune ressource présente dans cette catégorie pour le moment</p>
             </div>
         }
       </div>
