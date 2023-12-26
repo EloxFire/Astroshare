@@ -27,9 +27,9 @@ export default function Dashboard() {
               <StatNumber value={imagesCount} name="Images" loading={statsLoading} />
             </div>
             <div className="stats-row">
+              <StatNumber value={categoriesCount} name="Categories" loading={statsLoading} />
               <StatNumber value={downloadsCount} name="Téléchargements" loading={statsLoading} />
               {/* <StatNumber value={visitsCount} name="Visites" loading={statsLoading} /> */}
-              <StatNumber value={categoriesCount} name="Categories" loading={statsLoading} />
             </div>
           </div>
         </div>
