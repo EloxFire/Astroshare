@@ -11,7 +11,7 @@ export default function RessourceDisplay({ ressource, currentCategory }: Ressour
   return (
     <div className="ressource-display">
       <div className="ressource-display__left">
-        <img className="ressource-display__left__image" src={ressource.files![0]} alt="Aperçu de la ressource" />
+        <img className="ressource-display__left__image" src={ressource.filePreview} alt="Aperçu de la ressource" />
         <div className="ressource-display__left__text-container">
           <p className="ressource-display__left__text-container__title">{ressource.name}</p>
           <p className="ressource-display__left__text-container__description">{ressource.subtitle}</p>

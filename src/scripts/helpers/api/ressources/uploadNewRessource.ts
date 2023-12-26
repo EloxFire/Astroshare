@@ -9,7 +9,8 @@ export const uploadNewRessource = async (ressource: Ressource) => {
 
   const tempRessource = ressource;
   const filesToUpload = ressource.files!;
-  const { files, ...ressourceToUpload } = tempRessource;
+  const filePreviewToUpload = ressource.filePreview!;
+  const { files, filePreview, ...ressourceToUpload } = tempRessource;
 
   try {
     console.log("Writing ressource to database");
@@ -37,6 +38,20 @@ export const uploadNewRessource = async (ressource: Ressource) => {
       })
     } catch (error) {
       console.error("Error uploading ressource files to storage:", error);
+    }
+
+    // Upload files to storage
+    try {
+      const storageRef = ref(storage, `ressources/${ressource.slug}/illustration`);
+      const filePreviewRef = await uploadBytes(storageRef, filePreviewToUpload);
+      const filePreviewUrl = await getDownloadURL(filePreviewRef.metadata.ref!);
+      console.log("File uploaded to storage:", filePreviewRef.metadata.ref!);
+      updateDoc(docRef, {
+        filePreview: filePreviewUrl
+      })
+      console.log(`File preview url added to ressource document`);
+    } catch (error) {
+      console.error("Error uploading ressource file preview to storage:", error);
     }
   } catch (error) {
     console.error("Error adding document:", error);

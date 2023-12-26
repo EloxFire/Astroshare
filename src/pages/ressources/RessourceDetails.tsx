@@ -48,7 +48,7 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
         </div>
       </div>
       <div className="ressource-details__right">
-        <img src={ressource.image} alt={ressource.name} />
+        <img src={ressource.filePreview} alt={ressource.name} />
       </div>
       {
         downloadModal &&

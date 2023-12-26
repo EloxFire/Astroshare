@@ -25,6 +25,7 @@ export default function AddRessource() {
   const [ressourceLevel, setRessourceLevel] = useState<string>("")
   const [ressourceType, setRessourceType] = useState<string>("")
   const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
+  const [ressourceFilePreview, setRessourceFilePreview] = useState<any[]>([])
 
   const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
   const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
@@ -46,18 +47,32 @@ export default function AddRessource() {
     }
   }
 
-  const handleFiles = (files: any) => {
-    const temp = [...ressourceFiles]
-    for (let i = 0; i < files.length; i++) {
-      temp.push(files[i])
+  const handleFiles = (files: any, type: 'ressourceFile' | 'ressourcePreview') => {
+    if (type === 'ressourceFile') {
+      const temp = [...ressourceFiles]
+      for (let i = 0; i < files.length; i++) {
+        temp.push(files[i])
+      }
+      setRessourceFiles(temp)
+    } else {
+      const temp = [...ressourceFilePreview]
+      for (let i = 0; i < files.length; i++) {
+        temp.push(files[i])
+      }
+      setRessourceFilePreview(temp)
     }
-    setRessourceFiles(temp)
   }
 
-  const deleteFile = (index: number) => {
-    const temp = [...ressourceFiles]
-    temp.splice(index, 1)
-    setRessourceFiles(temp)
+  const deleteFile = (index: number, type: 'ressourceFile' | 'ressourcePreview') => {
+    if (type === 'ressourceFile') {
+      const temp = [...ressourceFiles]
+      temp.splice(index, 1)
+      setRessourceFiles(temp)
+    } else {
+      const temp = [...ressourceFilePreview]
+      temp.splice(index, 1)
+      setRessourceFilePreview(temp)
+    }
   }
 
   const addNewRessource = async () => {
@@ -87,6 +102,7 @@ export default function AddRessource() {
       description: ressourceDescription,
       level: ressourceLevel,
       files: ressourceFiles,
+      filePreview: ressourceFilePreview[0],
       type: ressourceType,
       createdAd: new Date(),
       updatedAt: new Date(),
@@ -97,14 +113,15 @@ export default function AddRessource() {
       setUploading(true)
       await uploadNewRessource(ressourceToAdd)
       setUploading(false)
-      setRessourceName("")
-      setRessourceSlug("")
-      setRessourceCategory("")
-      setRessourceDownloadNames("")
-      setRessourceDescription("")
-      setRessourceLevel("")
-      setRessourceFiles([])
-      setRessourceOptionnalProperties({})
+      // setRessourceName("")
+      // setRessourceSlug("")
+      // setRessourceCategory("")
+      // setRessourceDownloadNames("")
+      // setRessourceDescription("")
+      // setRessourceLevel("")
+      // setRessourceFiles([])
+      // setRessourceFilePreview([])
+      // setRessourceOptionnalProperties({})
     } catch (error) {
 
     }
@@ -139,8 +156,7 @@ export default function AddRessource() {
           {/* <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} /> */}
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(e.target.value) }} />
-          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Description de la ressource' value={ressourceDescription} onChange={(e) => { setRessourceDescription(e.target.value) }} />
-
+          <textarea className="custom-input" style={{ marginBottom: '20px' }} placeholder='Description de la ressource' cols={30} rows={5} value={ressourceDescription} onChange={(e) => { setRessourceDescription(e.target.value) }} />
 
           <div className="additionnal-property">
             <p className="title">Ajouter une propriété optionnelle</p>
@@ -171,7 +187,7 @@ export default function AddRessource() {
         <div className="right">
           <div className="drop-container">
             <span className="drop-title">Sélectionnez un ou plusieurs fichiers</span>
-            <input type="file" accept="*.pdf, *.md, *.mdx" multiple onChange={(e) => { handleFiles(e.target.files); if (ressourceName === "") { setRessourceName(e.target.files![0].name) } }} required />
+            <input type="file" accept="*.pdf, *.md, *.mdx" multiple onChange={(e) => { handleFiles(e.target.files, 'ressourceFile'); if (ressourceName === "") { setRessourceName(e.target.files![0].name) } }} required />
             <div className="files-preview">
               {
                 ressourceFiles &&
@@ -180,7 +196,25 @@ export default function AddRessource() {
                     <div className="file">
                       <embed height="820px" width="350px" key={fileIndex} className="image" src={URL.createObjectURL(file)} title={file.name} />
                       <small className="file-name">{file.name.substr(0, 30)}</small>
-                      <button onClick={() => deleteFile(fileIndex)}>X</button>
+                      <button onClick={() => deleteFile(fileIndex, 'ressourceFile')}>X</button>
+                    </div>
+                  )
+                })
+              }
+            </div>
+          </div>
+          <div className="drop-container" style={{ marginTop: '20px' }}>
+            <span className="drop-title">Sélectionnez une image d'illustration</span>
+            <input type="file" accept="*.png, *.jpg, *.jpeg" onChange={(e) => { handleFiles(e.target.files, 'ressourcePreview'); if (ressourceName === "") { setRessourceName(e.target.files![0].name) } }} required />
+            <div className="files-preview">
+              {
+                ressourceFilePreview &&
+                ressourceFilePreview.map((file, fileIndex) => {
+                  return (
+                    <div className="file">
+                      <embed height="820px" width="350px" key={fileIndex} className="image" src={URL.createObjectURL(file)} title={file.name} />
+                      <small className="file-name">{file.name.substr(0, 30)}</small>
+                      <button onClick={() => deleteFile(fileIndex, 'ressourcePreview')}>X</button>
                     </div>
                   )
                 })
