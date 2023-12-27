@@ -9,20 +9,22 @@ import Gallery from "./pages/Gallery";
 import Privacy from "./pages/Privacy";
 import Hub from "./pages/Hub";
 import Category from "./pages/Category";
-// import RessourceDetails from "./pages/ressources/RessourceDetails";
-import RessourcePage from "./pages/ressources/RessourcePage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
 import AddImage from "./pages/dashboard/AddImage";
 import Guard from "./components/auth/Guard";
 import AddCategory from "./pages/dashboard/AddCategory";
-import RessourceDetails from "./pages/ressources/RessourceDetails";
 import RessourceCommutator from "./pages/ressources/RessourceCommutator";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Auth routes */}
+        <Route path={routes.login.path} element={<Login />} />
+        <Route path={routes.register.path} element={<Register />} />
         {/* App main routes */}
         <Route path={routes.home.path} element={<Layout component={<Home />} />} />
         <Route path={routes.about.path} element={<Layout component={<About />} />} />
