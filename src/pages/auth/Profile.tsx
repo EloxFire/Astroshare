@@ -5,10 +5,11 @@ import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import '../../styles/pages/auth/profile.scss'
 import dayjs from 'dayjs'
+import { UserRoles } from '../../scripts/enums/roles'
 
 export default function Profile() {
 
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
 
   return (
     <div className="profile-page">
@@ -26,9 +27,11 @@ export default function Profile() {
             user?.downloadsHistory.length === 0 ?
               <li>Aucun téléchargement</li>
               :
-              user?.downloadsHistory.map((download: string, download_index: number) => {
+              user?.downloadsHistory.map((download: any, download_index: number) => {
                 return (
-                  <li key={`profile-page__download__${download_index}`}>{download}</li>
+                  <li key={`profile-page__download__${download_index}`}>
+                    <Link to={download.ressource_url}>{download.ressource_name} ({dayjs(download.date.toDate()).format('DD/MM/YYYY')})</Link>
+                  </li>
                 )
               })
           }
@@ -38,8 +41,9 @@ export default function Profile() {
         <small>Pour demander la suppression ou la modification de vos informations, merci de m'envoyer un message via la page de <Link to={routes.contact.path}>{routes.contact.label}</Link></small>
       </div>
 
-      <div>
-        <Link className="logout-button" to={routes.logout.path}>Déconnexion</Link>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
+        <Link className="btn logout" to={routes.logout.path} onClick={() => logout()}>Déconnexion</Link>
+        {user?.role === UserRoles.ADMIN && <Link className="btn" to={routes.dashboard.path}>Dashboard</Link>}
       </div>
     </div>
   )

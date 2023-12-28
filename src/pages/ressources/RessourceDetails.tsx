@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import { FiChevronLeft } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Ressource } from '../../scripts/types';
 import dayjs from 'dayjs';
 import DownloadModal from '../../components/DownloadModal';
 import '../../styles/pages/ressources/ressourceDetails.scss'
+import { useAuth } from '../../contexts/AuthContext';
+import { routes } from '../../routes';
 
 interface RessourceDetailsProps {
   ressource: Ressource
 }
 
 export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
+
+  const { user } = useAuth()
+  const navigate = useNavigate()
+
   const [selectedPackage, setSelectedPackage] = useState<string>('')
   const [downloadModal, setDownloadModal] = useState<boolean>(false)
 
@@ -29,23 +35,30 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
           <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressource.tags}</p>
           <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressource.updated).format('DD MMMM YYYY')}</p>
         </div>
-        <div className="ressource-details__left__download-container">
-          <button className="ressource-details__left__download-container__download-button" onClick={() => { setDownloadModal(true); setSelectedPackage(ressource.files![0]) }}>Télécharger le document</button>
-          {/* <a href={selectedPackage} download={ressource.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a> */}
-          {
-            ressource.links && ressource.links?.length > 1 && (
-              <select onChange={(e) => setSelectedPackage(e.target.value)}>
-                {
-                  ressource.links?.map((package_link, package_index) => {
-                    return (
-                      <option key={`ressource-details__package__${package_index}`} value={package_link}>{ressource.downloadNames[package_index]}</option>
-                    )
-                  })
-                }
-              </select>
-            )
-          }
-        </div>
+        {
+          !user &&
+          <button className="ressource-details__left__download-container__download-button" onClick={() => navigate(routes.login.path)} style={{ marginTop: '20px' }}>Connectez-vous pour télécharger</button>
+        }
+        {
+          user &&
+          <div className="ressource-details__left__download-container">
+            <button className="ressource-details__left__download-container__download-button" onClick={() => { setDownloadModal(true); setSelectedPackage(ressource.files![0]) }}>Télécharger le document</button>
+            {/* <a href={selectedPackage} download={ressource.downloadNames[ressourceInfos?.links?.indexOf(selectedPackage) || 0]} className="ressource__left__download-container__download-button">Télécharger le document</a> */}
+            {
+              ressource.links && ressource.links?.length > 1 && (
+                <select onChange={(e) => setSelectedPackage(e.target.value)}>
+                  {
+                    ressource.links?.map((package_link, package_index) => {
+                      return (
+                        <option key={`ressource-details__package__${package_index}`} value={package_link}>{ressource.downloadNames[package_index]}</option>
+                      )
+                    })
+                  }
+                </select>
+              )
+            }
+          </div>
+        }
       </div>
       <div className="ressource-details__right">
         <img src={ressource.filePreview} alt={ressource.name} />
