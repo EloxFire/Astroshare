@@ -23,7 +23,7 @@ export default function Login() {
 
   useEffect(() => {
     if (leftDiv) {
-      const random = Math.floor(Math.random() * 5) + 1
+      const random = Math.floor(Math.random() * 3) + 1
       leftDiv.style.backgroundImage = `url('/images/wallpapers/${random}.jpg')`
     }
   }, [leftDiv])
