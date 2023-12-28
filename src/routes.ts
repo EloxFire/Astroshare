@@ -52,7 +52,7 @@ export const routes = {
     label: 'Connexion',
   },
   logout: {
-    path: '/logout',
+    path: '/',
     label: 'Déconnexion',
   },
   register: {

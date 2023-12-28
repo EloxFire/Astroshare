@@ -4,6 +4,7 @@ import { routes } from '../routes';
 import { useNavigate } from 'react-router-dom';
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import { dbCollections } from '../scripts/helpers/constants';
+import { User } from '../scripts/types/User';
 
 const AuthContext = createContext<any>({});
 
@@ -17,7 +18,7 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
 
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState<User | null>(null);
   const [authUser, setAuthUser] = useState<any>(null);
   const [authLoading, setAuthLoading] = useState<boolean>(true);
   const navigate = useNavigate()
@@ -41,7 +42,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const loggedUser = await getDocs(userQuery)
         // console.log(loggedUser.docs[0].data());
 
-        setUser(loggedUser.docs[0].data())
+        setUser(loggedUser.docs[0].data() as User)
         setAuthLoading(false)
       }
     }

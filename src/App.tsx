@@ -18,6 +18,7 @@ import RessourceCommutator from "./pages/ressources/RessourceCommutator";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { AuthProvider } from "./contexts/AuthContext";
+import Profile from "./pages/auth/Profile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           {/* Auth routes */}
           <Route path={routes.login.path} element={<Login />} />
           <Route path={routes.register.path} element={<Register />} />
+          <Route path={routes.profile.path} element={<Layout component={<Profile />} />} />
           {/* App main routes */}
           <Route path={routes.home.path} element={<Layout component={<Home />} />} />
           <Route path={routes.about.path} element={<Layout component={<About />} />} />

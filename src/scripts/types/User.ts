@@ -5,7 +5,7 @@ export type User = {
   email: string;
   role: UserRoles;
   downloadsCount: number;
-  downloadHistory: string[];
+  downloadsHistory: string[];
   uid: string;
   firstName?: string;
   lastName?: string;

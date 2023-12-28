@@ -80,7 +80,7 @@ export default function Register() {
         uid: userCredentials.user.uid,
         role: UserRoles.MEMBER,
         downloadsCount: 0,
-        downloadHistory: [],
+        downloadsHistory: [],
         createdAt: new Date(),
         updatedAt: new Date(),
       }

@@ -41,9 +41,9 @@ export default function Navbar() {
         <Link className="link" to={routes.about.path}>{routes.about.label}</Link>
         <Link className="link" to={routes.hub.path}>{routes.hub.label}</Link>
         <Link className="link" to={routes.gallery.path}>{routes.gallery.label}</Link>
-        <Link className="link" to={routes.contact.path}>{routes.contact.label}</Link>
       </div>
-      <div className="navbar__links" style={{ width: '20%' }}>
+      <div className="navbar__links" style={{ width: '20%', justifyContent: 'flex-end' }}>
+        <Link className="link" to={routes.contact.path}>{routes.contact.label}</Link>
         {user && <Link className="link" to={routes.profile.path}>{routes.profile.label}</Link>}
         {/* {user && <Link className="link" onClick={() => logout()} to={routes.home.path}>&#9211;</Link>} */}
         {!user && <Link className="link" to={routes.login.path}>{routes.login.label}</Link>}
@@ -57,6 +57,8 @@ export default function Navbar() {
         <Link className="link" to={routes.about.path} onClick={() => setMobileClick(false)}>{routes.about.label}</Link>
         <Link className="link" to={routes.hub.path} onClick={() => setMobileClick(false)}>{routes.hub.label}</Link>
         <Link className="link" to={routes.gallery.path} onClick={() => setMobileClick(false)}>{routes.gallery.label}</Link>
+        <Link className="link" to={routes.contact.path} onClick={() => setMobileClick(false)}>{routes.contact.label}</Link>
+        {user && <Link className="link" to={routes.profile.path} onClick={() => setMobileClick(false)}>{routes.profile.label}</Link>}
         <p className="link" onClick={() => setMobileClick(false)}>Fermer</p>
       </div>
     </div>
