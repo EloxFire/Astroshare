@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { routes } from '../../routes';
 import { mailRegex } from '../../scripts/helpers/helpers';
 import '../../styles/pages/auth/auth.scss';
@@ -77,6 +77,10 @@ export default function Login() {
           <input disabled={loading} type="email" ref={inputRef} name="email" placeholder="Email" onChange={handleMailCompletion} value={email} />
           <input disabled={loading} type="password" name="password" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)} />
           <button disabled={loading} onClick={handleLogin}>{loading ? <div className="loader"></div> : "Se connecter"}</button>
+          <div style={{ display: 'flex', flexDirection: 'row', marginTop: '10px', justifyContent: 'space-between' }}>
+            <small>Pas encore de compte ? <Link to={routes.register.path}>Inscrivez-vous</Link></small>
+            <small>Vous rencontrez un problème ? <Link to={routes.contact.path}>Contactez moi !</Link></small>
+          </div>
         </div>
         {
           alert !== '' && <p className="auth-alert">{alert}</p>
