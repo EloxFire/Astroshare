@@ -4,10 +4,13 @@ import '../../styles/pages/auth/auth.scss';
 import { useNavigate } from 'react-router-dom';
 import { routes } from '../../routes';
 import { mailRegex } from '../../scripts/helpers/helpers';
+import { createNewUser } from '../../scripts/helpers/api/users/createNewUser';
+import { UserRoles } from '../../scripts/enums/roles';
+import { User } from '../../scripts/types/User';
 
 export default function Register() {
 
-  const { signUp } = useAuth()
+  const { signUp, user } = useAuth()
   const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -38,6 +41,7 @@ export default function Register() {
   }
 
   const handleRegister = async () => {
+    setLoading(true)
     if (password !== passwordRepeat) {
       setAlert('Les mots de passe ne correspondent pas')
       setTimeout(() => {
@@ -54,12 +58,37 @@ export default function Register() {
       return
     }
 
+    let userCredentials;
     try {
-      await signUp(email, password)
-      navigate(routes.home.path)
+      userCredentials = await signUp(email, password)
     } catch (error: any) {
+      error.message.includes('auth/weak-password') && setAlert('Le mot de passe doit contenir au moins 6 caractères')
+      error.message.includes('auth/email-already-in-use') && setAlert('Cette adresse email est déjà utilisée')
+      error.message.includes('auth/invalid-email') && setAlert('L\'adresse email est invalide')
+      error.message.includes('auth/too-many-requests') && setAlert('Trop de tentatives, veuillez réessayer plus tard')
+      error.message.includes('auth/network-request-failed') && setAlert('Impossible de se connecter à internet')
       console.error(error.message)
-      setAlert('Une erreur est survenue : ' + error.message)
+
+      setTimeout(() => {
+        setAlert('')
+      }, 3000)
+    }
+
+    try {
+      const userToAdd: User = {
+        email: userCredentials.user.email,
+        uid: userCredentials.user.uid,
+        role: UserRoles.MEMBER,
+        downloadsCount: 0,
+        downloadHistory: [],
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
+      await createNewUser(userToAdd)
+      navigate(routes.home.path)
+    } catch (error) {
+      console.error(error)
+      setAlert('Une erreur est survenue, veuillez réessayer plus tard')
     }
   }
 
@@ -71,8 +100,8 @@ export default function Register() {
         <div className="form">
           <h1>Inscription</h1>
           <input type="email" ref={inputRef} name="email" placeholder="Email" onChange={handleMailCompletion} value={email} />
-          <input type="password" name="password" placeholder="Password" />
-          <input type="password" name="password" placeholder="Répétez le mot de passe" />
+          <input type="password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" name="password" placeholder="Répétez le mot de passe" onChange={(e) => setPasswordRepeat(e.target.value)} />
           <button onClick={handleRegister}>S'inscrire</button>
         </div>
         {

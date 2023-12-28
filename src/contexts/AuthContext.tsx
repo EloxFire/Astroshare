@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { routes } from '../routes';
+import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext<any>({});
 
@@ -16,43 +17,35 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const [user, setUser] = useState<any>();
   const [authLoading, setAuthLoading] = useState<boolean>(true);
+  const navigate = useNavigate()
 
 
   useEffect(() => {
-    async function fetchStats() {
-    }
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setUser(user)
+      setAuthLoading(false);
+      // console.log(`AuthContext - User found : ${user.uid}`);
+    });
 
-    fetchStats().catch((err) => {
-      console.log(err);
-    })
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, []);
 
   const signIn = async (email: string, password: string) => {
     const auth = getAuth();
-    try {
-      const userCredentials = await signInWithEmailAndPassword(auth, email, password)
-      setUser(userCredentials.user);
-      window.location.href = routes.home.path
-    } catch (error) {
-      console.log(error);
-      return error;
-    }
+    return signInWithEmailAndPassword(auth, email, password)
   }
 
   const signUp = async (email: string, password: string) => {
     const auth = getAuth();
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
-      setUser(userCredentials.user);
-      window.location.href = routes.home.path
-    } catch (error) {
-      console.log(error);
-      return error;
-    }
+    return createUserWithEmailAndPassword(auth, email, password)
   }
 
-  const signOut = async () => {
-
+  const logout = async () => {
+    const auth = getAuth();
+    await signOut(auth);
+    navigate(routes.home.path)
   }
 
 
@@ -61,7 +54,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     user,
     signIn,
     signUp,
-    signOut
+    logout
   }
 
   return (

@@ -19,18 +19,18 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <AuthProvider>
-    <RessourcesProvider>
-      <GalleryProvider>
-        <CategoriesProvider>
-          <StatsProvider>
-            <App />
-            <Analytics />
-          </StatsProvider>
-        </CategoriesProvider>
-      </GalleryProvider>
-    </RessourcesProvider>
-  </AuthProvider>
+  // <AuthProvider>
+  <RessourcesProvider>
+    <GalleryProvider>
+      <CategoriesProvider>
+        <StatsProvider>
+          <App />
+          <Analytics />
+        </StatsProvider>
+      </CategoriesProvider>
+    </GalleryProvider>
+  </RessourcesProvider>
+  // </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
