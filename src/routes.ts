@@ -47,6 +47,22 @@ export const routes = {
     path: '/dashboard/add-category',
     label: 'Ajouter une catégorie',
   },
+  login: {
+    path: '/login',
+    label: 'Connexion',
+  },
+  logout: {
+    path: '/',
+    label: 'Déconnexion',
+  },
+  register: {
+    path: '/register',
+    label: 'Inscription',
+  },
+  profile: {
+    path: '/profile',
+    label: 'Profil',
+  },
   notFound: {
     path: '*',
     label: '404',
