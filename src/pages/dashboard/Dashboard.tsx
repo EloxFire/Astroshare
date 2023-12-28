@@ -9,7 +9,7 @@ import '../../styles/pages/dashboard/dashboard.scss'
 
 export default function Dashboard() {
 
-  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, categoriesCount } = useStats()
+  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, categoriesCount, usersCount } = useStats()
 
   useEffect(() => {
     document.title = 'Astroshare | Dashboard'
@@ -29,7 +29,9 @@ export default function Dashboard() {
             <div className="stats-row">
               <StatNumber value={categoriesCount} name="Categories" loading={statsLoading} />
               <StatNumber value={downloadsCount} name="Téléchargements" loading={statsLoading} />
-              {/* <StatNumber value={visitsCount} name="Visites" loading={statsLoading} /> */}
+            </div>
+            <div className="stats-row">
+              <StatNumber value={usersCount} name="Utilisateurs" loading={statsLoading} />
             </div>
           </div>
         </div>
