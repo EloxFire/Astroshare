@@ -19,6 +19,34 @@
     .left{
       width: 40%;
 
+      .types-container{
+        margin-bottom: 20px;
+        .types-title{
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+
+        .type-selector{
+          margin-right: 20px;
+          font-size: 1rem;
+          padding: 5px 10px;
+          border: 1px solid $white;
+          background-color: $black;
+
+          &:hover{
+            cursor: pointer;
+            background-color: $white;
+            color: $black;
+          }
+
+          &.active{
+            background-color: $white;
+            color: $black;
+          }
+        }
+      }
+
+
       .additionnal-property{
         .title{
           font-weight: bold;

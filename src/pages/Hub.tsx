@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { ressourcesCategories } from '../scripts/helpers/ressources'
-import RessourceCategory from '../components/RessourceCategory'
+import { useCategories } from '../contexts/CategoriesContext'
+import { RessourceCategory } from '../scripts/types'
+import RessourceCategoryButton from '../components/RessourceCategoryButton'
 import '../styles/pages/hub.scss'
 
 export default function Hub() {
+
+  const { categories } = useCategories();
 
   useEffect(() => {
     document.title = "Astroshare | Hub de ressources"
@@ -17,14 +20,15 @@ export default function Hub() {
       <p>Parcourez les catégories pour découvrir nos ressources associées</p>
       <div className="categories-container">
         {
-          ressourcesCategories.map((category, index) => {
+          categories.map((category: RessourceCategory, category_index: number) => {
             return (
-              <RessourceCategory
-                key={index}
+              <RessourceCategoryButton
+                key={category_index}
                 name={category.name}
                 slug={category.slug}
-                image={category.icon}
+                icon={category.icon}
                 description={category.description}
+                longDescription={category.longDescription}
               />
             )
           })

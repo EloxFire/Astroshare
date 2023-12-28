@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react'
-import '../../styles/pages/dashboard/dashboard.scss'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import { useStats } from '../../contexts/StatsContext'
+import StatNumber from '../../components/stats/StatNumber'
+import '../../styles/pages/dashboard/dashboard.scss'
 
 
 export default function Dashboard() {
 
-  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, visitsCount } = useStats()
+  const { statsLoading, ressourcesCount, imagesCount, downloadsCount, categoriesCount, usersCount } = useStats()
 
   useEffect(() => {
     document.title = 'Astroshare | Dashboard'
@@ -22,32 +23,24 @@ export default function Dashboard() {
           <div className="stats">
             <p className="title">Statistiques</p>
             <div className="stats-row">
-              <div className="dashboard-stat">
-                {statsLoading ? <div className="dashboard-stat__loader"></div> : <p className="dashboard-stat__number">{ressourcesCount}</p>}
-                <p className="dashboard-stat__name">Ressources</p>
-              </div>
-              <div className="dashboard-stat">
-                {statsLoading ? <p className="dashboard-stat__loader"></p> : <p className="dashboard-stat__number">{imagesCount}</p>}
-                <p className="dashboard-stat__name">Images</p>
-              </div>
+              <StatNumber value={ressourcesCount} name="Ressources" loading={statsLoading} />
+              <StatNumber value={imagesCount} name="Images" loading={statsLoading} />
             </div>
             <div className="stats-row">
-              <div className="dashboard-stat">
-                {statsLoading ? <p className="dashboard-stat__loader"></p> : <p className="dashboard-stat__number">{downloadsCount}</p>}
-                <p className="dashboard-stat__name">Téléchargements</p>
-              </div>
-              <div className="dashboard-stat">
-                {statsLoading ? <p className="dashboard-stat__loader"></p> : <p className="dashboard-stat__number">{visitsCount}</p>}
-                <p className="dashboard-stat__name">Visites</p>
-              </div>
+              <StatNumber value={categoriesCount} name="Categories" loading={statsLoading} />
+              <StatNumber value={downloadsCount} name="Téléchargements" loading={statsLoading} />
+            </div>
+            <div className="stats-row">
+              <StatNumber value={usersCount} name="Utilisateurs" loading={statsLoading} />
             </div>
           </div>
         </div>
         <div className="content__right">
+          <p className="title">Gestion</p>
           <div className="controls">
-            <p className="title">Gestion</p>
             <Link to={routes.dashboard_add_ressource.path} className="dashboard__add-ressource button-link">Ajouter une ressource</Link>
             <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource button-link">Ajouter une image</Link>
+            <Link to={routes.dahsboard_add_category.path} className="dashboard__add-ressource button-link">Créer une nouvelle catégorie</Link>
           </div>
         </div>
       </div>
