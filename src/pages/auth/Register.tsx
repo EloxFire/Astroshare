@@ -85,24 +85,26 @@ export default function Register() {
         updatedAt: new Date(),
       }
       await createNewUser(userToAdd)
+      setLoading(false)
       navigate(routes.home.path)
     } catch (error) {
       console.error(error)
+      setLoading(false)
       setAlert('Une erreur est survenue, veuillez réessayer plus tard')
     }
   }
 
   return (
-    <div className="register">
+    <div className="auth">
       <div className="left" id='left' />
       <div className="right">
         <img src="/images/logos/logo_white.svg" alt="Logo d'Astroshare" />
         <div className="form">
           <h1>Inscription</h1>
-          <input type="email" ref={inputRef} name="email" placeholder="Email" onChange={handleMailCompletion} value={email} />
-          <input type="password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-          <input type="password" name="password" placeholder="Répétez le mot de passe" onChange={(e) => setPasswordRepeat(e.target.value)} />
-          <button onClick={handleRegister}>S'inscrire</button>
+          <input disabled={loading} type="email" ref={inputRef} name="email" placeholder="Email" onChange={handleMailCompletion} value={email} />
+          <input disabled={loading} type="password" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+          <input disabled={loading} type="password" name="password" placeholder="Répétez le mot de passe" onChange={(e) => setPasswordRepeat(e.target.value)} />
+          <button disabled={loading} onClick={handleRegister}>{loading ? <div className="loader"></div> : "S'inscrire"}</button>
         </div>
         {
           alert !== '' && <p className="auth-alert">{alert}</p>

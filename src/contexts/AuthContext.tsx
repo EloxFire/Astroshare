@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect, ReactNode, createContext } from
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { routes } from '../routes';
 import { useNavigate } from 'react-router-dom';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
+import { dbCollections } from '../scripts/helpers/constants';
 
 const AuthContext = createContext<any>({});
 
@@ -16,6 +18,7 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
 
   const [user, setUser] = useState<any>();
+  const [authUser, setAuthUser] = useState<any>(null);
   const [authLoading, setAuthLoading] = useState<boolean>(true);
   const navigate = useNavigate()
 
@@ -23,14 +26,33 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, user => {
-      setUser(user)
-      setAuthLoading(false);
-      // console.log(`AuthContext - User found : ${user.uid}`);
+      setAuthUser(user)
     });
+
+    const fetchCurrentUserData = async () => {
+      // console.log("fetching user data");
+
+      if (authUser) {
+        // console.log(authUser.uid);
+
+        const db = getFirestore();
+        const usersRef = collection(db, dbCollections.users);
+        const userQuery = query(usersRef, where("uid", "==", authUser.uid));
+        const loggedUser = await getDocs(userQuery)
+        // console.log(loggedUser.docs[0].data());
+
+        setUser(loggedUser.docs[0].data())
+        setAuthLoading(false)
+      }
+    }
+
+    fetchCurrentUserData().catch((err) => {
+      console.error(err)
+    })
 
     // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, []);
+  }, [authUser]);
 
   const signIn = async (email: string, password: string) => {
     const auth = getAuth();
@@ -45,6 +67,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const logout = async () => {
     const auth = getAuth();
     await signOut(auth);
+    setUser(null)
     navigate(routes.home.path)
   }
 

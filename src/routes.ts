@@ -59,6 +59,10 @@ export const routes = {
     path: '/register',
     label: 'Inscription',
   },
+  profile: {
+    path: '/profile',
+    label: 'Profil',
+  },
   notFound: {
     path: '*',
     label: '404',

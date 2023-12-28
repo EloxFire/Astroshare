@@ -1,6 +1,6 @@
 @import '../../globals.scss';
 
-.register{
+.auth{
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -9,7 +9,8 @@
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
     height: auto;
-    flex-direction: column;
+    flex-direction: column-reverse;
+    padding-top: 5vh;
   }
 
   .left{
@@ -19,12 +20,14 @@
     background-repeat: no-repeat;
     border: 20px solid $black;
     border-radius: 60px;
-
+    
     @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
       background-color: $black;
       width: 100%;
-      border: 10px solid $black;
+      height: 80vh;
+      border: 80px solid $black;
       background-color: $black;
+      border-radius: 100px;
     }
   }
   
@@ -51,6 +54,10 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      margin-top: 5vh;
+      }
 
       h1{
         margin-bottom: 5vh;

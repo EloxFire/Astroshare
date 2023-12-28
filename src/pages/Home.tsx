@@ -7,9 +7,11 @@ import { getMostDownloadedRessources } from '../scripts/helpers/api/ressources/g
 import { Ressource } from '../scripts/types';
 import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Home() {
 
+  const { user } = useAuth()
   const [mostDownloadedRessources, setMostDownloadedRessources] = useState<Ressource[]>([])
   const [mostDownloadedRessourcesLoading, setMostDownloadedRessourcesLoading] = useState<boolean>(true)
 
