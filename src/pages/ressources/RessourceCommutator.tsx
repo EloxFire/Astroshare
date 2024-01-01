@@ -20,6 +20,8 @@ export default function RessourceCommutator() {
         const r = await getRessourceBySlug(ressource_slug)
 
         setCurrentRessource(r.docs[0].data() as Ressource)
+        // console.log(r.docs[0].data().updatedAt.toDate() as Ressource);
+
       }
     }
 

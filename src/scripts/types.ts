@@ -17,8 +17,8 @@ export type Ressource = {
   tags?: string[];
   files?: any[];
   totalDownloads?: number;
-  creadted?: Date;
-  updated?: Date;
+  creadtedAt?: any;
+  updatedAt?: any;
 }
 
 export type RessourceCategory = {
