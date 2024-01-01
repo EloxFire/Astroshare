@@ -39,6 +39,10 @@ export const routes = {
     path: '/dashboard/add-ressource',
     label: 'Ajouter une ressource',
   },
+  dashboard_update_ressource: {
+    path: '/dashboard/update-ressource/:ressource_slug',
+    label: 'Modifier une ressource',
+  },
   dashboard_add_image: {
     path: '/dashboard/add-image',
     label: 'Ajouter une image',

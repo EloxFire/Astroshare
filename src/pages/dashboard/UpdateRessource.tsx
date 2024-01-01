@@ -2,20 +2,40 @@ import React, { useEffect, useState } from 'react'
 import { Ressource, RessourceCategory } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import Alert from '../../components/Alert'
 import '../../styles/pages/dashboard/addRessource.scss'
 import { useCategories } from '../../contexts/CategoriesContext'
+import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
 
-export default function AddRessource() {
+export default function UpdateRessource() {
 
   const { categories } = useCategories();
+  const { ressource_slug } = useParams();
+
+  const [ressourceLoading, setRessourceLoading] = useState<boolean>(true)
+  const [currentRessource, setCurrentRessource] = useState<Ressource>()
 
   useEffect(() => {
-    document.title = 'Astroshare | Ajouter une ressource'
+    document.title = 'Astroshare | Mettre a jour une ressource'
   }, [])
+
+  useEffect(() => {
+    const fetchRessource = async () => {
+      if (ressource_slug !== undefined) {
+        const r = await getRessourceBySlug(ressource_slug)
+
+        console.log(r);
+
+        // setCurrentRessource(r.docs[0].data() as Ressource)
+        setRessourceLoading(false)
+      }
+    }
+
+    fetchRessource()
+  }, [ressource_slug])
 
   const [ressourceName, setRessourceName] = useState<string>("")
   const [ressourceSlug, setRessourceSlug] = useState<string>("")
@@ -105,7 +125,6 @@ export default function AddRessource() {
       filePreview: ressourceFilePreview[0],
       type: ressourceType,
       totalDownloads: 0,
-      updatesCount: 0,
       createdAd: new Date(),
       updatedAt: new Date(),
       ...ressourceOptionnalProperties
@@ -184,7 +203,7 @@ export default function AddRessource() {
               </small>
             </div>
           </div>
-          <button disabled={uploading} className="submit-button" onClick={() => addNewRessource()}>{!uploading ? "Ajouter la ressource" : <div className="loader"></div>}</button>
+          <button disabled={uploading} className="submit-button" onClick={() => addNewRessource()}>{!uploading ? "Mettre à jour la ressource" : <div className="loader"></div>}</button>
         </div>
         <div className="right">
           <div className="drop-container">
