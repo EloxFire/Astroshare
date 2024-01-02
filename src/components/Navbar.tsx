@@ -59,6 +59,7 @@ export default function Navbar() {
         <Link className="link" to={routes.gallery.path} onClick={() => setMobileClick(false)}>{routes.gallery.label}</Link>
         <Link className="link" to={routes.contact.path} onClick={() => setMobileClick(false)}>{routes.contact.label}</Link>
         {user && <Link className="link" to={routes.profile.path} onClick={() => setMobileClick(false)}>{routes.profile.label}</Link>}
+        {!user && <Link className="link" to={routes.login.path} onClick={() => setMobileClick(false)}>{routes.login.label}</Link>}
         <p className="link" onClick={() => setMobileClick(false)}>Fermer</p>
       </div>
     </div>

@@ -106,6 +106,7 @@ export default function AddRessource() {
       type: ressourceType,
       totalDownloads: 0,
       updatesCount: 0,
+      visibility: true,
       createdAd: new Date(),
       updatedAt: new Date(),
       ...ressourceOptionnalProperties

@@ -8,6 +8,7 @@ export type Ressource = {
   downloadNames: string[];
   level: string[];
   description: string;
+  visibility: boolean;
   filePreview?: any;
   subtitle?: string;
   notes?: string;

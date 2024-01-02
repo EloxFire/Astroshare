@@ -1,14 +1,19 @@
 import React from 'react'
 import { useRessources } from '../../contexts/RessourcesContext'
 import { Link } from 'react-router-dom'
-import { FiChevronLeft, FiEdit2, FiEyeOff } from 'react-icons/fi'
+import { FiChevronLeft, FiEdit2, FiEyeOff, FiDelete } from 'react-icons/fi'
 import '../../styles/pages/dashboard/ressourcesList.scss'
 import { Ressource } from '../../scripts/types'
 import { routes } from '../../routes'
+import { changeRessourceVisibility } from '../../scripts/helpers/api/ressources/changeRessourceVisibility'
 
 export default function RessourcesList() {
 
   const { ressources } = useRessources()
+
+  const handleChangeVisibility = async (ressource_ref: string, value: boolean) => {
+    await changeRessourceVisibility(ressource_ref, value)
+  }
 
   return (
     <div className="ressources-list">
@@ -35,7 +40,8 @@ export default function RessourcesList() {
                 </div>
                 <div className="ressource-recap__actions">
                   <Link className="action-button" to={routes.dashboard_update_ressource.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
-                  <button className="action-button red"><FiEyeOff /></button>
+                  <button onClick={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)} className="action-button red"><FiEyeOff /></button>
+                  <button className="action-button red"><FiDelete /></button>
                 </div>
               </div>
             )
