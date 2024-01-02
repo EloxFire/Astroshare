@@ -9,6 +9,7 @@ import Alert from '../../components/Alert'
 import '../../styles/pages/dashboard/addRessource.scss'
 import { useCategories } from '../../contexts/CategoriesContext'
 import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
+import { updateExistingRessource } from '../../scripts/helpers/api/ressources/updateExistingRessource'
 
 export default function UpdateRessource() {
 
@@ -29,7 +30,17 @@ export default function UpdateRessource() {
 
         console.log(r);
 
-        // setCurrentRessource(r.docs[0].data() as Ressource)
+        setCurrentRessource(r.docs[0].data() as Ressource)
+        setRessourceName(r.docs[0].data().name)
+        setRessourceSlug(r.docs[0].data().slug)
+        setRessourceCategory(r.docs[0].data().category)
+        setRessourceDownloadNames(r.docs[0].data().downloadNames.join(','))
+        setRessourceDescription(r.docs[0].data().description)
+        setRessourceLevel(r.docs[0].data().level)
+        setRessourceType(r.docs[0].data().type)
+        // setRessourceFiles(r.docs[0].data().files)
+        // setRessourceFilePreview([r.docs[0].data().filePreview])
+        setRessourceOptionnalProperties(r.docs[0].data())
         setRessourceLoading(false)
       }
     }
@@ -45,7 +56,7 @@ export default function UpdateRessource() {
   const [ressourceLevel, setRessourceLevel] = useState<string>("")
   const [ressourceType, setRessourceType] = useState<string>("")
   const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
-  const [ressourceFilePreview, setRessourceFilePreview] = useState<any[]>([])
+  const [ressourceFilePreview, setRessourceFilePreview] = useState<any>()
 
   const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
   const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
@@ -75,11 +86,8 @@ export default function UpdateRessource() {
       }
       setRessourceFiles(temp)
     } else {
-      const temp = [...ressourceFilePreview]
-      for (let i = 0; i < files.length; i++) {
-        temp.push(files[i])
-      }
-      setRessourceFilePreview(temp)
+
+      setRessourceFilePreview(files[0])
     }
   }
 
@@ -96,7 +104,7 @@ export default function UpdateRessource() {
   }
 
   const addNewRessource = async () => {
-    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "" || ressourceFiles.length === 0) {
+    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "") {
       console.log("Missing required fields");
       setError("Veuillez remplir tous les champs obligatoires")
       setTimeout(() => {
@@ -105,7 +113,7 @@ export default function UpdateRessource() {
       return;
     }
 
-    if (ressourceDownloadNames.split(',').length !== ressourceFiles.length) {
+    if (ressourceFiles.length > 0 && (ressourceDownloadNames.split(',').length !== ressourceFiles.length)) {
       console.log("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement");
       setError("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement")
       setTimeout(() => {
@@ -122,7 +130,7 @@ export default function UpdateRessource() {
       description: ressourceDescription,
       level: ressourceLevel,
       files: ressourceFiles,
-      filePreview: ressourceFilePreview[0],
+      filePreview: ressourceFilePreview,
       type: ressourceType,
       totalDownloads: 0,
       createdAd: new Date(),
@@ -132,7 +140,7 @@ export default function UpdateRessource() {
 
     try {
       setUploading(true)
-      await uploadNewRessource(ressourceToAdd)
+      await updateExistingRessource(ressourceToAdd)
       setUploading(false)
       setRessourceName("")
       setRessourceSlug("")
@@ -154,7 +162,7 @@ export default function UpdateRessource() {
         error !== "" &&
         <Alert type='error' message={error} />
       }
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
+      <p className="h3 title"><Link to={routes.dashboard_ressources_list.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Modifier une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
           <div className="types-container">
@@ -230,15 +238,11 @@ export default function UpdateRessource() {
             <div className="files-preview">
               {
                 ressourceFilePreview &&
-                ressourceFilePreview.map((file, fileIndex) => {
-                  return (
-                    <div className="file">
-                      <embed height="820px" width="350px" key={fileIndex} className="image" src={URL.createObjectURL(file)} title={file.name} />
-                      <small className="file-name">{file.name.substr(0, 30)}</small>
-                      <button onClick={() => deleteFile(fileIndex, 'ressourcePreview')}>X</button>
-                    </div>
-                  )
-                })
+                <div className="file">
+                  <embed height="820px" width="350px" className="image" src={URL.createObjectURL(ressourceFilePreview)} title={ressourceFilePreview.name} />
+                  <small className="file-name">{ressourceFilePreview.name.substr(0, 30)}</small>
+                  <button onClick={() => deleteFile(0, 'ressourcePreview')}>X</button>
+                </div>
               }
             </div>
           </div>

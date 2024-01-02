@@ -14,6 +14,7 @@ export type Ressource = {
   format?: string[];
   image?: string;
   links?: string[];
+  ref?: string;
   tags?: string[];
   files?: any[];
   totalDownloads?: number;

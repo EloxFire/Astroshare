@@ -20,6 +20,7 @@ import Register from "./pages/auth/Register";
 import { AuthProvider } from "./contexts/AuthContext";
 import Profile from "./pages/auth/Profile";
 import UpdateRessource from "./pages/dashboard/UpdateRessource";
+import RessourcesList from "./pages/dashboard/RessourcesList";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           {/* Admin routes */}
           <Route path={routes.dashboard.path} element={<Guard children={<Layout component={<Dashboard />} />} />} />
           <Route path={routes.dashboard_add_ressource.path} element={<Guard children={<Layout component={<AddRessource />} />} />} />
+          <Route path={routes.dashboard_ressources_list.path} element={<Guard children={<Layout component={<RessourcesList />} />} />} />
           <Route path={routes.dashboard_update_ressource.path} element={<Guard children={<Layout component={<UpdateRessource />} />} />} />
           <Route path={routes.dashboard_add_image.path} element={<Guard children={<Layout component={<AddImage />} />} />} />
           <Route path={routes.dahsboard_add_category.path} element={<Guard children={<Layout component={<AddCategory />} />} />} />

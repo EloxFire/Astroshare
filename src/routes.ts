@@ -43,13 +43,17 @@ export const routes = {
     path: '/dashboard/update-ressource/:ressource_slug',
     label: 'Modifier une ressource',
   },
+  dashboard_ressources_list: {
+    path: '/dashboard/ressources-list',
+    label: 'Liste des ressources',
+  },
   dashboard_add_image: {
     path: '/dashboard/add-image',
     label: 'Ajouter une image',
   },
   dahsboard_add_category: {
     path: '/dashboard/add-category',
-    label: 'Ajouter une catégorie',
+    label: 'Créer une catégorie',
   },
   login: {
     path: '/login',

@@ -40,16 +40,16 @@ export default function Dashboard() {
           <div className="controls">
             <p className="subtitle">Ressources</p>
             <div className="controls-buttons">
-              <Link to={routes.dashboard_add_ressource.path} className="dashboard__add-ressource button-link">Ajouter une ressource</Link>
-              <Link to={routes.dashboard_update_ressource.path} className="dashboard__add-ressource button-link">Mettre à jour une ressource</Link>
+              <Link to={routes.dashboard_add_ressource.path} className="dashboard__add-ressource button-link">{routes.dashboard_add_ressource.label}</Link>
+              <Link to={routes.dashboard_ressources_list.path} className="dashboard__add-ressource button-link">{routes.dashboard_ressources_list.label}</Link>
             </div>
             <p className="subtitle">Catégories</p>
             <div className="controls-buttons">
-              <Link to={routes.dahsboard_add_category.path} className="dashboard__add-ressource button-link">Créer une nouvelle catégorie</Link>
+              <Link to={routes.dahsboard_add_category.path} className="dashboard__add-ressource button-link">{routes.dahsboard_add_category.label}</Link>
             </div>
             <p className="subtitle">Images</p>
             <div className="controls-buttons">
-              <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource button-link">Ajouter une image</Link>
+              <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource button-link">{routes.dashboard_add_image.label}</Link>
             </div>
           </div>
         </div>
