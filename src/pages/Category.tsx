@@ -38,8 +38,8 @@ export default function Category() {
       <p>{selectedCategory?.longDescription}</p>
       <div className="ressources-container">
         {
-          currentRessources.length > 0 ?
-            currentRessources.map((r, ressource_index) => {
+          currentRessources.filter((r: Ressource) => r.visibility === true).length > 0 ?
+            currentRessources.filter((r: Ressource) => r.visibility === true).map((r, ressource_index) => {
               return (
                 <RessourceDisplay key={ressource_index} ressource={r} currentCategory={category!} />
               )

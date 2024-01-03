@@ -5,14 +5,15 @@ export const changeRessourceVisibility = async (ressource_ref: string, value: bo
   const db = getFirestore();
 
   try {
-    console.log("Updating ressource " + ressource_ref + " visibility");
+    // console.log("Updating ressource " + ressource_ref + " visibility");
 
     const ressourcesRef = collection(db, dbCollections.ressources);
     const docRef = await doc(ressourcesRef, ressource_ref);
-    updateDoc(docRef, {
+
+    await updateDoc(docRef, {
       visibility: value
     });
-    console.log(`${ressource_ref} document updated successfully !`);
+    // console.log(`${ressource_ref} document updated successfully !`);
   } catch (error) {
     console.error("Error updating document:", error);
   }

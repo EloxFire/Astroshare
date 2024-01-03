@@ -14,14 +14,14 @@ interface RessourceCategoryButtonProps {
 
 export default function RessourceCategoryButton({ name, slug, description, longDescription, icon }: RessourceCategoryButtonProps) {
 
-  const { ressources } = useRessources();
+  const { visibleRessources } = useRessources();
   const [ressourcesCount, setRessourcesCount] = useState(0);
 
   useEffect(() => {
     let matchingRessources: Ressource[] = [];
-    matchingRessources = ressources.filter((r: Ressource) => r.category === slug)
+    matchingRessources = visibleRessources.filter((r: Ressource) => r.category === slug)
     setRessourcesCount(matchingRessources.length)
-  }, [slug, ressources])
+  }, [slug, visibleRessources])
 
   return (
     <Link to={`/ressources/${slug}`} className="ressource-category">
