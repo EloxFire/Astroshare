@@ -1,7 +1,7 @@
-import { getFirestore, collection, addDoc, updateDoc, arrayUnion, doc } from "firebase/firestore";
+import { getFirestore, collection, updateDoc, arrayUnion, doc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Ressource } from "../../../types";
-import { dbCollections } from "../../constants";
+import { dbCollections, dbStorageNamespaces } from "../../constants";
 
 export const updateExistingRessource = async (ressource: Ressource) => {
   const storage = getStorage();
@@ -23,16 +23,22 @@ export const updateExistingRessource = async (ressource: Ressource) => {
     console.log(`${ressource.slug} document updated successfully !`);
 
     // Mise a jour des fichiers de ressource
-    if (filesToUpload.length > 0) {
+    if (filesToUpload.length > 0 && filesToUpload !== null) {
       // Upload files to storage
       try {
         filesToUpload.forEach(async (file, file_index) => {
-          const storageRef = ref(storage, `ressources/${ressource.slug}/version${ressource.updatesCount! + 1}/${ressource.downloadNames[file_index]}`);
+          if (typeof file === 'string') return console.log(`File n°${file_index} is already uploaded to storage`);
+
+          const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/version${ressource.updatesCount! + 1}/${ressource.downloadNames[file_index]}`);
           const fileRef = await uploadBytes(storageRef, file);
           const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
           console.log("File uploaded to storage:", fileRef.metadata.ref!);
           updateDoc(docRef, {
-            files: arrayUnion(fileUrl)
+            files: [],
+          })
+          updateDoc(docRef, {
+            files: arrayUnion(fileUrl),
+            updatedAt: new Date()
           })
           console.log(`File n°${file_index} url updated in ressource document`);
 
@@ -44,14 +50,17 @@ export const updateExistingRessource = async (ressource: Ressource) => {
     }
 
     // Mise a jour de l'illustration de ressource
-    if (filePreviewToUpload) {
+    if (filePreviewToUpload !== null) {
       try {
-        const storageRef = ref(storage, `ressources/${ressource.slug}/illustration/version${ressource.updatesCount! + 1}`);
+        if (typeof filePreviewToUpload === 'string') return console.log(`File preview is already uploaded to storage`);
+
+        const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/illustration/version${ressource.updatesCount! + 1}`);
         const filePreviewRef = await uploadBytes(storageRef, filePreviewToUpload);
         const filePreviewUrl = await getDownloadURL(filePreviewRef.metadata.ref!);
         console.log("File uploaded to storage:", filePreviewRef.metadata.ref!);
         updateDoc(docRef, {
-          filePreview: filePreviewUrl
+          filePreview: filePreviewUrl,
+          updatedAt: new Date()
         })
         console.log(`File preview url updated in ressource document`);
       } catch (error) {

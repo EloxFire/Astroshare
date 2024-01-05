@@ -8,10 +8,12 @@ import { FiChevronLeft } from 'react-icons/fi'
 import Alert from '../../components/Alert'
 import '../../styles/pages/dashboard/addRessource.scss'
 import { useCategories } from '../../contexts/CategoriesContext'
+import { useRessources } from '../../contexts/RessourcesContext'
 
 export default function AddRessource() {
 
   const { categories } = useCategories();
+  const { updateRessources } = useRessources()
 
   useEffect(() => {
     document.title = 'Astroshare | Ajouter une ressource'
@@ -105,7 +107,7 @@ export default function AddRessource() {
       filePreview: ressourceFilePreview[0],
       type: ressourceType,
       totalDownloads: 0,
-      updatesCount: 0,
+      updatesCount: 1,
       visibility: true,
       createdAd: new Date(),
       updatedAt: new Date(),
@@ -115,6 +117,7 @@ export default function AddRessource() {
     try {
       setUploading(true)
       await uploadNewRessource(ressourceToAdd)
+      await updateRessources()
       setUploading(false)
       setRessourceName("")
       setRessourceSlug("")

@@ -6,6 +6,7 @@ import '../../styles/pages/dashboard/ressourcesList.scss'
 import { Ressource } from '../../scripts/types'
 import { routes } from '../../routes'
 import { changeRessourceVisibility } from '../../scripts/helpers/api/ressources/changeRessourceVisibility'
+import { deleteRessource } from '../../scripts/helpers/api/ressources/deleteRessource'
 
 export default function RessourcesList() {
 
@@ -16,8 +17,10 @@ export default function RessourcesList() {
     await updateRessources()
   }
 
-  const handleDeleteRessource = async (ressource_ref: string) => {
-    // await deleteRessource(ressource_ref)
+  const handleDeleteRessource = async (ressource_ref: string, ressource_slug: string) => {
+    console.log("Deleting ressource", ressource_ref, ressource_slug);
+
+    await deleteRessource(ressource_ref, ressource_slug)
     await updateRessources()
   }
 
@@ -48,7 +51,7 @@ export default function RessourcesList() {
                 <div className="ressource-recap__actions">
                   <Link className="action-button" to={routes.dashboard_update_ressource.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
                   <button onClick={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)} className="action-button">{ressource.visibility ? <FiEyeOff /> : <FiEye />}</button>
-                  <button className="action-button red"><FiTrash2 /></button>
+                  <button onClick={() => handleDeleteRessource(ressource.ref!, ressource.slug)} className="action-button red"><FiTrash2 /></button>
                 </div>
               </div>
             )
@@ -76,7 +79,7 @@ export default function RessourcesList() {
                 <div className="ressource-recap__actions">
                   <Link className="action-button" to={routes.dashboard_update_ressource.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
                   <button onClick={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)} className="action-button">{ressource.visibility ? <FiEyeOff /> : <FiEye />}</button>
-                  <button onClick={() => handleDeleteRessource(ressource.ref!)} className="action-button red"><FiTrash2 /></button>
+                  <button onClick={() => handleDeleteRessource(ressource.ref!, ressource.slug)} className="action-button red"><FiTrash2 /></button>
                 </div>
               </div>
             )

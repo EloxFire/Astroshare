@@ -19,6 +19,22 @@ export default function UpdateRessource() {
   const [ressourceLoading, setRessourceLoading] = useState<boolean>(true)
   const [currentRessource, setCurrentRessource] = useState<Ressource>()
 
+  const [ressourceName, setRessourceName] = useState<string>("")
+  const [ressourceSlug, setRessourceSlug] = useState<string>("")
+  const [ressourceCategory, setRessourceCategory] = useState<string>("")
+  const [ressourceDownloadNames, setRessourceDownloadNames] = useState<string>("")
+  const [ressourceDescription, setRessourceDescription] = useState<string>("")
+  const [ressourceLevel, setRessourceLevel] = useState<string>("")
+  const [ressourceType, setRessourceType] = useState<string>("")
+  const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
+  const [ressourceFilePreview, setRessourceFilePreview] = useState<any>(null)
+
+  const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
+  const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
+  const [ressourceOptionnalProperties, setRessourceOptionnalProperties] = useState<any>({})
+  const [uploading, setUploading] = useState<boolean>(false)
+  const [error, setError] = useState<string>("")
+
   useEffect(() => {
     document.title = 'Astroshare | Mettre a jour une ressource'
   }, [])
@@ -28,8 +44,6 @@ export default function UpdateRessource() {
       if (ressource_slug !== undefined) {
         const r = await getRessourceBySlug(ressource_slug)
 
-        console.log(r);
-
         setCurrentRessource(r.docs[0].data() as Ressource)
         setRessourceName(r.docs[0].data().name)
         setRessourceSlug(r.docs[0].data().slug)
@@ -38,8 +52,6 @@ export default function UpdateRessource() {
         setRessourceDescription(r.docs[0].data().description)
         setRessourceLevel(r.docs[0].data().level)
         setRessourceType(r.docs[0].data().type)
-        // setRessourceFiles(r.docs[0].data().files)
-        // setRessourceFilePreview([r.docs[0].data().filePreview])
         setRessourceOptionnalProperties(r.docs[0].data())
         setRessourceLoading(false)
       }
@@ -47,22 +59,6 @@ export default function UpdateRessource() {
 
     fetchRessource()
   }, [ressource_slug])
-
-  const [ressourceName, setRessourceName] = useState<string>("")
-  const [ressourceSlug, setRessourceSlug] = useState<string>("")
-  const [ressourceCategory, setRessourceCategory] = useState<string>("")
-  const [ressourceDownloadNames, setRessourceDownloadNames] = useState<string>("")
-  const [ressourceDescription, setRessourceDescription] = useState<string>("")
-  const [ressourceLevel, setRessourceLevel] = useState<string>("")
-  const [ressourceType, setRessourceType] = useState<string>("")
-  const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
-  const [ressourceFilePreview, setRessourceFilePreview] = useState<any>()
-
-  const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
-  const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
-  const [ressourceOptionnalProperties, setRessourceOptionnalProperties] = useState<any>({})
-  const [uploading, setUploading] = useState<boolean>(false)
-  const [error, setError] = useState<string>("")
 
   const appendNewProperty = (key: string, value: string | number) => {
     if (ressourceOptionnalProperties[key] !== undefined && value === "") {
@@ -103,7 +99,7 @@ export default function UpdateRessource() {
     }
   }
 
-  const addNewRessource = async () => {
+  const updateRessource = async () => {
     if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "") {
       console.log("Missing required fields");
       setError("Veuillez remplir tous les champs obligatoires")
@@ -122,7 +118,10 @@ export default function UpdateRessource() {
       return;
     }
 
-    const ressourceToAdd: Ressource = {
+    console.log(ressourceFilePreview);
+
+
+    const ressourceToUpdate: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
       category: ressourceCategory,
@@ -132,16 +131,21 @@ export default function UpdateRessource() {
       files: ressourceFiles,
       filePreview: ressourceFilePreview,
       type: ressourceType,
-      totalDownloads: 0,
-      createdAd: new Date(),
+      totalDownloads: currentRessource?.totalDownloads,
       updatedAt: new Date(),
       ...ressourceOptionnalProperties
     }
 
+    ressourceToUpdate.filePreview = ressourceFilePreview;
+    ressourceToUpdate.files = ressourceFiles;
+
+    console.log(ressourceToUpdate);
+
+
     try {
       setUploading(true)
-      await updateExistingRessource(ressourceToAdd)
-      setUploading(false)
+      await updateExistingRessource(ressourceToUpdate)
+      // setUploading(false)
       setRessourceName("")
       setRessourceSlug("")
       setRessourceCategory("")
@@ -149,7 +153,7 @@ export default function UpdateRessource() {
       setRessourceDescription("")
       setRessourceLevel("")
       setRessourceFiles([])
-      setRessourceFilePreview([])
+      setRessourceFilePreview(null)
       setRessourceOptionnalProperties({})
     } catch (error) {
 
@@ -211,7 +215,7 @@ export default function UpdateRessource() {
               </small>
             </div>
           </div>
-          <button disabled={uploading} className="submit-button" onClick={() => addNewRessource()}>{!uploading ? "Mettre à jour la ressource" : <div className="loader"></div>}</button>
+          <button disabled={uploading} className="submit-button" onClick={() => updateRessource()}>{!uploading ? "Mettre à jour la ressource" : <div className="loader"></div>}</button>
         </div>
         <div className="right">
           <div className="drop-container">

@@ -1,6 +1,6 @@
 import { collection, deleteDoc, doc, getFirestore } from "firebase/firestore"
 import { deleteObject, getStorage, ref } from "firebase/storage"
-import { dbCollections } from "../../constants"
+import { dbCollections, dbStorageNamespaces } from "../../constants"
 
 export const deleteRessource = async (ressource_ref: string, ressource_slug: string) => {
   const db = getFirestore()
@@ -18,7 +18,7 @@ export const deleteRessource = async (ressource_ref: string, ressource_slug: str
     console.log("Ressource document deleted successfully !");
 
     // Delete ressource files
-    const storageRef = ref(storage, `ressources/${ressource_slug}`);
+    const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource_slug}/`);
     await deleteObject(storageRef)
     console.log("Ressource files deleted successfully !");
 

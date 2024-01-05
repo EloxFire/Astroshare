@@ -1,3 +1,4 @@
+import { dbStorageNamespaces } from './../../constants';
 import { getFirestore, collection, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { Ressource } from "../../../types";
@@ -25,7 +26,7 @@ export const uploadNewRessource = async (ressource: Ressource) => {
     // Upload files to storage
     try {
       filesToUpload.forEach(async (file, file_index) => {
-        const storageRef = ref(storage, `ressources/${ressource.slug}/${ressource.downloadNames[file_index]}`);
+        const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/files/version${ressource.updatesCount!}/${ressource.downloadNames[file_index]}`);
         const fileRef = await uploadBytes(storageRef, file);
         const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
         console.log("File uploaded to storage:", fileRef.metadata.ref!);
@@ -42,7 +43,7 @@ export const uploadNewRessource = async (ressource: Ressource) => {
 
     // Upload files to storage
     try {
-      const storageRef = ref(storage, `ressources/${ressource.slug}/illustration`);
+      const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/illustration/version${ressource.updatesCount!}/illustration.jpg`);
       const filePreviewRef = await uploadBytes(storageRef, filePreviewToUpload);
       const filePreviewUrl = await getDownloadURL(filePreviewRef.metadata.ref!);
       console.log("File uploaded to storage:", filePreviewRef.metadata.ref!);
