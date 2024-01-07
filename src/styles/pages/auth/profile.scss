@@ -2,6 +2,7 @@
 
 .profile-page{
   @extend .global-page;
+  padding-bottom: 10vh;
 
   &__infos{
     margin-bottom: 20px;

@@ -20,7 +20,7 @@ export const updateExistingRessource = async (ressource: Ressource) => {
     updateDoc(docRef, {
       ...ressourceToUpload
     });
-    console.log(`${ressource.slug} document updated successfully !`);
+    console.log(`${ressource.slug} document main updated successfully !`);
 
     // Mise a jour des fichiers de ressource
     if (filesToUpload.length > 0 && filesToUpload !== null) {
