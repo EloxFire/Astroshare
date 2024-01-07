@@ -118,43 +118,35 @@ export default function UpdateRessource() {
       return;
     }
 
-    console.log(ressourceFilePreview);
+    console.log("RESSOURCE NAME", ressourceName);
 
 
-    const ressourceToUpdate: Ressource = {
+    let ressourceToUpdate: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
       category: ressourceCategory,
       downloadNames: ressourceDownloadNames.split(','),
       description: ressourceDescription,
-      level: ressourceLevel,
+      level: ressourceLevel.split(','),
       files: ressourceFiles,
       filePreview: ressourceFilePreview,
       type: ressourceType,
       totalDownloads: currentRessource?.totalDownloads,
+      visibility: currentRessource?.visibility!,
       updatedAt: new Date(),
-      ...ressourceOptionnalProperties
     }
+
+    ressourceToUpdate = { ...ressourceToUpdate, ...ressourceOptionnalProperties }
 
     ressourceToUpdate.filePreview = ressourceFilePreview;
     ressourceToUpdate.files = ressourceFiles;
 
-    console.log(ressourceToUpdate);
-
+    console.log("RESSOURCE TO UPDATE :", ressourceToUpdate);
 
     try {
       setUploading(true)
       await updateExistingRessource(ressourceToUpdate)
-      // setUploading(false)
-      setRessourceName("")
-      setRessourceSlug("")
-      setRessourceCategory("")
-      setRessourceDownloadNames("")
-      setRessourceDescription("")
-      setRessourceLevel("")
-      setRessourceFiles([])
-      setRessourceFilePreview(null)
-      setRessourceOptionnalProperties({})
+      setUploading(false)
     } catch (error) {
 
     }
