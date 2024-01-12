@@ -128,18 +128,16 @@ export default function UpdateRessource() {
       downloadNames: ressourceDownloadNames.split(','),
       description: ressourceDescription,
       level: ressourceLevel.split(','),
-      files: ressourceFiles,
-      filePreview: ressourceFilePreview,
       type: ressourceType,
       totalDownloads: currentRessource?.totalDownloads,
       visibility: currentRessource?.visibility!,
       updatedAt: new Date(),
     }
 
-    ressourceToUpdate = { ...ressourceToUpdate, ...ressourceOptionnalProperties }
+    // const updatedRessource = { ...ressourceToUpdate, ...ressourceOptionnalProperties }
 
-    ressourceToUpdate.filePreview = ressourceFilePreview;
-    ressourceToUpdate.files = ressourceFiles;
+    // updatedRessource.filePreview = ressourceFilePreview;
+    // updatedRessource.files = ressourceFiles;
 
     console.log("RESSOURCE TO UPDATE :", ressourceToUpdate);
 
