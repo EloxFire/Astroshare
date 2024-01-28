@@ -27,6 +27,10 @@ export const routes = {
     path: '/planner',
     label: 'Planificateur',
   },
+  planner_app: {
+    path: '/planner/app',
+    label: 'Application de planification',
+  },
   contact: {
     path: '/contact',
     label: 'Contact',

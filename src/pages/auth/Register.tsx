@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import '../../styles/pages/auth/auth.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { routes } from '../../routes';
 import { mailRegex } from '../../scripts/helpers/helpers';
 import { createNewUser } from '../../scripts/helpers/api/users/createNewUser';
@@ -11,6 +11,7 @@ import { User } from '../../scripts/types/User';
 export default function Register() {
 
   const { signUp, user } = useAuth()
+  const { state } = useLocation();
   const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -86,7 +87,11 @@ export default function Register() {
       }
       await createNewUser(userToAdd)
       setLoading(false)
-      navigate(routes.home.path)
+      if (state && state.fromPage) {
+        navigate(state.fromPath)
+      } else {
+        navigate(routes.home.path)
+      }
     } catch (error) {
       console.error(error)
       setLoading(false)
@@ -106,8 +111,8 @@ export default function Register() {
           <input disabled={loading} type="password" name="password" placeholder="Répétez le mot de passe" onChange={(e) => setPasswordRepeat(e.target.value)} />
           <button disabled={loading} onClick={handleRegister}>{loading ? <div className="loader"></div> : "S'inscrire"}</button>
           <div style={{ display: 'flex', flexDirection: 'row', marginTop: '10px', justifyContent: 'space-between' }}>
-            <small>Vous avez déjà un compte ? <Link to={routes.login.path}>Connectez-vous</Link></small>
-            <small>Vous rencontrez un problème ? <Link to={routes.contact.path}>Contactez moi !</Link></small>
+            <small>Vous avez déjà un compte ? <Link to={routes.login.path} >Connectez-vous</Link></small>
+            <small>Vous rencontrez un problème ? <Link to={routes.contact.path} >Contactez moi !</Link></small>
           </div>
         </div>
         {
