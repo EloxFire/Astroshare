@@ -1,0 +1,82 @@
+@import '../globals.scss';
+@use 'sass:math';
+
+.planner {
+  @extend .global-page;
+
+  .cta{
+    border: 1px solid red;
+    margin-top: 8vh;
+    height: 50vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .left{
+      border: 1px solid blue;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+      position: relative;
+      
+      .illustration{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 0;
+        left: 0;
+
+        @for $i from 1 through 4{
+          $x_placement: random(40);
+          $y_placement: random(40);
+          $rotation: random(35);
+          $rotation_direction: random(2);
+
+          &.illustration-#{$i}{
+            top: $y_placement + vh;
+            left: calc(#{$x_placement}vw - 100px);
+            
+            @if $rotation_direction == 1{
+              transform: rotateX(#{$rotation}deg);
+            } @else {
+              transform: rotateX(-#{$rotation}deg);
+            }
+          }
+        }
+
+        // &.illustration-1{
+        //   top: 20px;
+        //   left: 20px;
+        //   transform: rotateX(25deg);
+        // }
+
+        // &.illustration-2{
+        //   top: 100px;
+        //   left: 180px;
+        // }
+
+        // &.illustration-3{
+        //   top: 50%;
+        //   left: 50%;
+        //   transform: translate(-50%, -50%);
+        // }
+      }
+
+    }
+
+    .right{
+      border: 1px solid green;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 0 5vw;
+    }
+  }
+}
