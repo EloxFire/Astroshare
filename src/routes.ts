@@ -23,6 +23,10 @@ export const routes = {
     path: '/ressources/:category/:ressource_slug',
     label: 'Ressource',
   },
+  planner: {
+    path: '/planner',
+    label: 'Planificateur',
+  },
   contact: {
     path: '/contact',
     label: 'Contact',
