@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/pages/planner.scss'
+import '../../styles/pages/planner/planner.scss'
 import { useAuth } from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'

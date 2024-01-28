@@ -12,6 +12,7 @@ import { RessourcesProvider } from './contexts/RessourcesContext';
 import { AuthProvider } from './contexts/AuthContext';
 import './index.css';
 import './firebase'
+import { PlannerAppProvider } from './contexts/PlannerAppContext';
 
 dayjs.locale('fr');
 
@@ -24,8 +25,10 @@ root.render(
     <GalleryProvider>
       <CategoriesProvider>
         <StatsProvider>
-          <App />
-          <Analytics />
+          <PlannerAppProvider>
+            <App />
+            <Analytics />
+          </PlannerAppProvider>
         </StatsProvider>
       </CategoriesProvider>
     </GalleryProvider>

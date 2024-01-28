@@ -131,6 +131,28 @@ code{
   }
 }
 
+.datetime_input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 8px 10px 5px 10px;
+  outline: none;
+  border: none;
+  border: 1px solid rgba($white, .5);
+  color: $white;
+  margin: 0;
+  margin-right: 10px;
+
+  &::placeholder{
+    font-weight: 700;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
+
 .loader{
   width: 20px;
   height: 20px;

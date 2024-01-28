@@ -1,5 +1,4 @@
-@import '../globals.scss';
-@use 'sass:math';
+@import '../../globals.scss';
 
 .planner {
   @extend .global-page;
@@ -65,7 +64,7 @@
         border: 1px solid $black;
         padding: 10px 20px;
         font-size: 1.2rem;
-        align-self: flex-star;
+        align-self: flex-start;
         text-decoration: none;
         margin-bottom: 10px;
         

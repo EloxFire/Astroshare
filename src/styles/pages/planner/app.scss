@@ -1,0 +1,88 @@
+@import '../../globals.scss';
+
+.planner-app {
+  @extend .global-page;
+  padding-top: 0;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    height: auto;
+  }
+
+  .app-loading{
+    @extend .app;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p{
+      margin-top: 2vh;
+    }
+  }
+
+  .app{
+    border: 1px solid $white;
+    border-radius: 10px;
+    height: 80vh;
+    
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      height: auto;
+    }
+    
+    .header{
+      height: 6vh;
+      border-bottom: 1px solid $white;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      .section{
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+        padding: 0 10px;
+        
+        &:nth-child(2){
+          border-left: 1px solid $white;
+          border-right: 1px solid $white;
+        }
+
+        .title{
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .body{
+      height: 74vh;
+      display: flex;
+      flex-direction: row;
+
+      .section{
+        flex: 1;
+        padding: 10px;
+        
+        &:nth-child(2){
+          border-left: 1px solid $white;
+          border-right: 1px solid $white;
+        }
+
+        .title{
+          font-size: 1.2rem;
+          font-weight: 700;
+          text-align: center;
+          text-decoration: underline;
+          margin-bottom: 10px;
+        }
+      }
+
+    }
+  }
+
+}
+
+
+
+
