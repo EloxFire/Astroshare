@@ -21,7 +21,8 @@ import Register from "./pages/auth/Register";
 import Profile from "./pages/auth/Profile";
 import UpdateRessource from "./pages/dashboard/UpdateRessource";
 import RessourcesList from "./pages/dashboard/RessourcesList";
-import Planner from "./pages/Planner";
+import Planner from "./pages/planner/Planner";
+import PlannerApp from "./pages/planner/PlannerApp";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path={routes.hub.path} element={<Layout component={<Hub />} />} />
           <Route path={routes.planner.path} element={<Layout component={<Planner />} />} />
           <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
+          <Route path={routes.planner_app.path} element={<Layout component={<PlannerApp />} />} />
           {/* Ressources routes */}
           {/* <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} /> */}
           <Route path={routes.ressource.path} element={<Layout component={<RessourceCommutator />} />} />

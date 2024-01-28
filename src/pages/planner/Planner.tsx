@@ -1,9 +1,9 @@
 import React from 'react'
-import '../styles/pages/planner.scss'
-import { useAuth } from '../contexts/AuthContext'
+import '../../styles/pages/planner.scss'
+import { useAuth } from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { routes } from '../routes'
+import { routes } from '../../routes'
 
 export default function Planner() {
 
