@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { routes } from "./routes";
+import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import About from "./pages/About";
@@ -17,10 +18,10 @@ import AddCategory from "./pages/dashboard/AddCategory";
 import RessourceCommutator from "./pages/ressources/RessourceCommutator";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import { AuthProvider } from "./contexts/AuthContext";
 import Profile from "./pages/auth/Profile";
 import UpdateRessource from "./pages/dashboard/UpdateRessource";
 import RessourcesList from "./pages/dashboard/RessourcesList";
+import Planner from "./pages/Planner";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path={routes.contact.path} element={<Layout component={<Contact />} />} />
           <Route path={routes.gallery.path} element={<Layout component={<Gallery />} />} />
           <Route path={routes.hub.path} element={<Layout component={<Hub />} />} />
+          <Route path={routes.planner.path} element={<Layout component={<Planner />} />} />
           <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
           {/* Ressources routes */}
           {/* <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} /> */}
