@@ -13,6 +13,11 @@
     justify-content: space-between;
     align-items: center;
 
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      flex-direction: column;
+      height: auto;
+    }
+
     .left{
       width: auto;
       height: 100%;
@@ -22,9 +27,21 @@
       align-items: center;
       // padding: 0 5vw;
       // position: relative;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        margin-bottom: 5vh;
+      }
       
       .illustration{
         height: 100%;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          width: 55%;
+        }
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          width: 100%;
+        }
       }
 
     }
@@ -36,15 +53,25 @@
       flex-direction: column;
       padding: 0 0 0 5vw;
 
+      @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+        align-items: center;
+        margin-bottom: 10vh;
+        text-align: center;
+      }
+
       .cta-button{
         background-color: $white;
         color: $black;
         border: 1px solid $black;
         padding: 10px 20px;
         font-size: 1.2rem;
-        align-self: flex-start;
+        align-self: flex-star;
         text-decoration: none;
         margin-bottom: 10px;
+        
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          align-self: center;
+        }
       }
     }
   }
