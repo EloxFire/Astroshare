@@ -35,9 +35,17 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
 
-      .title{
-        margin-bottom: 0;
+      .right, .left{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .title{
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -45,23 +53,10 @@
       height: 74vh;
       display: flex;
       flex-direction: row;
+      position: relative;
 
-      .section{
-        flex: 1;
-        padding: 10px;
-        
-        &:nth-child(2){
-          border-left: 1px solid $white;
-          border-right: 1px solid $white;
-        }
-
-        .title{
-          font-size: 1.2rem;
-          font-weight: 700;
-          text-align: center;
-          text-decoration: underline;
-          margin-bottom: 10px;
-        }
+      .left{
+        width: 40%;
       }
 
     }

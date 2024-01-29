@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import '../../styles/pages/planner/app.scss'
 import { usePlanner } from '../../contexts/PlannerAppContext'
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
+import '../../styles/pages/planner/app.scss'
 
 export default function PlannerApp() {
 
-  const { appLoading, planNight } = usePlanner()
+  const { appLoading, planNight, weather } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
   const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
 
@@ -24,22 +24,20 @@ export default function PlannerApp() {
           :
           <div className="app">
             <div className="header">
-              <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
-              <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ville ou coordonnées (lat,lon)' />
-              <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
-              <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} />
-              <button className="custom-button small" type='button' onClick={() => planNight(cityName, nightDate)}>Valider</button>
+              <div className="left">
+                <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
+                <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Vauvenargues' />
+                <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
+                <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} />
+                <button className="custom-button small" type='button' onClick={() => planNight(cityName, nightDate)}>Valider</button>
+              </div>
+              <div className="right">
+                <p className="h2 title">Étape 1</p>
+              </div>
             </div>
             <div className="body">
-              <div className="section">
-                <p className="title">Météo</p>
-              </div>
-              <div className="section">
-                <p className="title">Observations</p>
-              </div>
-              <div className="section">
-                <p className="title">Ajustements</p>
-              </div>
+              <div className="left"></div>
+              <div className="right"></div>
             </div>
           </div>
       }

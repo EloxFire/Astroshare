@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
-import { geocodingApi, weatherApi } from '../scripts/helpers/api/planner';
-import { City } from '../scripts/types/City';
 import dayjs, { Dayjs } from 'dayjs';
+import { City } from '../scripts/types/City';
 import { convertCityName } from '../scripts/helpers/api/planner/convertCityName';
 import { getWeather } from '../scripts/helpers/api/planner/getWeather';
 
@@ -67,7 +66,8 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
 
   const value = {
     appLoading,
-    planNight
+    planNight,
+    weather
   }
 
   return (
