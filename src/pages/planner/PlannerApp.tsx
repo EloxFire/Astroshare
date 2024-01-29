@@ -4,12 +4,13 @@ import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import '../../styles/pages/planner/app.scss'
 import { usePlanner } from '../../contexts/PlannerAppContext'
-import DateTimeRangePicker from '@wojtekmaj/react-datetimerange-picker'
+import dayjs, { Dayjs } from 'dayjs'
 
 export default function PlannerApp() {
 
-  const { appLoading, getWeather, convertCityName } = usePlanner()
+  const { appLoading, planNight } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
+  const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
 
   return (
     <div className="planner-app">
@@ -23,23 +24,15 @@ export default function PlannerApp() {
           :
           <div className="app">
             <div className="header">
-              <div className="section">
-                <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
-                <form onSubmit={(e) => { e.preventDefault(); convertCityName(cityName) }}>
-                  <input className="datetime_input" type="text" onChange={(e) => setCityName(e.target.value)} />
-                </form>
-              </div>
-              <div className="section">
-                <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
-                <form onSubmit={(e) => { e.preventDefault(); convertCityName(cityName) }}>
-                  <input className="datetime_input" type="date" onChange={(e) => setCityName(e.target.value)} />
-                </form>
-              </div>
+              <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
+              <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ville ou coordonnées (lat,lon)' />
+              <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
+              <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} />
+              <button className="custom-button small" type='button' onClick={() => planNight(cityName, nightDate)}>Valider</button>
             </div>
             <div className="body">
               <div className="section">
                 <p className="title">Météo</p>
-                <button onClick={() => getWeather()}>Get WEATHER</button>
               </div>
               <div className="section">
                 <p className="title">Observations</p>

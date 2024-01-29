@@ -16,6 +16,6 @@ weatherApi.defaults.params = {
   lang: 'fr',
 }
 
-// geocodingApi.defaults.params = {
-//   appid: process.env.REACT_APP_WEATHER_API_KEY,
-// }
+geocodingApi.defaults.params = {
+  appid: process.env.REACT_APP_WEATHER_API_KEY,
+}

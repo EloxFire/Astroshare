@@ -35,23 +35,9 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      
-      .section{
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        height: 100%;
-        padding: 0 10px;
-        
-        &:nth-child(2){
-          border-left: 1px solid $white;
-          border-right: 1px solid $white;
-        }
 
-        .title{
-          margin-bottom: 0;
-        }
+      .title{
+        margin-bottom: 0;
       }
     }
 

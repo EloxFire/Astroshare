@@ -1,5 +1,9 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
-import { geocodingApi, weatherApi } from '../scripts/helpers/api/weather';
+import { geocodingApi, weatherApi } from '../scripts/helpers/api/planner';
+import { City } from '../scripts/types/City';
+import dayjs, { Dayjs } from 'dayjs';
+import { convertCityName } from '../scripts/helpers/api/planner/convertCityName';
+import { getWeather } from '../scripts/helpers/api/planner/getWeather';
 
 const PlannerAppContext = createContext<any>({});
 
@@ -14,6 +18,9 @@ interface PlannerAppProviderProps {
 export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
 
   const [appLoading, setAppLoading] = useState<boolean>(true);
+  const [city, setCity] = useState<City | null>(null);
+  const [date, setDate] = useState<Dayjs | null>(null);
+  const [weather, setWeather] = useState<any>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,28 +28,46 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
     }, 2000);
   }, [])
 
-  const getWeather = async () => {
-    try {
-      const response = await weatherApi.get('/current')
-      console.log(response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const planNight = async (cityName: string, date: string) => {
+    if (!cityName || !date || cityName === "" || date === "") return console.log('Missing parameters');
 
-  const convertCityName = async (cityName: string) => {
     try {
-      const response = await geocodingApi.get(``, { params: { q: cityName, appid: process.env.REACT_APP_WEATHER_API_KEY } })
-      console.log(response.data)
+      const cityCoords = await convertCityName(cityName);
+
+      if (cityCoords) {
+        setCity({
+          name: cityCoords[0].name,
+          lat: cityCoords[0].lat,
+          lng: cityCoords[0].lon,
+          country: cityCoords[0].country,
+          local_names: {
+            en: cityCoords[0].local_names.en,
+          },
+          state: cityCoords[0].state,
+        })
+        setDate(dayjs(date));
+
+        try {
+          if (city) {
+            console.log(city);
+
+            const weather = await getWeather(city.lat, city.lng);
+            if (weather) {
+              setWeather(weather);
+            }
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
   const value = {
     appLoading,
-    getWeather,
-    convertCityName
+    planNight
   }
 
   return (

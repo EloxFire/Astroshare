@@ -1,18 +1,19 @@
 import React from 'react';
+import reportWebVitals from './reportWebVitals';
+import './index.css';
+import './firebase'
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import 'dayjs/locale/fr';
-import dayjs from 'dayjs';
-import reportWebVitals from './reportWebVitals';
 import { Analytics } from '@vercel/analytics/react';
 import { StatsProvider } from './contexts/StatsContext';
 import { GalleryProvider } from './contexts/GalleryContext';
 import { CategoriesProvider } from './contexts/CategoriesContext';
 import { RessourcesProvider } from './contexts/RessourcesContext';
-import { AuthProvider } from './contexts/AuthContext';
-import './index.css';
-import './firebase'
 import { PlannerAppProvider } from './contexts/PlannerAppContext';
+import dayjs from 'dayjs';
+import 'dayjs/locale/fr';
+import relativeTime from 'dayjs/plugin/relativeTime';
+dayjs.extend(relativeTime);
 
 dayjs.locale('fr');
 
