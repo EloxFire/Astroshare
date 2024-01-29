@@ -1,0 +1,99 @@
+@import '../../globals.scss';
+@import '../../pages/planner/app.scss';
+
+.hourly-overview{
+  @extend .dashboard-box;
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+  }
+
+  .forecast{
+    overflow: auto;
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #363636 #DFE9EB;
+    }
+
+    /* Chrome, Edge and Safari */
+    *::-webkit-scrollbar {
+      height: 5px;
+      width: 5px;
+    }
+    *::-webkit-scrollbar-track {
+      border-radius: 5px;
+      background-color: #DFE9EB;
+    }
+
+    *::-webkit-scrollbar-track:hover {
+      background-color: #B8C0C2;
+    }
+
+    *::-webkit-scrollbar-track:active {
+      background-color: #B8C0C2;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: #363636;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background-color: #989898;
+    }
+
+    *::-webkit-scrollbar-thumb:active {
+      background-color: #121F0E;
+    }
+
+    .text{
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hour{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 20px;
+      // padding: 10px 0;
+      border-bottom: 1px solid $white;
+      margin-right: 15px;
+
+      img{
+        max-width: 50px;
+      }
+
+      .wind{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .wind-dir{
+          position: relative;
+        }
+
+        .north{
+          position: absolute;
+          background-color: red;
+          border-radius: 3px;
+          height: 3px;
+          width: 3px;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}

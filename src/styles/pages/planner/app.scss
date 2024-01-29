@@ -54,14 +54,32 @@
       display: flex;
       flex-direction: row;
       position: relative;
+      padding-top: 20px;
+      padding-bottom: 20px;
 
       .left{
         width: 40%;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .right{
+        width: 60%;
       }
 
     }
   }
+}
 
+.dashboard-box{
+  border: 1px solid rgba($white,.05);
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba($white, .05);
 }
 
 

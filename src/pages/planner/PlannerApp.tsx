@@ -5,6 +5,8 @@ import { FiChevronLeft } from 'react-icons/fi'
 import { usePlanner } from '../../contexts/PlannerAppContext'
 import dayjs from 'dayjs'
 import '../../styles/pages/planner/app.scss'
+import WeatherOverview from '../../components/planner/WeatherOverview'
+import HourlyOverview from '../../components/planner/HourlyOverview'
 
 export default function PlannerApp() {
 
@@ -36,7 +38,10 @@ export default function PlannerApp() {
               </div>
             </div>
             <div className="body">
-              <div className="left"></div>
+              <div className="left">
+                <WeatherOverview />
+                <HourlyOverview hours={weather ? weather.hourly.slice(dayjs().hour, 23) : []} />
+              </div>
               <div className="right"></div>
             </div>
           </div>
