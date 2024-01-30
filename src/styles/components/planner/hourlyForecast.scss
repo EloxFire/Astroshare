@@ -1,0 +1,62 @@
+@import '../../globals.scss';
+@import '../../pages/planner/app.scss';
+
+.hourly-forecast{
+  @extend .dashboard-box;
+  display: flex;
+  flex-direction: column;
+  height: 65%;
+
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+  }
+
+  .forecast{
+    overflow: auto;
+    height: 90%;
+
+    .text{
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hour{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 20px;
+      border-bottom: 1px solid $white;
+      margin-right: 15px;
+
+      img{
+        max-width: 50px;
+      }
+
+      .wind{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .wind-dir{
+          position: relative;
+        }
+
+        .north{
+          position: absolute;
+          background-color: red;
+          border-radius: 3px;
+          height: 3px;
+          width: 3px;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}

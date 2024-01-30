@@ -4,12 +4,13 @@ import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import { usePlanner } from '../../contexts/PlannerAppContext'
 import dayjs from 'dayjs'
-import '../../styles/pages/planner/app.scss'
 import WeatherOverview from '../../components/planner/WeatherOverview'
-import HourlyOverview from '../../components/planner/HourlyOverview'
+import HourlyForecast from '../../components/planner/HourlyForecast'
 import MoonOverview from '../../components/planner/MoonOverview'
 import NextStep from '../../components/planner/NextStep'
 import SunOverview from '../../components/planner/SunOverview'
+import DailyForecast from '../../components/planner/DailyForecast'
+import '../../styles/pages/planner/app.scss'
 
 export default function PlannerApp() {
 
@@ -54,13 +55,14 @@ export default function PlannerApp() {
                   temp={weather ? Math.floor(weather.current.temp) : "--"}
                   precipitations={weather ? weather.daily[0].pop * 100 : "--"}
                 />
-                <HourlyOverview hours={weather ? weather.hourly : []} />
+                <HourlyForecast hours={weather ? weather.hourly : []} />
               </div>
               <div className="middle">
                 <MoonOverview />
               </div>
               <div className="right">
                 <SunOverview />
+                <DailyForecast days={weather ? weather.daily : []} />
                 <NextStep />
               </div>
             </div>

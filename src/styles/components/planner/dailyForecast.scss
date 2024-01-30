@@ -1,48 +1,49 @@
 @import '../../globals.scss';
 @import '../../pages/planner/app.scss';
 
-.hourly-overview{
+.daily-forecast{
   @extend .dashboard-box;
-  display: flex;
-  flex-direction: column;
-  height: 65%;
+  height: 60%;
 
   .title{
     font-weight: 800;
     text-transform: uppercase;
     font-size: 1rem;
     border-bottom: 1px solid $white;
+    margin-bottom: 0;
   }
 
   .forecast{
+    display: flex;
+    flex-direction: row;
     overflow: auto;
+    margin-top: 20px;
+    max-width: 24vw;
+    height: 87%;
 
-    .text{
-      font-size: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    .hour{
+    .day{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-evenly;
-      gap: 20px;
-      border-bottom: 1px solid $white;
-      margin-right: 15px;
-
-      img{
-        max-width: 50px;
-      }
+      margin-right: 10px;
+      border-right: 1px solid $white;
+      padding-left: 10px;
+      padding-right: 10px;
 
       .wind{
         display: flex;
-        flex-direction: row;
-        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
 
         .wind-dir{
           position: relative;
+          width: 20px;
+          height: 20px;
+
+          .text{
+            transform-origin: top left;
+          }
         }
 
         .north{
@@ -56,6 +57,19 @@
           transform: translateX(-50%);
         }
       }
+
+      &:last-child{
+        border-right: none;
+      }
     }
+
+
+  }
+
+  .text{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
   }
 }

@@ -1,15 +1,15 @@
 import React from 'react'
-import '../../styles/components/planner/hourlyOverview.scss'
+import '../../styles/components/planner/hourlyForecast.scss'
 import dayjs from 'dayjs'
 
-interface HourlyOverviewProps {
+interface HourlyForecastProps {
   hours?: any[]
 }
 
-export default function HourlyOverview({ hours }: HourlyOverviewProps) {
+export default function HourlyForecast({ hours }: HourlyForecastProps) {
 
   return (
-    <div className="hourly-overview">
+    <div className="hourly-forecast">
       <p className="title">Heure par heure (48H)</p>
       <div className="forecast">
         {
