@@ -8,6 +8,8 @@ import '../../styles/pages/planner/app.scss'
 import WeatherOverview from '../../components/planner/WeatherOverview'
 import HourlyOverview from '../../components/planner/HourlyOverview'
 import MoonOverview from '../../components/planner/MoonOverview'
+import NextStep from '../../components/planner/NextStep'
+import SunOverview from '../../components/planner/SunOverview'
 
 export default function PlannerApp() {
 
@@ -57,7 +59,10 @@ export default function PlannerApp() {
               <div className="middle">
                 <MoonOverview />
               </div>
-              <div className="right"></div>
+              <div className="right">
+                <SunOverview />
+                <NextStep />
+              </div>
             </div>
           </div>
       }

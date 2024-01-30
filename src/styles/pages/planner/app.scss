@@ -36,7 +36,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
+      padding: 0 20px;
 
       .right, .left{
         display: flex;
@@ -56,26 +56,20 @@
       position: relative;
       padding-top: 20px;
       padding-bottom: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 20px;
 
-      .left{
-        flex: 1;
+      .left, .middle, .right{
         height: 70vh;
+        flex: 1;
+        gap: 20px;
+      }
+
+      .left, .right{
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
       }
-
-      .middle{
-        flex: 1;
-      }
-
-      .right{
-        width: 60%;
-        flex: 1;
-      }
-
     }
   }
 }

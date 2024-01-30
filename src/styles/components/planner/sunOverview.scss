@@ -1,0 +1,8 @@
+@import '../../globals.scss';
+@import '../../pages/planner/app.scss';
+
+.sun-overview{
+  @extend .dashboard-box;
+
+  height: 50%;
+}
