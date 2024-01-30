@@ -1,4 +1,5 @@
 export type City = {
+  flag: string
   country: string;
   name: string;
   lat: number;

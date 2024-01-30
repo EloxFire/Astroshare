@@ -38,6 +38,7 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
 
       if (cityCoords.length > 0) {
         setCity({
+          flag: cityCoords[0].country,
           name: cityCoords[0].name,
           lat: cityCoords[0].lat,
           lng: cityCoords[0].lon,
@@ -70,7 +71,8 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
   const value = {
     appLoading,
     planNight,
-    weather
+    weather,
+    city
   }
 
   return (

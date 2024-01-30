@@ -10,7 +10,7 @@ import HourlyOverview from '../../components/planner/HourlyOverview'
 
 export default function PlannerApp() {
 
-  const { appLoading, planNight, weather } = usePlanner()
+  const { appLoading, planNight, weather, city } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
   const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
 
@@ -39,7 +39,18 @@ export default function PlannerApp() {
             </div>
             <div className="body">
               <div className="left">
-                <WeatherOverview />
+                <WeatherOverview
+                  city={city ? city.name : "--"}
+                  country={city ? city.country : "--"}
+                  state={city ? city.state : "--"}
+                  icon={weather ? weather.current.weather[0].icon : "--"}
+                  date={weather ? dayjs.unix(weather.current.dt).format("DD MMMM YYYY HH:mm") : "--"}
+                  description={weather ? weather.current.weather[0].description : "--"}
+                  hightTemp={weather ? weather.daily[0].temp.max : "--"}
+                  lowTemp={weather ? weather.daily[0].temp.min : "--"}
+                  temp={weather ? Math.floor(weather.current.temp) : "--"}
+                  precipitations={weather ? weather.daily[0].pop * 100 : "--"}
+                />
                 <HourlyOverview hours={weather ? weather.hourly : []} />
               </div>
               <div className="right"></div>

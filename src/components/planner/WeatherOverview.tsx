@@ -1,31 +1,42 @@
 import React from 'react'
+import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import '../../styles/components/planner/weatherOverview.scss'
 
 interface WeatherOverviewProps {
   city: string
-  temp: number
+  country: string
+  state: string
+  icon: string
+  temp: number | string
   hightTemp: number
   lowTemp: number
   description: string
   date: string
+  precipitations: number | string
 }
 
-export default function WeatherOverview() {
+export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations }: WeatherOverviewProps) {
   return (
     <div className="weather-overview">
       <div className="infos">
-        <p className="title">Vauvenargues</p>
-        <p className="current-temp">9°C</p>
-        <p className="text">Couvert</p>
-        <div className="row">
-          <p className="text">&#8613; : 12°C</p>
-          <p className="text">&#8615; : 4°C</p>
+        <p className="title">{city}</p>
+        <small>{getUnicodeFlagIcon(country)}, {state}</small>
+        <div className="row end" style={{ marginTop: '20px', marginBottom: '20px' }}>
+          <p className="current-temp">{temp}°C</p>
+          <div className="precipitations">
+            <p className="value">{precipitations}%</p>
+            <p className="text">précipitations</p>
+          </div>
         </div>
-        <p className="text">29 jan. 2024 19h12</p>
+        <div className="row">
+          <p className="text">&#8613; : {hightTemp}°C</p>
+          <p className="text">&#8615; : {lowTemp}°C</p>
+        </div>
+        <p className="text">{date}</p>
       </div>
-      <div className="precipitations">
-        <p className="value">58%</p>
-        <p className="text">précipitations</p>
+      <div className="conditions">
+        <img className="icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather condition icon" />
+        <p className="text">{description}</p>
       </div>
     </div>
   )
