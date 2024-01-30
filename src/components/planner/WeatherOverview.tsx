@@ -8,8 +8,8 @@ interface WeatherOverviewProps {
   state: string
   icon: string
   temp: number | string
-  hightTemp: number
-  lowTemp: number
+  hightTemp: number | string
+  lowTemp: number | string
   description: string
   date: string
   precipitations: number | string

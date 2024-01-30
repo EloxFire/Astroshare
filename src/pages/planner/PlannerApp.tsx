@@ -33,8 +33,8 @@ export default function PlannerApp() {
               <div className="left">
                 <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
                 <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Vauvenargues' />
-                <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
-                <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} />
+                {/* <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
+                <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} /> */}
                 <button className="custom-button small" type='button' onClick={() => planNight(cityName, nightDate)}>Valider</button>
               </div>
               <div className="right">
@@ -50,8 +50,8 @@ export default function PlannerApp() {
                   icon={weather ? weather.current.weather[0].icon : "--"}
                   date={weather ? dayjs.unix(weather.current.dt).format("DD MMMM YYYY HH:mm") : "--"}
                   description={weather ? weather.current.weather[0].description : "--"}
-                  hightTemp={weather ? weather.daily[0].temp.max : "--"}
-                  lowTemp={weather ? weather.daily[0].temp.min : "--"}
+                  hightTemp={weather ? Math.floor(weather.daily[0].temp.max) : "--"}
+                  lowTemp={weather ? Math.floor(weather.daily[0].temp.min) : "--"}
                   temp={weather ? Math.floor(weather.current.temp) : "--"}
                   precipitations={weather ? weather.daily[0].pop * 100 : "--"}
                 />
