@@ -31,9 +31,12 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
     if (!cityName || !date || cityName === "" || date === "") return console.log('Missing parameters');
 
     try {
-      const cityCoords = await convertCityName(cityName);
+      console.log("Converting city name to coordinates...");
 
-      if (cityCoords) {
+      const cityCoords = await convertCityName(cityName);
+      console.log(cityCoords);
+
+      if (cityCoords.length > 0) {
         setCity({
           name: cityCoords[0].name,
           lat: cityCoords[0].lat,
@@ -47,14 +50,14 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
         setDate(dayjs(date));
 
         try {
-          if (city) {
-            console.log(city);
+          if (cityCoords.length <= 0) return console.log('City not found...');
+          console.log(cityCoords);
 
-            const weather = await getWeather(city.lat, city.lng);
-            if (weather) {
-              setWeather(weather);
-            }
-          }
+          console.log("Getting weather...");
+
+          const weather = await getWeather(cityCoords[0].lat, cityCoords[0].lon);
+          setWeather(weather);
+          console.log("Weather retrieved !");
         } catch (error) {
           console.log(error);
         }

@@ -40,7 +40,7 @@ export default function PlannerApp() {
             <div className="body">
               <div className="left">
                 <WeatherOverview />
-                <HourlyOverview hours={weather ? weather.hourly.slice(dayjs().hour, 23) : []} />
+                <HourlyOverview hours={weather ? weather.hourly : []} />
               </div>
               <div className="right"></div>
             </div>

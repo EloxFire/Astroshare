@@ -31,7 +31,7 @@ export default function HourlyOverview({ hours }: HourlyOverviewProps) {
                   <div className="wind">
                     <div className="wind-dir">
                       <div className="north"></div>
-                      <p className="text" style={{ transform: `rotate(${hour.wind_deg}deg)` }}>&#8593;</p>
+                      <p className="text" style={{ transform: `rotate(${hour.wind_deg}deg)` }}>&#10148;</p>
                     </div>
                     <p className="text">{Math.floor(hour.wind_speed * 3600 / 1000)}Km/h</p>
                   </div>
