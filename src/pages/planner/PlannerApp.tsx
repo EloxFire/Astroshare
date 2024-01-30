@@ -7,6 +7,7 @@ import dayjs from 'dayjs'
 import '../../styles/pages/planner/app.scss'
 import WeatherOverview from '../../components/planner/WeatherOverview'
 import HourlyOverview from '../../components/planner/HourlyOverview'
+import MoonOverview from '../../components/planner/MoonOverview'
 
 export default function PlannerApp() {
 
@@ -52,6 +53,9 @@ export default function PlannerApp() {
                   precipitations={weather ? weather.daily[0].pop * 100 : "--"}
                 />
                 <HourlyOverview hours={weather ? weather.hourly : []} />
+              </div>
+              <div className="middle">
+                <MoonOverview />
               </div>
               <div className="right"></div>
             </div>

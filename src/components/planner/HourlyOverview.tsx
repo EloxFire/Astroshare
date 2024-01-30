@@ -10,7 +10,7 @@ export default function HourlyOverview({ hours }: HourlyOverviewProps) {
 
   return (
     <div className="hourly-overview">
-      <p className="title">Heure par heure</p>
+      <p className="title">Heure par heure (48H)</p>
       <div className="forecast">
         {
           hours ?

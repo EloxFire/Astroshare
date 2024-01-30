@@ -58,7 +58,7 @@
       padding-bottom: 20px;
 
       .left{
-        width: 40%;
+        flex: 1;
         height: 70vh;
         display: flex;
         flex-direction: column;
@@ -67,8 +67,13 @@
         padding-right: 20px;
       }
 
+      .middle{
+        flex: 1;
+      }
+
       .right{
         width: 60%;
+        flex: 1;
       }
 
     }
