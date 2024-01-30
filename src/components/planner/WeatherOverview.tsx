@@ -20,7 +20,12 @@ export default function WeatherOverview({ city, country, state, icon, temp, high
     <div className="weather-overview">
       <div className="infos">
         <p className="title">{city}</p>
-        <small>{getUnicodeFlagIcon(country)}, {state}</small>
+        {
+          state !== '--' ?
+            <small>{getUnicodeFlagIcon(country)}, {state}</small>
+            :
+            <small>--, --</small>
+        }
         <div className="row end" style={{ marginTop: '20px', marginBottom: '20px' }}>
           <p className="current-temp">{temp}°C</p>
           <div className="precipitations">
@@ -35,7 +40,11 @@ export default function WeatherOverview({ city, country, state, icon, temp, high
         <p className="text">{date}</p>
       </div>
       <div className="conditions">
-        <img className="icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather condition icon" />
+        {icon !== '--' ?
+          <img className="icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather condition icon" />
+          :
+          <p className="text">{icon}</p>
+        }
         <p className="text">{description}</p>
       </div>
     </div>
