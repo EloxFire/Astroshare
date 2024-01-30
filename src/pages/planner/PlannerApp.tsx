@@ -61,7 +61,13 @@ export default function PlannerApp() {
                 <MoonOverview />
               </div>
               <div className="right">
-                <SunOverview />
+                <SunOverview
+                  sunrise={weather ? dayjs.unix(weather.current.sunrise).format("HH:mm") : "--"}
+                  sunset={weather ? dayjs.unix(weather.current.sunset).format("HH:mm") : "--"}
+                  currentTime={weather ? dayjs.unix(weather.current.dt).format("HH:mm") : "--"}
+                  // Day percentage : if before sunrise = 0, if (after sunset and before) weather.daily[0].sunrise, 100, else, (currentTime - sunrise) / (sunset - sunrise) * 100
+                  dayPercentage={weather ? (dayjs.unix(weather.current.dt).isBefore(dayjs.unix(weather.current.sunrise)) ? 0 : (dayjs.unix(weather.current.dt).isAfter(dayjs.unix(weather.current.sunset)) ? 100 : (dayjs.unix(weather.current.dt).diff(dayjs.unix(weather.current.sunrise), 'minute') / dayjs.unix(weather.current.sunset).diff(dayjs.unix(weather.current.sunrise), 'minute')) * 100)) : "--"}
+                />
                 <DailyForecast days={weather ? weather.daily : []} />
                 <NextStep />
               </div>
