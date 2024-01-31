@@ -20,6 +20,14 @@ export const astronomyApi = axios.create({
   }
 })
 
+export const moonApi = axios.create({
+  baseURL: 'https://moon-phase.p.rapidapi.com',
+  headers: {
+    'x-rapidapi-key': process.env.REACT_APP_MOON_API_KEY,
+    'x-rapidapi-host': 'moon-phase.p.rapidapi.com',
+  }
+})
+
 
 
 weatherApi.defaults.params = {

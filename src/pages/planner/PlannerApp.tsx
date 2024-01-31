@@ -15,7 +15,7 @@ import { calculateDayPercentage } from '../../scripts/helpers/data/calculateDayP
 
 export default function PlannerApp() {
 
-  const { appLoading, planNight, weather, city } = usePlanner()
+  const { appLoading, planNight, weather, city, moon } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
   const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
 
@@ -59,7 +59,12 @@ export default function PlannerApp() {
                 <HourlyForecast hours={weather ? weather.hourly : []} />
               </div>
               <div className="middle">
-                <MoonOverview />
+                <MoonOverview
+                  icon={moon ? moon.moon.emoji : '--'}
+                  moonrise={moon ? moon.moon.moonrise ? moon.moon.moonrise : "∅" : "--"}
+                  moonset={moon ? moon.moon.moonset ? moon.moon.moonset : "∅" : "--"}
+                  phase_name={moon ? moon.moon.phase_name : "--"}
+                />
               </div>
               <div className="right">
                 <SunOverview

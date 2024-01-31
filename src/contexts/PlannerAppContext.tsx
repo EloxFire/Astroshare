@@ -3,8 +3,7 @@ import dayjs, { Dayjs } from 'dayjs';
 import { City } from '../scripts/types/City';
 import { convertCityName } from '../scripts/helpers/api/planner/convertCityName';
 import { getWeather } from '../scripts/helpers/api/planner/getWeather';
-import { getMoonPhase } from '../scripts/helpers/api/planner/getMoonPhase';
-import { POSTObserver } from '../scripts/types/Observer';
+import { getMoonInfos } from '../scripts/helpers/api/planner/getMoonInfos';
 
 const PlannerAppContext = createContext<any>({});
 
@@ -22,6 +21,7 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
   const [city, setCity] = useState<City | null>(null);
   const [date, setDate] = useState<Dayjs | null>(null);
   const [weather, setWeather] = useState<any>(null);
+  const [moon, setMoon] = useState<any>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -63,22 +63,12 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
       setWeather(weatherData);
 
       try {
-        const observer: POSTObserver = {
-          latitude: cityCoords[0].lat,
-          longitude: cityCoords[0].lon,
-          fromDate: date,
-          toDate: dayjs(date).add(1, 'day').format('YYYY-MM-DD'),
-          elevation: 50,
-          time: weatherData.daily[0].sunset,
-        }
         console.log("Getting moon data...");
-
-        const moonData = await getMoonPhase(observer);
+        const moonData = await getMoonInfos(cityCoords[0].lat, cityCoords[0].lon);
         console.log(moonData);
-
+        setMoon(moonData)
       } catch (error) {
         console.log("Error fetching moon data");
-
       }
     } catch (error) {
       console.log("Error fetching weather and coordinates data");
@@ -90,7 +80,8 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
     appLoading,
     planNight,
     weather,
-    city
+    city,
+    moon
   }
 
   return (
