@@ -10,6 +10,9 @@ interface SunOverviewProps {
 
 export default function SunOverview({ sunrise, sunset, currentTime, dayPercentage }: SunOverviewProps) {
 
+  console.log(dayPercentage);
+
+
   return (
     <div className="sun-overview">
       <p className="title">Journée</p>
@@ -20,7 +23,7 @@ export default function SunOverview({ sunrise, sunset, currentTime, dayPercentag
         </div>
         <div className="bars">
           <div className="bar" />
-          <div className="progress" style={{ width: dayPercentage }} data-time={currentTime} />
+          <div className="progress" style={{ width: `${dayPercentage}%` }} data-time={currentTime} />
         </div>
         <div className="box">
           <img className="moon" src="https://openweathermap.org/img/wn/01n@2x.png" alt="Moon" />
