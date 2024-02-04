@@ -28,12 +28,20 @@ export const moonApi = axios.create({
   }
 })
 
+export const airPollutionApi = axios.create({
+  baseURL: 'http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API key}'
+})
+
 
 
 weatherApi.defaults.params = {
   appid: process.env.REACT_APP_WEATHER_API_KEY,
   units: 'metric',
   lang: 'fr',
+}
+
+airPollutionApi.defaults.params = {
+  appid: process.env.REACT_APP_WEATHER_API_KEY,
 }
 
 geocodingApi.defaults.params = {

@@ -5,7 +5,9 @@
   @extend .dashboard-box;
   display: flex;
   flex-direction: column;
-  height: 65%;
+  // height: 65%;
+  flex: 1;
+  overflow: auto;
 
   .title{
     font-weight: 800;

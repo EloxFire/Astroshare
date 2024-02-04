@@ -17,9 +17,9 @@ export default function MoonOverview({ moonrise, moonset, phase_name }: MoonOver
       <div className="top">
         {phase_name === "--" ? <p>--</p> : <img className="moon-icon" src={`/images/planner/moon/${phase_name}.svg`} alt="Current moon phase" />}
         <div className="basic-infos">
-          <p className="title">&#9790; {moon_phases_translations[phase_name.toLocaleLowerCase().replace(' ', "_") as keyof typeof moon_phases_translations]}</p>
-          <p className="text">&#8613; {moonrise}</p>
-          <p className="text">&#8615; {moonset}</p>
+          <p className="title"><span style={{ marginRight: '5px' }}>&#9790;</span> {moon_phases_translations[phase_name.toLocaleLowerCase().replace(' ', "_") as keyof typeof moon_phases_translations]}</p>
+          <p className="text"><span style={{ marginRight: '5px' }}>&#8613;</span> {moonrise}</p>
+          <p className="text"><span style={{ marginRight: '5px' }}>&#8615;</span> {moonset}</p>
         </div>
       </div>
     </div>

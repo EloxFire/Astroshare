@@ -3,7 +3,8 @@
 
 .daily-forecast{
   @extend .dashboard-box;
-  height: 60%;
+  // height: 60%;
+  flex: 1;
 
   .title{
     font-weight: 800;
