@@ -12,6 +12,7 @@ import SunOverview from '../../components/planner/SunOverview'
 import DailyForecast from '../../components/planner/DailyForecast'
 import '../../styles/pages/planner/app.scss'
 import { calculateDayPercentage } from '../../scripts/helpers/data/calculateDayPercentage'
+import { moon_phases_translations } from '../../scripts/helpers/helpers'
 
 export default function PlannerApp() {
 
@@ -60,7 +61,6 @@ export default function PlannerApp() {
               </div>
               <div className="middle">
                 <MoonOverview
-                  icon={moon ? moon.moon.emoji : '--'}
                   moonrise={moon ? moon.moon.moonrise ? moon.moon.moonrise : "∅" : "--"}
                   moonset={moon ? moon.moon.moonset ? moon.moon.moonset : "∅" : "--"}
                   phase_name={moon ? moon.moon.phase_name : "--"}
