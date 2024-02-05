@@ -19,10 +19,10 @@ export default function WeatherOverview({ city, country, state, icon, temp, high
   return (
     <div className="weather-overview">
       <p className="title">En direct</p>
-      <div className="column"></div>
+      <div className="column">
+        <img className="icon" src={`/images/planner/weather/${icon}.svg`} alt="Weather condition icon" />
+      </div>
       <div className="column"></div>
     </div>
   )
 }
-
-// <img className="icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather condition icon" />
