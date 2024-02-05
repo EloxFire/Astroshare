@@ -13,10 +13,11 @@ import DailyForecast from '../../components/planner/DailyForecast'
 import '../../styles/pages/planner/app.scss'
 import { calculateDayPercentage } from '../../scripts/helpers/data/calculateDayPercentage'
 import { moon_phases_translations } from '../../scripts/helpers/helpers'
+import AirQuality from '../../components/planner/AirQuality'
 
 export default function PlannerApp() {
 
-  const { appLoading, planNight, weather, city, moon } = usePlanner()
+  const { appLoading, planNight, weather, city, moon, airQuality } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
   const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
 
@@ -69,6 +70,17 @@ export default function PlannerApp() {
                   illumination={moon ? moon.moon.illumination : "0"}
                   fullMoon={moon ? { timestamp: moon.moon_phases.full_moon.next.timestamp, days: moon.moon_phases.full_moon.days_ahead } : { timestamp: '--', days: "--" }}
                   newMoon={moon ? { timestamp: moon.moon_phases.new_moon.next.timestamp, days: moon.moon_phases.new_moon.days_ahead } : { timestamp: '--', days: "--" }}
+                />
+                <AirQuality
+                  aqi={airQuality ? airQuality.list[0].main.aqi : 0}
+                  co={airQuality ? airQuality.list[0].components.co : 0}
+                  no={airQuality ? airQuality.list[0].components.no : 0}
+                  no2={airQuality ? airQuality.list[0].components.no2 : 0}
+                  o3={airQuality ? airQuality.list[0].components.o3 : 0}
+                  so2={airQuality ? airQuality.list[0].components.so2 : 0}
+                  pm2_5={airQuality ? airQuality.list[0].components.pm2_5 : 0}
+                  pm10={airQuality ? airQuality.list[0].components.pm10 : 0}
+                  nh3={airQuality ? airQuality.list[0].components.nh3 : 0}
                 />
               </div>
               <div className="right">

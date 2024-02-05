@@ -4,6 +4,7 @@ import { City } from '../scripts/types/City';
 import { convertCityName } from '../scripts/helpers/api/planner/convertCityName';
 import { getWeather } from '../scripts/helpers/api/planner/getWeather';
 import { getMoonInfos } from '../scripts/helpers/api/planner/getMoonInfos';
+import { getAirQuality } from '../scripts/helpers/api/planner/getAirQuality';
 
 const PlannerAppContext = createContext<any>({});
 
@@ -22,6 +23,7 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
   const [date, setDate] = useState<Dayjs | null>(null);
   const [weather, setWeather] = useState<any>(null);
   const [moon, setMoon] = useState<any>(null);
+  const [airQuality, setAirQuality] = useState<any>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,6 +72,14 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
       } catch (error) {
         console.log("Error fetching moon data");
       }
+
+      try {
+        console.log("Getting air quality data...");
+        const airQualityData = await getAirQuality(cityCoords[0].lat, cityCoords[0].lon);
+        setAirQuality(airQualityData);
+      } catch (error) {
+
+      }
     } catch (error) {
       console.log("Error fetching weather and coordinates data");
     }
@@ -81,7 +91,8 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
     planNight,
     weather,
     city,
-    moon
+    moon,
+    airQuality,
   }
 
   return (

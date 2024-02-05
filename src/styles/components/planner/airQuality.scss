@@ -1,0 +1,55 @@
+@import '../../globals.scss';
+@import '../../pages/planner/app.scss';
+
+.air-quality{
+  @extend .dashboard-box;
+  flex: 1;
+
+  p{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .column{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    gap: 15px;
+  }
+
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+  }
+
+  .separator{
+    height: 1px;
+    background-color: #FFF;
+    width: 100%;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+
+    &__left{
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      // background-color: red;
+    }
+    
+    &__right{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 60%;
+    }
+  }
+}
