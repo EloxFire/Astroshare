@@ -18,35 +18,11 @@ interface WeatherOverviewProps {
 export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations }: WeatherOverviewProps) {
   return (
     <div className="weather-overview">
-      <div className="infos">
-        <p className="title">{city}</p>
-        {
-          state !== '--' ?
-            <small>{getUnicodeFlagIcon(country)}, {state}</small>
-            :
-            <small>--, --</small>
-        }
-        <div className="row end" style={{ marginTop: '20px', marginBottom: '20px' }}>
-          <p className="current-temp">{temp}°C</p>
-          <div className="precipitations">
-            <p className="value">{precipitations}%</p>
-            <p className="text">précipitations</p>
-          </div>
-        </div>
-        <div className="row">
-          <p className="text">&#8613; : {hightTemp}°C</p>
-          <p className="text">&#8615; : {lowTemp}°C</p>
-        </div>
-        <p className="text">{date}</p>
-      </div>
-      <div className="conditions">
-        {icon !== '--' ?
-          <img className="icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather condition icon" />
-          :
-          <p className="text">{icon}</p>
-        }
-        <p className="text">{description}</p>
-      </div>
+      <p className="title">En direct</p>
+      <div className="column"></div>
+      <div className="column"></div>
     </div>
   )
 }
+
+// <img className="icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="Weather condition icon" />
