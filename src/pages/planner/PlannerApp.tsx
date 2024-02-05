@@ -61,9 +61,14 @@ export default function PlannerApp() {
               </div>
               <div className="middle">
                 <MoonOverview
-                  moonrise={moon ? moon.moon.moonrise ? moon.moon.moonrise : "∅" : "--"}
-                  moonset={moon ? moon.moon.moonset ? moon.moon.moonset : "∅" : "--"}
+                  moonrise={moon ? moon.moon.moonrise_timestamp ? dayjs.unix(moon.moon.moonrise_timestamp).format('HH:mm') : "∅" : "--"}
+                  moonset={moon ? moon.moon.moonset_timestamp ? dayjs.unix(moon.moon.moonset_timestamp).format('HH:mm') : "∅" : "--"}
                   phase_name={moon ? moon.moon.phase_name : "--"}
+                  age={moon ? moon.moon.age_days : 0}
+                  distance={moon ? Math.floor(moon.moon.moon_distance) : 0}
+                  illumination={moon ? moon.moon.illumination : "0"}
+                  fullMoon={moon ? { timestamp: moon.moon_phases.full_moon.next.timestamp, days: moon.moon_phases.full_moon.days_ahead } : { timestamp: '--', days: "--" }}
+                  newMoon={moon ? { timestamp: moon.moon_phases.new_moon.next.timestamp, days: moon.moon_phases.new_moon.days_ahead } : { timestamp: '--', days: "--" }}
                 />
               </div>
               <div className="right">
