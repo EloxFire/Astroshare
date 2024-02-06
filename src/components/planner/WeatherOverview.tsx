@@ -20,7 +20,7 @@ export default function WeatherOverview({ city, country, state, icon, temp, high
     <div className="weather-overview">
       <p className="title">En direct</p>
       <div className="column">
-        <img className="icon" src={`/images/planner/weather/${icon}.svg`} alt="Weather condition icon" />
+        {/* <img className="icon" src={`/images/planner/weather/${icon}.svg`} alt="Weather condition icon" /> */}
       </div>
       <div className="column"></div>
     </div>
