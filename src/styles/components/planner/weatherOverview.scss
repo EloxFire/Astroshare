@@ -3,24 +3,78 @@
 
 .weather-overview{
   @extend .dashboard-box;
-  display: flex;
-  flex-direction: column;
   flex: .6;
-
+  
   p{
     margin: 0;
     padding: 0;
   }
-
+  
   .title{
     font-weight: 800;
     text-transform: uppercase;
     font-size: 1rem;
     border-bottom: 1px solid $white;
+    margin-bottom: 20px;
   }
-
+  
   .icon{
-    max-height: 10vh;
+    max-height: 15vh;
   }
+  
+  .wo-container{
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
 
+    &__left, &__right{
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__left{
+      // background-color: blue;
+      flex: .5;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border-right: 1px solid $white;
+      padding-right: 20px;
+    }
+
+    &__right{
+      // background-color: red;
+      flex: 1;
+      padding-left: 20px;
+
+      &__title{
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 25px;
+        line-height: 25px;
+      }
+
+      &__subtitle{
+        font-size: .8rem;
+        margin-top: -5px;
+      }
+
+      &__infos{
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+
+        &__temp{
+          font-size: 40px;
+          font-weight: 800;
+          line-height: 40px;
+        }
+
+        &__description{
+          margin-top: -5px;
+        }
+      }
+    }
+  }
 }
