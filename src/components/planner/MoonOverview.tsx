@@ -31,11 +31,11 @@ export default function MoonOverview({ moonrise, moonset, phase_name, illuminati
               <MoonValue title="Coucher" value={moonset} size="small" />
             </div>
             <div className="column">
-              <MoonValue title="Illumination" value={illumination} size="small" />
+              <MoonValue title="Distance" value={`${distance.toString()}Km`} size="small" />
               <MoonValue title="Âge" value={`${age.toString()} jours`} size="small" />
             </div>
             <div className="column">
-              <MoonValue title="Distance" value={`${distance.toString()}Km`} size="small" />
+              <MoonValue title="Illumination" value={illumination} size="small" />
             </div>
           </div>
         </div>

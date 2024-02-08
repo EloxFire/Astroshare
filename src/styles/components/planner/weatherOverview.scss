@@ -3,7 +3,7 @@
 
 .weather-overview{
   @extend .dashboard-box;
-  flex: .6;
+  // flex: .6;
   
   p{
     margin: 0;
@@ -19,62 +19,81 @@
   }
   
   .icon{
-    max-height: 15vh;
+    max-height: 10vh;
   }
   
-  .wo-container{
-    overflow: auto;
+  .content{
     display: flex;
-    flex-direction: row;
-    flex: 1;
+    flex-direction: column;
+    gap: 30px;
+    // background-color: red;
 
-    &__left, &__right{
+    .wo-container{
+      overflow: auto;
       display: flex;
-      flex-direction: column;
-    }
-
-    &__left{
-      // background-color: blue;
-      flex: .5;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      border-right: 1px solid $white;
-      padding-right: 20px;
-    }
-
-    &__right{
-      // background-color: red;
+      flex-direction: row;
       flex: 1;
-      padding-left: 20px;
+      // background-color: green;
 
-      &__title{
-        font-weight: 800;
-        text-transform: uppercase;
-        font-size: 25px;
-        line-height: 25px;
-      }
-
-      &__subtitle{
-        font-size: .8rem;
-        margin-top: -5px;
-      }
-
-      &__infos{
+      &__left, &__right{
         display: flex;
-        flex-direction: row;
-        margin-top: 10px;
+        flex-direction: column;
+      }
 
-        &__temp{
-          font-size: 40px;
+      &__left{
+        // background-color: blue;
+        flex: .5;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        border-right: 1px solid $white;
+        padding-right: 20px;
+      }
+
+      &__right{
+        // background-color: red;
+        flex: 1;
+        padding-left: 20px;
+
+        &__title{
           font-weight: 800;
-          line-height: 40px;
+          text-transform: uppercase;
+          font-size: 25px;
+          line-height: 25px;
         }
 
-        &__description{
+        &__subtitle{
+          font-size: .8rem;
           margin-top: -5px;
         }
+
+        &__infos{
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-top: 10px;
+
+          &__temp{
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 40px;
+          }
+
+          &__description{
+            margin-top: -5px;
+          }
+        }
       }
+    }
+
+    .wo-additionnal{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      // padding-top: 10px;
+      // background-color: yellow;
+      flex: 1;
     }
   }
 }

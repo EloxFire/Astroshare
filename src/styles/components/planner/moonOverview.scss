@@ -4,7 +4,7 @@
 .moon-overview{
   @extend .dashboard-box;
   // height: 60%;
-  flex: 1;
+  // flex: 1;
 
   .title{
     font-weight: 800;
@@ -42,7 +42,7 @@
     margin-bottom: 20px;
 
     .moon-icon{
-      height: 15vh;
+      height: 10vh;
     }
 
     .basic-infos{

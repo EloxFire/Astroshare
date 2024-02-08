@@ -14,28 +14,37 @@ interface WeatherOverviewProps {
   description: string
   date: string
   precipitations: number | string
+  wind: number | string
+  wind_dir: number
+  humidity: number | string
+  pressure: number | string
 }
 
-export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations }: WeatherOverviewProps) {
+export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations, wind, wind_dir, humidity, pressure }: WeatherOverviewProps) {
   return (
     <div className="weather-overview">
       <p className="title">En direct - {date}</p>
-      <div className="wo-container">
-        <div className="wo-container__left">
-          {icon !== "--" ? <img className="icon" src={`/images/planner/weather/${icon}.svg`} alt="Weather condition icon" /> : icon}
-        </div>
-        <div className="wo-container__right">
-          <p className="wo-container__right__title">{city}</p>
-          <p className="wo-container__right__subtitle">{getUnicodeFlagIcon(country)}, {state}</p>
-          <div className="wo-container__right__infos">
-            <div>
+      <div className="content">
+        <div className="wo-container">
+          <div className="wo-container__left">
+            {icon !== "--" ? <img className="icon" src={`/images/planner/weather/${icon}.svg`} alt="Weather condition icon" /> : icon}
+          </div>
+          <div className="wo-container__right">
+            <p className="wo-container__right__title">{city}</p>
+            <p className="wo-container__right__subtitle">{getUnicodeFlagIcon(country)}, {state}</p>
+            <div className="wo-container__right__infos">
               <WeatherValue size='large' title='Température' value={`${temp}°C`} />
-              <p className="wo-container__right__infos__description">{description}</p>
-            </div>
-            <div>
-              <p className="wo-container__right__infos__precipitations">Précipitations: {precipitations}%</p>
+              <WeatherValue size='large' title='Précipitations' value={`${precipitations}%`} />
             </div>
           </div>
+        </div>
+        <div className="wo-additionnal">
+          <WeatherValue size='small' title='Minimale' value={`${lowTemp}°C`} />
+          <WeatherValue size='small' title='Maximale' value={`${hightTemp}°C`} />
+          <WeatherValue size='small' title='Vent' value={`${wind}Km/h`} />
+          <WeatherValue size='small' title='Direction' value={wind_dir} compass />
+          <WeatherValue size='small' title='Humidité' value={`${humidity}%`} />
+          <WeatherValue size='small' title='Humidité' value={`${pressure}hPa`} />
         </div>
       </div>
     </div>
