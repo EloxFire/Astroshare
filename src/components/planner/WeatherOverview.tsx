@@ -22,7 +22,7 @@ interface WeatherOverviewProps {
 }
 
 export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations, wind, wind_dir, humidity, pressure }: WeatherOverviewProps) {
-  icon = '01d';
+  // icon = '50n';
 
   return (
     <div className="weather-overview">
@@ -30,7 +30,7 @@ export default function WeatherOverview({ city, country, state, icon, temp, high
       <div className="content">
         <div className="wo-container">
           <div className="wo-container__left">
-            {icon !== "--" ? <img className="icon" src={`/images/planner/weather/${icon}.svg`} alt="Weather condition icon" /> : icon}
+            {icon !== "--" ? <img className="icon" src={`/images/planner/weather/${icon}.png`} alt="Weather condition icon" /> : icon}
           </div>
           <div className="wo-container__right">
             <p className="wo-container__right__title">{city}</p>
