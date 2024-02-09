@@ -18,14 +18,10 @@
     margin-bottom: 20px;
   }
   
-  .icon{
-    max-height: 15vh;
-  }
-  
   .content{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     // background-color: red;
 
     .wo-container{
@@ -45,9 +41,16 @@
         flex: .5;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        justify-content: center;
         border-right: 1px solid $white;
-        padding-right: 20px;
+        padding-right: 10px;
+
+        .icon{
+          max-height: 15vh;
+          // background-color: yellow;
+          // width: auto;
+        }
       }
 
       &__right{
@@ -69,9 +72,18 @@
 
         &__infos{
           display: flex;
-          flex-direction: row;
-          justify-content: space-between;
           margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: space-between;
+
+          &__row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 50px;
+            // background-color: red;
+          }
 
           &__temp{
             font-size: 40px;

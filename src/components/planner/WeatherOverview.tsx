@@ -2,6 +2,7 @@ import React from 'react'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import '../../styles/components/planner/weatherOverview.scss'
 import WeatherValue from './WeatherValue'
+import { capitalize } from '../../scripts/helpers/utils/capitalize'
 
 interface WeatherOverviewProps {
   city: string
@@ -21,6 +22,8 @@ interface WeatherOverviewProps {
 }
 
 export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations, wind, wind_dir, humidity, pressure }: WeatherOverviewProps) {
+  icon = '01d';
+
   return (
     <div className="weather-overview">
       <p className="title">En direct - {date}</p>
@@ -33,8 +36,13 @@ export default function WeatherOverview({ city, country, state, icon, temp, high
             <p className="wo-container__right__title">{city}</p>
             <p className="wo-container__right__subtitle">{getUnicodeFlagIcon(country)}, {state}</p>
             <div className="wo-container__right__infos">
-              <WeatherValue size='large' title='Température' value={`${temp}°C`} />
-              <WeatherValue size='large' title='Précipitations' value={`${precipitations}%`} />
+              <div className="wo-container__right__infos__row">
+                <WeatherValue size='large' title='Température' value={`${temp}°C`} />
+                <WeatherValue size='large' title='Précipitations' value={`${precipitations}%`} />
+              </div>
+              <div className="wo-container__right__infos__row" style={{ marginTop: '10px' }}>
+                <WeatherValue size='large' title='Conditions' value={capitalize(description)} />
+              </div>
             </div>
           </div>
         </div>
