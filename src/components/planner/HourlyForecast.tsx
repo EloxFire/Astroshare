@@ -18,14 +18,14 @@ export default function HourlyForecast({ hours }: HourlyForecastProps) {
               return (
                 <div className="hour" key={index}>
                   <p className="text">{dayjs.unix(hour.dt).format("HH")}h</p>
-                  <img src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`} alt="Weather Icon" />
+                  <img src={`/images/planner/weather/${hour.weather[0].icon}.png`} alt="Weather Icon" />
                   <div>
                     <small>Nébulosité</small>
                     <p className="text">{hour.clouds}%</p>
                   </div>
                   <div>
                     <small>Précipitations</small>
-                    <p className="text">{hour.pop * 100}%</p>
+                    <p className="text">{Math.floor(hour.pop * 100)}%</p>
                   </div>
                   <p className="text">{Math.floor(hour.temp)}°C</p>
                   <div className="wind">

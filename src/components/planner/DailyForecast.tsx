@@ -19,7 +19,7 @@ export default function DailyForecast({ days }: DailyForecastProps) {
               return (
                 <div className="day" key={index}>
                   <p className="text">{dayjs.unix(day.dt).format("DD MMMM")}</p>
-                  <img src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`} alt="Weather Icon" />
+                  <img src={`/images/planner/weather/${day.weather[0].icon}.png`} alt="Weather Icon" />
                   <p className="text">{Math.floor(day.temp.day)}°C</p>
                   <small>Nébulosité</small>
                   <p className="text">{day.clouds}%</p>

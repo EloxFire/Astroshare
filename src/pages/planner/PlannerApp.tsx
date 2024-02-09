@@ -12,7 +12,6 @@ import SunOverview from '../../components/planner/SunOverview'
 import DailyForecast from '../../components/planner/DailyForecast'
 import '../../styles/pages/planner/app.scss'
 import { calculateDayPercentage } from '../../scripts/helpers/data/calculateDayPercentage'
-import { moon_phases_translations } from '../../scripts/helpers/helpers'
 import AirQuality from '../../components/planner/AirQuality'
 
 export default function PlannerApp() {
