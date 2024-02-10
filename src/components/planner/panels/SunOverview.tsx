@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import '../../styles/components/planner/sunOverview.scss'
+import React from 'react'
+import '../../../styles/components/planner/sunOverview.scss'
 
 interface SunOverviewProps {
   sunrise: string

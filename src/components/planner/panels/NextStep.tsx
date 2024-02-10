@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/components/planner/nextStep.scss'
+import '../../../styles/components/planner/nextStep.scss'
 
 export default function NextStep() {
   return (

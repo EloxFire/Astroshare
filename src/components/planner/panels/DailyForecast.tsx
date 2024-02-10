@@ -1,6 +1,6 @@
 import React from 'react'
-import '../../styles/components/planner/dailyForecast.scss'
 import dayjs from 'dayjs'
+import '../../../styles/components/planner/dailyForecast.scss'
 
 interface DailyForecastProps {
   days: any[]
