@@ -36,6 +36,8 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
 
     try {
       const cityCoords = await convertCityName(cityName);
+      console.log(cityCoords);
+
 
       if (cityCoords.length <= 0) {
         console.log('City not found...');
