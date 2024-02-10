@@ -6,6 +6,7 @@ import { usePlanner } from '../../contexts/PlannerAppContext'
 import dayjs from 'dayjs'
 import WeatherStep from '../../components/planner/steps/WeatherStep'
 import '../../styles/pages/planner/app.scss'
+import AstronomyStep from '../../components/planner/steps/AstronomyStep'
 
 export default function PlannerApp() {
 
@@ -38,6 +39,7 @@ export default function PlannerApp() {
               </div>
             </div>
             {currentStep === 1 && <WeatherStep />}
+            {currentStep === 2 && <AstronomyStep />}
           </div>
       }
     </div>
