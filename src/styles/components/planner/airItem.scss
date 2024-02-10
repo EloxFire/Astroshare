@@ -18,16 +18,17 @@
     font-size: .8rem;
 
     &.large{
-      font-size: 1.2rem;
+      font-size: 1rem;
+      margin-bottom: -10px;
     }
   }
 
   .value{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 800;
 
     &.large{
-      font-size: 4rem;
+      font-size: 2rem;
     }
   }
 }

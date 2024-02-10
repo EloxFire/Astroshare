@@ -21,10 +21,10 @@ export default function DailyForecast({ days }: DailyForecastProps) {
                   <p className="text">{dayjs.unix(day.dt).format("DD MMMM")}</p>
                   <img src={`/images/planner/weather/${day.weather[0].icon}.png`} alt="Weather Icon" />
                   <p className="text">{Math.floor(day.temp.day)}°C</p>
-                  <small>Nébulosité</small>
-                  <p className="text">{day.clouds}%</p>
-                  <small>Précipitations</small>
-                  <p className="text">{day.pop * 100}%</p>
+                  {/* <small>Nébulosité</small>
+                  <p className="text">{day.clouds}%</p> */}
+                  {/* <small>Précipitations</small>
+                  <p className="text">{day.pop * 100}%</p> */}
                   <div className="wind">
                     <div className="wind-dir">
                       <div className="north"></div>

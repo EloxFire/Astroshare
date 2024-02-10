@@ -36,9 +36,6 @@ export default function WeatherStep() {
           pressure={weather ? weather.current.pressure : "--"}
           wind_dir={weather ? weather.current.wind_deg : "--"}
         />
-        <HourlyForecast hours={weather ? weather.hourly : []} />
-      </div>
-      <div className="middle">
         <MoonOverview
           moonrise={moon ? moon.moon.moonrise_timestamp ? dayjs.unix(moon.moon.moonrise_timestamp).format('HH:mm') : "∅" : "--"}
           moonset={moon ? moon.moon.moonset_timestamp ? dayjs.unix(moon.moon.moonset_timestamp).format('HH:mm') : "∅" : "--"}
@@ -49,19 +46,8 @@ export default function WeatherStep() {
           fullMoon={moon ? { timestamp: moon.moon_phases.full_moon.next.timestamp, days: moon.moon_phases.full_moon.days_ahead } : { timestamp: '--', days: "--" }}
           newMoon={moon ? { timestamp: moon.moon_phases.new_moon.next.timestamp, days: moon.moon_phases.new_moon.days_ahead } : { timestamp: '--', days: "--" }}
         />
-        <AirQuality
-          aqi={airQuality ? airQuality.list[0].main.aqi : 0}
-          co={airQuality ? airQuality.list[0].components.co : 0}
-          no={airQuality ? airQuality.list[0].components.no : 0}
-          no2={airQuality ? airQuality.list[0].components.no2 : 0}
-          o3={airQuality ? airQuality.list[0].components.o3 : 0}
-          so2={airQuality ? airQuality.list[0].components.so2 : 0}
-          pm2_5={airQuality ? airQuality.list[0].components.pm2_5 : 0}
-          pm10={airQuality ? airQuality.list[0].components.pm10 : 0}
-          nh3={airQuality ? airQuality.list[0].components.nh3 : 0}
-        />
       </div>
-      <div className="right">
+      <div className="middle">
         <SunOverview
           sunrise={weather ? dayjs.unix(weather.current.sunrise).format("HH:mm") : "--"}
           sunset={weather ? dayjs.unix(weather.current.sunset).format("HH:mm") : "--"}
@@ -73,6 +59,20 @@ export default function WeatherStep() {
               :
               "--"
           }
+        />
+        <HourlyForecast hours={weather ? weather.hourly : []} />
+      </div>
+      <div className="right">
+        <AirQuality
+          aqi={airQuality ? airQuality.list[0].main.aqi : 0}
+          co={airQuality ? airQuality.list[0].components.co : 0}
+          no={airQuality ? airQuality.list[0].components.no : 0}
+          no2={airQuality ? airQuality.list[0].components.no2 : 0}
+          o3={airQuality ? airQuality.list[0].components.o3 : 0}
+          so2={airQuality ? airQuality.list[0].components.so2 : 0}
+          pm2_5={airQuality ? airQuality.list[0].components.pm2_5 : 0}
+          pm10={airQuality ? airQuality.list[0].components.pm10 : 0}
+          nh3={airQuality ? airQuality.list[0].components.nh3 : 0}
         />
         <DailyForecast days={weather ? weather.daily : []} />
         <NextStep />

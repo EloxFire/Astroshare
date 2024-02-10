@@ -25,6 +25,7 @@
     .day{
       display: flex;
       flex-direction: column;
+      min-width: 100px;
       align-items: center;
       margin-right: 10px;
       border-right: 1px solid $white;
