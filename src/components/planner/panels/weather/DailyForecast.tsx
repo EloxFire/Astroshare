@@ -20,9 +20,9 @@ export default function DailyForecast({ days }: DailyForecastProps) {
                   <img src={`/images/planner/weather/${day.weather[0].icon}.png`} alt="Weather Icon" />
                   <p className="text">{Math.floor(day.temp.day)}°C</p>
                   <small>Nébulosité</small>
-                  <p className="text">{day.clouds}%</p>
-                  {/* <small>Précipitations</small>
-                  <p className="text">{day.pop * 100}%</p> */}
+                  <p className="text">{Math.floor(day.clouds)}%</p>
+                  <small>Précipitations</small>
+                  <p className="text">{Math.floor(day.pop * 100)}%</p>
                   <div className="wind">
                     <div className="wind-dir">
                       <div className="north"></div>
