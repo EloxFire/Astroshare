@@ -17,7 +17,7 @@ export default function PlannerApp() {
 
   return (
     <div className="planner-app">
-      <h1 className="h3 title"><Link to={routes.planner.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Planificateur de soirées</h1>
+      <h1 className="h3 title"><Link to={routes.planner.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Météo Astroshare</h1>
       {
         appLoading ?
           <div className="app-loading">
@@ -29,17 +29,17 @@ export default function PlannerApp() {
             <div className="header">
               <div className="left">
                 <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
-                <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Vauvenargues' />
+                <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Aix en provence' />
                 {/* <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
                 <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} /> */}
                 <button className="custom-button small" type='button' onClick={() => planNight(cityName, dayjs())}>Valider</button>
               </div>
-              <div className="right">
+              {/* <div className="right">
                 <p className="h2 title">Étape 1</p>
-              </div>
+              </div> */}
             </div>
             {currentStep === 1 && <WeatherStep />}
-            {currentStep === 2 && <AstronomyStep />}
+            {/* {currentStep === 2 && <AstronomyStep />} */}
           </div>
       }
     </div>

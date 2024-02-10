@@ -25,11 +25,11 @@ export const routes = {
   },
   planner: {
     path: '/planner',
-    label: 'Planificateur',
+    label: 'Météo en direct',
   },
   planner_app: {
     path: '/planner/app',
-    label: 'Application de planification',
+    label: 'Vérifier la météo',
   },
   contact: {
     path: '/contact',

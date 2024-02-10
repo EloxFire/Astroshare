@@ -75,7 +75,7 @@ export default function WeatherStep() {
           nh3={airQuality ? airQuality.list[0].components.nh3 : 0}
         />
         <DailyForecast days={weather ? weather.daily : []} />
-        <NextStep />
+        {/* <NextStep /> */}
       </div>
     </div>
   )
