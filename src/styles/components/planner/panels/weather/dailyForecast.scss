@@ -3,8 +3,9 @@
 
 .daily-forecast{
   @extend .dashboard-box;
-  // height: 60%;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 
   .title{
     font-weight: 800;
@@ -12,15 +13,13 @@
     font-size: 1rem;
     border-bottom: 1px solid $white;
     margin-bottom: 0;
-  }
+  }  
 
   .forecast{
     display: flex;
-    flex-direction: row;
-    overflow: auto;
     margin-top: 20px;
-    max-width: 22vw;
-    height: 87%;
+    // background-color: red;q
+    flex-direction: column;
 
     .day{
       display: flex;
