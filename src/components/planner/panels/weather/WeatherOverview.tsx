@@ -1,8 +1,8 @@
 import React from 'react'
-import { capitalize } from '../../../scripts/helpers/utils/capitalize'
+import { capitalize } from '../../../../scripts/helpers/utils/capitalize'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
-import WeatherValue from '../WeatherValue'
-import '../../../styles/components/planner/weatherOverview.scss'
+import WeatherValue from '../../WeatherValue'
+import '../../../../styles/components/planner/panels/weather/weatherOverview.scss'
 
 interface WeatherOverviewProps {
   city: string

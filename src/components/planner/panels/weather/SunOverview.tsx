@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../styles/components/planner/sunOverview.scss'
+import '../../../../styles/components/planner/panels/weather/sunOverview.scss'
 
 interface SunOverviewProps {
   sunrise: string

@@ -1,8 +1,8 @@
 import React from 'react'
-import AirItem from '../AirItem'
-import { checkAirLevels } from '../../../scripts/helpers/data/checkAirLevels'
-import { checkIQALevel } from '../../../scripts/helpers/data/checkIQALevel'
-import '../../../styles/components/planner/airQuality.scss'
+import AirItem from '../../AirItem'
+import { checkAirLevels } from '../../../../scripts/helpers/data/checkAirLevels'
+import { checkIQALevel } from '../../../../scripts/helpers/data/checkIQALevel'
+import '../../../../styles/components/planner/panels/weather/airQuality.scss'
 
 interface AirQualityProps {
   aqi: number
