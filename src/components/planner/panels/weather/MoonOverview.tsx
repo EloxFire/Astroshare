@@ -18,6 +18,8 @@ interface MoonOverviewProps {
 
 export default function MoonOverview({ moonrise, moonset, phase_name, illumination, age, distance, newMoon, fullMoon }: MoonOverviewProps) {
 
+  // phase_name = "First Quarter"
+
   return (
     <div className="moon-overview">
       <p className="title">Lune cette nuit</p>
