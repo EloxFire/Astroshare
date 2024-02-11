@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { routes } from '../../routes';
 import { mailRegex } from '../../scripts/helpers/helpers';
 import '../../styles/pages/auth/auth.scss';
@@ -8,6 +8,7 @@ import '../../styles/pages/auth/auth.scss';
 export default function Login() {
 
   const { signIn } = useAuth()
+  const { state } = useLocation();
   const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -49,7 +50,11 @@ export default function Login() {
     try {
       await signIn(email, password)
       setLoading(false)
-      navigate(routes.home.path)
+      if (state && state.fromPage) {
+        navigate(state.fromPath)
+      } else {
+        navigate(routes.home.path)
+      }
     } catch (error: any) {
       error.message.includes('auth/user-not-found') && setAlert('Aucun utilisateur trouvé avec cet email')
       error.message.includes('auth/wrong-password') && setAlert('Mot de passe incorrect')
@@ -78,8 +83,8 @@ export default function Login() {
           <input disabled={loading} type="password" name="password" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)} />
           <button disabled={loading} onClick={handleLogin}>{loading ? <div className="loader"></div> : "Se connecter"}</button>
           <div style={{ display: 'flex', flexDirection: 'row', marginTop: '10px', justifyContent: 'space-between' }}>
-            <small>Pas encore de compte ? <Link to={routes.register.path}>Inscrivez-vous</Link></small>
-            <small>Vous rencontrez un problème ? <Link to={routes.contact.path}>Contactez moi !</Link></small>
+            <small>Pas encore de compte ? <Link to={routes.register.path} >Inscrivez-vous</Link></small>
+            <small>Vous rencontrez un problème ? <Link to={routes.contact.path} >Contactez moi !</Link></small>
           </div>
         </div>
         {

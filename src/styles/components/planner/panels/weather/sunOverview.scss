@@ -1,0 +1,75 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/planner/app.scss';
+
+.sun-overview{
+  @extend .dashboard-box;
+  // height: 25%;
+  // flex: 1;
+
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+
+    .box{
+      // background-color: blue;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      img{
+        max-width: 25px;
+        // background-color: red;
+      }
+      .text{
+        font-size: 1rem;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .bars{
+      width: 70%;
+      height: 30px;
+      position: relative;
+
+      .bar, .progress{
+        position: absolute;
+        height: 10px;
+        margin-top: 15px;
+        border-radius: 10px;
+      }
+      
+      .bar{
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba($white, .3);
+      }
+
+      .progress{
+        background-color: $white;
+        // width: 66%;
+
+        &::after{
+          content: attr(data-time);
+          position: absolute;
+          right: -12px;
+          top: 15px;
+          font-size: .8rem;
+        }
+      }
+    }
+  }
+}

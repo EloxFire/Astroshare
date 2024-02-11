@@ -4,6 +4,6 @@ import { routes } from '../routes'
 
 export default function CopyrightBadge() {
   return (
-    <p className="copy-badge">&copy; Enzo Avagliano | {new Date().getFullYear()} | <Link to={routes.privacy.path}>Politique de confidentialité</Link></p>
+    <p className="copy-badge">&copy; Enzo Avagliano | {new Date().getFullYear()} | <Link to={routes.privacy.path} >Politique de confidentialité</Link></p>
   )
 }

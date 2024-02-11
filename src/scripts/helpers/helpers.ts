@@ -76,4 +76,16 @@ export const ressourceProperties = {
   tags: "Tags",
 }
 
+export const moon_phases_translations = {
+  new_moon: "Nouvelle lune",
+  waxing_crescent: "Premier croissant",
+  first_quarter: "Premier quartier",
+  waxing_gibbous: "Gibbeuse croissante",
+  full_moon: "Pleine lune",
+  waning_gibbous: "Gibbeuse décroissante",
+  last_quarter: "Dernier quartier",
+  waning_crescent: "Dernier croissant",
+  unknown: "Inconnue",
+}
+
 export const genericRessourceNotes = "Ce document est accessible gratuitement. Des mises à jour sont postés régulièrement, n'hésitez pas à télécharger la dernière version !"

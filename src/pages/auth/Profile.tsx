@@ -13,7 +13,7 @@ export default function Profile() {
 
   return (
     <div className="profile-page">
-      <h1 className="h2 title ressource-details__left__title"><Link to={routes.home.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Profil</h1>
+      <h1 className="h2 title ressource-details__left__title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Profil</h1>
       <div className="profile-page__infos">
         <h3 className="h3">Vos informations</h3>
         <p className="profile-page__infos__item">Nom : {user?.lastname ? user?.lastname : "Non renseigné"}</p>

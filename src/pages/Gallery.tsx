@@ -27,7 +27,7 @@ export default function Gallery() {
   return (
     <>
       <div className="gallery">
-        <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
+        <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
         <p>Retrouvez une sélection de mes photos favorites, prises lors de mes différentes sessions d'observation.</p>
         <div className="filters">
           <button onClick={() => setCurrentFilter('all')} className={`filter ${currentFilter === 'all' && 'active'}`}>Toutes</button>
@@ -56,7 +56,7 @@ export default function Gallery() {
         />
       </div>
       <div className="gallery-mobile">
-        <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
+        <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
         <p style={{ textAlign: 'center' }}>Afin de garantir une bonne experience, la galerie photo n'est disponible que sur PC ou grand ecran.</p>
         <p style={{ textAlign: 'center' }}>Merci de votre comprehension.</p>
       </div>

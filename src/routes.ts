@@ -23,6 +23,14 @@ export const routes = {
     path: '/ressources/:category/:ressource_slug',
     label: 'Ressource',
   },
+  planner: {
+    path: '/planner',
+    label: 'Météo en direct',
+  },
+  planner_app: {
+    path: '/planner/app',
+    label: 'Vérifier la météo',
+  },
   contact: {
     path: '/contact',
     label: 'Contact',
