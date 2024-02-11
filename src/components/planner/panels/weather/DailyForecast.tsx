@@ -16,13 +16,17 @@ export default function DailyForecast({ days }: DailyForecastProps) {
             days.map((day: any, index: number) => {
               return (
                 <div className="day" key={index}>
-                  <p className="text">{dayjs.unix(day.dt).format("DD MMMM")}</p>
+                  <p className="text day_number">{dayjs.unix(day.dt).format("DD")}<br />{dayjs.unix(day.dt).format("MMMM")}</p>
                   <img src={`/images/planner/weather/${day.weather[0].icon}.png`} alt="Weather Icon" />
                   <p className="text">{Math.floor(day.temp.day)}°C</p>
-                  <small>Nébulosité</small>
-                  <p className="text">{Math.floor(day.clouds)}%</p>
-                  <small>Précipitations</small>
-                  <p className="text">{Math.floor(day.pop * 100)}%</p>
+                  <div>
+                    <small>Nébulosité</small>
+                    <p className="text">{Math.floor(day.clouds)}%</p>
+                  </div>
+                  <div>
+                    <small>Précipitations</small>
+                    <p className="text">{Math.floor(day.pop * 100)}%</p>
+                  </div>
                   <div className="wind">
                     <div className="wind-dir">
                       <div className="north"></div>
