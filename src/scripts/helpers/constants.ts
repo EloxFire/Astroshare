@@ -6,3 +6,10 @@ export const dbCollections = {
   users: 'Users',
   categories: 'Categories',
 }
+
+export const dbStorageNamespaces = {
+  ressources: 'ressources',
+  gallery: 'gallery',
+  categories: 'categories',
+  users: 'users',
+}

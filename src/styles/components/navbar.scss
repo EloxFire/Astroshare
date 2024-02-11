@@ -34,7 +34,7 @@
     flex-direction: row;
     justify-content: center;
 
-    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    @media screen and (max-width: map-get($breakpoints, 'navbar-special')) {
       display: none;
     }
 
@@ -106,7 +106,7 @@
       font-size: 1.2rem;
     }
 
-    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    @media screen and (max-width: map-get($breakpoints, 'navbar-special')) {
       display: block;
     }
   }

@@ -16,7 +16,7 @@ export default function Hub() {
 
   return (
     <div className="hub">
-      <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Hub de ressources</h1>
+      <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Hub de ressources</h1>
       <p>Parcourez les catégories pour découvrir nos ressources associées</p>
       <div className="categories-container">
         {

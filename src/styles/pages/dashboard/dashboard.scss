@@ -43,8 +43,13 @@
 
       .controls{
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
+       
+        .controls-buttons{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
 
         .button-link {
           text-transform: uppercase;

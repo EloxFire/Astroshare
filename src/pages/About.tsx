@@ -12,7 +12,7 @@ export default function About() {
 
   return (
     <div className="about">
-      <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>À propos</h1>
+      <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>À propos</h1>
       <div className="content">
         <div className="content__left">
           <h2 className="h3">Qui suis-je ?</h2>

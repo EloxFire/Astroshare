@@ -8,17 +8,20 @@ export type Ressource = {
   downloadNames: string[];
   level: string[];
   description: string;
+  visibility: boolean;
   filePreview?: any;
   subtitle?: string;
   notes?: string;
   format?: string[];
   image?: string;
   links?: string[];
+  ref?: string;
   tags?: string[];
   files?: any[];
   totalDownloads?: number;
-  creadted?: Date;
-  updated?: Date;
+  updatesCount?: number;
+  creadtedAt?: any;
+  updatedAt?: any;
 }
 
 export type RessourceCategory = {

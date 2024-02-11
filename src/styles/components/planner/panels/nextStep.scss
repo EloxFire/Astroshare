@@ -1,0 +1,13 @@
+@import '../../../globals.scss';
+@import '../../../pages/planner/app.scss';
+
+.next-step{
+  @extend .dashboard-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // height: 15%;
+  // flex: 1;
+}

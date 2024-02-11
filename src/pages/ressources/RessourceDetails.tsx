@@ -33,7 +33,7 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
           <p className="ressource-details__left__infos__item">Format du document : {ressource.format}</p>
           <p className="ressource-details__left__infos__item">Niveau : {ressource.level}</p>
           <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressource.tags}</p>
-          <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressource.updated).format('DD MMMM YYYY')}</p>
+          <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressource.updatedAt!.toDate()).format('DD MMMM YYYY')}</p>
         </div>
         {
           !user &&

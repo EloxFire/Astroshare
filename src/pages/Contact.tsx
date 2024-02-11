@@ -46,7 +46,7 @@ export default function Contact() {
     <div className="contact">
       <CopyrightBadge />
       <div className="contact__header">
-        <h1 className="h1 title"><Link to={"/"}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Me contacter</h1>
+        <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Me contacter</h1>
         <p>N'hésitez pas à me contacter pour toute question ou soucis.</p>
       </div>
       <div className="contact__form">

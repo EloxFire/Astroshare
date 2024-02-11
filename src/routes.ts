@@ -23,6 +23,14 @@ export const routes = {
     path: '/ressources/:category/:ressource_slug',
     label: 'Ressource',
   },
+  planner: {
+    path: '/planner',
+    label: 'Météo en direct',
+  },
+  planner_app: {
+    path: '/planner/app',
+    label: 'Vérifier la météo',
+  },
   contact: {
     path: '/contact',
     label: 'Contact',
@@ -39,13 +47,21 @@ export const routes = {
     path: '/dashboard/add-ressource',
     label: 'Ajouter une ressource',
   },
+  dashboard_update_ressource: {
+    path: '/dashboard/update-ressource/:ressource_slug',
+    label: 'Modifier une ressource',
+  },
+  dashboard_ressources_list: {
+    path: '/dashboard/ressources-list',
+    label: 'Liste des ressources',
+  },
   dashboard_add_image: {
     path: '/dashboard/add-image',
     label: 'Ajouter une image',
   },
   dahsboard_add_category: {
     path: '/dashboard/add-category',
-    label: 'Ajouter une catégorie',
+    label: 'Créer une catégorie',
   },
   login: {
     path: '/login',
