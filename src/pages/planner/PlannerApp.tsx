@@ -17,7 +17,7 @@ export default function PlannerApp() {
 
   return (
     <div className="planner-app">
-      <h1 className="h3 title"><Link to={routes.planner.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Météo Astroshare</h1>
+      <h1 className="h3 title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Météo Astroshare</h1>
       {
         appLoading ?
           <div className="app-loading">

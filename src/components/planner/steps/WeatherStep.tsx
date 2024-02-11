@@ -30,8 +30,8 @@ export default function WeatherStep() {
           hightTemp={weather ? Math.floor(weather.daily[0].temp.max) : "--"}
           lowTemp={weather ? Math.floor(weather.daily[0].temp.min) : "--"}
           temp={weather ? Math.floor(weather.current.temp) : "--"}
-          precipitations={weather ? weather.daily[0].pop * 100 : "--"}
-          humidity={weather ? weather.current.humidity : "--"}
+          precipitations={weather ? Math.floor(weather.daily[0].pop * 100) : "--"}
+          humidity={weather ? Math.floor(weather.current.humidity) : "--"}
           wind={weather ? Math.floor(weather.current.wind_speed * 3600 / 1000) : "--"}
           pressure={weather ? weather.current.pressure : "--"}
           wind_dir={weather ? weather.current.wind_deg : "--"}
