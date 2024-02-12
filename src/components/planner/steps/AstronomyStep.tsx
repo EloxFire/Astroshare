@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { isObjectVisible } from '../../../scripts/helpers/astronomy/isObjectVisible'
 import { calculateZenith } from '../../../scripts/helpers/astronomy/calculateZenith'
 import dayjs from 'dayjs'
-import Papa from 'papaparse'
+// import Papa from 'papaparse'
 
 export default function AstronomyStep() {
   const [isVisible, setIsVisible] = useState(false)
