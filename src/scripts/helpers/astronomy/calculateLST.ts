@@ -1,3 +1,5 @@
+import { raToDegrees } from "./raToDegrees";
+
 // Fonction pour calculer le nombre de jours juliens
 export const julianDay = (year: number, month: number, day: number, hours: number, minutes: number, seconds: number): number => {
   const A = Math.floor((14 - month) / 12);
@@ -7,9 +9,8 @@ export const julianDay = (year: number, month: number, day: number, hours: numbe
 };
 
 // Fonction pour calculer le temps sidéral local
-export const calculateLST = (latitude: number, longitude: number, date: string, time: string): string => {
-  // Convertir la latitude et la longitude en radians
-  // const latRad = latitude * (Math.PI / 180); // Conversion de degrés en radians
+export const calculateLST = (longitude: number, date: string, time: string): string => {
+  // Convertir la longitude en radians
   const longRad = longitude * (Math.PI / 180); // Conversion de degrés en radians
 
   // Extraire les composants de la date et de l'heure
@@ -24,19 +25,25 @@ export const calculateLST = (latitude: number, longitude: number, date: string, 
 
   // Convertir le temps sidéral local en heures, minutes et secondes
   LST = LST < 0 ? LST + 360 : LST; // Ajustement pour s'assurer que LST est positif
-  const lstHours = Math.floor(LST / 15); // Conversion de degrés en heures
+  const lstHours = Math.floor(LST / 15) - 1; // Conversion de degrés en heures (-1 pour prise en compte de mo, fuseau horaire)
   const lstMinutes = Math.floor((LST % 15) * 4); // Conversion de minutes (1 heure = 60 minutes, 360 degrés = 24 heures => 1 degré = 4 minutes)
   const lstSeconds = Math.round((((LST % 15) * 4) - lstMinutes) * 60); // Conversion de secondes (1 minute = 60 secondes)
 
+
+
   // Formater l'heure locale sidérale comme une chaîne HH:MM:SS
   const lstString = `${lstHours.toString().padStart(2, '0')}h ${lstMinutes.toString().padStart(2, '0')}m ${lstSeconds.toString().padStart(2, '0')}s`;
+  console.log("Heure locale sidérale :", lstString);
 
-  // Convertir l'heure locale sidérale en heure UTC en ajustant pour le décalage horaire
-  const utcHours = Math.floor((hours - (longitude / 15) + 24) % 24); // Ajustement pour le décalage horaire
-  const utcString = `${utcHours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+  const lstStringValues = lstString.split(' ');
 
-  console.log("Heure locale sidérale :", lstString); // Affichage du résultat avant le retour
-  console.log("Heure UTC :", utcString); // Affichage de l'heure UTC
+  console.log(parseInt(lstStringValues[0].slice(0, -1)), parseFloat(lstStringValues[1].slice(0, -1)), parseFloat(lstStringValues[2].slice(0, -1)));
 
-  return lstString; // Retourne l'heure locale sidérale sous forme de chaîne de caractères
+  console.log(raToDegrees(parseInt(lstStringValues[0].slice(0, -1)), parseFloat(lstStringValues[1].slice(0, -1)), parseFloat(lstStringValues[2].slice(0, -1))));
+
+  // const utcHours = Math.floor((hours - (longitude / 15) + 24) % 24); // Ajustement pour le décalage horaire
+  //const utcString = `${utcHours.toString().padStart(2, '0')}h ${minutes.toString().padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
+  //console.log("Heure UTC :", utcString);
+
+  return lstString;
 };
