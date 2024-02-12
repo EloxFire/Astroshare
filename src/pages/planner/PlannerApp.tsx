@@ -13,7 +13,7 @@ export default function PlannerApp() {
   const { appLoading, planNight } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
   // const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
-  const [currentStep, setCurrentStep] = useState<number>(1)
+  const [currentStep, setCurrentStep] = useState<number>(2)
 
   return (
     <div className="planner-app">
@@ -34,12 +34,12 @@ export default function PlannerApp() {
                 <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} /> */}
                 <button className="custom-button small" type='button' onClick={() => planNight(cityName, dayjs())}>Valider</button>
               </div>
-              {/* <div className="right">
-                <p className="h2 title">Étape 1</p>
-              </div> */}
+              <div className="right">
+                <p className="h2 title">Étape {currentStep}</p>
+              </div>
             </div>
             {currentStep === 1 && <WeatherStep />}
-            {/* {currentStep === 2 && <AstronomyStep />} */}
+            {currentStep === 2 && <AstronomyStep />}
           </div>
       }
     </div>
