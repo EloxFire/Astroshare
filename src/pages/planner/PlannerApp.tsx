@@ -13,7 +13,7 @@ export default function PlannerApp() {
   const { appLoading, planNight } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
   // const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
-  const [currentStep, setCurrentStep] = useState<number>(2)
+  const [currentStep, setCurrentStep] = useState<number>(1)
 
   return (
     <div className="planner-app">
@@ -26,14 +26,17 @@ export default function PlannerApp() {
           </div>
           :
           <div className="app">
-            <div className="header">
-              <div className="left">
-                <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
-                <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Aix en provence' />
-                {/* <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
-                <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} /> */}
-                <button className="custom-button small" type='button' onClick={() => planNight(cityName, dayjs())}>Valider</button>
-              </div>
+            <div className="header" style={{justifyContent: currentStep !== 1 ? 'flex-end' : 'space-between'}}>
+              {
+                currentStep === 1 &&
+                <div className="left">
+                  <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
+                  <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Aix en provence' />
+                  {/* <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
+                  <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} /> */}
+                  <button className="custom-button small" type='button' onClick={() => planNight(cityName, dayjs())}>Valider</button>
+                </div>
+              }
               <div className="right">
                 <p className="h2 title">Étape {currentStep}</p>
               </div>
