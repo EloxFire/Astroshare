@@ -10,12 +10,8 @@ import NextStep from '../panels/NextStep'
 import SunOverview from '../panels/weather/SunOverview'
 import WeatherOverview from '../panels/weather/WeatherOverview'
 
-interface WeatherStepProps {
-
-}
-
 export default function WeatherStep() {
-  const { appLoading, planNight, weather, city, moon, airQuality } = usePlanner()
+  const { weather, city, moon, airQuality } = usePlanner()
 
   return (
     <div className="body">
@@ -75,7 +71,7 @@ export default function WeatherStep() {
           nh3={airQuality ? airQuality.list[0].components.nh3 : 0}
         />
         <DailyForecast days={weather ? weather.daily : []} />
-        {/* <NextStep /> */}
+        <NextStep disabled={!city || !weather || !moon || !airQuality} />
       </div>
     </div>
   )

@@ -24,6 +24,7 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
   const [weather, setWeather] = useState<any>(null);
   const [moon, setMoon] = useState<any>(null);
   const [airQuality, setAirQuality] = useState<any>(null);
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,27 +32,29 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
     }, 2000);
   }, [])
 
-  const planNight = async (cityName: string, date: string) => {
-    if (!cityName || !date || cityName === "" || date === "") return console.log('Missing parameters');
+  // Setp 1 : WeatherStep on PlannerApp
+  const fetchConditions = async (cityName: string, date: string) => {
+    // Check if cityName and date are not empty
+    if (!cityName || !date || cityName === "" || date === "") return new Error('Missing parameters');
 
+    // Fetch city coordinates with geocoding API
     try {
       const cityCoords = await convertCityName(cityName);
-      console.log(cityCoords);
-
-
-      if (cityCoords.length <= 0) {
-        console.log('City not found...');
-        return;
-      }
-
+      if (cityCoords.length <= 0) return new Error('City not found...');
+      
+      // Fetch weather data with OpenWeather API
       const weatherData = await getWeather(cityCoords[0].lat, cityCoords[0].lon);
+      if (weatherData.length <= 0) return new Error('Weather not found for this city...');
 
+      // Fetch moon data with Moon API
+      const moonData = await getMoonInfos(cityCoords[0].lat, cityCoords[0].lon);
+      if (moonData.length <= 0) return new Error('Moon data not found for this city...');
 
-      if (weatherData.length <= 0) {
-        console.log('Weather not found...');
-        return;
-      }
+      // Fetch air quality data with Air Quality API
+      const airQualityData = await getAirQuality(cityCoords[0].lat, cityCoords[0].lon);
+      if (airQualityData.length <= 0) return new Error('Air quality data not found for this city...');
 
+      // Set city, date, weather, moon and air quality data
       setCity({
         flag: cityCoords[0].country,
         name: cityCoords[0].name,
@@ -65,36 +68,34 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
       })
       setDate(dayjs(date));
       setWeather(weatherData);
-
-      try {
-        console.log("Getting moon data...");
-        const moonData = await getMoonInfos(cityCoords[0].lat, cityCoords[0].lon);
-        console.log(moonData);
-        setMoon(moonData)
-      } catch (error) {
-        console.log("Error fetching moon data");
-      }
-
-      try {
-        console.log("Getting air quality data...");
-        const airQualityData = await getAirQuality(cityCoords[0].lat, cityCoords[0].lon);
-        setAirQuality(airQualityData);
-      } catch (error) {
-
-      }
+      setMoon(moonData);
+      setAirQuality(airQualityData);
     } catch (error) {
-      console.log("Error fetching weather and coordinates data");
+      console.log("Error while fetching city, weather or moon data :", error);
+      return new Error('Error while fetching city, weather or moon data :');
     }
+  }
 
+  const nextStep = () => {
+    setCurrentStep(currentStep + 1);
+  }
+
+  const previousStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
   }
 
   const value = {
     appLoading,
-    planNight,
+    fetchConditions,
     weather,
     city,
     moon,
     airQuality,
+    currentStep,
+    nextStep,
+    previousStep,
   }
 
   return (

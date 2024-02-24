@@ -22,8 +22,6 @@ interface WeatherOverviewProps {
 }
 
 export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations, wind, wind_dir, humidity, pressure }: WeatherOverviewProps) {
-  // icon = '50n';
-
   return (
     <div className="weather-overview">
       <p className="title">En direct - {date}</p>
