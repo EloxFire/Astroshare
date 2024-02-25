@@ -1,5 +1,5 @@
 import React from 'react'
-import { usePlanner } from '../../../contexts/PlannerAppContext'
+import { useWeather } from '../../../contexts/WeatherAppContext'
 import { calculateDayPercentage } from '../../../scripts/helpers/data/calculateDayPercentage'
 import dayjs from 'dayjs'
 import AirQuality from '../panels/weather/AirQuality'
@@ -11,7 +11,7 @@ import SunOverview from '../panels/weather/SunOverview'
 import WeatherOverview from '../panels/weather/WeatherOverview'
 
 export default function WeatherStep() {
-  const { weather, city, moon, airQuality } = usePlanner()
+  const { weather, city, moon, airQuality } = useWeather()
 
   return (
     <div className="body">

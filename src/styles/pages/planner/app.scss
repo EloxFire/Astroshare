@@ -74,6 +74,12 @@
           flex: .3;
         }
 
+        .middle{
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
         .right{
           width: 80px;
           flex: none;

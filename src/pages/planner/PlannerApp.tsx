@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { usePlanner } from '../../contexts/PlannerAppContext'
+import { useWeather } from '../../contexts/WeatherAppContext'
 import dayjs from 'dayjs'
 import WeatherStep from '../../components/planner/steps/WeatherStep'
 import '../../styles/pages/planner/app.scss'
@@ -10,7 +10,7 @@ import AstronomyStep from '../../components/planner/steps/AstronomyStep'
 
 export default function PlannerApp() {
 
-  const { appLoading, fetchConditions, currentStep, previousStep } = usePlanner()
+  const { appLoading, fetchConditions, currentStep, previousStep } = useWeather()
   const [cityName, setCityName] = useState<string>('')
   // const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../../styles/components/planner/panels/nextStep.scss'
-import { usePlanner } from '../../../contexts/PlannerAppContext'
+import { useWeather } from '../../../contexts/WeatherAppContext'
 
 interface NextStepProps {
   disabled: boolean
@@ -9,7 +9,7 @@ interface NextStepProps {
 
 export default function NextStep({ disabled }: NextStepProps) {
 
-  const { nextStep } = usePlanner()
+  const { nextStep } = useWeather()
 
   return (
     <div className="next-step">

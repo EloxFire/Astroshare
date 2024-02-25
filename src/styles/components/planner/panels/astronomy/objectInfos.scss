@@ -1,0 +1,7 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/planner/app.scss';
+
+.astro-object-infos{
+  @extend .dashboard-box;
+  flex: 1;
+}

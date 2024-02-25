@@ -1,5 +1,5 @@
 import React from 'react'
-import { usePlanner } from '../../../../contexts/PlannerAppContext'
+import { useWeather } from '../../../../contexts/WeatherAppContext'
 import { calculateDayPercentage } from '../../../../scripts/helpers/data/calculateDayPercentage'
 import dayjs from 'dayjs'
 import CityInfosItem from './CityInfosItem'
@@ -9,7 +9,7 @@ import '../../../../styles/components/planner/panels/astronomy/mainInfos.scss'
 
 export default function MainInfos() {
 
-  const { date, city, weather, moon } = usePlanner()
+  const { date, city, weather, moon } = useWeather()
   
   return (
     <div className="mainInfosAstro">
