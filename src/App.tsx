@@ -39,9 +39,9 @@ function App() {
           <Route path={routes.contact.path} element={<Layout component={<Contact />} />} />
           <Route path={routes.gallery.path} element={<Layout component={<Gallery />} />} />
           <Route path={routes.hub.path} element={<Layout component={<Hub />} />} />
-          {/* <Route path={routes.planner.path} element={<Layout component={<Planner />} />} /> */}
+          <Route path={routes.planner.path} element={<Layout component={<Planner />} />} />
           <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
-          <Route path={routes.planner.path} element={<Layout component={<PlannerApp />} />} />
+          <Route path={routes.planner_app.path} element={<Layout component={<PlannerApp />} />} />
           {/* Ressources routes */}
           {/* <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} /> */}
           <Route path={routes.ressource.path} element={<Layout component={<RessourceCommutator />} />} />

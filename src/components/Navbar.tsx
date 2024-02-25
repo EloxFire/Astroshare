@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from '../routes'
-import '../styles/components/navbar.scss'
 import { useAuth } from '../contexts/AuthContext'
+import '../styles/components/navbar.scss'
 
 export default function Navbar() {
 
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
 
   const [mobileClick, setMobileClick] = useState(false)
 

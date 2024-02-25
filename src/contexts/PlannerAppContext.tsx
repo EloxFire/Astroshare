@@ -89,6 +89,7 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
   const value = {
     appLoading,
     fetchConditions,
+    date,
     weather,
     city,
     moon,

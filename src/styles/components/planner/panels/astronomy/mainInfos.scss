@@ -1,0 +1,25 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/planner/app.scss';
+
+.mainInfosAstro {
+  @extend .dashboard-box;
+  flex: 1;
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .location, .astro{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1.5px solid $white;
+      border-left: 1.5px solid $white;
+      border-bottom: 1.5px solid $white;
+      padding: 8px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+  }
+}

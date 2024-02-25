@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import MainInfos from '../panels/astronomy/MainInfos'
 // import { isObjectVisible } from '../../../scripts/helpers/astronomy/isObjectVisible'
 // import { calculateZenith } from '../../../scripts/helpers/astronomy/calculateZenith'
 // import dayjs from 'dayjs'
-import axios from 'axios'
 
 export default function AstronomyStep() {
   // const [isVisible, setIsVisible] = useState(false)
@@ -32,8 +32,17 @@ export default function AstronomyStep() {
   // }, [])
 
   return (
-    <div>
+    <div className="body astro">
+      <div className="left">
+        <MainInfos/>
+      </div>
+      <div className="middle">
 
+        middle
+      </div>
+      <div className="right">
+        right
+      </div>
     </div>
   )
 }
