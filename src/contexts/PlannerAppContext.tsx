@@ -70,6 +70,9 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
       setWeather(weatherData);
       setMoon(moonData);
       setAirQuality(airQualityData);
+
+      console.log("WEATHER :", weatherData);
+      
     } catch (error) {
       console.log("Error while fetching city, weather or moon data :", error);
       return new Error('Error while fetching city, weather or moon data :');

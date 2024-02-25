@@ -72,4 +72,33 @@
       }
     }
   }
+
+  &.compact{
+    padding: 10px;
+    .container{
+      .box{
+        margin-top: 2px;
+        img{
+          max-width: 15px;
+        }
+        .text{
+          font-size: .7rem;
+        }
+      }
+
+      .bars{
+        height: 20px;
+        width: 60%;
+        .bar, .progress{
+          height: 6px;
+          margin-top: 7px;
+        }
+        .progress{
+          &::after{
+            font-size: .6rem;
+          }
+        }
+      }
+    }
+  }
 }

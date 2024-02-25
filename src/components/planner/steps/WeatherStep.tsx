@@ -45,6 +45,8 @@ export default function WeatherStep() {
       </div>
       <div className="middle">
         <SunOverview
+          mode='day'
+          format='normal'
           sunrise={weather ? dayjs.unix(weather.current.sunrise).format("HH:mm") : "--"}
           sunset={weather ? dayjs.unix(weather.current.sunset).format("HH:mm") : "--"}
           currentTime={weather ? dayjs.unix(weather.current.dt).format("HH:mm") : "--"}
