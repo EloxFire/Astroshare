@@ -1,5 +1,6 @@
 import React from 'react'
 import MainInfos from '../panels/astronomy/MainInfos'
+import AstroMenu from '../panels/astronomy/AstroMenu'
 // import { isObjectVisible } from '../../../scripts/helpers/astronomy/isObjectVisible'
 // import { calculateZenith } from '../../../scripts/helpers/astronomy/calculateZenith'
 // import dayjs from 'dayjs'
@@ -37,11 +38,10 @@ export default function AstronomyStep() {
         <MainInfos/>
       </div>
       <div className="middle">
-
         middle
       </div>
       <div className="right">
-        right
+        <AstroMenu/>
       </div>
     </div>
   )
