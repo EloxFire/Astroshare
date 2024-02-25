@@ -4,4 +4,13 @@
 .astro-object-infos{
   @extend .dashboard-box;
   flex: 1;
+
+  .head{
+    .name{
+      font-size: 40px;
+      line-height: 40px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  }
 }
