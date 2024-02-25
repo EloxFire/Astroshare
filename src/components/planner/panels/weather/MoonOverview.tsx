@@ -13,16 +13,16 @@ interface MoonOverviewProps {
   age: number
   newMoon: { timestamp: number, days: number }
   fullMoon: { timestamp: number, days: number }
-
+  mode: 'compact' | 'normal'
 }
 
-export default function MoonOverview({ moonrise, moonset, phase_name, illumination, age, distance, newMoon, fullMoon }: MoonOverviewProps) {
+export default function MoonOverview({ moonrise, moonset, phase_name, illumination, age, distance, newMoon, fullMoon, mode }: MoonOverviewProps) {
 
   // phase_name = "First Quarter"
 
   return (
-    <div className="moon-overview">
-      <p className="title">Lune cette nuit</p>
+    <div className={`moon-overview ${mode}`}>
+      <p className="title">{mode === 'compact' ? 'Lune' : 'Lune cette nuit'}</p>
       <div className="top">
         {phase_name === "--" ? <p>--</p> : <img className="moon-icon" src={`/images/planner/moon/${phase_name}.png`} alt="Current moon phase" />}
         <div className="basic-infos">
@@ -42,7 +42,7 @@ export default function MoonOverview({ moonrise, moonset, phase_name, illuminati
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className={`row ${mode === 'compact' && 'd-none'}`}>
         <MoonValue title="Nouvelle lune" value={dayjs.unix(newMoon.timestamp).format('DD MMMM YYYY')} size="large" />
         <MoonValue title="Pleine lune" value={dayjs.unix(fullMoon.timestamp).format('DD MMMM YYYY')} size="large" />
       </div>

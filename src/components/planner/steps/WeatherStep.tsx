@@ -33,6 +33,7 @@ export default function WeatherStep() {
           wind_dir={weather ? weather.current.wind_deg : "--"}
         />
         <MoonOverview
+          mode='normal'
           moonrise={moon ? moon.moon.moonrise_timestamp ? dayjs.unix(moon.moon.moonrise_timestamp).format('HH:mm') : "∅" : "--"}
           moonset={moon ? moon.moon.moonset_timestamp ? dayjs.unix(moon.moon.moonset_timestamp).format('HH:mm') : "∅" : "--"}
           phase_name={moon ? moon.moon.phase_name : "--"}
