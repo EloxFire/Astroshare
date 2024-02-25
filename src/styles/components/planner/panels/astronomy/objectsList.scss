@@ -1,0 +1,14 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/planner/app.scss';
+
+.astro-objects-list{
+  @extend .dashboard-box;
+  flex: 1;
+
+  .list{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 90%;
+  }
+}

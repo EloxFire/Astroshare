@@ -1,11 +1,15 @@
 import React from 'react'
 import MainInfos from '../panels/astronomy/MainInfos'
 import AstroMenu from '../panels/astronomy/AstroMenu'
+import ObjectInfos from '../panels/astronomy/ObjectInfos'
+import ObjectsList from '../panels/astronomy/ObjectsList'
+import { useAstro } from '../../../contexts/AstroAppContext'
 // import { isObjectVisible } from '../../../scripts/helpers/astronomy/isObjectVisible'
 // import { calculateZenith } from '../../../scripts/helpers/astronomy/calculateZenith'
 // import dayjs from 'dayjs'
 
 export default function AstronomyStep() {
+  const {selectedObject} = useAstro();
   // const [isVisible, setIsVisible] = useState(false)
   // const [messier, setMessier] = useState([])
 
@@ -38,7 +42,11 @@ export default function AstronomyStep() {
         <MainInfos/>
       </div>
       <div className="middle">
-        middle
+        {
+          selectedObject &&
+          <ObjectInfos object={selectedObject} />
+        }
+        <ObjectsList/>
       </div>
       <div className="right">
         <AstroMenu/>
