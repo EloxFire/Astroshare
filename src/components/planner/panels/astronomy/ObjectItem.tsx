@@ -2,6 +2,7 @@ import React from 'react'
 import { DeepSkyObject } from '../../../../scripts/types/DeepSkyObject'
 import { useAstro } from '../../../../contexts/AstroAppContext';
 import '../../../../styles/components/planner/panels/astronomy/objectItem.scss'
+import ObjectProperty from './ObjectProperty';
 
 interface ObjectItemProps {
   object: DeepSkyObject
@@ -13,27 +14,15 @@ export default function ObjectItem({ object }: ObjectItemProps) {
 
   return (
     <button className={`astro-object-item ${selectedObject === object && 'active-object'}`} style={{gap: selectedObject ? '50px' : '100px'}} key={object.id} onClick={() => changeSelectedObject(object)}>
-      <div className="property">
-        <small>Objet</small>
-        <p>{object.cat1}{object.id1}</p>
-      </div>
-      <div className="property">
-        <small>Nom commun</small>
-        {
+      <ObjectProperty mode='compact' property='Objet' value={`${object.cat1}${object.id1}`} />
+      <ObjectProperty mode='compact' property='Nom commun' value={
           selectedObject ?
-            <p>{object.name === "" ? "..." : object.name.length > 10 ? `${object.name.slice(0, 7)}...` : object.name}</p>
+            object.name === "" ? "..." : object.name.length > 10 ? `${object.name.slice(0, 7)}...` : object.name
             :
-            <p>{object.name === "" ? "..." : object.name}</p>
-        }
-      </div>
-      <div className="property">
-        <small>Magnitude</small>
-        <p>{object.magnitude}</p>
-      </div>
-      <div className="property">
-        <small>Type</small>
-        <p>{object.type}</p>
-      </div>
+            object.name === "" ? "..." : object.name
+        } />
+      <ObjectProperty mode='compact' property='Magnitude' value={object.magnitude} />
+      <ObjectProperty mode='compact' property='Type' value={object.type} />
     </button>
   )
 }

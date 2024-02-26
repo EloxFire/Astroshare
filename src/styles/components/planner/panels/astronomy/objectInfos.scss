@@ -6,11 +6,28 @@
   flex: 1;
 
   .head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
     .name{
-      font-size: 40px;
-      line-height: 40px;
+      font-size: 30px;
+      line-height: 30px;
       font-weight: 800;
       text-transform: uppercase;
+      margin-bottom: 0;
     }
+
+    .object-image{
+      max-height: 20vh;
+    }
+  }
+
+  .infos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
   }
 }
