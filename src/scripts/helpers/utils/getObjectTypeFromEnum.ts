@@ -1,5 +1,8 @@
 import { AstroObjectTypes } from "../../enums/AstroObjectTypes";
 
 export const getObjectTypeFromEnum = (type: string) => {
-  return Object.entries(AstroObjectTypes).find(([key, value]) => value.toUpperCase() === type.toUpperCase())?.[0];
+  // Returns the value of the enum from the key
+  console.log(AstroObjectTypes[type as keyof typeof AstroObjectTypes]);
+  
+  return AstroObjectTypes[type as keyof typeof AstroObjectTypes];
 }
