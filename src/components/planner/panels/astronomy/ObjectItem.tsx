@@ -3,7 +3,7 @@ import { DeepSkyObject } from '../../../../scripts/types/DeepSkyObject'
 import { useAstro } from '../../../../contexts/AstroAppContext';
 import { getObjectName } from '../../../../scripts/helpers/astronomy/getObjectName';
 // import { calculateZenith } from '../../../../scripts/helpers/astronomy/calculateZenith';
-import { useWeather } from '../../../../contexts/WeatherAppContext';
+// import { useWeather } from '../../../../contexts/WeatherAppContext';
 import ObjectProperty from './ObjectProperty';
 // import dayjs from 'dayjs';
 import '../../../../styles/components/planner/panels/astronomy/objectItem.scss'
