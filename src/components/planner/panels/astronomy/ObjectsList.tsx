@@ -11,7 +11,9 @@ export default function ObjectsList() {
     <div className="astro-objects-list">
       <p className="title">Objets</p>
       <div className="list">
-        {deepSkyObjects.map((object: any) => (
+        {
+          deepSkyObjects && deepSkyObjects !== undefined &&
+          deepSkyObjects.map((object: any) => (
           <ObjectItem key={object.id} object={object} />
         ))}
       </div>
