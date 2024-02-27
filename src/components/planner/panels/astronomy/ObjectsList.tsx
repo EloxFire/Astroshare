@@ -2,20 +2,28 @@ import React from 'react'
 import '../../../../styles/components/planner/panels/astronomy/objectsList.scss'
 import { useAstro } from '../../../../contexts/AstroAppContext';
 import ObjectItem from './ObjectItem';
+import { DeepSkyObject } from '../../../../scripts/types/DeepSkyObject';
 
 export default function ObjectsList() {
 
-  const {deepSkyObjects} = useAstro();
+  const {currentList, currentCatalog} = useAstro();
 
   return (
     <div className="astro-objects-list">
-      <p className="title">Objets</p>
+      <p className="title" style={{display: 'flex', justifyContent: 'space-between'}}>
+        Objets : {currentCatalog === 'all' ? 'Tous' : currentCatalog === 'm' ? 'Messier' : currentCatalog === 'ngc' ? 'NGC' : 'IC'}
+        <input className="search-dso" type="text" placeholder="Rechercher un objet..." />
+      </p>
       <div className="list">
         {
-          deepSkyObjects && deepSkyObjects !== undefined &&
-          deepSkyObjects.map((object: any) => (
-          <ObjectItem key={object.id} object={object} />
-        ))}
+          currentList && currentList !== undefined ?
+            currentList.length > 0 ?
+              currentList.map((object: DeepSkyObject, index: number) => {
+                return <ObjectItem key={`${object.name}-${index}`} object={object} />
+              })
+              : <p>Aucun objet trouvé...</p>
+            : <p>Erreur de chargement...</p>
+        }
       </div>
     </div>
   )

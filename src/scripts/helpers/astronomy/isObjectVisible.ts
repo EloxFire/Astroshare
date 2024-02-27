@@ -1,6 +1,8 @@
 import { raToDegrees } from "./raToDegrees";
 
 export const isObjectVisible = (zenithRA: string, zenithDec: number, objectRA: string, objectDec: number): boolean => {
+  console.log("Calculating object visibility...");
+  
   const objectRaValues = objectRA.split(' ');
   const zenithRaValues = zenithRA.split(' ');
 

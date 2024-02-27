@@ -19,22 +19,25 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
   const [currentObject, setCurrentObject] = useState<DeepSkyObject | null>(null);
   const [deepSkyObjects, setDeepSkyObjects] = useState<DeepSkyObject[]>([]);
   const [selectedObject, setSelectedObject] = useState<DeepSkyObject | null>(null);
+  const [currentCatalog, setCurrentCatalog] = useState<'messier' | 'ngc' | 'ic' | 'all'>('messier');
+  const [currentList, setCurrentList] = useState<DeepSkyObject[]>([]);
 
   useEffect(() => {
-    
     // Fetch deep sky objects
     const fetchDeepSkyObjects = async () => {
       try {
         const messierCatalog = await axios.get('http://api.astroshare.fr/messier');
         const ngcCatalog = await axios.get('http://api.astroshare.fr/ngc');
         const icCatalog = await axios.get('http://api.astroshare.fr/ic');
-
+       
         const temp = [];
         temp.push(...messierCatalog.data.data);
         temp.push(...ngcCatalog.data.data);
         temp.push(...icCatalog.data.data);
         
         setDeepSkyObjects(temp);
+        setCurrentList(temp)
+        setCurrentCatalog('all');
       } catch (error) {
         console.error(error);
       }
@@ -60,13 +63,25 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     setSelectedObject(object);
   }
 
+  const updateObjectsCatalog = (catalog: 'messier' | 'ngc' | 'ic' | 'all') => {
+    console.log('Updating catalog to :', catalog);
+    
+    setCurrentCatalog(catalog);
+    if (catalog === 'all') setCurrentList(deepSkyObjects);
+    if (catalog === 'messier') setCurrentList(deepSkyObjects.filter(object => object.m !== ""));
+    if (catalog === 'ngc') setCurrentList(deepSkyObjects.filter(object => (object.ngc !== "" || object.name.includes('NGC')) && !object.name.includes('IC')));
+    if (catalog === 'ic') setCurrentList(deepSkyObjects.filter(object => (object.ic !== "" || object.name.includes('IC')) && !object.name.includes('NGC')));
+  }
+
   const value = {
     currentProperty,
     changeCurrentProperty,
     currentObject,
-    deepSkyObjects,
+    currentList,
     selectedObject,
     changeSelectedObject,
+    updateObjectsCatalog,
+    currentCatalog,
   }
 
   return (
