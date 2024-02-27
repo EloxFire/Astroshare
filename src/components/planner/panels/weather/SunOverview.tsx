@@ -14,9 +14,6 @@ interface SunOverviewProps {
 
 export default function SunOverview({ sunrise, sunset, currentTime, dayPercentage, format, mode, nextSunrise, nightPercentage }: SunOverviewProps) {
 
-  console.log(dayPercentage);
-
-
   return (
     <>
       {

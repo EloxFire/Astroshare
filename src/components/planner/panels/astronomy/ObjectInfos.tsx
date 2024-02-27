@@ -19,7 +19,7 @@ export default function ObjectInfos({object}: ObjectInfosProps) {
           <p className="name">{getObjectName(object)}</p>
           <p className="type">{getObjectTypeFromEnum(object.type.toUpperCase())}</p>
         </div>
-        <img className="object-image" src={`/images/planner/astro/${object.type}.png`} alt={object.name} />
+        <img className="object-image" src={`/images/planner/astro/${getObjectTypeFromEnum(object.type.toUpperCase())}.png`} alt={object.name} />
       </div>
       <div className="infos">
         <ObjectProperty mode='normal' property="RA" value={object.ra} />
