@@ -8,11 +8,22 @@
 //   'Ast' = 'Asterism',
 // }
 export enum AstroObjectTypes {
-  'Globular Cluster' = 'GC',
-  'Open Cluster' = 'OC',
+  'Open Cluster' = 'OCL',
+  'Globular Cluster' = 'GCL',
   'Planetary Nebula' = 'PN',
-  'Nebula' = 'Neb',
-  'Galaxy' = 'Gxy',
-  'Open Cluster with Nebula' = 'OC+Neb',
-  'Asterism' = 'Ast',
+  'Nebula' = 'NEB',
+  'Culster with Nebula' = 'CL+N',
+  'Galaxy' = 'G',
+  'Dark Nebula' = "DRKN",
+  'HII Region' = 'HII',
+  'Star asterism' = '*ASS',
+  'Double star' = "**",
+  'Unknown' = 'OTHER',
+  'Reflection nebula' = 'RFN',
+  'Galaxy pair' = 'GPAIR',
+  'Triple galaxy' = 'GTRL',
+  'Star' = '*',
+  'Supernova remnent' = 'SNR',
+  'Galaxy group' = 'GGROUP',
 }
+
