@@ -23,7 +23,6 @@ export default function CustomImageDisplay({ images }: CustomImageDisplayProps) 
   }
 
   const handleNextImage = () => {
-    console.log(slideIndex);
     if (slideIndex === images.length - 1) {
       setSlideIndex(0)
     } else {
@@ -32,7 +31,6 @@ export default function CustomImageDisplay({ images }: CustomImageDisplayProps) 
   }
 
   const handlePreviousImage = () => {
-    console.log(slideIndex);
 
     if (slideIndex === 0) {
       setSlideIndex(images.length - 1)

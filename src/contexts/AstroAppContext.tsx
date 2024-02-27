@@ -24,10 +24,8 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     
     // Fetch deep sky objects
     const fetchDeepSkyObjects = async () => {
-      console.log('AstroAppProvider');
       try {
         const response = await axios.get('http://api.astroshare.fr/messier');
-        console.log(response.data);
         
         setDeepSkyObjects(response.data.data);
       } catch (error) {

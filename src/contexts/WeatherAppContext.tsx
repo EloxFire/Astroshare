@@ -69,10 +69,7 @@ export function WeatherAppProvider({ children }: WeatherAppProviderProps) {
       setDate(dayjs(date));
       setWeather(weatherData);
       setMoon(moonData);
-      setAirQuality(airQualityData);
-
-      console.log("WEATHER :", weatherData);
-      
+      setAirQuality(airQualityData);      
     } catch (error) {
       console.log("Error while fetching city, weather or moon data :", error);
       return new Error('Error while fetching city, weather or moon data :');

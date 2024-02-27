@@ -20,7 +20,7 @@ export default function ObjectItem({ object }: ObjectItemProps) {
           selectedObject ?
             object.common_names === "" ? "..." : object.common_names.length > 10 ? `${object.name.slice(0, 7)}...` : object.common_names
             :
-            object.common_names === "" ? "..." : object.common_names
+            object.common_names === "" ? "..." : object.common_names.length > 20 ? `${object.name.slice(0, 17)}...` : object.common_names
         } />
       <ObjectProperty mode='compact' property='Magnitude' value={object.v_mag} />
       <ObjectProperty mode='compact' property='Type' value={object.type.toUpperCase()} />
