@@ -42,11 +42,11 @@ export default function ObjectItem({ object }: ObjectItemProps) {
         }
       <ObjectProperty mode='compact' property='Objet' value={getObjectName(object).split(/,| /)[0]} />
       <ObjectProperty mode='compact' property='Nom commun' value={
-          selectedObject ?
-            object.common_names === "" ? "..." : object.common_names.length > 10 ? `${object.name.slice(0, 7)}...` : object.common_names
-            :
-            object.common_names === "" ? "..." : object.common_names.length > 20 ? `${object.name.slice(0, 17)}...` : object.common_names
-        } />
+          !selectedObject ?
+            object.common_names === "" ? "..." : object.common_names.split(',')[0]
+          :
+            object.common_names === "" ? "..." : object.common_names.split(',')[0].length <= 10 ? object.common_names.split(',')[0] : object.common_names.split(',')[0].slice(0, 8) + '...' 
+          } />
       <ObjectProperty mode='compact' property='Magnitude' value={object.v_mag !== "" ? object.v_mag : "..."} />
       <ObjectProperty mode='compact' property='Type' value={object.type.toUpperCase()} />
     </button>
