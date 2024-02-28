@@ -18,6 +18,10 @@ export default function ObjectInfos({ object }: ObjectInfosProps) {
         <div>
           <p className="name">{getObjectName(object)}</p>
           <p className="type">{getObjectTypeFromEnum(object.type.toUpperCase())}</p>
+          {object.common_names !== "" && <p className="notes">Also known as : {object.common_names.replaceAll(',', ', ')}</p>}
+          {object.open_ngc_notes !== "" && <p className="notes">Open NGC notes : {object.open_ngc_notes}</p>}
+          {object.ned_notes !== "" && <p className="notes">NED notes : {object.ned_notes}</p>}
+          
         </div>
         {
           Object.keys(AstroObjectTypes).includes(object.type.toUpperCase() as AstroObjectTypes) ?
@@ -27,7 +31,41 @@ export default function ObjectInfos({ object }: ObjectInfosProps) {
         }
       </div>
       <div className="infos">
-        
+        <table>
+          <tbody>
+            <tr>
+              <td className="row-title">Constellation</td>
+              <td>{object.const}</td>
+            </tr>
+            <tr>
+              <td className="row-title">Ra</td>
+              <td>{object.ra.replace(':', 'h ').replace(':', 'm ')}s</td>
+            </tr>
+            <tr>
+              <td className="row-title">Dec</td>
+              <td>{object.dec}</td>
+            </tr>
+            <tr>
+              <td className="row-title">Magnitude <small>(visible)</small></td>
+              <td>{object.v_mag}</td>
+            </tr>
+            <tr>
+              <td className="row-title">Major Axis</td>
+              <td>{object.maj_ax}</td>
+            </tr>
+            <tr>
+              <td className="row-title">Angle</td>
+              <td>{object.pos_ang}</td>
+            </tr>
+            <tr>
+              <td className="row-title">Redshift</td>
+              <td>{object.redshift}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div className="complementary-infos">
+        <p className="notes">Complément :</p>
       </div>
     </div>
   )

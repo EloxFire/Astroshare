@@ -6,11 +6,12 @@
   flex: 1;
 
   .head{
+    background-color: red;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8vh;
+    margin-bottom: 5vh;
 
     .name{
       font-size: 30px;
@@ -23,6 +24,13 @@
     .object-image{
       max-height: 12vh;
     }
+
+    .notes{
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
   }
 
   .infos{
@@ -31,5 +39,23 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     gap: 20px;
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+
+      td{
+        padding: 8px;
+        border: 1px solid $white;
+        text-align: left;
+
+        &.row-title{
+          font-weight: 800;
+          color: $white;
+          opacity: .8;
+        }
+      }
+    }
   }
 }
