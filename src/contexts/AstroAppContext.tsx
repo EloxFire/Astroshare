@@ -2,6 +2,10 @@ import React, { useContext, ReactNode, createContext, useState, useEffect } from
 import { AstroProperty } from '../scripts/enums/AstroProperty';
 import { DeepSkyObject } from '../scripts/types/DeepSkyObject';
 import axios from 'axios';
+import { ZenithObject } from '../scripts/types/ZenithObject';
+import { calculateZenith } from '../scripts/helpers/astronomy/calculateZenith';
+import { useWeather } from './WeatherAppContext';
+import dayjs from 'dayjs';
 
 const AstroAppContext = createContext<any>({});
 
@@ -15,12 +19,15 @@ interface AstroAppProviderProps {
 
 export function AstroAppProvider({ children }: AstroAppProviderProps) {
 
+  const {city} = useWeather()
+
   const [currentProperty, setCurrentProperty] = useState<AstroProperty>('magnitude' as AstroProperty);
   const [currentObject, setCurrentObject] = useState<DeepSkyObject | null>(null);
   const [deepSkyObjects, setDeepSkyObjects] = useState<DeepSkyObject[]>([]);
   const [selectedObject, setSelectedObject] = useState<DeepSkyObject | null>(null);
   const [currentCatalog, setCurrentCatalog] = useState<'messier' | 'ngc' | 'ic' | 'all'>('messier');
   const [currentList, setCurrentList] = useState<DeepSkyObject[]>([]);
+  const [currentZenith, setCurrentZenith] = useState<ZenithObject>({ra: "0h 0m 0s", dec: 0, ra_rad: 0});
 
   useEffect(() => {
     // Fetch deep sky objects
@@ -44,6 +51,14 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     }
     fetchDeepSkyObjects();
   }, [])
+
+  useEffect(() => {
+    if(!city) return;
+    const zenith = calculateZenith(city.lat, city.lng, dayjs().format('YYYY-MM-DD'), dayjs().format('HH:mm:ss'));
+    console.log(zenith);
+    
+    setCurrentZenith(zenith);
+  }, [city])
 
   const changeCurrentProperty = () => {
     const properties = Object.values(AstroProperty);
@@ -69,8 +84,8 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     setCurrentCatalog(catalog);
     if (catalog === 'all') setCurrentList(deepSkyObjects);
     if (catalog === 'messier') setCurrentList(deepSkyObjects.filter(object => object.m !== ""));
-    if (catalog === 'ngc') setCurrentList(deepSkyObjects.filter(object => (object.ngc !== "" || object.name.includes('NGC')) && !object.name.includes('IC') ));
-    if (catalog === 'ic') setCurrentList(deepSkyObjects.filter(object => (object.ic !== "" || object.name.includes('IC')) && !object.name.includes('NGC')));
+    if (catalog === 'ngc') setCurrentList(deepSkyObjects.filter(object => (object.ngc !== "" || object.name.includes('NGC'))));
+    if (catalog === 'ic') setCurrentList(deepSkyObjects.filter(object => (object.ic !== "" || object.name.includes('IC'))));
   }
 
   const value = {
@@ -82,6 +97,7 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     changeSelectedObject,
     updateObjectsCatalog,
     currentCatalog,
+    currentZenith,
   }
 
   return (

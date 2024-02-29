@@ -10,6 +10,7 @@ export const getObjectName = (object: DeepSkyObject, currentCatalog: DSOCatalog,
   } else if (object.ngc !== "") {
     return `NGC${object.ngc}`
   } else if (object.ic !== "") {
+    // if (currentCatalog === 'ic') return object.name
     return `IC${object.ic}`
   } else if (object.name !== "") {
     return object.name
