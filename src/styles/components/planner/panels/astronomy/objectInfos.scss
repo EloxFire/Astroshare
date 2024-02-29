@@ -6,11 +6,10 @@
   flex: 1;
 
   .head{
-    background-color: red;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 5vh;
 
     .name{
@@ -54,8 +53,18 @@
           font-weight: 800;
           color: $white;
           opacity: .8;
+          width: 200px;
         }
       }
+    }
+  }
+
+  .complementary-infos{
+    .notes {
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 400;
+      margin-bottom: 10px;
     }
   }
 }

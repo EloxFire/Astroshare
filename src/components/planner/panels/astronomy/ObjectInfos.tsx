@@ -4,6 +4,7 @@ import { getObjectTypeFromEnum } from '../../../../scripts/helpers/utils/getObje
 import { getObjectName } from '../../../../scripts/helpers/astronomy/getObjectName'
 import '../../../../styles/components/planner/panels/astronomy/objectInfos.scss'
 import { AstroObjectTypes } from '../../../../scripts/enums/AstroObjectTypes'
+import { useAstro } from '../../../../contexts/AstroAppContext'
 
 
 interface ObjectInfosProps {
@@ -11,17 +12,17 @@ interface ObjectInfosProps {
 }
 
 export default function ObjectInfos({ object }: ObjectInfosProps) {
+
+  const {currentCatalog} = useAstro()
+
   return (
     <div className="astro-object-infos">
       <p className="title">Informations détaillées</p>
       <div className="head">
         <div>
-          <p className="name">{getObjectName(object)}</p>
-          <p className="type">{getObjectTypeFromEnum(object.type.toUpperCase())}</p>
+          <p className="name">{getObjectName(object, currentCatalog, true)}</p>
+          <p className="type">{getObjectTypeFromEnum(object.type.toUpperCase())}</p>      
           {object.common_names !== "" && <p className="notes">Also known as : {object.common_names.replaceAll(',', ', ')}</p>}
-          {object.open_ngc_notes !== "" && <p className="notes">Open NGC notes : {object.open_ngc_notes}</p>}
-          {object.ned_notes !== "" && <p className="notes">NED notes : {object.ned_notes}</p>}
-          
         </div>
         {
           Object.keys(AstroObjectTypes).includes(object.type.toUpperCase() as AstroObjectTypes) ?
@@ -66,6 +67,8 @@ export default function ObjectInfos({ object }: ObjectInfosProps) {
       </div>
       <div className="complementary-infos">
         <p className="notes">Complément :</p>
+        {object.open_ngc_notes !== "" && <p className="notes">Open NGC notes : {object.open_ngc_notes}</p>}
+        {object.ned_notes !== "" && <p className="notes">NED notes : {object.ned_notes}</p>}
       </div>
     </div>
   )

@@ -17,7 +17,7 @@ interface ObjectItemProps {
 
 export default function ObjectItem({ object }: ObjectItemProps) {
   
-  const { changeSelectedObject, selectedObject } = useAstro();
+  const { changeSelectedObject, selectedObject, currentCatalog } = useAstro();
   // const {city} = useWeather()
 
   // const [isVisible, setIsVisible] = useState(false);
@@ -33,14 +33,14 @@ export default function ObjectItem({ object }: ObjectItemProps) {
   // isObjectVisible(zenith.ra, zenith.dec, object.ra, parseInt(object.dec.split(':')[0].slice(1)))
 
   return (
-    <button className={`astro-object-item ${selectedObject === object && 'active-object'}`} style={{gap: selectedObject ? '50px' : '100px'}} key={`object-${getObjectName(object)}`} onClick={() => changeSelectedObject(object)}>
+    <button className={`astro-object-item ${selectedObject === object && 'active-object'}`} style={{gap: selectedObject ? '50px' : '100px'}} key={`object-${getObjectName(object, currentCatalog, false)}`} onClick={() => changeSelectedObject(object)}>
       {
           Object.keys(AstroObjectTypes).includes(object.type.toUpperCase() as AstroObjectTypes) ?
             <img className="object-image" src={`/images/planner/astro/${object.type.toUpperCase()}.png`} alt={object.name} />
             :
             <img className="object-image" src={`/images/planner/astro/OTHER.png`} alt={object.name} />
         }
-      <ObjectProperty mode='compact' property='Objet' value={getObjectName(object).split(/,| /)[0]} />
+      <ObjectProperty mode='compact' property='Objet' value={getObjectName(object, currentCatalog, false).split(/,| /)[0]} />
       <ObjectProperty mode='compact' property='Nom commun' value={
           !selectedObject ?
             object.common_names === "" ? "..." : object.common_names.split(',')[0]

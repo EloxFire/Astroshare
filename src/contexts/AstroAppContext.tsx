@@ -69,7 +69,7 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     setCurrentCatalog(catalog);
     if (catalog === 'all') setCurrentList(deepSkyObjects);
     if (catalog === 'messier') setCurrentList(deepSkyObjects.filter(object => object.m !== ""));
-    if (catalog === 'ngc') setCurrentList(deepSkyObjects.filter(object => (object.ngc !== "" || object.name.includes('NGC')) && !object.name.includes('IC')));
+    if (catalog === 'ngc') setCurrentList(deepSkyObjects.filter(object => (object.ngc !== "" || object.name.includes('NGC')) && !object.name.includes('IC') ));
     if (catalog === 'ic') setCurrentList(deepSkyObjects.filter(object => (object.ic !== "" || object.name.includes('IC')) && !object.name.includes('NGC')));
   }
 
