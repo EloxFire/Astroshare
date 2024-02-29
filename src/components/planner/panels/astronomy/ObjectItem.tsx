@@ -20,7 +20,7 @@ export default function ObjectItem({ object }: ObjectItemProps) {
   
   useEffect(() => {
     if (object.ra !== undefined && object.dec !== undefined) {
-      console.log("OBJECT DEC :",parseInt(object.dec.split(':')[0].slice(1)), "OBJECT :", getObjectName(object, currentCatalog, false));
+      // console.log("OBJECT DEC :",parseInt(object.dec.split(':')[0].slice(1)), "OBJECT :", getObjectName(object, currentCatalog, false));
       
       // const objVisible = isObjectVisible(currentZenith.ra, currentZenith.dec, object.ra, parseInt(object.dec.split(':')[0].slice(1)))
       setIsVisible(true);

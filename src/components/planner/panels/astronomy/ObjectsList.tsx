@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../../../styles/components/planner/panels/astronomy/objectsList.scss'
 import { useAstro } from '../../../../contexts/AstroAppContext';
 import ObjectItem from './ObjectItem';
@@ -6,13 +6,18 @@ import { DeepSkyObject } from '../../../../scripts/types/DeepSkyObject';
 
 export default function ObjectsList() {
 
-  const {currentList, currentCatalog} = useAstro();
+  const { currentList, currentCatalog, searchObject } = useAstro();
+
+  const handleSearch = (value: string) => {
+    searchObject(value);
+    
+  }
 
   return (
     <div className="astro-objects-list">
       <p className="title" style={{display: 'flex', justifyContent: 'space-between'}}>
         Objets : {currentCatalog === 'all' ? 'Tous' : currentCatalog === 'm' ? 'Messier' : currentCatalog === 'ngc' ? 'NGC' : 'IC'}
-        <input className="search-dso" type="text" placeholder="Rechercher un objet..." />
+        <input className="search-dso" type="text" onChange={(e) => handleSearch(e.target.value)} placeholder="Rechercher un objet..." />
       </p>
       <div className="list">
         {

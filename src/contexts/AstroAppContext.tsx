@@ -6,6 +6,7 @@ import { ZenithObject } from '../scripts/types/ZenithObject';
 import { calculateZenith } from '../scripts/helpers/astronomy/calculateZenith';
 import { useWeather } from './WeatherAppContext';
 import dayjs from 'dayjs';
+import { getObjectTypeFromEnum } from '../scripts/helpers/utils/getObjectTypeFromEnum';
 
 const AstroAppContext = createContext<any>({});
 
@@ -88,6 +89,29 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     if (catalog === 'ic') setCurrentList(deepSkyObjects.filter(object => (object.ic !== "" || object.name.includes('IC'))));
   }
 
+  const searchObject = (search: string) => {
+    console.log('Searching for :', search);
+    
+    if(search === '') {
+      setCurrentList(deepSkyObjects);
+      setCurrentCatalog('all');
+      return;
+    } else {
+      const filter = search.toLowerCase()
+      console.log('Filter :', filter);
+      
+      const filteredList = deepSkyObjects.filter((object: DeepSkyObject) => 
+        object.name.toLowerCase().includes(filter) ||
+        object.const.toLowerCase().includes(filter) ||
+        object.common_names.toLowerCase().split(',').includes(filter)
+      );
+
+
+      setCurrentList(filteredList);
+      setCurrentCatalog('all');
+    }
+  }
+
   const value = {
     currentProperty,
     changeCurrentProperty,
@@ -98,6 +122,7 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
     updateObjectsCatalog,
     currentCatalog,
     currentZenith,
+    searchObject,
   }
 
   return (
