@@ -1,33 +1,37 @@
-import { raToDegrees } from "./raToDegrees";
+// Convertit une chaîne de caractères représentant RA en heures en radians
+const raStringToRadians = (ra: string): number => {
+    const parts = ra.split(" ");
+    const hours = parseFloat(parts[0]);
+    const minutes = parseFloat(parts[1]);
+    const seconds = parseFloat(parts[2]);
+    const totalHours = hours + minutes / 60 + seconds / 3600;
+    return totalHours * (2 * Math.PI / 24);
+};
 
-export const isObjectVisible = (zenithRA: string, zenithDec: number, objectRA: string, objectDec: number): boolean => {
-  console.log("Calculating object visibility...");
-  
-  const objectRaValues = objectRA.split(' ');
-  const zenithRaValues = zenithRA.split(' ');
+// Convertit une chaîne de caractères représentant DEC en degrés en radians
+const decStringToRadians = (dec: string): number => {
+    const parts = dec.split(" ");
+    const degrees = parseFloat(parts[0]);
+    const minutes = parseFloat(parts[1]);
+    const seconds = parseFloat(parts[2]);
+    const totalDegrees = degrees + minutes / 60 + seconds / 3600;
+    return totalDegrees * (Math.PI / 180);
+};
 
-  console.log(objectRaValues);
-  console.log(zenithRaValues);
-  console.log(parseInt(objectRaValues[0].slice(0, -1)), parseFloat(objectRaValues[1].slice(0, -1)), parseFloat(objectRaValues[2].slice(0, -1)));
-  console.log(parseInt(zenithRaValues[0].slice(0, -1)), parseFloat(zenithRaValues[1].slice(0, -1)), parseFloat(zenithRaValues[2].slice(0, -1)));
+// Vérifie si l'objet est au-dessus de l'horizon
+const isObjectVisible = (zenithRA: string, zenithDEC: string, objectRA: string, objectDEC: string): boolean => {
+    // Convertir les coordonnées du zénith et de l'objet en radians
+    const zenithRARad = raStringToRadians(zenithRA);
+    const zenithDECRad = decStringToRadians(zenithDEC);
+    const objectRARad = raStringToRadians(objectRA);
+    const objectDECRad = decStringToRadians(objectDEC);
 
+    // Calculer l'angle horaire de l'objet par rapport au zénith
+    const hourAngle = zenithRARad - objectRARad;
 
+    // Calculer la hauteur de l'objet au-dessus de l'horizon
+    const altitude = Math.asin(Math.sin(zenithDECRad) * Math.sin(objectDECRad) + Math.cos(zenithDECRad) * Math.cos(objectDECRad) * Math.cos(hourAngle));
 
-  const objectRaDeg = raToDegrees(parseInt(objectRaValues[0].slice(0, -1)), parseFloat(objectRaValues[1].slice(0, -1)), parseFloat(objectRaValues[2].slice(0, -1)))
-  const zenithRaDeg = raToDegrees(parseInt(zenithRaValues[0].slice(0, -1)), parseFloat(zenithRaValues[1].slice(0, -1)), parseFloat(zenithRaValues[2].slice(0, -1)))
-
-  // Convertir les coordonnées en radians
-  const zenithDecRad = zenithDec * (Math.PI / 180);
-  const objectDecRad = objectDec * (Math.PI / 180);
-
-  // Calculer la différence en ascension droite entre l'objet et le zénith
-  const deltaRA = objectRaDeg - zenithRaDeg;
-
-  // Calculer la hauteur de l'objet par rapport au zénith en utilisant la formule de la trigonométrie sphérique
-  const height = Math.asin(Math.sin(zenithDecRad) * Math.sin(objectDecRad) + Math.cos(zenithDecRad) * Math.cos(objectDecRad) * Math.cos(deltaRA));
-
-  // Convertir la hauteur en degrés
-  const heightDegrees = height * (180 / Math.PI);
-
-  return heightDegrees > 0 && heightDegrees < 90;
-}
+    // Vérifier si l'objet est au-dessus de l'horizon (altitude positive)
+    return altitude > 0;
+};

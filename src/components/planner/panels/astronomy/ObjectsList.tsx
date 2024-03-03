@@ -3,10 +3,11 @@ import '../../../../styles/components/planner/panels/astronomy/objectsList.scss'
 import { useAstro } from '../../../../contexts/AstroAppContext';
 import ObjectItem from './ObjectItem';
 import { DeepSkyObject } from '../../../../scripts/types/DeepSkyObject';
+import { formatAstroCoordinates } from '../../../../scripts/helpers/astronomy/formatAstroCoordinates';
 
 export default function ObjectsList() {
 
-  const { currentList, currentCatalog, searchObject } = useAstro();
+  const { currentList, currentCatalog, searchObject, currentZenith } = useAstro();
 
   const handleSearch = (value: string) => {
     searchObject(value);
@@ -24,7 +25,8 @@ export default function ObjectsList() {
           currentList && currentList !== undefined ?
             currentList.length > 0 ?
               currentList.map((object: DeepSkyObject, index: number) => {
-                return <ObjectItem key={`${object.name}-${index}`} object={object} />
+                const IOV = isObjectVisible(currentZenith.ra, formatAstroCoordinates(object.ra), formatAstroCoordinates(object.dec));
+                return <ObjectItem key={`${object.name}-${index}`} object={object} currentlyVisible={IOV} />
               })
               : <p>Aucun objet trouvé...</p>
             : <p>Erreur de chargement...</p>

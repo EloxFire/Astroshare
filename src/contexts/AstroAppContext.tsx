@@ -28,7 +28,7 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
   const [selectedObject, setSelectedObject] = useState<DeepSkyObject | null>(null);
   const [currentCatalog, setCurrentCatalog] = useState<'messier' | 'ngc' | 'ic' | 'all'>('messier');
   const [currentList, setCurrentList] = useState<DeepSkyObject[]>([]);
-  const [currentZenith, setCurrentZenith] = useState<ZenithObject>({ra: "0h 0m 0s", dec: 0, ra_rad: 0});
+  const [currentZenith, setCurrentZenith] = useState<ZenithObject>({ra: "0h 0m 0s", dec: "0h 0m 0s"});
 
   useEffect(() => {
     // Fetch deep sky objects
@@ -36,7 +36,7 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
       try {
         const messierCatalog = await axios.get('http://api.astroshare.fr/messier');
         const ngcCatalog = await axios.get('http://api.astroshare.fr/ngc');
-        const icCatalog = await axios.get('http://api.astroshare.fr/ic');
+        const icCatalog = await axios.get('http://api.astroshare.fr/ic');        
        
         const temp = [];
         temp.push(...messierCatalog.data.data);
@@ -46,6 +46,8 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
         setDeepSkyObjects(temp);
         setCurrentList(temp)
         setCurrentCatalog('all');
+        console.log('Deep sky objects fetched :', temp.length, 'objects');
+        
       } catch (error) {
         console.error(error);
       }
@@ -56,7 +58,7 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
   useEffect(() => {
     if(!city) return;
     const zenith = calculateZenith(city.lat, city.lng, dayjs().format('YYYY-MM-DD'), dayjs().format('HH:mm:ss'));
-    console.log(zenith);
+    console.log("Calculated zenith", zenith);
     
     setCurrentZenith(zenith);
   }, [city])
