@@ -1,5 +1,5 @@
 // Convertit une chaîne de caractères représentant RA en heures en radians
-const raStringToRadians = (ra: string): number => {
+export const raStringToRadians = (ra: string): number => {
     const parts = ra.split(" ");
     const hours = parseFloat(parts[0]);
     const minutes = parseFloat(parts[1]);
@@ -9,7 +9,7 @@ const raStringToRadians = (ra: string): number => {
 };
 
 // Convertit une chaîne de caractères représentant DEC en degrés en radians
-const decStringToRadians = (dec: string): number => {
+export const decStringToRadians = (dec: string): number => {
     const parts = dec.split(" ");
     const degrees = parseFloat(parts[0]);
     const minutes = parseFloat(parts[1]);

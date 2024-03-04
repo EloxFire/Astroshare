@@ -3,11 +3,15 @@ import '../../../../styles/components/planner/panels/astronomy/objectsList.scss'
 import { useAstro } from '../../../../contexts/AstroAppContext';
 import ObjectItem from './ObjectItem';
 import { DeepSkyObject } from '../../../../scripts/types/DeepSkyObject';
-import { formatAstroCoordinates } from '../../../../scripts/helpers/astronomy/formatAstroCoordinates';
+import dayjs from 'dayjs';
+import { useWeather } from '../../../../contexts/WeatherAppContext';
+import { calculateCelestialPosition } from '../../../../scripts/helpers/astronomy/calculateCelestialPosition';
+import { getObjectName } from '../../../../scripts/helpers/astronomy/getObjectName';
 
 export default function ObjectsList() {
 
   const { currentList, currentCatalog, searchObject, currentZenith } = useAstro();
+  const { city } = useWeather();
 
   const handleSearch = (value: string) => {
     searchObject(value);
@@ -25,7 +29,11 @@ export default function ObjectsList() {
           currentList && currentList !== undefined ?
             currentList.length > 0 ?
               currentList.map((object: DeepSkyObject, index: number) => {
-                const IOV = isObjectVisible(currentZenith.ra, formatAstroCoordinates(object.ra), formatAstroCoordinates(object.dec));
+                const celestialPosition = calculateCelestialPosition({coords: {lat: city.lat, long: city.lng}, dateTime: dayjs(), celestialObject: {RA: object.ra, Dec: object.dec, name: getObjectName(object, currentCatalog, false)}});
+                const IOV = celestialPosition.altitude > 0 && celestialPosition.altitude < 90;
+                console.log(celestialPosition);
+                
+                // const IOV = isObjectVisible(currentZenith.ra, formatAstroCoordinates(object.ra), formatAstroCoordinates(object.dec));
                 return <ObjectItem key={`${object.name}-${index}`} object={object} currentlyVisible={IOV} />
               })
               : <p>Aucun objet trouvé...</p>

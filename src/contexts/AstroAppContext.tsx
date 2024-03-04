@@ -3,7 +3,6 @@ import { AstroProperty } from '../scripts/enums/AstroProperty';
 import { DeepSkyObject } from '../scripts/types/DeepSkyObject';
 import axios from 'axios';
 import { ZenithObject } from '../scripts/types/ZenithObject';
-import { calculateZenith } from '../scripts/helpers/astronomy/calculateZenith';
 import { useWeather } from './WeatherAppContext';
 import dayjs from 'dayjs';
 import { getObjectTypeFromEnum } from '../scripts/helpers/utils/getObjectTypeFromEnum';
@@ -57,10 +56,10 @@ export function AstroAppProvider({ children }: AstroAppProviderProps) {
 
   useEffect(() => {
     if(!city) return;
-    const zenith = calculateZenith(city.lat, city.lng, dayjs().format('YYYY-MM-DD'), dayjs().format('HH:mm:ss'));
-    console.log("Calculated zenith", zenith);
+    // const zenith = calculateZenith(city.lat, city.lng, dayjs().format('YYYY-MM-DD'), dayjs().format('HH:mm:ss'));
+    // console.log("Calculated zenith", zenith);
     
-    setCurrentZenith(zenith);
+    // setCurrentZenith(zenith);
   }, [city])
 
   const changeCurrentProperty = () => {

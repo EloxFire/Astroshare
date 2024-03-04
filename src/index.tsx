@@ -13,8 +13,10 @@ import { AstroAppProvider } from './contexts/AstroAppContext';
 import { WeatherAppProvider } from './contexts/WeatherAppContext';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
+import utc from 'dayjs/plugin/utc'
 import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
+dayjs.extend(utc);
 
 dayjs.locale('fr');
 
