@@ -7,6 +7,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@lunisolar/julian": "^0.7.1",
+    "@observerly/astrometry": "0.31.0",
     "@react-three/drei": "^9.86.3",
     "@react-three/fiber": "^8.14.4",
     "@testing-library/jest-dom": "^5.17.0",
