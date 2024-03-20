@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react'
 import { Ressource } from '../scripts/types'
 import { useRessources } from '../contexts/RessourcesContext'
 import '../styles/components/ressourceCategory.scss'
+import { Canvas } from '@react-three/fiber'
+import { PerspectiveCamera } from '@react-three/drei'
+import MarsModel from './MarsModel'
 
 interface RessourceCategoryButtonProps {
   name: string
