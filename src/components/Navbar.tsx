@@ -53,7 +53,7 @@ export default function Navbar() {
         <p className="h3" onClick={() => setMobileClick(true)}>&#9776;</p>
       </div>
       <div className={`navbar__mobile ${mobileClick && 'navbar__mobile__active'}`}>
-        <p className="h2" style={{ marginBottom: '10vh' }}>Astroshare</p>
+        <img className="logo" src="/images/logos/logo_white.svg" alt="Logo d'Astroshare" />
         <Link className="link" to={routes.home.path} onClick={() => setMobileClick(false)}>{routes.home.label}</Link>
         <Link className="link" to={routes.about.path} onClick={() => setMobileClick(false)}>{routes.about.label}</Link>
         <Link className="link" to={routes.hub.path} onClick={() => setMobileClick(false)}>{routes.hub.label}</Link>
@@ -62,7 +62,7 @@ export default function Navbar() {
         <Link className="link" to={routes.contact.path} onClick={() => setMobileClick(false)}>{routes.contact.label}</Link>
         {user && <Link className="link" to={routes.profile.path} onClick={() => setMobileClick(false)}>{routes.profile.label}</Link>}
         {!user && <Link className="link" to={routes.login.path} onClick={() => setMobileClick(false)}>{routes.login.label}</Link>}
-        <p className="link" onClick={() => setMobileClick(false)}>Fermer</p>
+        <p className="link close-link" onClick={() => setMobileClick(false)}>Fermer</p>
       </div>
     </div>
   )

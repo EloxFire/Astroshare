@@ -4,11 +4,8 @@ import { useAstro } from '../../../../contexts/AstroAppContext';
 import { getObjectName } from '../../../../scripts/helpers/astronomy/getObjectName';
 import { AstroObjectTypes } from '../../../../scripts/enums/AstroObjectTypes';
 import ObjectProperty from './ObjectProperty';
-import '../../../../styles/components/planner/panels/astronomy/objectItem.scss'
-import { convertEquatorialToHorizontal } from '@observerly/astrometry';
 import { useWeather } from '../../../../contexts/WeatherAppContext';
-import dayjs from 'dayjs';
-import { timeRaToRadians } from '../../../../scripts/helpers/astronomy/timeRaToRadians';
+import '../../../../styles/components/planner/panels/astronomy/objectItem.scss'
 
 interface ObjectItemProps {
   object: DeepSkyObject
@@ -21,14 +18,6 @@ export default function ObjectItem({ object, currentlyVisible }: ObjectItemProps
   const { city } = useWeather()
 
   useEffect(() => {
-    
-    // const objectCoords = { ra: timeRaToRadians(object.ra), dec: object.dec }
-    
-    // if (city) {
-    //   const {alt, az} = convertEquatorialToHorizontal(new Date(), {city.lat, city.lng}, {ra: timeRaToRadians(object.ra), dec: object.dec})
-    // }
-    
-    // const observer = { city, city }
   }, [])
 
   return (

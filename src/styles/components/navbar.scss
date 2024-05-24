@@ -133,13 +133,25 @@
       overflow-x: hidden;
     }
 
+    .logo{
+      margin-bottom: 50px;
+    }
+
     .link {
-      margin: 20px 0 20px 0;
+      margin: 10px 0 10px 0;
       text-transform: uppercase;
       cursor: pointer;
       text-decoration: none;
       color: $white;
       font-size: 1.2rem;
+    }
+
+    .close-link{
+      margin-top: 40px;
+      border-top: 1px solid rgba($white, 0.3);
+      padding-left: 60px;
+      padding-right: 60px;
+      padding-top: 10px;
     }
   }
 }

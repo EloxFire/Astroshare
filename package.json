@@ -7,7 +7,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@lunisolar/julian": "^0.7.1",
-    "@observerly/astrometry": "0.31.0",
+    "@observerly/astrometry": "^0.36.0",
     "@react-three/drei": "^9.86.3",
     "@react-three/fiber": "^8.14.4",
     "@testing-library/jest-dom": "^5.17.0",
@@ -24,7 +24,6 @@
     "country-flag-icons": "^1.5.9",
     "dayjs": "^1.11.9",
     "firebase": "^10.5.0",
-    "julian": "^0.2.0",
     "node-sass": "^8.0.0",
     "papaparse": "^5.4.1",
     "react": "^18.2.0",
