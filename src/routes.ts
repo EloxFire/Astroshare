@@ -35,6 +35,10 @@ export const routes = {
     path: '/contact',
     label: 'Contact',
   },
+  mobile_app: {
+    path: '/mobile-app',
+    label: 'Application mobile',
+  },
   privacy: {
     path: '/politique-de-confidentialite',
     label: 'Politique de confidentialité',

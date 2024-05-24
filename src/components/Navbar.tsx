@@ -46,7 +46,6 @@ export default function Navbar() {
       <div className="navbar__links" style={{ width: '20%', justifyContent: 'flex-end' }}>
         <Link className="link" to={routes.contact.path}>{routes.contact.label}</Link>
         {user && <Link className="link" to={routes.profile.path}>{routes.profile.label}</Link>}
-        {/* {user && <Link className="link" onClick={() => logout()} to={routes.home.path}>&#9211;</Link>} */}
         {!user && <Link className="link" to={routes.login.path}>{routes.login.label}</Link>}
       </div>
       <div className="navbar__burger">
@@ -62,6 +61,7 @@ export default function Navbar() {
         <Link className="link" to={routes.contact.path} onClick={() => setMobileClick(false)}>{routes.contact.label}</Link>
         {user && <Link className="link" to={routes.profile.path} onClick={() => setMobileClick(false)}>{routes.profile.label}</Link>}
         {!user && <Link className="link" to={routes.login.path} onClick={() => setMobileClick(false)}>{routes.login.label}</Link>}
+        {/* <Link className="link" to={routes.mobile_app.path} onClick={() => setMobileClick(false)}>{routes.mobile_app.label}</Link> */}
         <p className="link close-link" onClick={() => setMobileClick(false)}>Fermer</p>
       </div>
     </div>
