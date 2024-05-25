@@ -60,6 +60,37 @@
         background-size: contain;
         background-position: center;
         margin-right: 10px;
+
+      }
+      &.dropdown-link{
+        // background-color: red;
+        &:hover::before {
+          left: -15px;
+          transform: rotate(0deg);
+          top: 3px;
+        }
+      }
+
+      &.dropdown-button{
+        margin-right: 30px;
+        &:hover::before {
+          display: none;
+        }
+
+        &::after{
+          content: '';
+          display: inline-block;
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          top: 1px;
+          right: -15px;
+          transform: rotate(90deg);
+          background-image: url('../../../public/images/icons/arrow-right.svg');
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+        }
       }
     }
   }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { routes } from '../routes'
 import '../styles/components/navbar.scss'
 import { useAuth } from '../contexts/AuthContext'
+import Dropdown from './navbar/Dropdown'
 
 export default function Navbar() {
 
@@ -39,9 +40,13 @@ export default function Navbar() {
       <div className="navbar__links">
         <Link className="link" to={routes.home.path}>{routes.home.label}</Link>
         <Link className="link" to={routes.about.path}>{routes.about.label}</Link>
-        <Link className="link" to={routes.hub.path}>{routes.hub.label}</Link>
+        <Dropdown mainRoute={routes.hub} routes={[
+          routes.ressources,
+          routes.mobile_app,
+          routes.planner,
+          routes.gallery,
+        ]} />
         <Link className="link" to={routes.weather.path}>{routes.weather.label}</Link>
-        <Link className="link" to={routes.gallery.path}>{routes.gallery.label}</Link>
       </div>
       <div className="navbar__links" style={{ width: '20%', justifyContent: 'flex-end' }}>
         <Link className="link" to={routes.contact.path}>{routes.contact.label}</Link>

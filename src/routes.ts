@@ -12,6 +12,10 @@ export const routes = {
     label: 'Galerie',
   },
   hub: {
+    path: '/hub',
+    label: 'Outils',
+  },
+  ressources: {
     path: '/ressources',
     label: 'Ressources',
   },
@@ -26,6 +30,10 @@ export const routes = {
   weather: {
     path: '/weather',
     label: 'Météo en direct',
+  },
+  planner: {
+    path: 'https://app.astroshare.fr',
+    label: 'Planificateur',
   },
   contact: {
     path: '/contact',
@@ -58,6 +66,10 @@ export const routes = {
   dahsboard_add_category: {
     path: '/dashboard/add-category',
     label: 'Créer une catégorie',
+  },
+  mobile_app: {
+    path: '/application-mobile',
+    label: 'Application mobile',
   },
   login: {
     path: '/login',
