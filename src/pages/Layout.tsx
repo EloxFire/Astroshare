@@ -6,13 +6,14 @@ import '../styles/pages/layout.scss'
 interface LayoutProps {
   component: React.ReactNode
   withAuthGuard?: boolean
+  asCopyright?: boolean
 }
 
-export default function Layout({ component, withAuthGuard }: LayoutProps) {
+export default function Layout({ component, withAuthGuard, asCopyright }: LayoutProps) {
   return (
     <div id="layout">
       <Navbar />
-      <CopyrightBadge />
+      {asCopyright && <CopyrightBadge />}
       {component}
     </div>
   )
