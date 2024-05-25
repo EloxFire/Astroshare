@@ -46,9 +46,8 @@ export default function PlannerApp() {
                 <p className="h2 title">Étape {currentStep}</p>
               </div>
             </div>
-            {/* {currentStep === 1 && <WeatherStep />}
-            {currentStep === 2 && <AstronomyStep />} */}
-            <AstronomyStep />
+            {currentStep === 1 && <WeatherStep />}
+            {currentStep === 2 && <AstronomyStep />}
           </div>
       }
     </div>
