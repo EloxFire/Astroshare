@@ -1,21 +1,16 @@
 import React from 'react'
-import { usePlanner } from '../../../contexts/PlannerAppContext'
+import { useWeather } from '../../../contexts/WeatherAppContext'
 import { calculateDayPercentage } from '../../../scripts/helpers/data/calculateDayPercentage'
 import dayjs from 'dayjs'
 import AirQuality from '../panels/weather/AirQuality'
 import DailyForecast from '../panels/weather/DailyForecast'
 import HourlyForecast from '../panels/weather/HourlyForecast'
 import MoonOverview from '../panels/weather/MoonOverview'
-import NextStep from '../panels/NextStep'
 import SunOverview from '../panels/weather/SunOverview'
 import WeatherOverview from '../panels/weather/WeatherOverview'
 
-interface WeatherStepProps {
-
-}
-
 export default function WeatherStep() {
-  const { appLoading, planNight, weather, city, moon, airQuality } = usePlanner()
+  const { weather, city, moon, airQuality } = useWeather()
 
   return (
     <div className="body">
@@ -75,7 +70,6 @@ export default function WeatherStep() {
           nh3={airQuality ? airQuality.list[0].components.nh3 : 0}
         />
         <DailyForecast days={weather ? weather.daily : []} />
-        {/* <NextStep /> */}
       </div>
     </div>
   )

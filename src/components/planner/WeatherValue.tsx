@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/components/planner/moonValue.scss'
+import '../../styles/components/app/moonValue.scss'
 import { getWindCardinalDirectionFromDegrees } from '../../scripts/helpers/api/planner/getWindCardinalDirection'
 
 interface WeatherValueProps {

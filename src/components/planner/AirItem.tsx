@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/components/planner/airItem.scss'
+import '../../styles/components/app/airItem.scss'
 
 interface AirItemProps {
   name: string

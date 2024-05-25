@@ -6,17 +6,17 @@ import { getWeather } from '../scripts/helpers/api/planner/getWeather';
 import { getMoonInfos } from '../scripts/helpers/api/planner/getMoonInfos';
 import { getAirQuality } from '../scripts/helpers/api/planner/getAirQuality';
 
-const PlannerAppContext = createContext<any>({});
+const WeatherAppContext = createContext<any>({});
 
-export function usePlanner() {
-  return useContext(PlannerAppContext);
+export function useWeather() {
+  return useContext(WeatherAppContext);
 }
 
-interface PlannerAppProviderProps {
+interface WeatherAppProviderProps {
   children: ReactNode
 }
 
-export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
+export function WeatherAppProvider({ children }: WeatherAppProviderProps) {
 
   const [appLoading, setAppLoading] = useState<boolean>(true);
   const [city, setCity] = useState<City | null>(null);
@@ -98,8 +98,8 @@ export function PlannerAppProvider({ children }: PlannerAppProviderProps) {
   }
 
   return (
-    <PlannerAppContext.Provider value={value}>
+    <WeatherAppContext.Provider value={value}>
       {children}
-    </PlannerAppContext.Provider>
+    </WeatherAppContext.Provider>
   )
 }

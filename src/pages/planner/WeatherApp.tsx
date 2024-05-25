@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { usePlanner } from '../../contexts/PlannerAppContext'
 import dayjs from 'dayjs'
 import WeatherStep from '../../components/planner/steps/WeatherStep'
-import '../../styles/pages/planner/app.scss'
+import '../../styles/pages/app/app.scss'
+import { useWeather } from '../../contexts/WeatherAppContext'
 
-export default function PlannerApp() {
+export default function WeatherApp() {
 
-  const { appLoading, planNight } = usePlanner()
+  const { appLoading, planNight } = useWeather()
   const [cityName, setCityName] = useState<string>('')
 
   return (
-    <div className="planner-app">
+    <div className="weather-app">
       <h1 className="h3 title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Météo Astroshare</h1>
       {
         appLoading ?
