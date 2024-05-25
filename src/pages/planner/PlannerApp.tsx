@@ -6,14 +6,11 @@ import { usePlanner } from '../../contexts/PlannerAppContext'
 import dayjs from 'dayjs'
 import WeatherStep from '../../components/planner/steps/WeatherStep'
 import '../../styles/pages/planner/app.scss'
-import AstronomyStep from '../../components/planner/steps/AstronomyStep'
 
 export default function PlannerApp() {
 
   const { appLoading, planNight } = usePlanner()
   const [cityName, setCityName] = useState<string>('')
-  // const [nightDate, setNightDate] = useState<string>(dayjs().format('YYYY-MM-DD'))
-  const [currentStep, setCurrentStep] = useState<number>(1)
 
   return (
     <div className="planner-app">
@@ -30,16 +27,10 @@ export default function PlannerApp() {
               <div className="left">
                 <p className="h3 title" style={{ marginRight: '20px' }}>Ville</p>
                 <input className="datetime_input" type="text" value={cityName} onChange={(e) => setCityName(e.target.value)} placeholder='Ex : Aix en provence' />
-                {/* <p className="h3 title" style={{ marginRight: '20px' }}>Date</p>
-                <input className="datetime_input" type="date" value={nightDate} onChange={(e) => setNightDate(dayjs(e.target.value).format('YYYY-MM-DD'))} /> */}
                 <button className="custom-button small" type='button' onClick={() => planNight(cityName, dayjs())}>Valider</button>
               </div>
-              {/* <div className="right">
-                <p className="h2 title">Étape 1</p>
-              </div> */}
             </div>
-            {currentStep === 1 && <WeatherStep />}
-            {/* {currentStep === 2 && <AstronomyStep />} */}
+            <WeatherStep />
           </div>
       }
     </div>
