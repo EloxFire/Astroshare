@@ -2,7 +2,7 @@ import React from 'react'
 import { moon_phases_translations } from '../../../../scripts/helpers/helpers'
 import MoonValue from '../../MoonValue'
 import dayjs from 'dayjs'
-import '../../../../styles/components/planner/panels/weather/moonOverview.scss'
+import '../../../../styles/components/app/panels/weather/moonOverview.scss'
 
 interface MoonOverviewProps {
   illumination: string

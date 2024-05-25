@@ -11,7 +11,7 @@ export default function Hub() {
   const { categories } = useCategories();
 
   useEffect(() => {
-    document.title = "Astroshare | Hub de ressources"
+    document.title = "Astroshare | Hub"
   }, [])
 
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import { capitalize } from '../../../../scripts/helpers/utils/capitalize'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import WeatherValue from '../../WeatherValue'
-import '../../../../styles/components/planner/panels/weather/weatherOverview.scss'
+import '../../../../styles/components/app/panels/weather/weatherOverview.scss'
 
 interface WeatherOverviewProps {
   city: string
@@ -22,8 +22,6 @@ interface WeatherOverviewProps {
 }
 
 export default function WeatherOverview({ city, country, state, icon, temp, hightTemp, lowTemp, description, date, precipitations, wind, wind_dir, humidity, pressure }: WeatherOverviewProps) {
-  // icon = '50n';
-
   return (
     <div className="weather-overview">
       <p className="title">En direct - {date}</p>

@@ -1,6 +1,6 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import '../../../../styles/components/planner/panels/weather/hourlyForecast.scss'
+import '../../../../styles/components/app/panels/weather/hourlyForecast.scss'
 
 interface HourlyForecastProps {
   hours?: any[]

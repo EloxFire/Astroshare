@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
 import dayjs from 'dayjs'
-import WeatherStep from '../../components/planner/steps/WeatherStep'
+import WeatherStep from '../../components/app/steps/WeatherStep'
 import '../../styles/pages/app/app.scss'
 import { useWeather } from '../../contexts/WeatherAppContext'
 
