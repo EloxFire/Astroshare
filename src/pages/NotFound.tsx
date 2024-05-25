@@ -10,7 +10,7 @@ export default function NotFound() {
       <p className="h1">Astroshare</p>
       <h1 className="h1 title notFound__title">Erreur 404</h1>
       <p className="notFound__subtitle">La page que vous recherchez n'existe pas.</p>
-      <a className="notFound__link" href={routes.home?.path}>Retourner à l'accueil</a>
+      <a className="notFound__link" href={routes.home.path}>Retourner à l'accueil</a>
     </div>
   )
 }

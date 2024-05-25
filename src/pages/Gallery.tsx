@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { Image } from '../scripts/types'
 import '../styles/pages/gallery.scss'
+import { routes } from '../routes'
 
 export default function Gallery() {
 
@@ -27,7 +28,7 @@ export default function Gallery() {
   return (
     <>
       <div className="gallery">
-        <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
+        <h1 className="h1 title"><Link to={routes.hub.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Galerie photos</h1>
         <p>Retrouvez une sélection de mes photos favorites, prises lors de mes différentes sessions d'observation.</p>
         <div className="filters">
           <button onClick={() => setCurrentFilter('all')} className={`filter ${currentFilter === 'all' && 'active'}`}>Toutes</button>

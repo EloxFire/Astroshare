@@ -3,6 +3,7 @@ import { calculateAge } from '../scripts/helpers/helpers'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
 import '../styles/pages/about.scss'
+import { routes } from '../routes'
 
 export default function About() {
 
@@ -12,7 +13,7 @@ export default function About() {
 
   return (
     <div className="about">
-      <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>À propos</h1>
+      <h1 className="h1 title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>À propos</h1>
       <div className="content">
         <div className="content__left">
           <h2 className="h3">Qui suis-je ?</h2>

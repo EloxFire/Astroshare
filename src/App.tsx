@@ -8,7 +8,6 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Gallery from "./pages/Gallery";
 import Privacy from "./pages/Privacy";
-import Hub from "./pages/Hub";
 import Category from "./pages/Category";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
@@ -21,8 +20,9 @@ import Register from "./pages/auth/Register";
 import Profile from "./pages/auth/Profile";
 import UpdateRessource from "./pages/dashboard/UpdateRessource";
 import RessourcesList from "./pages/dashboard/RessourcesList";
-import PlannerApp from "./pages/planner/WeatherApp";
 import WeatherApp from "./pages/planner/WeatherApp";
+import Ressources from "./pages/Ressources";
+import Hub from "./pages/Hub";
 
 function App() {
   return (
@@ -38,6 +38,7 @@ function App() {
           <Route path={routes.about.path} element={<Layout component={<About />} />} />
           <Route path={routes.contact.path} element={<Layout component={<Contact />} />} />
           <Route path={routes.gallery.path} element={<Layout component={<Gallery />} />} />
+          <Route path={routes.ressources.path} element={<Layout component={<Ressources />} />} />
           <Route path={routes.hub.path} element={<Layout component={<Hub />} />} />
           {/* <Route path={routes.planner.path} element={<Layout component={<Planner />} />} /> */}
           <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
