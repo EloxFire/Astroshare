@@ -1,7 +1,7 @@
 import React from 'react'
-import '../styles/pages/notFound.scss'
 import { routes } from '../routes'
 import CopyrightBadge from '../components/CopyrightBadge'
+import '../styles/pages/notFound.scss'
 
 export default function NotFound() {
   return (

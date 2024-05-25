@@ -2,9 +2,9 @@ import CustomImageDisplay from '../components/CustomImageDisplay'
 import { useGallery } from '../contexts/GalleryContext'
 import { FiChevronLeft } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
-import '../styles/pages/gallery.scss'
 import { useEffect, useState } from 'react'
 import { Image } from '../scripts/types'
+import '../styles/pages/gallery.scss'
 
 export default function Gallery() {
 

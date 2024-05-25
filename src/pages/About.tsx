@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import '../styles/pages/about.scss'
 import { calculateAge } from '../scripts/helpers/helpers'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
+import '../styles/pages/about.scss'
 
 export default function About() {
 

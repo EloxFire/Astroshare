@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
-import '../styles/pages/layout.scss'
+import React from 'react'
 import Navbar from '../components/Navbar'
 import CopyrightBadge from '../components/CopyrightBadge'
+import '../styles/pages/layout.scss'
 
 interface LayoutProps {
   component: React.ReactNode
@@ -9,13 +9,6 @@ interface LayoutProps {
 }
 
 export default function Layout({ component, withAuthGuard }: LayoutProps) {
-
-  useEffect(() => {
-    if (withAuthGuard) {
-
-    }
-  }, [])
-
   return (
     <div id="layout">
       <Navbar />

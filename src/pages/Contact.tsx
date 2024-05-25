@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { mailRegex } from '../scripts/helpers/helpers'
+import { FiChevronLeft } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import CopyrightBadge from '../components/CopyrightBadge'
 import emailjs from '@emailjs/browser';
 import '../styles/pages/contact.scss'
-import { FiChevronLeft } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
 
 export default function Contact() {
 

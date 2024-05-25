@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber';
-// import { Stats, OrbitControls } from '@react-three/drei'
 import { PerspectiveCamera } from '@react-three/drei';
 import { getMostDownloadedRessources } from '../scripts/helpers/api/ressources/getMostDownloadedRessources';
 import { Ressource } from '../scripts/types';
 import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss';
-import { useAuth } from '../contexts/AuthContext';
 
 export default function Home() {
 
-  const { user } = useAuth()
   const [mostDownloadedRessources, setMostDownloadedRessources] = useState<Ressource[]>([])
   const [mostDownloadedRessourcesLoading, setMostDownloadedRessourcesLoading] = useState<boolean>(true)
 
@@ -61,7 +58,6 @@ export default function Home() {
           <directionalLight position={[4, 1, 5]} intensity={3} />
           <ambientLight intensity={0.1} />
           <MarsModel />
-          {/* <OrbitControls enableZoom={false} enableDamping={false} enableRotate  /> */}
         </Canvas>
       </div>
     </div>
