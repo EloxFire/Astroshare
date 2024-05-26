@@ -12,7 +12,9 @@ export default function MobileApp() {
           <p className="text">Disponible en téléchargement gratuit sur le PlayStore Android !</p>
           <img className="gplay-badge" src="/images/icons/google-play-badge.png" alt="Badge Google Play" />
         </div>
-        <img className="main-image" src="/images/promo/app/home.png" alt="Page d'accueil de l'application Astroshare" />
+        <div className="slide-image slide-image-bottom">
+          <img className="main-image" src="/images/promo/app/home.png" alt="Page d'accueil de l'application Astroshare" />
+        </div>
       </div>
     </div>
   )
