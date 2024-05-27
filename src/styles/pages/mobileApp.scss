@@ -10,10 +10,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: lightslategray;
+    // background-color: lightslategray;
 
-    &.full-slide{
+    &.full{
       height: 100vh;
+    }
+
+    &.auto{
+      // background-color: $orange;
+      height: auto;
+      padding: 15vh 0;
     }
 
     &.reverse{
@@ -26,7 +32,7 @@
       justify-content: center;
       width: 50%;
       height: 100%;
-      background-color: lightsteelblue;
+      // background-color: lightsteelblue;
 
 
       .title{
@@ -56,11 +62,17 @@
 
     .slide-image{
       width: 50%;
-      background-color: lightpink;
+      // background-color: lightpink;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
+      padding: 12vh 0;
+
+      &.main{
+        padding: 0;
+      }
 
       &.slide-image-bottom{
         justify-content: flex-end;
@@ -69,6 +81,23 @@
       img{
         max-height: 100%;
         max-width: 100%;
+        object-fit: contain;
+
+        &.small{
+          max-height: 50%;
+          max-width: 50%;
+          align-self: center;
+
+        }
+
+        &.reverse{
+          transform: translateX(-25%);
+        }
+        
+        &.no-transform{
+          transform: none;
+          transform: translateX(-10%);
+        }
       }
     }
   }
