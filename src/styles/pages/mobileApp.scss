@@ -2,8 +2,6 @@
 
 .mobile-app{
   @extend .global-page;
-  position: relative;
-  height: 400vh;
 
   .title{
     font-size: 65px;
@@ -23,14 +21,12 @@
   }
 
   .main-image-container{
-    position: sticky;
-    top: 15vh;
     display: flex;
     justify-content: center;
-    margin-bottom: 15vh;
+    height: auto;
     
     .main-image{
-      max-width: 25vw;
+      max-width: 40vw;
     }
   }
 
