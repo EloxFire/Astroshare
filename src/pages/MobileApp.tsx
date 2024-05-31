@@ -66,8 +66,24 @@ export default function MobileApp() {
       </motion.div>
 
       <motion.div className="image-container" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: .8}}>
-        <img src={imageSource} alt="Scroll Change" style={{maxHeight: imageHeight}} />
+        <img src={imageSource} alt="Scroll Change" style={{maxHeight: imageHeight, transition: 'all .3s'}} />
       </motion.div>
+
+      <div style={{height: '80vh'}}>
+        <h1>RECHERCHE</h1>
+      </div>
+      <div style={{height: '80vh'}}>
+        <h1>DETAILS</h1>
+      </div>
+      <div style={{height: '80vh'}}>
+        <h1>WEATHER</h1>
+      </div>
+      <div style={{height: '80vh'}}>
+        <h1>SOLAR WEATHER</h1>
+      </div>
+      <div style={{height: '80vh', backgroundColor: 'orange'}}>
+        <h1>PLACES</h1>
+      </div>
     </div>
   )
 }
