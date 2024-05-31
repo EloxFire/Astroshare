@@ -2,6 +2,7 @@
 
 .mobile-app{
   @extend .global-page;
+  height: 500vh;
 
   .title{
     font-size: 65px;
@@ -9,6 +10,10 @@
     font-family: 'Gilroy';
     font-weight: 900;
     text-align: center;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      font-size: 48px;
+    }
   }
 
   .subtitle{
@@ -18,15 +23,26 @@
     text-align: center;
     letter-spacing: 5px;
     opacity: .5;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      font-size: 20px;
+    }
   }
 
-  .main-image-container{
+  .image-container{
     display: flex;
     justify-content: center;
-    height: auto;
-    
-    .main-image{
-      max-width: 40vw;
+    position: sticky;
+    top: 10vh;
+
+    img{
+      transition: all .3s;
+    }
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      img{
+        max-width: 80%;
+      }
     }
   }
 

@@ -1,20 +1,51 @@
-import React from 'react'
-import '../styles/pages/mobileApp.scss'
+import React, { useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from "framer-motion";
+import '../styles/pages/mobileApp.scss'
 
 export default function MobileApp() {
 
-  const variants = {
-    home: { opacity: 0 },
-    search: { opacity: 1, transition: { duration: .3 } },
-    details: { opacity: 1, transition: { duration: .3 } },
-    weather: { opacity: 1, transition: { duration: .3 } },
-    solarWeather: { opacity: 1, transition: { duration: .3 } },
-  }
+  const [imageSource, setImageSource] = useState('/images/promo/app/home.png');
+  const [imageHeight, setImageHeight] = useState<string>('100%');
+  const { scrollYProgress } = useScroll();
 
-  const { scrollY } = useScroll();
-  const mainImageScale = useTransform(scrollY, [300, 700], [1, 0.5]);
-  const imageSwitch = useTransform(scrollY, [0, 300, 700, 1000, 1300], ['home', 'search', 'details', 'weather', 'solarWeather']);
+  // Utilisez useTransform pour mapper la position de scroll à une valeur entre 0 et 1
+  const scrollPercentage = useTransform(scrollYProgress, [0, 1], [0, 600]);
+
+  useEffect(() => {
+    return scrollPercentage.onChange((latest) => {
+      if (latest >= 500) {
+        setImageSource('/images/promo/app/places.png');
+      } else if (latest >= 400) {
+        setImageSource('/images/promo/app/solarWeather.png');
+      } else if (latest >= 300) {
+        setImageSource('/images/promo/app/weather.png');
+      } else if (latest >= 200) {
+        setImageSource('/images/promo/app/details.png');
+      } else if (latest >= 100) {
+        setImageSource('/images/promo/app/search.png');
+      } else {
+        setImageSource('/images/promo/app/home.png');
+      }
+    });
+  }, [scrollPercentage]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => handleScroll())
+
+    return () => {
+      window.removeEventListener('scroll', () => handleScroll())
+    }
+  })
+
+  const handleScroll = () => {
+    const scroll = window.scrollY;
+    
+    if (scroll >= 200) {
+      setImageHeight('80vh');
+    } else {
+      setImageHeight('100%');
+    }
+  }
 
   return (
     <div className="mobile-app">
@@ -33,47 +64,9 @@ export default function MobileApp() {
       >
         <img style={{maxWidth: '200px', marginBottom: '15vh', marginTop: '2vh'}} src="/images/icons/google-play-badge.png" alt=""/>
       </motion.div>
-      <motion.div
-        className='main-image-container'
-        style={{scale: mainImageScale}}
-        initial={{ opacity: 0 }}
-        // animate={imageSwitch}
-        transition={{
-          duration: 3,
-          delay: 1,
-        }}
-        variants={variants}
-      >
-        <motion.img
-          className='main-image'
-          src="/images/promo/app/home.png"
-          alt=""
-          variants={variants}
-        />
-        <motion.img
-          className='main-image'
-          src="/images/promo/app/search.png"
-          alt=""
-          variants={variants}
-        />
-        <motion.img
-          className='main-image'
-          src="/images/promo/app/details.png"
-          alt=""
-          variants={variants}
-        />
-        <motion.img
-          className='main-image'
-          src="/images/promo/app/weather.png"
-          alt=""
-          variants={variants}
-        />
-        <motion.img
-          className='main-image'
-          src="/images/promo/app/solarWeather.png"
-          alt=""
-          variants={variants}
-        />
+
+      <motion.div className="image-container" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: .8}}>
+        <img src={imageSource} alt="Scroll Change" style={{maxHeight: imageHeight}} />
       </motion.div>
     </div>
   )
