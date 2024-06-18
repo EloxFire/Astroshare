@@ -16,7 +16,7 @@ export type Ressource = {
   image?: string;
   links?: string[];
   ref?: string;
-  tags?: string[];
+  tags?: string;
   files?: any[];
   totalDownloads?: number;
   updatesCount?: number;
@@ -30,6 +30,7 @@ export type RessourceCategory = {
   description: string;
   longDescription: string;
   icon?: any;
+  image?: any;
 }
 
 export type Image = {

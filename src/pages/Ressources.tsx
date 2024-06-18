@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
 import { useCategories } from '../contexts/CategoriesContext'
 import { RessourceCategory } from '../scripts/types'
+import { routes } from '../routes'
 import RessourceCategoryButton from '../components/RessourceCategoryButton'
 import '../styles/pages/ressources.scss'
-import { routes } from '../routes'
 
 export default function Ressources() {
 
@@ -28,6 +28,7 @@ export default function Ressources() {
                 name={category.name}
                 slug={category.slug}
                 icon={category.icon}
+                image={category.image}
                 description={category.description}
                 longDescription={category.longDescription}
               />
