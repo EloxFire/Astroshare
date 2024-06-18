@@ -16,6 +16,7 @@ export default function AddCategory() {
   const [categoryDescription, setCategoryDescription] = useState<string>("")
   const [categoryLongDescription, setCategoryLongDescription] = useState<string>("");
   const [categoryIcon, setCategoryIcon] = useState<any>(null);
+  const [categoryImage, setCategoryImage] = useState<any>(null);
   const [uploading, setUploading] = useState<boolean>(false)
 
   const addNewCategory = async () => {
@@ -30,6 +31,7 @@ export default function AddCategory() {
       description: categoryDescription,
       longDescription: categoryLongDescription,
       icon: categoryIcon,
+      image: categoryImage,
       uploadedAt: new Date(),
       createdAt: new Date(),
     }
@@ -37,11 +39,13 @@ export default function AddCategory() {
     try {
       setUploading(true)
       await uploadNewCategory(categoryToAdd)
-      setUploading(false)
       setCategoryName("")
       setCategorySlug("")
       setCategoryDescription("")
       setCategoryLongDescription("")
+      setCategoryIcon(null)
+      setCategoryImage(null)
+      setUploading(false)
     } catch (error) {
       console.log(error)
     }
@@ -49,6 +53,10 @@ export default function AddCategory() {
 
   const deleteIcon = () => {
     setCategoryIcon(null)
+  }
+
+  const deleteImage = () => {
+    setCategoryImage(null)
   }
 
   return (
@@ -62,15 +70,33 @@ export default function AddCategory() {
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Description courte de la catégorie" value={categoryDescription} onChange={(e) => { setCategoryDescription(e.target.value) }} />
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Description longue de la catégorie" value={categoryLongDescription} onChange={(e) => { setCategoryLongDescription(e.target.value) }} />
           <button disabled={uploading} className="submit-button" onClick={() => addNewCategory()}>{!uploading ? "Ajouter la catégorie" : <div className="loader"></div>}</button>
+          {
+            uploading && (
+              <div style={{ marginTop: '3vh', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div className="loader"></div>
+                <p style={{ margin: 0 }}>Chargement</p>
+              </div>
+            )
+          }
         </div>
         <div className="right">
           <div className="drop-container">
             <span className="drop-title">Sélectionnez un fichier (optionnel) (200x200 ideal)</span>
-            <input type="file" accept="image/*" onChange={(e) => setCategoryIcon(e.target.files![0])} required />
+            <input type="file" accept="image/*" onChange={(e) => setCategoryIcon(e.target.files![0])} />
             {categoryIcon && (
               <div className="image-preview">
                 <img className="image" src={URL.createObjectURL(categoryIcon)} alt='' />
                 <button onClick={() => deleteIcon()}>X</button>
+              </div>
+            )}
+          </div>
+          <div className="drop-container" style={{ marginTop: "3vh" }}>
+            <span className="drop-title">Sélectionnez une image de fond (optionnel)</span>
+            <input type="file" accept="image/*" onChange={(e) => setCategoryImage(e.target.files![0])} />
+            {categoryImage && (
+              <div className="image-preview">
+                <img className="image" src={URL.createObjectURL(categoryImage)} alt='' />
+                <button onClick={() => deleteImage()}>X</button>
               </div>
             )}
           </div>

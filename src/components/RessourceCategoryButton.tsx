@@ -10,9 +10,10 @@ interface RessourceCategoryButtonProps {
   description?: string
   longDescription?: string
   icon?: string
+  image?: string
 }
 
-export default function RessourceCategoryButton({ name, slug, description, longDescription, icon }: RessourceCategoryButtonProps) {
+export default function RessourceCategoryButton({ name, slug, description, longDescription, icon, image }: RessourceCategoryButtonProps) {
 
   const { visibleRessources } = useRessources();
   const [ressourcesCount, setRessourcesCount] = useState(0);
@@ -24,11 +25,11 @@ export default function RessourceCategoryButton({ name, slug, description, longD
   }, [slug, visibleRessources])
 
   return (
-    <Link to={`/ressources/${slug}`} className="ressource-category">
+    <Link to={`/ressources/${slug}`} className="ressource-category" style={{ backgroundImage: image ? `url(${image})` : "#000" }}>
       <img src={icon ? icon : '/images/categories/default.svg'} alt="" />
       <div>
         <h3>{name}</h3>
-        <p className="subtitle">{ressourcesCount} ressources</p>
+        <p className="subtitle">{ressourcesCount} ressource{ressourcesCount > 1 && "s"}</p>
       </div>
     </Link>
   )

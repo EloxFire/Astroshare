@@ -10,7 +10,8 @@ export const uploadNewCategory = async (category: RessourceCategory) => {
 
 
   const tempCategory = category;
-  const { icon, ...categoryToUpload } = tempCategory;
+  const { icon, ...categoryWithoutIcon } = tempCategory;
+  const { image, ...categoryToUpload } = categoryWithoutIcon;
 
   try {
     const categoriesRef = collection(db, dbCollections.categories);
@@ -22,7 +23,7 @@ export const uploadNewCategory = async (category: RessourceCategory) => {
 
     if (category.icon) {
       try {
-        const storageRef = ref(storage, `categories/${category.name}`);
+        const storageRef = ref(storage, `categories/${category.name}/icon-${category.name}`);
 
         const file = await uploadBytes(storageRef, category.icon)
         const categoryIconUrl = await getDownloadURL(file.metadata.ref!);
@@ -34,6 +35,23 @@ export const uploadNewCategory = async (category: RessourceCategory) => {
 
       } catch (error) {
         console.error("Error uploading category icon to storage:", error);
+      }
+    }
+
+    if (category.image) {
+      try {
+        const storageRef = ref(storage, `categories/${category.name}/image-${category.name}`);
+
+        const file = await uploadBytes(storageRef, category.image)
+        const categoryImageUrl = await getDownloadURL(file.metadata.ref!);
+        console.log("Category image uploaded to storage");
+        updateDoc(docRef, {
+          image: categoryImageUrl
+        })
+        console.log("Category image url added to category document:", categoryImageUrl);
+
+      } catch (error) {
+        console.error("Error uploading category image to storage:", error);
       }
     }
   } catch (error) {
