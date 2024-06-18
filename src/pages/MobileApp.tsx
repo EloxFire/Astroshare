@@ -1,15 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from "framer-motion";
 import '../styles/pages/mobileApp.scss'
 
 export default function MobileApp() {
-
   const [imageSource, setImageSource] = useState('/images/promo/app/home.png');
-  const [imageHeight, setImageHeight] = useState<string>('100%');
   const { scrollYProgress } = useScroll();
 
   // Utilisez useTransform pour mapper la position de scroll à une valeur entre 0 et 1
   const scrollPercentage = useTransform(scrollYProgress, [0, 1], [0, 600]);
+
+  const imageRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY;
+    let newScale = 1 - scrollPosition / 1000; // Ajustez cette valeur pour changer la sensibilité du scale
+    // let newTranslation = 
+
+    // Limiter l'échelle à un minimum de 0.5
+    if (newScale < 0.5) {
+      newScale = 0.5;
+    }
+
+    setScale(newScale);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     return scrollPercentage.onChange((latest) => {
@@ -28,24 +49,6 @@ export default function MobileApp() {
       }
     });
   }, [scrollPercentage]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', () => handleScroll())
-
-    return () => {
-      window.removeEventListener('scroll', () => handleScroll())
-    }
-  })
-
-  const handleScroll = () => {
-    const scroll = window.scrollY;
-    
-    if (scroll >= 200) {
-      setImageHeight('80vh');
-    } else {
-      setImageHeight('100%');
-    }
-  }
 
   return (
     <div className="mobile-app">
@@ -66,7 +69,7 @@ export default function MobileApp() {
       </motion.div>
 
       <motion.div className="image-container" initial={{opacity: 0}} animate={{opacity: 1}} transition={{duration: 2, delay: .8}}>
-        <img src={imageSource} alt="Scroll Change" style={{maxHeight: imageHeight, transition: 'all .3s'}} />
+        <img ref={imageRef} src={imageSource} alt="Scroll Change" style={{ transform: `scale(${scale}) translateY(-50%)`, transition: 'transform 0.1s' }} />
       </motion.div>
 
       <div style={{height: '80vh'}}>

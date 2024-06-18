@@ -35,15 +35,12 @@
     position: sticky;
     top: 10vh;
 
-    img{
-      transition: all .3s;
-    }
 
-    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-      img{
-        max-width: 80%;
-      }
-    }
+    // @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    //   img{
+    //     max-width: 80%;
+    //   }
+    // }
   }
 
 }
