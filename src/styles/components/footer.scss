@@ -1,0 +1,65 @@
+@import '../globals.scss';
+
+.footer{
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 5vh;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    flex-direction: column;
+    align-items: center;
+
+    .brand, .block{
+      text-align: center;
+      margin-top: 3vh;
+    }
+  }
+
+  .brand{
+    .title{
+      font-size: 30px;
+      font-family: 'Gilroy';
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .copy{
+      font-size: 18px;
+      font-family: 'Gilroy';
+      font-weight: 400;
+      margin: 0;
+      opacity: 0.5;
+    }
+  }
+
+  .block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .subtitle{
+      font-size: 20px;
+      font-family: 'Gilroy';
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 0;
+      opacity: 0.5;
+    }
+
+    .link{
+      font-size: 18px;
+      font-family: 'Gilroy';
+      font-weight: 400;
+      margin: 0;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+  }
+}

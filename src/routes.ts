@@ -12,6 +12,10 @@ export const routes = {
     label: 'Galerie',
   },
   hub: {
+    path: '/hub',
+    label: 'Hub d\'outils',
+  },
+  ressources: {
     path: '/ressources',
     label: 'Ressources',
   },
@@ -23,13 +27,13 @@ export const routes = {
     path: '/ressources/:category/:ressource_slug',
     label: 'Ressource',
   },
-  planner: {
-    path: '/planner',
+  weather: {
+    path: '/weather',
     label: 'Météo en direct',
   },
-  planner_app: {
-    path: '/planner/app',
-    label: 'Vérifier la météo',
+  planner: {
+    path: 'https://app.astroshare.fr',
+    label: 'Planificateur',
   },
   contact: {
     path: '/contact',
@@ -82,5 +86,19 @@ export const routes = {
   notFound: {
     path: '*',
     label: '404',
+  },
+  mobile_app: {
+    about: {
+      path: '/application-mobile',
+      label: 'Application mobile',
+    },
+    privacy: {
+      path: '/application-mobile/politique-de-confidentialite',
+      label: 'Politique de confidentialité',
+    },
+    download: {
+      path: '/application-mobile/telecharger',
+      label: 'Télécharger',
+    }
   }
 }

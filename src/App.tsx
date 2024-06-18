@@ -8,7 +8,6 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Gallery from "./pages/Gallery";
 import Privacy from "./pages/Privacy";
-import Hub from "./pages/Hub";
 import Category from "./pages/Category";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
@@ -21,8 +20,11 @@ import Register from "./pages/auth/Register";
 import Profile from "./pages/auth/Profile";
 import UpdateRessource from "./pages/dashboard/UpdateRessource";
 import RessourcesList from "./pages/dashboard/RessourcesList";
-import Planner from "./pages/planner/Planner";
-import PlannerApp from "./pages/planner/PlannerApp";
+import WeatherApp from "./pages/planner/WeatherApp";
+import Ressources from "./pages/Ressources";
+import Hub from "./pages/Hub";
+import MobileApp from "./pages/mobileApp/MobileApp";
+import AppPrivacy from "./pages/mobileApp/Privacy";
 
 function App() {
   return (
@@ -32,29 +34,32 @@ function App() {
           {/* Auth routes */}
           <Route path={routes.login.path} element={<Login />} />
           <Route path={routes.register.path} element={<Register />} />
-          <Route path={routes.profile.path} element={<Layout component={<Profile />} />} />
+          <Route path={routes.profile.path} element={<Layout asCopyright component={<Profile />} />} />
           {/* App main routes */}
-          <Route path={routes.home.path} element={<Layout component={<Home />} />} />
-          <Route path={routes.about.path} element={<Layout component={<About />} />} />
-          <Route path={routes.contact.path} element={<Layout component={<Contact />} />} />
-          <Route path={routes.gallery.path} element={<Layout component={<Gallery />} />} />
-          <Route path={routes.hub.path} element={<Layout component={<Hub />} />} />
-          {/* <Route path={routes.planner.path} element={<Layout component={<Planner />} />} /> */}
-          <Route path={routes.ressources_category.path} element={<Layout component={<Category />} />} />
-          <Route path={routes.planner.path} element={<Layout component={<PlannerApp />} />} />
+          <Route path={routes.home.path} element={<Layout asCopyright component={<Home />} />} />
+          <Route path={routes.about.path} element={<Layout asCopyright component={<About />} />} />
+          <Route path={routes.contact.path} element={<Layout asCopyright component={<Contact />} />} />
+          <Route path={routes.gallery.path} element={<Layout asCopyright component={<Gallery />} />} />
+          <Route path={routes.ressources.path} element={<Layout asCopyright component={<Ressources />} />} />
+          <Route path={routes.hub.path} element={<Layout asCopyright component={<Hub />} />} />
+          <Route path={routes.ressources_category.path} element={<Layout asCopyright component={<Category />} />} />
+          <Route path={routes.weather.path} element={<Layout asCopyright component={<WeatherApp />} />} />
+          {/* MOBILE APP RELATED ROUTES */}
+          <Route path={routes.mobile_app.about.path} element={<Layout component={<MobileApp />} />} />
+          <Route path={routes.mobile_app.privacy.path} element={<Layout component={<AppPrivacy />} />} />
           {/* Ressources routes */}
-          {/* <Route path={routes.ressource_details.path} element={<Layout component={<RessourceDetails />} />} /> */}
-          <Route path={routes.ressource.path} element={<Layout component={<RessourceCommutator />} />} />
+          {/* <Route path={routes.ressource_details.path} element={<Layout asCopyright component={<RessourceDetails />} />} /> */}
+          <Route path={routes.ressource.path} element={<Layout asCopyright component={<RessourceCommutator />} />} />
           {/* Other routes */}
-          <Route path={routes.privacy.path} element={<Layout component={<Privacy />} />} />
+          <Route path={routes.privacy.path} element={<Layout asCopyright component={<Privacy />} />} />
           <Route path={routes.notFound.path} element={<NotFound />} />
           {/* Admin routes */}
-          <Route path={routes.dashboard.path} element={<Guard children={<Layout component={<Dashboard />} />} />} />
-          <Route path={routes.dashboard_add_ressource.path} element={<Guard children={<Layout component={<AddRessource />} />} />} />
-          <Route path={routes.dashboard_ressources_list.path} element={<Guard children={<Layout component={<RessourcesList />} />} />} />
-          <Route path={routes.dashboard_update_ressource.path} element={<Guard children={<Layout component={<UpdateRessource />} />} />} />
-          <Route path={routes.dashboard_add_image.path} element={<Guard children={<Layout component={<AddImage />} />} />} />
-          <Route path={routes.dahsboard_add_category.path} element={<Guard children={<Layout component={<AddCategory />} />} />} />
+          <Route path={routes.dashboard.path} element={<Guard children={<Layout asCopyright component={<Dashboard />} />} />} />
+          <Route path={routes.dashboard_add_ressource.path} element={<Guard children={<Layout asCopyright component={<AddRessource />} />} />} />
+          <Route path={routes.dashboard_ressources_list.path} element={<Guard children={<Layout asCopyright component={<RessourcesList />} />} />} />
+          <Route path={routes.dashboard_update_ressource.path} element={<Guard children={<Layout asCopyright component={<UpdateRessource />} />} />} />
+          <Route path={routes.dashboard_add_image.path} element={<Guard children={<Layout asCopyright component={<AddImage />} />} />} />
+          <Route path={routes.dahsboard_add_category.path} element={<Guard children={<Layout asCopyright component={<AddCategory />} />} />} />
         </Routes>
       </AuthProvider>
     </Router>

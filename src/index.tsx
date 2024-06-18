@@ -9,10 +9,10 @@ import { StatsProvider } from './contexts/StatsContext';
 import { GalleryProvider } from './contexts/GalleryContext';
 import { CategoriesProvider } from './contexts/CategoriesContext';
 import { RessourcesProvider } from './contexts/RessourcesContext';
-import { PlannerAppProvider } from './contexts/PlannerAppContext';
 import dayjs from 'dayjs';
 import 'dayjs/locale/fr';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import { WeatherAppProvider } from './contexts/WeatherAppContext';
 dayjs.extend(relativeTime);
 
 dayjs.locale('fr');
@@ -26,10 +26,10 @@ root.render(
     <GalleryProvider>
       <CategoriesProvider>
         <StatsProvider>
-          <PlannerAppProvider>
+          <WeatherAppProvider>
             <App />
             <Analytics />
-          </PlannerAppProvider>
+          </WeatherAppProvider>
         </StatsProvider>
       </CategoriesProvider>
     </GalleryProvider>

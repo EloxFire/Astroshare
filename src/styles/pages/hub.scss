@@ -3,12 +3,14 @@
 .hub {
   @extend .global-page;
 
-  .categories-container{
+  .tools-container{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    margin-top: 8vh;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      justify-content: space-evenly;
+    }
   }
 }

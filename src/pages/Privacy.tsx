@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/pages/privacy.scss';
 
 export default function Privacy() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className="privacy">
       <h1>Politique de confidentialité</h1>

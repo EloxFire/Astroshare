@@ -1,0 +1,111 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/app/app.scss';
+
+.weather-overview{
+  @extend .dashboard-box;
+  // flex: .6;
+  
+  p{
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+    margin-bottom: 20px;
+  }
+  
+  .content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    // background-color: red;
+
+    .wo-container{
+      overflow: auto;
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      // background-color: green;
+
+      &__left, &__right{
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__left{
+        // background-color: blue;
+        flex: .5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // justify-content: center;
+        border-right: 1px solid $white;
+        padding-right: 10px;
+
+        .icon{
+          max-height: 15vh;
+          // background-color: yellow;
+          // width: auto;
+        }
+      }
+
+      &__right{
+        // background-color: red;
+        flex: 1;
+        padding-left: 20px;
+
+        &__title{
+          font-weight: 800;
+          text-transform: uppercase;
+          font-size: 25px;
+          line-height: 25px;
+        }
+
+        &__subtitle{
+          font-size: .8rem;
+          margin-top: -5px;
+        }
+
+        &__infos{
+          display: flex;
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: space-between;
+
+          &__row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 50px;
+            // background-color: red;
+          }
+
+          &__temp{
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 40px;
+          }
+
+          &__description{
+            margin-top: -5px;
+          }
+        }
+      }
+    }
+
+    .wo-additionnal{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      // padding-top: 10px;
+      // background-color: yellow;
+      flex: 1;
+    }
+  }
+}

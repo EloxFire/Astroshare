@@ -1,19 +1,20 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import CopyrightBadge from '../components/CopyrightBadge'
 import '../styles/pages/layout.scss'
+import Footer from '../components/Footer'
 
 interface LayoutProps {
   component: React.ReactNode
   withAuthGuard?: boolean
+  asCopyright?: boolean
 }
 
-export default function Layout({ component, withAuthGuard }: LayoutProps) {
+export default function Layout({ component, withAuthGuard, asCopyright }: LayoutProps) {
   return (
     <div id="layout">
       <Navbar />
-      <CopyrightBadge />
       {component}
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,65 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/app/app.scss';
+
+.hourly-forecast{
+  @extend .dashboard-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+  }
+
+  .forecast{
+    overflow: auto;
+    height: 90%;
+
+    .text{
+      font-size: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hour{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 20px;
+      border-bottom: 1px solid $white;
+      margin-right: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+      img{
+        max-width: 35px;
+      }
+
+      .wind{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .wind-dir{
+          position: relative;
+        }
+
+        .north{
+          position: absolute;
+          background-color: red;
+          border-radius: 3px;
+          height: 3px;
+          width: 3px;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}

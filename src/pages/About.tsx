@@ -3,6 +3,7 @@ import { calculateAge } from '../scripts/helpers/helpers'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
 import '../styles/pages/about.scss'
+import { routes } from '../routes'
 
 export default function About() {
 
@@ -12,7 +13,7 @@ export default function About() {
 
   return (
     <div className="about">
-      <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>À propos</h1>
+      <h1 className="h1 title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>À propos</h1>
       <div className="content">
         <div className="content__left">
           <h2 className="h3">Qui suis-je ?</h2>
@@ -20,7 +21,7 @@ export default function About() {
             Je m'appelle Enzo Avagliano, j'ai {calculateAge(new Date(2000, 11, 9))} ans, et je suis développeur web.
           </p>
           <p>
-            Passionné par les sciences et les nouvelles technologies depuis des années, j'ai décidé de m'immerger dans l'univers captivant de l'astronomie en 2020. Armé d'un télescope Newton 150/750 et d'une monture équatoriale EQ-320, je vis ma passion au sein de l'association des <a href="http://www.astrosurf.com/aaaov/" target='_blank' rel='noreferrer'>AAAOV</a> (Astronomes Amateurs Aixois de l'Observatoire de Vauvenargues). Cette aventure m'a permis d'apprendre une multitude de choses fascinantes, de partager mes découvertes avec des âmes tout aussi passionnées, et même de transmettre mes connaissances lors d'événements publics et privés. Chaque moment passé à observer les étoiles est une expérience magique, remplie de curiosité et d'émerveillement, me rappelant à quel point l'astronomie est une aventure infiniment captivante.
+            Passionné par les sciences et les nouvelles technologies depuis des années, j'ai décidé de m'immerger dans l'univers captivant de l'astronomie en 2020. Armé d'un télescope Newton 150/750 et d'une monture équatoriale NEQ5-Goto, je vis ma passion au sein de l'association des <a href="http://www.astrosurf.com/aaaov/" target='_blank' rel='noreferrer'>AAAOV</a> (Astronomes Amateurs Aixois de l'Observatoire de Vauvenargues). Cette aventure m'a permis d'apprendre une multitude de choses fascinantes, de partager mes découvertes avec des âmes tout aussi passionnées, et même de transmettre mes connaissances lors d'événements publics et privés. Chaque moment passé à observer les étoiles est une expérience magique, remplie de curiosité et d'émerveillement, me rappelant à quel point l'astronomie est une aventure infiniment captivante.
           </p>
           <h2 className="h3" style={{ marginTop: '5vh' }}>Astroshare c'est quoi ?</h2>
           <p>
@@ -32,8 +33,8 @@ export default function About() {
         </div>
         <div className="content__right">
           <img src="/images/about/04.min.jpg" alt="Mon télescope" />
-          <img src="/images/about/01.min.jpg" alt="Mon télescope" />
-          <img src="/images/about/02.min.jpg" alt="Mon télescope" />
+          <img src="/images/about/01.min.jpg" alt="Ciel étoilé capturé avec mon téléphone" />
+          <img src="/images/about/02.min.jpg" alt="Comète Neowise capturé au téléphone" />
         </div>
       </div>
     </div>

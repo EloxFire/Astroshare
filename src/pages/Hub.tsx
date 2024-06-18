@@ -1,38 +1,45 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { useCategories } from '../contexts/CategoriesContext'
-import { RessourceCategory } from '../scripts/types'
-import RessourceCategoryButton from '../components/RessourceCategoryButton'
+import { routes } from '../routes'
+import HubTool from '../components/hub/HubTool'
 import '../styles/pages/hub.scss'
 
 export default function Hub() {
-
-  const { categories } = useCategories();
-
-  useEffect(() => {
-    document.title = "Astroshare | Hub de ressources"
-  }, [])
-
   return (
     <div className="hub">
-      <h1 className="h1 title"><Link to={"/"} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Hub de ressources</h1>
-      <p>Parcourez les catégories pour découvrir nos ressources associées</p>
-      <div className="categories-container">
-        {
-          categories.map((category: RessourceCategory, category_index: number) => {
-            return (
-              <RessourceCategoryButton
-                key={category_index}
-                name={category.name}
-                slug={category.slug}
-                icon={category.icon}
-                description={category.description}
-                longDescription={category.longDescription}
-              />
-            )
-          })
-        }
+      <h1 className="h1 title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{routes.hub.label}</h1>
+      <div className="tools-container">
+        <HubTool
+          title='Ressources gratuites'
+          subtitle="Découvrez des ressources gratuites pour vous aider dans votre pratique de l'astronomie."
+          route={routes.ressources}
+          image='/images/wallpapers/1.min.jpg'
+        />
+        <HubTool
+          title='Application mobile'
+          subtitle="Téléchargez l'application mobile Astroshare, disponible sur Android"
+          route={routes.mobile_app.about}
+          image='/images/wallpapers/2.min.jpg'
+        />
+        {/* <HubTool
+          title="Planificateur d'observation"
+          subtitle="Planifiez vos observations astronomiques avec notre outil de planification."
+          route={routes.planner}
+          image='/images/wallpapers/3.min.jpg'
+        /> */}
+        <HubTool
+          title="Météo en temps réel"
+          subtitle="Repérez les meilleures conditions météorologiques pour vos sessions d'observation du ciel !"
+          route={routes.weather}
+          image='/images/wallpapers/3.min.jpg'
+        />
+        <HubTool
+          title='Galerie photos'
+          subtitle="Retrouvez mon parcours d'astronomie à travers mes meilleures photos !"
+          route={routes.gallery}
+          image='/images/wallpapers/4.min.jpg'
+        />
       </div>
     </div>
   )

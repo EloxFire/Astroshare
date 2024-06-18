@@ -1,0 +1,65 @@
+@import '../../../../globals.scss';
+@import '../../../../pages/app/app.scss';
+
+.moon-overview{
+  @extend .dashboard-box;
+  // height: 60%;
+  // flex: 1;
+
+  .title{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-bottom: 1px solid $white;
+  }
+
+  .text{
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .column{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    gap: 15px;
+  }
+
+  .row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .moon-icon{
+      height: 14vh;
+    }
+
+    .basic-infos{
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      gap: 10px;
+      flex: 1;
+      border-left: 1px solid $white;
+      margin-left: 20px;
+      padding-left: 20px;
+
+      .title{
+        border: none;
+        margin-bottom: 0;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
