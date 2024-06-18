@@ -14,7 +14,7 @@ export default function WeatherApp() {
 
   return (
     <div className="weather-app">
-      <h1 className="h3 title"><Link to={routes.home.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Météo Astroshare</h1>
+      <h1 className="h3 title"><Link to={routes.hub.path} ><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Retour au hub</h1>
       {
         appLoading ?
           <div className="app-loading">

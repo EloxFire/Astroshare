@@ -22,10 +22,16 @@ export default function Hub() {
           route={routes.mobile_app.about}
           image='/images/wallpapers/2.min.jpg'
         />
-        <HubTool
+        {/* <HubTool
           title="Planificateur d'observation"
           subtitle="Planifiez vos observations astronomiques avec notre outil de planification."
           route={routes.planner}
+          image='/images/wallpapers/3.min.jpg'
+        /> */}
+        <HubTool
+          title="Météo en temps réel"
+          subtitle="Repérez les meilleures conditions météorologiques pour vos sessions d'observation du ciel !"
+          route={routes.weather}
           image='/images/wallpapers/3.min.jpg'
         />
         <HubTool
