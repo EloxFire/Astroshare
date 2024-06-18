@@ -8,5 +8,9 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+      justify-content: space-evenly;
+    }
   }
 }

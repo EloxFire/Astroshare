@@ -23,7 +23,8 @@ import RessourcesList from "./pages/dashboard/RessourcesList";
 import WeatherApp from "./pages/planner/WeatherApp";
 import Ressources from "./pages/Ressources";
 import Hub from "./pages/Hub";
-import MobileApp from "./pages/MobileApp";
+import MobileApp from "./pages/mobileApp/MobileApp";
+import AppPrivacy from "./pages/mobileApp/Privacy";
 
 function App() {
   return (
@@ -41,10 +42,11 @@ function App() {
           <Route path={routes.gallery.path} element={<Layout asCopyright component={<Gallery />} />} />
           <Route path={routes.ressources.path} element={<Layout asCopyright component={<Ressources />} />} />
           <Route path={routes.hub.path} element={<Layout asCopyright component={<Hub />} />} />
-          <Route path={routes.mobile_app.path} element={<Layout component={<MobileApp />} />} />
-          {/* <Route path={routes.planner.path} element={<Layout component={<Planner />} />} /> */}
           <Route path={routes.ressources_category.path} element={<Layout asCopyright component={<Category />} />} />
           <Route path={routes.weather.path} element={<Layout asCopyright component={<WeatherApp />} />} />
+          {/* MOBILE APP RELATED ROUTES */}
+          <Route path={routes.mobile_app.about.path} element={<Layout component={<MobileApp />} />} />
+          <Route path={routes.mobile_app.privacy.path} element={<Layout component={<AppPrivacy />} />} />
           {/* Ressources routes */}
           {/* <Route path={routes.ressource_details.path} element={<Layout asCopyright component={<RessourceDetails />} />} /> */}
           <Route path={routes.ressource.path} element={<Layout asCopyright component={<RessourceCommutator />} />} />

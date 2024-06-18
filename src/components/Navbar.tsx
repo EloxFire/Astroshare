@@ -40,12 +40,13 @@ export default function Navbar() {
       <div className="navbar__links">
         <Link className="link" to={routes.home.path}>{routes.home.label}</Link>
         <Link className="link" to={routes.about.path}>{routes.about.label}</Link>
-        <Dropdown mainRoute={routes.hub} routes={[
+        <Link className="link" to={routes.hub.path}>{routes.hub.label}</Link>
+        {/* <Dropdown mainRoute={routes.hub} routes={[
           routes.ressources,
-          routes.mobile_app,
+          routes.mobile_app.about,
           routes.planner,
           routes.gallery,
-        ]} />
+        ]} /> */}
         <Link className="link" to={routes.weather.path}>{routes.weather.label}</Link>
       </div>
       <div className="navbar__links" style={{ width: '20%', justifyContent: 'flex-end' }}>

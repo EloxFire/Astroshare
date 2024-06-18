@@ -13,7 +13,7 @@ export const routes = {
   },
   hub: {
     path: '/hub',
-    label: 'Outils',
+    label: 'Hub d\'outils',
   },
   ressources: {
     path: '/ressources',
@@ -67,10 +67,6 @@ export const routes = {
     path: '/dashboard/add-category',
     label: 'Créer une catégorie',
   },
-  mobile_app: {
-    path: '/application-mobile',
-    label: 'Application mobile',
-  },
   login: {
     path: '/login',
     label: 'Connexion',
@@ -90,5 +86,19 @@ export const routes = {
   notFound: {
     path: '*',
     label: '404',
+  },
+  mobile_app: {
+    about: {
+      path: '/application-mobile',
+      label: 'Application mobile',
+    },
+    privacy: {
+      path: '/application-mobile/politique-de-confidentialite',
+      label: 'Politique de confidentialité',
+    },
+    download: {
+      path: '/application-mobile/telecharger',
+      label: 'Télécharger',
+    }
   }
 }

@@ -2,7 +2,6 @@
 
 .mobile-app{
   @extend .global-page;
-  height: 550vh;
 
   .title{
     font-size: 65px;
@@ -29,18 +28,26 @@
     }
   }
 
+  .tease{
+    font-size: 45px;
+    text-transform: uppercase;
+    font-family: 'Gilroy';
+    font-weight: 900;
+    text-align: center;
+    margin-top: 10vh;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      font-size: 48px;
+    }
+  }
+
   .image-container{
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 10vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 
-
-    // @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    //   img{
-    //     max-width: 80%;
-    //   }
-    // }
+    img{
+      max-width: 100%;
+    }
   }
 
 }

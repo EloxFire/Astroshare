@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import CopyrightBadge from '../components/CopyrightBadge'
 import '../styles/pages/layout.scss'
+import Footer from '../components/Footer'
 
 interface LayoutProps {
   component: React.ReactNode
@@ -13,8 +13,8 @@ export default function Layout({ component, withAuthGuard, asCopyright }: Layout
   return (
     <div id="layout">
       <Navbar />
-      {asCopyright && <CopyrightBadge />}
       {component}
+      <Footer />
     </div>
   )
 }

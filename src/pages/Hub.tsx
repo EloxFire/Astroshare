@@ -18,8 +18,8 @@ export default function Hub() {
         />
         <HubTool
           title='Application mobile'
-          subtitle="Téléchargez l'application mobile Astrosshare, disponible sur Android"
-          route={routes.mobile_app}
+          subtitle="Téléchargez l'application mobile Astroshare, disponible sur Android"
+          route={routes.mobile_app.about}
           image='/images/wallpapers/2.min.jpg'
         />
         <HubTool

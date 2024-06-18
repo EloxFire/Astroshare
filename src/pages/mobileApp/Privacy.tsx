@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react';
-import '../styles/pages/privacy.scss';
+import React, { useEffect } from 'react'
+import '../../styles/pages/privacy.scss'
 
-export default function Privacy() {
+export default function AppPrivacy() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
   return (
-    <div className="privacy">
-      <h1>Politique de confidentialité</h1>
-      <p className="text">www.astroshare.fr</p>
+    <div className="privacy" style={{ marginBottom: '10vh' }}>
+      <h1>Politique de confidentialité  - Application mobile Astroshare</h1>
       <p className="text">Enzo Avagliano</p>
-      <p className="text">Type du site : e-commerce</p>
+      <p className="text">Type du site : Application mobile</p>
       <div style={{ marginTop: '5vh' }}>
         <h3>Le but de cette politique de confidentialité</h3>
-        <p className="text">Le but de cette politique de confidentialité est d'informer les utilisateurs de notre site des données personnelles que nous recueillerons ainsi que les informations suivantes, le cas échéant :</p>
+        <p className="text">Le but de cette politique de confidentialité est d'informer les utilisateurs de notre application mobile des données personnelles que nous recueillerons ainsi que les informations suivantes, le cas échéant :</p>
         <ul>
           <li>Les données personnelles que nous recueillerons</li>
           <li>L’utilisation des données recueillies</li>
@@ -49,7 +48,7 @@ export default function Privacy() {
       </div>
       <div style={{ marginTop: '5vh' }}>
         <h3>Consentement</h3>
-        <p className="text">Les utilisateurs conviennent qu’en utilisant notre site, ils consentent à :</p>
+        <p className="text">Les utilisateurs conviennent qu’en utilisant notre application, ils consentent à :</p>
         <ul>
           <li>les conditions énoncées dans la présente politique de confidentialité et</li>
           <li>la collecte, l’utilisation et la conservation des données énumérées dans la présente politique.</li>
@@ -57,25 +56,30 @@ export default function Privacy() {
       </div>
       <div style={{ marginTop: '5vh' }}>
         <h3>Données personnelles que nous collectons</h3>
-        <p className="text">Données collectées automatiquement :</p>
-        <p className="text">Nous ne collectons aucune donnée automatiquement sur notre site.</p>
-        <p className="text" style={{ marginTop: '2vh' }}>Données recueillies de façon non automatique</p>
-        <p className="text">Nous pouvons également collecter les données suivantes lorsque vous effectuez certaines fonctions sur notre site :</p>
+        <p className="text">Données collectées automatiquement lorsque l'application est en cours d'utilisation :</p>
         <ul>
-          <li>Prénom et nom</li>
+          <li>Position géographique aproximative</li>
+          <li>Position géographique précise</li>
+        </ul>
+        <p className="text" style={{ marginTop: '2vh' }}>Données recueillies de façon non automatique</p>
+        <p className="text">Nous pouvons également collecter les données suivantes lorsque vous effectuez certaines fonctions sur notre application :</p>
+        <ul>
+          <li>Nom & Prénom</li>
           <li>Adresse e-mail</li>
+          <li>Autres adresses géographiques</li>
         </ul>
         <p className="text">Ces données peuvent être recueillies au moyen des méthodes suivantes :</p>
         <ul>
           <li>Formulaire de contact</li>
-          <li>Téléchargement d'un document</li>
+          <li>Enregistrement d'un nouveau lieu dans l'application</li>
         </ul>
       </div>
       <div style={{ marginTop: '5vh' }}>
         <h3>Comment nous utilisons les données personnelles</h3>
-        <p className="text">Les données personnelles recueillies sur notre site seront utilisées uniquement aux fins précisées dans la présente politique ou indiquées sur les pages pertinentes de notre site. Nous n’utiliserons pas vos données au-delà de ce que nous divulguerons.</p>
+        <p className="text">Les données personnelles recueillies sur notre site seront utilisées uniquement aux fins précisées dans la présente politique ou indiquées sur les pages pertinentes de notre application. Nous n’utiliserons pas vos données au-delà de ce que nous divulguerons.</p>
         <p className="text">Les données que nous recueillons lorsque l’utilisateur exécute certaines fonctions peuvent être utilisées aux fins suivantes :</p>
         <ul>
+          <li>Le bon fonctionnement de l'application</li>
           <li>Vous envoyer des informations que vous avez demandées</li>
           <li>Vous envoyer des courriels de marketing</li>
           <li>Vous envoyer une newsletter</li>
@@ -96,7 +100,7 @@ export default function Privacy() {
           <li>pour prouver ou protéger nos droits légaux</li>
           <li>à des acheteurs ou des acheteurs potentiels de cette société dans le cas où nous cherchons à la vendre</li>
         </ul>
-        <p className="text">Si vous suivez des hyperliens de notre site vers un autre site, veuillez noter que nous ne sommes pas responsables et n’avons pas de contrôle sur leurs politiques et pratiques de confidentialité.</p>
+        <p className="text">Si vous suivez des hyperliens de notre site vers un autre site ou application, veuillez noter que nous ne sommes pas responsables et n’avons pas de contrôle sur leurs politiques et pratiques de confidentialité.</p>
         <strong>Combien de temps nous stockons les données personnelles</strong>
         <p className="text">Nous ne conservons pas les données des utilisateurs au-delà de ce qui est nécessaire pour atteindre les fins pour lesquelles elles sont recueillies.</p>
         <strong>Comment nous protégeons vos données personnelles</strong>
@@ -129,7 +133,7 @@ export default function Privacy() {
         </div>
       </div>
       <div style={{ marginTop: '5vh' }}>
-        <p className="text"><i>Date d'entrée en vigeur :</i> le 1 septembre 2023</p>
+        <p className="text"><i>Date d'entrée en vigeur :</i> le 18 juin 2024</p>
       </div>
     </div>
   )

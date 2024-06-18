@@ -61,4 +61,16 @@
     opacity: .5;
     transition: .3s;
   }
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+    height: 30vh;
+
+    &::before{
+      display: none;
+    }
+
+    .subtitle{
+      opacity: 1;
+    }
+  }
 }
