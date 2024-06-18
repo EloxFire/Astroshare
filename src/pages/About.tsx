@@ -33,8 +33,8 @@ export default function About() {
         </div>
         <div className="content__right">
           <img src="/images/about/04.min.jpg" alt="Mon télescope" />
-          <img src="/images/about/01.min.jpg" alt="Mon télescope" />
-          <img src="/images/about/02.min.jpg" alt="Mon télescope" />
+          <img src="/images/about/01.min.jpg" alt="Ciel étoilé capturé avec mon téléphone" />
+          <img src="/images/about/02.min.jpg" alt="Comète Neowise capturé au téléphone" />
         </div>
       </div>
     </div>
