@@ -48,6 +48,7 @@ export default function Dashboard() {
             <p className="subtitle">Catégories</p>
             <div className="controls-buttons">
               <Link to={routes.dashboard.categories.add.path} className="dashboard__add-ressource button-link">{routes.dashboard.categories.add.label}</Link>
+              <Link to={routes.dashboard.categories.list.path} className="dashboard__add-ressource button-link">{routes.dashboard.categories.list.label}</Link>
             </div>
             <p className="subtitle">Images</p>
             <div className="controls-buttons">
