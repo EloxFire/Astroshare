@@ -43,7 +43,7 @@ export default function Profile() {
 
       <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
         <Link className="btn logout" to={routes.logout.path} onClick={() => logout()}>Déconnexion</Link>
-        {user?.role === UserRoles.ADMIN && <Link className="btn" to={routes.dashboard.path}>Dashboard</Link>}
+        {user?.role === UserRoles.ADMIN && <Link className="btn" to={routes.dashboard.main.path}>Dashboard</Link>}
       </div>
     </div>
   )

@@ -26,7 +26,7 @@ export default function RessourcesList() {
 
   return (
     <div className="ressources-list">
-      <p className="dashboard-title h3"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Liste des ressources</p>
+      <p className="dashboard-title h3"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Liste des ressources</p>
       <div className="ressources-container">
         {ressources.length === 0 && <p className="no-ressources">Aucune ressource n'a été trouvée</p>}
         <p className="h3" style={{ marginTop: '50px' }}>Ressources visibles :</p>
@@ -49,7 +49,7 @@ export default function RessourcesList() {
                   </div>
                 </div>
                 <div className="ressource-recap__actions">
-                  <Link className="action-button" to={routes.dashboard_update_ressource.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
+                  <Link className="action-button" to={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
                   <button onClick={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)} className="action-button">{ressource.visibility ? <FiEyeOff /> : <FiEye />}</button>
                   <button onClick={() => handleDeleteRessource(ressource.ref!, ressource.slug)} className="action-button red"><FiTrash2 /></button>
                 </div>
@@ -77,7 +77,7 @@ export default function RessourcesList() {
                   </div>
                 </div>
                 <div className="ressource-recap__actions">
-                  <Link className="action-button" to={routes.dashboard_update_ressource.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
+                  <Link className="action-button" to={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}><FiEdit2 /></Link>
                   <button onClick={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)} className="action-button">{ressource.visibility ? <FiEyeOff /> : <FiEye />}</button>
                   <button onClick={() => handleDeleteRessource(ressource.ref!, ressource.slug)} className="action-button red"><FiTrash2 /></button>
                 </div>

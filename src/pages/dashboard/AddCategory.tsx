@@ -63,7 +63,7 @@ export default function AddCategory() {
   return (
     <div className="dashboard-add-image">
       {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une catégorie</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une catégorie</p>
       <div className="dashboard-add-image__content">
         <div className="left">
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Titre de la catégorie" value={categoryName} onChange={(e) => { setCategoryName(e.target.value) }} />
