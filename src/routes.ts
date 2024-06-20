@@ -64,13 +64,13 @@ export const routes = {
     },
     images: {
       add: {
-        path: '/dashboard/add-image',
+        path: '/dashboard/images/add',
         label: 'Ajouter une image',
       },
     },
     categories: {
       add: {
-        path: '/dashboard/add-category',
+        path: '/dashboard/categories/add',
         label: 'Créer une catégorie',
       },
     },
