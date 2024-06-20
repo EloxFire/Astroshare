@@ -13,7 +13,6 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
 import AddImage from "./pages/dashboard/AddImage";
 import Guard from "./components/auth/Guard";
-import AddCategory from "./pages/dashboard/AddCategory";
 import RessourceCommutator from "./pages/ressources/RessourceCommutator";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
@@ -25,6 +24,7 @@ import Ressources from "./pages/Ressources";
 import Hub from "./pages/Hub";
 import MobileApp from "./pages/mobileApp/MobileApp";
 import AppPrivacy from "./pages/mobileApp/Privacy";
+import AddCategory from "./pages/dashboard/categories/AddCategory";
 
 function App() {
   return (

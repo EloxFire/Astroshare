@@ -73,6 +73,14 @@ export const routes = {
         path: '/dashboard/categories/add',
         label: 'Créer une catégorie',
       },
+      update: {
+        path: '/dashboard/categories/:category_slug',
+        label: 'Modifier une catégorie',
+      },
+      list: {
+        path: '/dashboard/categories',
+        label: 'Liste des catégories',
+      }
     },
   },
   login: {

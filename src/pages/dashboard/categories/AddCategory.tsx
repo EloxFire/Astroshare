@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { uploadNewCategory } from '../../scripts/helpers/api/categories/uploadNewCategory'
-import '../../styles/pages/dashboard/addCategory.scss'
+import { uploadNewCategory } from '../../../scripts/helpers/api/categories/uploadNewCategory'
+import { routes } from '../../../routes'
+import '../../../styles/pages/dashboard/categories/addCategory.scss'
 
 export default function AddCategory() {
 
