@@ -22,20 +22,21 @@ export const uploadNewRessource = async (ressource: Ressource) => {
       ref: docRef.id
     });
     console.log("Ressource written with ID : ", docRef.id);
-
+    
+    
     // Upload files to storage
     try {
       filesToUpload.forEach(async (file, file_index) => {
+        console.log("Uploading file :", ressource.downloadNames[file_index]);
+        
         const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/files/version${ressource.updatesCount!}/${ressource.downloadNames[file_index]}`);
         const fileRef = await uploadBytes(storageRef, file);
         const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
         console.log("File uploaded to storage:", fileRef.metadata.ref!);
-        updateDoc(docRef, {
+        await updateDoc(docRef, {
           files: arrayUnion(fileUrl)
         })
         console.log(`File n°${file_index} url added to ressource document`);
-
-
       })
     } catch (error) {
       console.error("Error uploading ressource files to storage:", error);

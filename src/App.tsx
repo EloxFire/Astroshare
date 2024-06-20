@@ -54,12 +54,12 @@ function App() {
           <Route path={routes.privacy.path} element={<Layout asCopyright component={<Privacy />} />} />
           <Route path={routes.notFound.path} element={<NotFound />} />
           {/* Admin routes */}
-          <Route path={routes.dashboard.path} element={<Guard children={<Layout asCopyright component={<Dashboard />} />} />} />
-          <Route path={routes.dashboard_add_ressource.path} element={<Guard children={<Layout asCopyright component={<AddRessource />} />} />} />
-          <Route path={routes.dashboard_ressources_list.path} element={<Guard children={<Layout asCopyright component={<RessourcesList />} />} />} />
-          <Route path={routes.dashboard_update_ressource.path} element={<Guard children={<Layout asCopyright component={<UpdateRessource />} />} />} />
-          <Route path={routes.dashboard_add_image.path} element={<Guard children={<Layout asCopyright component={<AddImage />} />} />} />
-          <Route path={routes.dahsboard_add_category.path} element={<Guard children={<Layout asCopyright component={<AddCategory />} />} />} />
+          <Route path={routes.dashboard.main.path} element={<Guard children={<Layout asCopyright component={<Dashboard />} />} />} />
+          <Route path={routes.dashboard.ressources.add.path} element={<Guard children={<Layout asCopyright component={<AddRessource />} />} />} />
+          <Route path={routes.dashboard.ressources.update.path} element={<Guard children={<Layout asCopyright component={<UpdateRessource />} />} />} />
+          <Route path={routes.dashboard.ressources.list.path} element={<Guard children={<Layout asCopyright component={<RessourcesList />} />} />} />
+          <Route path={routes.dashboard.images.add.path} element={<Guard children={<Layout asCopyright component={<AddImage />} />} />} />
+          <Route path={routes.dashboard.categories.add.path} element={<Guard children={<Layout asCopyright component={<AddCategory />} />} />} />
         </Routes>
       </AuthProvider>
     </Router>

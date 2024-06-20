@@ -70,7 +70,7 @@ export default function AddImage() {
   return (
     <div className="dashboard-add-image">
       {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une image</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une image</p>
       <div className="dashboard-add-image__content">
         <div className="left">
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Titre de l'image" value={imageTitle} onChange={(e) => { setImageTitle(e.target.value) }} />

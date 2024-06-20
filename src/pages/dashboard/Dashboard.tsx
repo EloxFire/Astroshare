@@ -13,6 +13,8 @@ export default function Dashboard() {
 
   useEffect(() => {
     document.title = 'Astroshare | Dashboard'
+
+    window.scrollTo(0, 0)
   }, [])
 
   return (
@@ -40,16 +42,16 @@ export default function Dashboard() {
           <div className="controls">
             <p className="subtitle">Ressources</p>
             <div className="controls-buttons">
-              <Link to={routes.dashboard_add_ressource.path} className="dashboard__add-ressource button-link">{routes.dashboard_add_ressource.label}</Link>
-              <Link to={routes.dashboard_ressources_list.path} className="dashboard__add-ressource button-link">{routes.dashboard_ressources_list.label}</Link>
+              <Link to={routes.dashboard.ressources.add.path} className="dashboard__add-ressource button-link">{routes.dashboard.ressources.add.label}</Link>
+              <Link to={routes.dashboard.ressources.list.path} className="dashboard__add-ressource button-link">{routes.dashboard.ressources.list.label}</Link>
             </div>
             <p className="subtitle">Catégories</p>
             <div className="controls-buttons">
-              <Link to={routes.dahsboard_add_category.path} className="dashboard__add-ressource button-link">{routes.dahsboard_add_category.label}</Link>
+              <Link to={routes.dashboard.categories.add.path} className="dashboard__add-ressource button-link">{routes.dashboard.categories.add.label}</Link>
             </div>
             <p className="subtitle">Images</p>
             <div className="controls-buttons">
-              <Link to={routes.dashboard_add_image.path} className="dashboard__add-ressource button-link">{routes.dashboard_add_image.label}</Link>
+              <Link to={routes.dashboard.images.add.path} className="dashboard__add-ressource button-link">{routes.dashboard.images.add.label}</Link>
             </div>
           </div>
         </div>

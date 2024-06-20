@@ -139,7 +139,7 @@ export default function AddRessource() {
         error !== "" &&
         <Alert type='error' message={error} />
       }
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
           <div className="types-container">

@@ -32,7 +32,7 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
         <div className="ressource-details__left__infos">
           <p className="ressource-details__left__infos__item">Format du document : {ressource.format}</p>
           <p className="ressource-details__left__infos__item">Niveau : {ressource.level}</p>
-          <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressource.tags!.split(', ').map((tag, index) => (<span className="tag" key={`ressource-tag-${index}`}>{tag}</span>))}</p>
+          <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressource.tags?.split(', ').map((tag, index) => (<span className="tag" key={`ressource-tag-${index}`}>{tag}</span>))}</p>
           <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressource.updatedAt!.toDate()).format('DD MMMM YYYY')}</p>
         </div>
         {
