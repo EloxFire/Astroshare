@@ -5,6 +5,8 @@ import { getDownloadsCount } from '../scripts/helpers/api/downloads/getDownloads
 import { getVisitsCount } from '../scripts/helpers/api/visits/getVisitsCount';
 import { getCategoriesCount } from '../scripts/helpers/api/categories/getCategoriesCount';
 import { getUsersCount } from '../scripts/helpers/api/users/getUsersCount';
+import { Ressource } from '../scripts/types';
+import { getMostDownloadedRessources } from '../scripts/helpers/api/ressources/getMostDownloadedRessources';
 
 const StatsContext = createContext<any>({});
 
@@ -24,6 +26,8 @@ export function StatsProvider({ children }: StatsProviderProps) {
   const [visitsCount, setVisitsCount] = useState<number>(0);
   const [categoriesCount, setCategoriesCount] = useState<number>(0);
   const [usersCount, setUsersCount] = useState<number>(0);
+  const [topRessources, setTopRessources] = useState<Ressource[]>([]);
+
   const [statsLoading, setStatsLoading] = useState<boolean>(true);
 
 
@@ -36,12 +40,15 @@ export function StatsProvider({ children }: StatsProviderProps) {
       const visitsCount = await getVisitsCount();
       const categoriesCount = await getCategoriesCount();
       const usersCount = await getUsersCount()
+      const mostDownloadedRessources = await getMostDownloadedRessources();
       setRessourcesCount(ressourcesCount);
       setImagesCount(imagesCount);
       setDownloadsCount(downloadsCount);
       setVisitsCount(visitsCount);
       setCategoriesCount(categoriesCount);
       setUsersCount(usersCount);
+      setTopRessources(mostDownloadedRessources);
+
       setStatsLoading(false);
     }
 
@@ -59,6 +66,7 @@ export function StatsProvider({ children }: StatsProviderProps) {
     visitsCount,
     categoriesCount,
     usersCount,
+    topRessources,
   }
 
   return (
