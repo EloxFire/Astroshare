@@ -29,7 +29,11 @@ export default function Home() {
           <div className="home__left__content__list">
             {
               statsLoading ?
-                <small>Chargement...</small>
+                <>
+                  <div className="loader" style={{ marginBottom: '2vh' }} />
+                  <div className="loader" style={{ marginBottom: '2vh' }} />
+                  <div className="loader" style={{ marginBottom: '2vh' }} />
+                </>
                 :
                 topRessources.map((ressource: Ressource, ressource_index: number) => {
                   return (
