@@ -25,6 +25,7 @@ import Hub from "./pages/Hub";
 import MobileApp from "./pages/mobileApp/MobileApp";
 import AppPrivacy from "./pages/mobileApp/Privacy";
 import AddCategory from "./pages/dashboard/categories/AddCategory";
+import CategoriesList from "./pages/dashboard/categories/CategoriesList";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           <Route path={routes.dashboard.ressources.list.path} element={<Guard children={<Layout asCopyright component={<RessourcesList />} />} />} />
           <Route path={routes.dashboard.images.add.path} element={<Guard children={<Layout asCopyright component={<AddImage />} />} />} />
           <Route path={routes.dashboard.categories.add.path} element={<Guard children={<Layout asCopyright component={<AddCategory />} />} />} />
+          <Route path={routes.dashboard.categories.list.path} element={<Guard children={<Layout asCopyright component={<CategoriesList />} />} />} />
         </Routes>
       </AuthProvider>
     </Router>

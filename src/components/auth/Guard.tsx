@@ -15,8 +15,12 @@ export default function Guard({ children }: Props) {
   const navigate = useNavigate()
 
   useEffect(() => {
+    console.log(user);
+
     if (user) {
       user.role !== UserRoles.ADMIN && navigate(routes.home.path)
+    } else {
+      navigate(routes.home.path)
     }
   }, [user])
 
