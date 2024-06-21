@@ -19,5 +19,7 @@ export const getMostDownloadedRessources = async () => {
     return b.totalDownloads! - a.totalDownloads!;
   })
 
-  return sortedRessources;
+  const topRessources = sortedRessources.slice(0, 3);  
+
+  return topRessources;
 }
