@@ -31,7 +31,7 @@ export type RessourceCategory = {
   longDescription: string;
   icon?: any;
   image?: any;
-  visibility: boolean
+  visibility: boolean;
 }
 
 export type Image = {

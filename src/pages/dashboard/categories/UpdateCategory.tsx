@@ -38,6 +38,7 @@ export default function UpdateCategory() {
       image: categoryImage,
       uploadedAt: new Date(),
       createdAt: new Date(),
+      visibility: false,
     }
 
     try {
