@@ -1,4 +1,4 @@
-import '../../styles/components/dashboard/DashboardListItem.scss'
+import '../../styles/components/dashboard/dashboardListItem.scss'
 
 interface Props {
   properties: { label: string, value: string | number }[]

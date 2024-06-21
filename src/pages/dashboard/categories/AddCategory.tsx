@@ -34,6 +34,7 @@ export default function AddCategory() {
       image: categoryImage,
       uploadedAt: new Date(),
       createdAt: new Date(),
+      visibility: false,
     }
 
     try {
