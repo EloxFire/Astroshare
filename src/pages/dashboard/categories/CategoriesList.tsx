@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom'
-import '../../../styles/pages/dashboard/categories/categoriesList.scss'
 import { FiChevronLeft } from 'react-icons/fi'
 import { routes } from '../../../routes'
 import { useCategories } from '../../../contexts/CategoriesContext'
-import { useEffect } from 'react'
 import { RessourceCategory } from '../../../scripts/types'
 import DashboardListItem from '../../../components/dashboard/DashboardListItem'
+import '../../../styles/pages/dashboard/categories/categoriesList.scss'
+import { deleteCategory } from '../../../scripts/helpers/api/categories/deleteCategory'
 
 export default function CategoriesList() {
 
-  const { categories, categoriesLoading } = useCategories()
+  const { categories } = useCategories()
 
-  useEffect(() => {
-    console.log(categories);
-
-  }, [])
+  const handleDelete = async (category_ref: string) => {
+    await deleteCategory(category_ref)
+  }
 
   return (
     <div className="categories-list-page">
@@ -22,9 +21,14 @@ export default function CategoriesList() {
 
       <div className="list visible-list">
         {
-          categories.filter((cat: RessourceCategory) => (cat.visibility === true)).map((category: RessourceCategory, index: number) => {
+          categories.filter((cat: RessourceCategory) => (cat.visibility === true)).map((category: RessourceCategory) => {
             return (
-              <DashboardListItem properties={[{ label: 'Test', value: "Test" }]} />
+              <DashboardListItem
+                key={`category-list-item-${category.name}`}
+                properties={[{ label: 'Test', value: "Test" }]}
+                isVisible={category.visibility}
+                onDelete={() => handleDelete(category.ref!)}
+              />
             )
           })
         }
