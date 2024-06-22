@@ -11,7 +11,6 @@ import Privacy from "./pages/Privacy";
 import Category from "./pages/Category";
 import Dashboard from "./pages/dashboard/Dashboard";
 import AddRessource from "./pages/dashboard/AddRessource";
-import AddImage from "./pages/dashboard/AddImage";
 import Guard from "./components/auth/Guard";
 import RessourceCommutator from "./pages/ressources/RessourceCommutator";
 import Login from "./pages/auth/Login";
@@ -26,6 +25,7 @@ import MobileApp from "./pages/mobileApp/MobileApp";
 import AppPrivacy from "./pages/mobileApp/Privacy";
 import AddCategory from "./pages/dashboard/categories/AddCategory";
 import CategoriesList from "./pages/dashboard/categories/CategoriesList";
+import AddImage from "./pages/dashboard/gallery/AddImage";
 
 function App() {
   return (

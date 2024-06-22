@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { routes } from '../../routes'
+import { routes } from '../../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { uploadNewImage } from '../../scripts/helpers/api/gallery/uploadNewImage'
-import { imageProperties } from '../../scripts/helpers/helpers'
+import { uploadNewImage } from '../../../scripts/helpers/api/gallery/uploadNewImage'
+import { imageProperties } from '../../../scripts/helpers/helpers'
 import dayjs from 'dayjs'
-import '../../styles/pages/dashboard/addImage.scss'
+import '../../../styles/pages/dashboard/addImage.scss'
 
 export default function AddImage() {
 
