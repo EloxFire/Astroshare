@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Ressource, RessourceCategory } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
-import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
 import { Link, useParams } from 'react-router-dom'
 import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
@@ -10,6 +8,8 @@ import '../../styles/pages/dashboard/addRessource.scss'
 import { useCategories } from '../../contexts/CategoriesContext'
 import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
 import { updateExistingRessource } from '../../scripts/helpers/api/ressources/updateExistingRessource'
+import { Ressource } from '../../scripts/types/Ressource'
+import { RessourceCategory } from '../../scripts/types/RessourceCategory'
 
 export default function UpdateRessource() {
 

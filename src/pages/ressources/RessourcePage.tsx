@@ -1,7 +1,6 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { Ressource } from '../../scripts/types'
+import { Ressource } from '../../scripts/types/Ressource'
 import '../../styles/pages/ressources/ressource.scss'
 
 interface RessourcePageProps {

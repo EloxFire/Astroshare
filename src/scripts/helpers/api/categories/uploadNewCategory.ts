@@ -1,7 +1,7 @@
 import { getFirestore, collection, addDoc, updateDoc } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { dbCollections } from "../../constants";
-import { RessourceCategory } from "../../../types";
+import { RessourceCategory } from "../../../types/RessourceCategory";
 
 export const uploadNewCategory = async (category: RessourceCategory) => {
   const db = getFirestore();

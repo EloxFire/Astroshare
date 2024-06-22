@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
 import { getCategories } from '../scripts/helpers/api/categories/getCategories';
-import { RessourceCategory } from '../scripts/types';
 import { getVisibleCategories } from '../scripts/helpers/api/categories/getVisibleCategories';
 import { getHiddenCategories } from '../scripts/helpers/api/categories/getHiddenCategories';
+import { RessourceCategory } from '../scripts/types/RessourceCategory';
 
 const CategoriesContext = createContext<any>({});
 

@@ -1,40 +1,5 @@
 import { Dayjs } from "dayjs";
 
-export type Ressource = {
-  ref?: string;
-  type: string
-  name: string;
-  slug: string;
-  category: string;
-  downloadNames: string[];
-  level: string[];
-  description: string;
-  visibility: boolean;
-  filePreview?: any;
-  subtitle?: string;
-  notes?: string;
-  format?: string[];
-  image?: string;
-  links?: string[];
-  tags?: string;
-  files?: any[];
-  totalDownloads?: number;
-  updatesCount?: number;
-  creadtedAt?: any;
-  updatedAt?: any;
-}
-
-export type RessourceCategory = {
-  ref?: string
-  name: string;
-  slug: string;
-  description: string;
-  longDescription: string;
-  icon?: any;
-  image?: any;
-  visibility: boolean;
-}
-
 export type Image = {
   ref?: string
   url?: string; // url to the image

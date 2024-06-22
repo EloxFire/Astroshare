@@ -5,8 +5,8 @@ import { getDownloadsCount } from '../scripts/helpers/api/downloads/getDownloads
 import { getVisitsCount } from '../scripts/helpers/api/visits/getVisitsCount';
 import { getCategoriesCount } from '../scripts/helpers/api/categories/getCategoriesCount';
 import { getUsersCount } from '../scripts/helpers/api/users/getUsersCount';
-import { Ressource } from '../scripts/types';
 import { getMostDownloadedRessources } from '../scripts/helpers/api/ressources/getMostDownloadedRessources';
+import { Ressource } from '../scripts/types/Ressource';
 
 const StatsContext = createContext<any>({});
 

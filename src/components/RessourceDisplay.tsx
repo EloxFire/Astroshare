@@ -1,4 +1,4 @@
-import { Ressource } from "../scripts/types";
+import { Ressource } from '../scripts/types/Ressource';
 import '../styles/components/ressourceDisplay.scss'
 
 interface RessourceDisplayProps {

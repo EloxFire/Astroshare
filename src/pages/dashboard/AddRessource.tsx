@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Ressource, RessourceCategory } from '../../scripts/types'
 import { ressourceProperties } from '../../scripts/helpers/helpers'
 import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
 import { Link } from 'react-router-dom'
@@ -9,6 +8,8 @@ import Alert from '../../components/Alert'
 import '../../styles/pages/dashboard/addRessource.scss'
 import { useCategories } from '../../contexts/CategoriesContext'
 import { useRessources } from '../../contexts/RessourcesContext'
+import { Ressource } from '../../scripts/types/Ressource'
+import { RessourceCategory } from '../../scripts/types/RessourceCategory'
 
 export default function AddRessource() {
 

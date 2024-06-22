@@ -1,8 +1,8 @@
 import { dbStorageNamespaces } from './../../constants';
 import { getFirestore, collection, addDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Ressource } from "../../../types";
 import { dbCollections } from "../../constants";
+import { Ressource } from '../../../types/Ressource';
 
 export const uploadNewRessource = async (ressource: Ressource) => {
   const storage = getStorage();

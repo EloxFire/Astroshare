@@ -1,12 +1,12 @@
 import { useRessources } from '../../contexts/RessourcesContext'
 import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
-import { Ressource } from '../../scripts/types'
 import { routes } from '../../routes'
 import { changeRessourceVisibility } from '../../scripts/helpers/api/ressources/changeRessourceVisibility'
 import { deleteRessource } from '../../scripts/helpers/api/ressources/deleteRessource'
 import DashboardListItem from '../../components/dashboard/DashboardListItem'
 import '../../styles/pages/dashboard/ressourcesList.scss'
+import { Ressource } from '../../scripts/types/Ressource'
 
 export default function RessourcesList() {
 

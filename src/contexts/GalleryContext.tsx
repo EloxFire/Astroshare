@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
 import { getImages } from '../scripts/helpers/api/gallery/getImages';
-import { Image } from '../scripts/types';
+import { Image } from '../scripts/types/Image';
 
 const GalleryContext = createContext<any>({});
 

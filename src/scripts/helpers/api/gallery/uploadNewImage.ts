@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { getFirestore, collection, addDoc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { dbCollections } from "../../constants";
-import { Image } from "../../../types";
+import { Image } from "../../../types/Image";
 
 export const uploadNewImage = async (image: any | Image) => { // TODO REMOVE ANY TYPE
   console.log("Adding new image to gallery");

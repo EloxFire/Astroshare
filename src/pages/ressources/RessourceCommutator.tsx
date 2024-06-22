@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Ressource } from '../../scripts/types'
 import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
+import { routes } from '../../routes'
 import RessourceDetails from './RessourceDetails'
 import RessourcePage from './RessourcePage'
-import { routes } from '../../routes'
+import { Ressource } from '../../scripts/types/Ressource'
 
 export default function RessourceCommutator() {
 

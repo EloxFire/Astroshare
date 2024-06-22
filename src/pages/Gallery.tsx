@@ -3,9 +3,9 @@ import { useGallery } from '../contexts/GalleryContext'
 import { FiChevronLeft } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Image } from '../scripts/types'
 import '../styles/pages/gallery.scss'
 import { routes } from '../routes'
+import { Image } from '../scripts/types/Image'
 
 export default function Gallery() {
 

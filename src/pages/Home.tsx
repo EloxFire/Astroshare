@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
+import { useStats } from '../contexts/StatsContext';
 import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss';
-import { useStats } from '../contexts/StatsContext';
-import { Ressource } from '../scripts/types';
+import { Ressource } from '../scripts/types/Ressource';
 
 export default function Home() {
 

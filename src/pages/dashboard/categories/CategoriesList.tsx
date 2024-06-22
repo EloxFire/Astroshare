@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
 import { routes } from '../../../routes'
 import { useCategories } from '../../../contexts/CategoriesContext'
-import { Ressource, RessourceCategory } from '../../../scripts/types'
 import { deleteCategory } from '../../../scripts/helpers/api/categories/deleteCategory'
 import { changeCategoryVisibility } from '../../../scripts/helpers/api/categories/changeCategoryVisibility'
 import { useRessources } from '../../../contexts/RessourcesContext'
 import DashboardListItem from '../../../components/dashboard/DashboardListItem'
 import '../../../styles/pages/dashboard/categories/categoriesList.scss'
+import { RessourceCategory } from '../../../scripts/types/RessourceCategory'
+import { Ressource } from '../../../scripts/types/Ressource'
 
 export default function CategoriesList() {
 

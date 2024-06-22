@@ -1,6 +1,6 @@
 import { getFirestore, collection, query, getDocs } from "firebase/firestore";
 import { dbCollections } from "../../constants";
-import { Ressource } from './../../../types';
+import { Ressource } from "../../../types/Ressource";
 
 // Get all ressources in the collection
 export const getMostDownloadedRessources = async () => {

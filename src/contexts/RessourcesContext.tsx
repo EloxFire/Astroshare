@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect, ReactNode, createContext } from 'react';
-import { Ressource } from '../scripts/types';
 import { getRessources } from '../scripts/helpers/api/ressources/getRessources';
 import { getVisibleRessources } from '../scripts/helpers/api/ressources/getVisibleRessources';
 import { getHiddenRessources } from '../scripts/helpers/api/ressources/getHiddenRessources';
+import { Ressource } from '../scripts/types/Ressource';
 
 const RessourcesContext = createContext<any>({});
 

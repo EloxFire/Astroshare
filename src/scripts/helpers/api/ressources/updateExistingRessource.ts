@@ -1,15 +1,12 @@
-import { getFirestore, collection, updateDoc, arrayUnion, doc } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Ressource } from "../../../types";
-import { dbCollections, dbStorageNamespaces } from "../../constants";
+import { Ressource } from "../../../types/Ressource";
 
 export const updateExistingRessource = async (ressource: Ressource) => {
-  const storage = getStorage();
-  const db = getFirestore();
+  // const storage = getStorage();
+  // const db = getFirestore();
 
   const tempRessource = ressource;
-  const filesToUpload = ressource.files!;
-  const filePreviewToUpload = ressource.filePreview!;
+  // const filesToUpload = ressource.files!;
+  // const filePreviewToUpload = ressource.filePreview!;
   const { files, filePreview, ...ressourceToUpload } = tempRessource;
 
   try {

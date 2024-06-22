@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { FiChevronLeft } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
-import { Ressource } from '../../scripts/types';
 import { useAuth } from '../../contexts/AuthContext';
 import { routes } from '../../routes';
+import { Ressource } from '../../scripts/types/Ressource';
 import dayjs from 'dayjs';
 import DownloadModal from '../../components/DownloadModal';
 import '../../styles/pages/ressources/ressourceDetails.scss'
