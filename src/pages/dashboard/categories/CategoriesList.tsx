@@ -6,6 +6,7 @@ import { RessourceCategory } from '../../../scripts/types'
 import DashboardListItem from '../../../components/dashboard/DashboardListItem'
 import '../../../styles/pages/dashboard/categories/categoriesList.scss'
 import { deleteCategory } from '../../../scripts/helpers/api/categories/deleteCategory'
+import { changeCategoryVisibility } from '../../../scripts/helpers/api/categories/changeCategoryVisibility'
 
 export default function CategoriesList() {
 
@@ -16,8 +17,8 @@ export default function CategoriesList() {
     await updateCategories()
   }
 
-  const handleVisibility = async (category_ref: string) => {
-    await deleteCategory(category_ref)
+  const handleVisibility = async (category_ref: string, newValue: boolean) => {
+    await changeCategoryVisibility(category_ref, newValue)
     await updateCategories()
   }
 
@@ -35,7 +36,7 @@ export default function CategoriesList() {
                 key={`category-list-item-${category.name}`}
                 properties={[{ label: 'Test', value: "Test" }]}
                 isVisible={category.visibility}
-                onVisibilityChange={() => handleVisibility(category.ref!)}
+                onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                 onDelete={() => handleDelete(category.ref!)}
               />
             )
@@ -52,7 +53,7 @@ export default function CategoriesList() {
                 key={`category-list-item-${category.name}`}
                 properties={[{ label: 'Test', value: "Test" }]}
                 isVisible={category.visibility}
-                onVisibilityChange={() => handleVisibility(category.ref!)}
+                onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                 onDelete={() => handleDelete(category.ref!)}
               />
             )

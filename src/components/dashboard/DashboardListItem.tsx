@@ -31,8 +31,8 @@ export default function DashboardListItem({ properties, updateUrl, isVisible, on
       </div>
       <div className="dashboard-list-item__actions">
         {updateUrl && <Link className="dashboard-list-item__actions__action" to={updateUrl}><FiEdit2 style={{ verticalAlign: "middle" }} /></Link>}
-        {onVisibilityChange && <button onClick={() => onVisibilityChange} className="dashboard-list-item__actions__action">{isVisible ? <FiEyeOff style={{ verticalAlign: "middle" }} /> : <FiEye style={{ verticalAlign: "middle" }} />}</button>}
-        <button onClick={() => onDelete} className="dashboard-list-item__actions__action dashboard-list-item__actions__action--red"><FiTrash2 style={{ verticalAlign: "middle" }} /></button>
+        {onVisibilityChange && <button onClick={() => onVisibilityChange()} className="dashboard-list-item__actions__action">{isVisible ? <FiEyeOff style={{ verticalAlign: "middle" }} /> : <FiEye style={{ verticalAlign: "middle" }} />}</button>}
+        <button onClick={() => onDelete()} className="dashboard-list-item__actions__action dashboard-list-item__actions__action--red"><FiTrash2 style={{ verticalAlign: "middle" }} /></button>
       </div>
     </div>
   )
