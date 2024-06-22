@@ -1,5 +1,5 @@
 import { getFirestore, collection, query, getDocs, where } from "firebase/firestore";
-import { dbCollections } from "../../../scripts/helpers/constants";
+import { dbCollections } from "../../constants";
 
 // Get all ressources in the collection
 export const getHiddenCategories = async () => {

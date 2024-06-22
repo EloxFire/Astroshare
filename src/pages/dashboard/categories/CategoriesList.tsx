@@ -3,11 +3,11 @@ import { FiChevronLeft } from 'react-icons/fi'
 import { routes } from '../../../routes'
 import { useCategories } from '../../../contexts/CategoriesContext'
 import { Ressource, RessourceCategory } from '../../../scripts/types'
-import DashboardListItem from '../../../components/dashboard/DashboardListItem'
-import '../../../styles/pages/dashboard/categories/categoriesList.scss'
 import { deleteCategory } from '../../../scripts/helpers/api/categories/deleteCategory'
 import { changeCategoryVisibility } from '../../../scripts/helpers/api/categories/changeCategoryVisibility'
 import { useRessources } from '../../../contexts/RessourcesContext'
+import DashboardListItem from '../../../components/dashboard/DashboardListItem'
+import '../../../styles/pages/dashboard/categories/categoriesList.scss'
 
 export default function CategoriesList() {
 

@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect, ReactNode, createContext } from
 import { getCategories } from '../scripts/helpers/api/categories/getCategories';
 import { RessourceCategory } from '../scripts/types';
 import { getVisibleCategories } from '../scripts/helpers/api/categories/getVisibleCategories';
-import { getHiddenCategories } from '../pages/dashboard/categories/getHiddenCategories';
+import { getHiddenCategories } from '../scripts/helpers/api/categories/getHiddenCategories';
 
 const CategoriesContext = createContext<any>({});
 
