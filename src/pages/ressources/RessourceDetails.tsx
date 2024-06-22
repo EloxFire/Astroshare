@@ -27,12 +27,12 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
         {ressource.subtitle && <p className="ressource-details__left__subtitle">{ressource.subtitle}</p>}
         <div className="ressource-details__left__description-container">
           <p className="ressource-details__left__description-container__description">{ressource.description !== undefined && new DOMParser().parseFromString(ressource.description, 'text/html').body.textContent}</p>
-          {ressource.notes && <small>{ressource.notes}</small>}
+          {ressource.notes && <small>&#9888; {ressource.notes} &#9888;</small>}
         </div>
         <div className="ressource-details__left__infos">
           <p className="ressource-details__left__infos__item">Format du document : {ressource.format}</p>
           <p className="ressource-details__left__infos__item">Niveau : {ressource.level}</p>
-          <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressource.tags!.split(', ').map((tag, index) => (<span className="tag" key={`ressource-tag-${index}`}>{tag}</span>))}</p>
+          <p className="ressource-details__left__infos__item__left__infos__item">Tags : {ressource.tags?.split(', ').map((tag, index) => (<span className="tag" key={`ressource-tag-${index}`}>{tag}</span>))}</p>
           <p className="ressource-details__left__infos__item__left__infos__item">Dernière mise à jour : {dayjs(ressource.updatedAt!.toDate()).format('DD MMMM YYYY')}</p>
         </div>
         {

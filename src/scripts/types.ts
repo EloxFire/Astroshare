@@ -1,6 +1,7 @@
 import { Dayjs } from "dayjs";
 
 export type Ressource = {
+  ref?: string;
   type: string
   name: string;
   slug: string;
@@ -15,7 +16,6 @@ export type Ressource = {
   format?: string[];
   image?: string;
   links?: string[];
-  ref?: string;
   tags?: string;
   files?: any[];
   totalDownloads?: number;
@@ -25,16 +25,18 @@ export type Ressource = {
 }
 
 export type RessourceCategory = {
+  ref?: string
   name: string;
   slug: string;
   description: string;
   longDescription: string;
   icon?: any;
   image?: any;
-  visibility: boolean
+  visibility: boolean;
 }
 
 export type Image = {
+  ref?: string
   url?: string; // url to the image
   file?: any; // file of the image
   alt: string; // alt text for the image
