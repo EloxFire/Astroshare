@@ -34,7 +34,7 @@ export default function CategoriesList() {
             return (
               <DashboardListItem
                 key={`category-list-item-${category.name}`}
-                properties={[{ label: 'Test', value: "Test" }]}
+                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }]}
                 isVisible={category.visibility}
                 onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                 onDelete={() => handleDelete(category.ref!)}
@@ -51,7 +51,7 @@ export default function CategoriesList() {
             return (
               <DashboardListItem
                 key={`category-list-item-${category.name}`}
-                properties={[{ label: 'Test', value: "Test" }]}
+                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }]}
                 isVisible={category.visibility}
                 onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                 onDelete={() => handleDelete(category.ref!)}

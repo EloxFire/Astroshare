@@ -13,7 +13,9 @@
   &__properties{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-start;
+    flex: 1;
+    gap: 70px;
 
     &__property{
       display: flex;
