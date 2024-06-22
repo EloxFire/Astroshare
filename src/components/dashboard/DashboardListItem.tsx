@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { FiEdit2, FiEye, FiEyeOff, FiTrash2 } from 'react-icons/fi'
+import { FiEdit, FiEye, FiEyeOff, FiTrash2 } from 'react-icons/fi'
 import '../../styles/components/dashboard/dashboardListItem.scss'
 
 interface ItemProperty {
@@ -17,7 +17,7 @@ interface Props {
 export default function DashboardListItem({ properties, updateUrl, isVisible, onVisibilityChange, onDelete }: Props) {
   return (
     <div className="dashboard-list-item">
-      <div className="dashboard-list-item__properties">
+      <div className="dashboard-list-item__properties" style={{ justifyContent: properties.length > 2 ? 'space-between' : 'flex-start' }}>
         {
           properties.map((property: ItemProperty) => {
             return (
@@ -30,7 +30,7 @@ export default function DashboardListItem({ properties, updateUrl, isVisible, on
         }
       </div>
       <div className="dashboard-list-item__actions">
-        {updateUrl && <Link className="dashboard-list-item__actions__action" to={updateUrl}><FiEdit2 style={{ verticalAlign: "middle" }} /></Link>}
+        {updateUrl && <Link className="dashboard-list-item__actions__action" to={updateUrl}><FiEdit style={{ verticalAlign: "middle" }} /></Link>}
         {onVisibilityChange && <button onClick={() => onVisibilityChange()} className="dashboard-list-item__actions__action">{isVisible ? <FiEyeOff style={{ verticalAlign: "middle" }} /> : <FiEye style={{ verticalAlign: "middle" }} />}</button>}
         <button onClick={() => onDelete()} className="dashboard-list-item__actions__action dashboard-list-item__actions__action--red"><FiTrash2 style={{ verticalAlign: "middle" }} /></button>
       </div>

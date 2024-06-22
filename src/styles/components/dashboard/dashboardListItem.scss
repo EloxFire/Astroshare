@@ -16,6 +16,7 @@
     justify-content: space-start;
     flex: 1;
     gap: 70px;
+    padding-right: 200px;
 
     &__property{
       display: flex;
@@ -53,6 +54,9 @@
       border: none;
       outline: none;
       background-color: rgba($white, .2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       
       &:hover{
         background-color: rgba($white, .5);

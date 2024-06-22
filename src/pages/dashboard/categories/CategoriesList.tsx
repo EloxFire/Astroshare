@@ -2,15 +2,17 @@ import { Link } from 'react-router-dom'
 import { FiChevronLeft } from 'react-icons/fi'
 import { routes } from '../../../routes'
 import { useCategories } from '../../../contexts/CategoriesContext'
-import { RessourceCategory } from '../../../scripts/types'
+import { Ressource, RessourceCategory } from '../../../scripts/types'
 import DashboardListItem from '../../../components/dashboard/DashboardListItem'
 import '../../../styles/pages/dashboard/categories/categoriesList.scss'
 import { deleteCategory } from '../../../scripts/helpers/api/categories/deleteCategory'
 import { changeCategoryVisibility } from '../../../scripts/helpers/api/categories/changeCategoryVisibility'
+import { useRessources } from '../../../contexts/RessourcesContext'
 
 export default function CategoriesList() {
 
   const { updateCategories, visibleCategories, hiddenCategories } = useCategories()
+  const { ressources } = useRessources()
 
   const handleDelete = async (category_ref: string) => {
     await deleteCategory(category_ref)
@@ -34,8 +36,9 @@ export default function CategoriesList() {
             return (
               <DashboardListItem
                 key={`category-list-item-${category.name}`}
-                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }]}
+                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
                 isVisible={category.visibility}
+                updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
                 onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                 onDelete={() => handleDelete(category.ref!)}
               />
@@ -51,8 +54,9 @@ export default function CategoriesList() {
             return (
               <DashboardListItem
                 key={`category-list-item-${category.name}`}
-                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }]}
+                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
                 isVisible={category.visibility}
+                updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
                 onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                 onDelete={() => handleDelete(category.ref!)}
               />
