@@ -10,14 +10,11 @@ import Gallery from "./pages/Gallery";
 import Privacy from "./pages/Privacy";
 import Category from "./pages/Category";
 import Dashboard from "./pages/dashboard/Dashboard";
-import AddRessource from "./pages/dashboard/AddRessource";
 import Guard from "./components/auth/Guard";
 import RessourceCommutator from "./pages/ressources/RessourceCommutator";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Profile from "./pages/auth/Profile";
-import UpdateRessource from "./pages/dashboard/UpdateRessource";
-import RessourcesList from "./pages/dashboard/RessourcesList";
 import WeatherApp from "./pages/planner/WeatherApp";
 import Ressources from "./pages/Ressources";
 import Hub from "./pages/Hub";
@@ -26,6 +23,9 @@ import AppPrivacy from "./pages/mobileApp/Privacy";
 import AddCategory from "./pages/dashboard/categories/AddCategory";
 import CategoriesList from "./pages/dashboard/categories/CategoriesList";
 import AddImage from "./pages/dashboard/gallery/AddImage";
+import AddRessource from "./pages/dashboard/ressources/AddRessource";
+import UpdateRessource from "./pages/dashboard/ressources/UpdateRessource";
+import RessourcesList from "./pages/dashboard/ressources/RessourcesList";
 
 function App() {
   return (

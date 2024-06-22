@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { ressourceProperties } from '../../scripts/helpers/helpers'
-import { Link, useParams } from 'react-router-dom'
-import { routes } from '../../routes'
+import { useEffect, useState } from 'react'
+import { ressourceProperties } from '../../../scripts/helpers/helpers'
+import { uploadNewRessource } from '../../../scripts/helpers/api/ressources/uploadNewRessource'
+import { Link } from 'react-router-dom'
+import { routes } from '../../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import Alert from '../../components/Alert'
-import '../../styles/pages/dashboard/addRessource.scss'
-import { useCategories } from '../../contexts/CategoriesContext'
-import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
-import { updateExistingRessource } from '../../scripts/helpers/api/ressources/updateExistingRessource'
-import { Ressource } from '../../scripts/types/Ressource'
-import { RessourceCategory } from '../../scripts/types/RessourceCategory'
+import { useCategories } from '../../../contexts/CategoriesContext'
+import { useRessources } from '../../../contexts/RessourcesContext'
+import { Ressource } from '../../../scripts/types/Ressource'
+import { RessourceCategory } from '../../../scripts/types/RessourceCategory'
+import Alert from '../../../components/Alert'
+import '../../../styles/pages/dashboard/addRessource.scss'
 
-export default function UpdateRessource() {
+export default function AddRessource() {
 
   const { categories } = useCategories();
-  const { ressource_slug } = useParams();
+  const { updateRessources } = useRessources()
 
-  const [ressourceLoading, setRessourceLoading] = useState<boolean>(true)
-  const [currentRessource, setCurrentRessource] = useState<Ressource>()
+  useEffect(() => {
+    document.title = 'Astroshare | Ajouter une ressource'
+  }, [])
 
   const [ressourceName, setRessourceName] = useState<string>("")
   const [ressourceSlug, setRessourceSlug] = useState<string>("")
@@ -27,38 +28,13 @@ export default function UpdateRessource() {
   const [ressourceLevel, setRessourceLevel] = useState<string>("")
   const [ressourceType, setRessourceType] = useState<string>("")
   const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
-  const [ressourceFilePreview, setRessourceFilePreview] = useState<any>(null)
+  const [ressourceFilePreview, setRessourceFilePreview] = useState<any[]>([])
 
   const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
   const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
   const [ressourceOptionnalProperties, setRessourceOptionnalProperties] = useState<any>({})
   const [uploading, setUploading] = useState<boolean>(false)
   const [error, setError] = useState<string>("")
-
-  useEffect(() => {
-    document.title = 'Astroshare | Mettre a jour une ressource'
-  }, [])
-
-  useEffect(() => {
-    const fetchRessource = async () => {
-      if (ressource_slug !== undefined) {
-        const r = await getRessourceBySlug(ressource_slug)
-
-        setCurrentRessource(r.docs[0].data() as Ressource)
-        setRessourceName(r.docs[0].data().name)
-        setRessourceSlug(r.docs[0].data().slug)
-        setRessourceCategory(r.docs[0].data().category)
-        setRessourceDownloadNames(r.docs[0].data().downloadNames.join(','))
-        setRessourceDescription(r.docs[0].data().description)
-        setRessourceLevel(r.docs[0].data().level)
-        setRessourceType(r.docs[0].data().type)
-        setRessourceOptionnalProperties(r.docs[0].data())
-        setRessourceLoading(false)
-      }
-    }
-
-    fetchRessource()
-  }, [ressource_slug])
 
   const appendNewProperty = (key: string, value: string | number) => {
     if (ressourceOptionnalProperties[key] !== undefined && value === "") {
@@ -82,8 +58,11 @@ export default function UpdateRessource() {
       }
       setRessourceFiles(temp)
     } else {
-
-      setRessourceFilePreview(files[0])
+      const temp = [...ressourceFilePreview]
+      for (let i = 0; i < files.length; i++) {
+        temp.push(files[i])
+      }
+      setRessourceFilePreview(temp)
     }
   }
 
@@ -99,8 +78,8 @@ export default function UpdateRessource() {
     }
   }
 
-  const updateRessource = async () => {
-    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "") {
+  const addNewRessource = async () => {
+    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "" || ressourceFiles.length === 0) {
       console.log("Missing required fields");
       setError("Veuillez remplir tous les champs obligatoires")
       setTimeout(() => {
@@ -109,7 +88,7 @@ export default function UpdateRessource() {
       return;
     }
 
-    if (ressourceFiles.length > 0 && (ressourceDownloadNames.split(',').length !== ressourceFiles.length)) {
+    if (ressourceDownloadNames.split(',').length !== ressourceFiles.length) {
       console.log("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement");
       setError("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement")
       setTimeout(() => {
@@ -118,33 +97,38 @@ export default function UpdateRessource() {
       return;
     }
 
-    console.log("RESSOURCE NAME", ressourceName);
-
-
-    let ressourceToUpdate: Ressource = {
+    const ressourceToAdd: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
       category: ressourceCategory,
       downloadNames: ressourceDownloadNames.split(','),
       description: ressourceDescription,
-      level: ressourceLevel.split(','),
+      level: ressourceLevel,
+      files: ressourceFiles,
+      filePreview: ressourceFilePreview[0],
       type: ressourceType,
-      totalDownloads: currentRessource?.totalDownloads,
-      visibility: currentRessource?.visibility!,
+      totalDownloads: 0,
+      updatesCount: 1,
+      visibility: false,
+      createdAd: new Date(),
       updatedAt: new Date(),
+      ...ressourceOptionnalProperties
     }
-
-    // const updatedRessource = { ...ressourceToUpdate, ...ressourceOptionnalProperties }
-
-    // updatedRessource.filePreview = ressourceFilePreview;
-    // updatedRessource.files = ressourceFiles;
-
-    console.log("RESSOURCE TO UPDATE :", ressourceToUpdate);
 
     try {
       setUploading(true)
-      await updateExistingRessource(ressourceToUpdate)
+      await uploadNewRessource(ressourceToAdd)
+      await updateRessources()
       setUploading(false)
+      setRessourceName("")
+      setRessourceSlug("")
+      setRessourceCategory("")
+      setRessourceDownloadNames("")
+      setRessourceDescription("")
+      setRessourceLevel("")
+      setRessourceFiles([])
+      setRessourceFilePreview([])
+      setRessourceOptionnalProperties({})
     } catch (error) {
 
     }
@@ -156,7 +140,7 @@ export default function UpdateRessource() {
         error !== "" &&
         <Alert type='error' message={error} />
       }
-      <p className="h3 title"><Link to={routes.dashboard.ressources.list.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Modifier une ressource</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
           <div className="types-container">
@@ -205,7 +189,7 @@ export default function UpdateRessource() {
               </small>
             </div>
           </div>
-          <button disabled={uploading} className="submit-button" onClick={() => updateRessource()}>{!uploading ? "Mettre à jour la ressource" : <div className="loader"></div>}</button>
+          <button disabled={uploading} className="submit-button" onClick={() => addNewRessource()}>{!uploading ? "Ajouter la ressource" : <div className="loader"></div>}</button>
         </div>
         <div className="right">
           <div className="drop-container">
@@ -232,11 +216,15 @@ export default function UpdateRessource() {
             <div className="files-preview">
               {
                 ressourceFilePreview &&
-                <div className="file">
-                  <embed height="820px" width="350px" className="image" src={URL.createObjectURL(ressourceFilePreview)} title={ressourceFilePreview.name} />
-                  <small className="file-name">{ressourceFilePreview.name.substr(0, 30)}</small>
-                  <button onClick={() => deleteFile(0, 'ressourcePreview')}>X</button>
-                </div>
+                ressourceFilePreview.map((file, fileIndex) => {
+                  return (
+                    <div className="file">
+                      <embed height="820px" width="350px" key={fileIndex} className="image" src={URL.createObjectURL(file)} title={file.name} />
+                      <small className="file-name">{file.name.substr(0, 30)}</small>
+                      <button onClick={() => deleteFile(fileIndex, 'ressourcePreview')}>X</button>
+                    </div>
+                  )
+                })
               }
             </div>
           </div>
