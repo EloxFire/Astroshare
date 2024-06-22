@@ -1,7 +1,61 @@
 @import '../../globals.scss';
 
 .dashboard-list-item{
-  width: 100%;
-  border-top: 2px solid $white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $white;
   color: $white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &__properties{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__property{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      &__label{
+        color: $white;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      &__value{
+        color: $white;
+        font-size: 20px;
+        margin: 0;  
+      }
+    }
+  }
+
+  &__actions{
+    border-left: 1px solid $white;
+    padding-left: 20px;
+
+    &__action{
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: none;
+      background-color: $black;
+      border: 1px solid $white;
+      border-radius: 5px;
+      margin-left: 20px;
+
+      &.red{
+        background-color: red;
+      }
+    }
+  }
 }
