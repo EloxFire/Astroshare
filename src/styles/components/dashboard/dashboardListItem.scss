@@ -40,21 +40,29 @@
   &__actions{
     border-left: 1px solid $white;
     padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 
     &__action{
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 30px;
+      height: 30px;
+      border: none;
       outline: none;
-      background-color: $black;
-      border: 1px solid $white;
-      border-radius: 5px;
-      margin-left: 20px;
+      background-color: rgba($white, .2);
+      
+      &:hover{
+        background-color: rgba($white, .5);
+      }
 
-      &.red{
-        background-color: red;
+
+      &--red{
+        background-color: $red;
+
+        &:hover{
+          background-color: rgba($red, .5);
+        }
       }
     }
   }

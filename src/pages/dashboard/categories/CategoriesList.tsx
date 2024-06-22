@@ -9,10 +9,16 @@ import { deleteCategory } from '../../../scripts/helpers/api/categories/deleteCa
 
 export default function CategoriesList() {
 
-  const { categories } = useCategories()
+  const { updateCategories, visibleCategories, hiddenCategories } = useCategories()
 
   const handleDelete = async (category_ref: string) => {
     await deleteCategory(category_ref)
+    await updateCategories()
+  }
+
+  const handleVisibility = async (category_ref: string) => {
+    await deleteCategory(category_ref)
+    await updateCategories()
   }
 
   return (
@@ -20,13 +26,33 @@ export default function CategoriesList() {
       <p className="dashboard-title h3"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Retour au dashboard</p>
 
       <div className="list visible-list">
+        <p className="dashboard-title h3">Catégories visibles</p>
+
         {
-          categories.filter((cat: RessourceCategory) => (cat.visibility === true)).map((category: RessourceCategory) => {
+          visibleCategories.map((category: RessourceCategory) => {
             return (
               <DashboardListItem
                 key={`category-list-item-${category.name}`}
                 properties={[{ label: 'Test', value: "Test" }]}
                 isVisible={category.visibility}
+                onVisibilityChange={() => handleVisibility(category.ref!)}
+                onDelete={() => handleDelete(category.ref!)}
+              />
+            )
+          })
+        }
+      </div>
+
+      <div className="list non-visible-list">
+        <p className="dashboard-title h3">Catégories non visibles</p>
+        {
+          hiddenCategories.map((category: RessourceCategory) => {
+            return (
+              <DashboardListItem
+                key={`category-list-item-${category.name}`}
+                properties={[{ label: 'Test', value: "Test" }]}
+                isVisible={category.visibility}
+                onVisibilityChange={() => handleVisibility(category.ref!)}
                 onDelete={() => handleDelete(category.ref!)}
               />
             )

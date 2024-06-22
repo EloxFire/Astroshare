@@ -5,4 +5,10 @@
   min-height: 100svh;
   padding-bottom: 5vh;
   padding-top: 5vh;
+
+  .list{
+    margin-top: 10vh;
+    max-height: 45vh;
+    overflow: auto;
+  }
 }
