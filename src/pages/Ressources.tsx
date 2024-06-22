@@ -21,7 +21,7 @@ export default function Ressources() {
       <p>Parcourez les catégories pour découvrir nos ressources associées</p>
       <div className="categories-container">
         {
-          categories.map((category: RessourceCategory, category_index: number) => {
+          categories.filter((cat: RessourceCategory) => (cat.visibility === true)).map((category: RessourceCategory, category_index: number) => {
             return (
               <RessourceCategoryButton
                 key={category_index}
