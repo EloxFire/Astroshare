@@ -5,6 +5,8 @@ import '../../styles/components/dashboard/dashboardListItem.scss'
 interface ItemProperty {
   label: string
   value: string | number
+  type?: 'text' | 'image'
+  alt?: string
 }
 interface Props {
   properties: ItemProperty[]
@@ -22,8 +24,15 @@ export default function DashboardListItem({ properties, updateUrl, isVisible, on
           properties.map((property: ItemProperty) => {
             return (
               <div key={`item-property-${property.label}`} className="dashboard-list-item__properties__property">
-                <p className="dashboard-list-item__properties__property__label">{property.label}</p>
-                <p className="dashboard-list-item__properties__property__value">{property.value}</p>
+                {
+                  property.type !== 'image' && <p className="dashboard-list-item__properties__property__label">{property.label}</p>
+                }
+                {
+                  (property.type && property.type === 'image') && <img loading='lazy' className="dashboard-list-item__properties__property__image" src={property.value as string} alt={property.alt ? property.alt : "Image de la galerie photo"} />
+                }
+                {
+                  (property.type !== 'image' || !property.type) && <p className="dashboard-list-item__properties__property__value">{property.value}</p>
+                }
               </div>
             )
           })

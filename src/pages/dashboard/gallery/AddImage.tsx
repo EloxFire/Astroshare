@@ -5,7 +5,7 @@ import { FiChevronLeft } from 'react-icons/fi'
 import { uploadNewImage } from '../../../scripts/helpers/api/gallery/uploadNewImage'
 import { imageProperties } from '../../../scripts/helpers/helpers'
 import dayjs from 'dayjs'
-import '../../../styles/pages/dashboard/addImage.scss'
+import '../../../styles/pages/dashboard/gallery/addImage.scss'
 
 export default function AddImage() {
 

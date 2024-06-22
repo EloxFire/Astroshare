@@ -67,6 +67,10 @@ export const routes = {
         path: '/dashboard/images/add',
         label: 'Ajouter une image',
       },
+      list: {
+        path: '/dashboard/images',
+        label: 'Liste des images',
+      }
     },
     categories: {
       add: {

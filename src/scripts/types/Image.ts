@@ -34,5 +34,6 @@ export type Image = {
     stackingFrames?: number; // 100
     stackingTime?: string; // 1h - per frame
     stackingTimeTotal?: string; // 100h
-  }
+  },
+  viewers?: number; // number of downloads
 }

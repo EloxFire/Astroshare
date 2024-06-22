@@ -1,0 +1,11 @@
+@import '../../../globals.scss';
+
+.gallery-list-page{
+  @extend .global-page;
+
+  .list{
+    max-height: 65vh;
+    overflow: auto;
+    padding-right: 50px;
+  }
+}

@@ -53,6 +53,7 @@ export default function Dashboard() {
             <p className="subtitle">Images</p>
             <div className="controls-buttons">
               <Link to={routes.dashboard.images.add.path} className="dashboard__add-ressource button-link">{routes.dashboard.images.add.label}</Link>
+              <Link to={routes.dashboard.images.list.path} className="dashboard__add-ressource button-link">{routes.dashboard.images.list.label}</Link>
             </div>
           </div>
         </div>

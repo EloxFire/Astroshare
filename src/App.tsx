@@ -26,6 +26,7 @@ import AddImage from "./pages/dashboard/gallery/AddImage";
 import AddRessource from "./pages/dashboard/ressources/AddRessource";
 import UpdateRessource from "./pages/dashboard/ressources/UpdateRessource";
 import RessourcesList from "./pages/dashboard/ressources/RessourcesList";
+import ImagesList from "./pages/dashboard/gallery/ImagesList";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           <Route path={routes.dashboard.ressources.update.path} element={<Guard children={<Layout asCopyright component={<UpdateRessource />} />} />} />
           <Route path={routes.dashboard.ressources.list.path} element={<Guard children={<Layout asCopyright component={<RessourcesList />} />} />} />
           <Route path={routes.dashboard.images.add.path} element={<Guard children={<Layout asCopyright component={<AddImage />} />} />} />
+          <Route path={routes.dashboard.images.list.path} element={<Guard children={<Layout asCopyright component={<ImagesList />} />} />} />
           <Route path={routes.dashboard.categories.add.path} element={<Guard children={<Layout asCopyright component={<AddCategory />} />} />} />
           <Route path={routes.dashboard.categories.list.path} element={<Guard children={<Layout asCopyright component={<CategoriesList />} />} />} />
         </Routes>
