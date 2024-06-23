@@ -41,6 +41,12 @@ export default function CategoriesList() {
           </thead>
           <tbody>
             {
+              visibleCategories.length === 0 &&
+              <tr>
+                <td colSpan={4} style={{ textAlign: 'center' }}>Aucune catégorie visible</td>
+              </tr>
+            }
+            {
               visibleCategories.map((category: RessourceCategory) => {
                 return (
                   <DashboardListItem
@@ -70,6 +76,12 @@ export default function CategoriesList() {
             </tr>
           </thead>
           <tbody>
+            {
+              hiddenCategories.length === 0 &&
+              <tr>
+                <td colSpan={4} style={{ textAlign: 'center' }}>Aucune catégorie non visible</td>
+              </tr>
+            }
             {
               hiddenCategories.map((category: RessourceCategory) => {
                 return (

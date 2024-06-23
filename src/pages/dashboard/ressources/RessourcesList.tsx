@@ -40,6 +40,12 @@ export default function RessourcesList() {
           </thead>
           <tbody>
             {
+              visibleRessources.length === 0 &&
+              <tr>
+                <td colSpan={4} style={{ textAlign: 'center' }}>Aucune ressource visible</td>
+              </tr>
+            }
+            {
               visibleRessources.map((ressource: Ressource) => {
                 return (
                   <DashboardListItem
@@ -69,6 +75,12 @@ export default function RessourcesList() {
             </tr>
           </thead>
           <tbody>
+            {
+              hiddenRessources.length === 0 &&
+              <tr>
+                <td colSpan={4} style={{ textAlign: 'center' }}>Aucune ressource cachée</td>
+              </tr>
+            }
             {
               hiddenRessources.map((ressource: Ressource) => {
                 return (

@@ -32,6 +32,12 @@ export default function ImagesList() {
             </tr>
           </thead>
           <tbody>
+            {
+              pictures.length === 0 &&
+              <tr>
+                <td colSpan={5} style={{ textAlign: 'center' }}>Aucune image</td>
+              </tr>
+            }
             {pictures.map((img: Image) => (
               <DashboardListItem
                 key={`category-list-item-${img.alt}`}
