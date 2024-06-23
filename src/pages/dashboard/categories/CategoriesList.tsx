@@ -53,7 +53,6 @@ export default function CategoriesList() {
                     key={`category-list-item-${category.name}`}
                     properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
                     isVisible={category.visibility}
-                    updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
                     onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                     onDelete={() => handleDelete(category.ref!)}
                   />
@@ -89,7 +88,6 @@ export default function CategoriesList() {
                     key={`category-list-item-${category.name}`}
                     properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
                     isVisible={category.visibility}
-                    updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
                     onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
                     onDelete={() => handleDelete(category.ref!)}
                   />
