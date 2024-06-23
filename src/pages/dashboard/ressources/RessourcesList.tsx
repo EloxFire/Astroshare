@@ -52,7 +52,7 @@ export default function RessourcesList() {
                     key={`ressource-list-item-${ressource.name}`}
                     properties={[{ label: 'Titre', value: ressource.name }, { label: 'Catégorie', value: ressource.category }, { label: 'Téléchargements', value: ressource.totalDownloads! }]}
                     isVisible={ressource.visibility}
-                    updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
+                    // updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
                     onVisibilityChange={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)}
                     onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug!)}
                   />
@@ -88,7 +88,7 @@ export default function RessourcesList() {
                     key={`ressource-list-item-${ressource.name}`}
                     properties={[{ label: 'Titre', value: ressource.name }, { label: 'Catégorie', value: ressource.category }, { label: 'Téléchargements', value: ressource.totalDownloads! }]}
                     isVisible={ressource.visibility}
-                    updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
+                    // updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
                     onVisibilityChange={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)}
                     onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug!)}
                   />
