@@ -1,6 +1,6 @@
 import { getFirestore, collection, query, getDocs } from "firebase/firestore";
 import { dbCollections } from "../../constants";
-import { Ressource } from './../../../types';
+import { Ressource } from "../../../types/Ressource";
 
 // Get all ressources in the collection
 export const getMostDownloadedRessources = async () => {
@@ -19,5 +19,7 @@ export const getMostDownloadedRessources = async () => {
     return b.totalDownloads! - a.totalDownloads!;
   })
 
-  return sortedRessources;
+  const topRessources = sortedRessources.slice(0, 3);  
+
+  return topRessources;
 }

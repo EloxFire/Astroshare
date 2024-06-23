@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
-import { Ressource, RessourceCategory } from "../scripts/types"
 import { Link, useParams } from "react-router-dom"
 import { FiChevronLeft } from "react-icons/fi"
 import { useCategories } from "../contexts/CategoriesContext"
 import { getRessourceByCategorySlug } from "../scripts/helpers/api/ressources/getRessourcesByCategory"
 import RessourceDisplay from "../components/RessourceDisplay"
 import '../styles/pages/category.scss'
+import { RessourceCategory } from "../scripts/types/RessourceCategory"
+import { Ressource } from "../scripts/types/Ressource"
 
 export default function Category() {
 

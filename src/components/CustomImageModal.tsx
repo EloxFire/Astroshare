@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { Image } from "../scripts/types"
 import { FiArrowRightCircle, FiArrowLeftCircle, FiXCircle } from 'react-icons/fi'
 import dayjs from 'dayjs'
 import '../styles/components/customImageModal.scss'
+import { Image } from '../scripts/types/Image'
 
 interface CustomImageModalProps {
   slide: Image

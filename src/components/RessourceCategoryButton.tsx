@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { Ressource } from '../scripts/types'
 import { useRessources } from '../contexts/RessourcesContext'
 import '../styles/components/ressourceCategory.scss'
+import { Ressource } from '../scripts/types/Ressource'
 
 interface RessourceCategoryButtonProps {
   name: string

@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Ressource, RessourceCategory } from '../../scripts/types'
-import { ressourceProperties } from '../../scripts/helpers/helpers'
-import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
+import { useEffect, useState } from 'react'
+import { ressourceProperties } from '../../../scripts/helpers/helpers'
+import { uploadNewRessource } from '../../../scripts/helpers/api/ressources/uploadNewRessource'
 import { Link } from 'react-router-dom'
-import { routes } from '../../routes'
+import { routes } from '../../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import Alert from '../../components/Alert'
-import '../../styles/pages/dashboard/addRessource.scss'
-import { useCategories } from '../../contexts/CategoriesContext'
-import { useRessources } from '../../contexts/RessourcesContext'
+import { useCategories } from '../../../contexts/CategoriesContext'
+import { useRessources } from '../../../contexts/RessourcesContext'
+import { Ressource } from '../../../scripts/types/Ressource'
+import { RessourceCategory } from '../../../scripts/types/RessourceCategory'
+import Alert from '../../../components/Alert'
+import '../../../styles/pages/dashboard/addRessource.scss'
 
 export default function AddRessource() {
 
@@ -139,7 +140,7 @@ export default function AddRessource() {
         error !== "" &&
         <Alert type='error' message={error} />
       }
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
           <div className="types-container">

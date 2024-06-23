@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Ressource, RessourceCategory } from '../../scripts/types'
-import { ressourceProperties } from '../../scripts/helpers/helpers'
-import { uploadNewRessource } from '../../scripts/helpers/api/ressources/uploadNewRessource'
+import { useEffect, useState } from 'react'
+import { ressourceProperties } from '../../../scripts/helpers/helpers'
 import { Link, useParams } from 'react-router-dom'
-import { routes } from '../../routes'
+import { routes } from '../../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import Alert from '../../components/Alert'
-import '../../styles/pages/dashboard/addRessource.scss'
-import { useCategories } from '../../contexts/CategoriesContext'
-import { getRessourceBySlug } from '../../scripts/helpers/api/ressources/getRessourceBySlug'
-import { updateExistingRessource } from '../../scripts/helpers/api/ressources/updateExistingRessource'
+import { useCategories } from '../../../contexts/CategoriesContext'
+import { getRessourceBySlug } from '../../../scripts/helpers/api/ressources/getRessourceBySlug'
+import { updateExistingRessource } from '../../../scripts/helpers/api/ressources/updateExistingRessource'
+import { Ressource } from '../../../scripts/types/Ressource'
+import { RessourceCategory } from '../../../scripts/types/RessourceCategory'
+import Alert from '../../../components/Alert'
+import '../../../styles/pages/dashboard/addRessource.scss'
 
 export default function UpdateRessource() {
 
@@ -19,6 +19,7 @@ export default function UpdateRessource() {
   const [ressourceLoading, setRessourceLoading] = useState<boolean>(true)
   const [currentRessource, setCurrentRessource] = useState<Ressource>()
 
+  const [initialRessourceSlug, setInitialRessourceSlug] = useState<string>("")
   const [ressourceName, setRessourceName] = useState<string>("")
   const [ressourceSlug, setRessourceSlug] = useState<string>("")
   const [ressourceCategory, setRessourceCategory] = useState<string>("")
@@ -44,6 +45,11 @@ export default function UpdateRessource() {
       if (ressource_slug !== undefined) {
         const r = await getRessourceBySlug(ressource_slug)
 
+        if (r.docs.length === 0) {
+          console.log("Ressource not found")
+          window.location.href = routes.dashboard.ressources.list.path
+        }
+
         setCurrentRessource(r.docs[0].data() as Ressource)
         setRessourceName(r.docs[0].data().name)
         setRessourceSlug(r.docs[0].data().slug)
@@ -54,6 +60,7 @@ export default function UpdateRessource() {
         setRessourceType(r.docs[0].data().type)
         setRessourceOptionnalProperties(r.docs[0].data())
         setRessourceLoading(false)
+        setInitialRessourceSlug(r.docs[0].data().slug)
       }
     }
 
@@ -118,9 +125,6 @@ export default function UpdateRessource() {
       return;
     }
 
-    console.log("RESSOURCE NAME", ressourceName);
-
-
     let ressourceToUpdate: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
@@ -134,16 +138,9 @@ export default function UpdateRessource() {
       updatedAt: new Date(),
     }
 
-    // const updatedRessource = { ...ressourceToUpdate, ...ressourceOptionnalProperties }
-
-    // updatedRessource.filePreview = ressourceFilePreview;
-    // updatedRessource.files = ressourceFiles;
-
-    console.log("RESSOURCE TO UPDATE :", ressourceToUpdate);
-
     try {
       setUploading(true)
-      await updateExistingRessource(ressourceToUpdate)
+      await updateExistingRessource(initialRessourceSlug, ressourceToUpdate)
       setUploading(false)
     } catch (error) {
 
@@ -156,7 +153,7 @@ export default function UpdateRessource() {
         error !== "" &&
         <Alert type='error' message={error} />
       }
-      <p className="h3 title"><Link to={routes.dashboard_ressources_list.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Modifier une ressource</p>
+      <p className="h3 title"><Link to={routes.dashboard.ressources.list.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Modifier une ressource</p>
       <div className="dashboard-add-ressource__content">
         <div className="left">
           <div className="types-container">

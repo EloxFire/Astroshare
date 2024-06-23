@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { routes } from '../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { uploadNewCategory } from '../../scripts/helpers/api/categories/uploadNewCategory'
-import '../../styles/pages/dashboard/addCategory.scss'
+import { uploadNewCategory } from '../../../scripts/helpers/api/categories/uploadNewCategory'
+import { routes } from '../../../routes'
+import '../../../styles/pages/dashboard/categories/addCategory.scss'
+import { useCategories } from '../../../contexts/CategoriesContext'
 
 export default function AddCategory() {
+
+  const { updateCategories } = useCategories()
 
   useEffect(() => {
     document.title = 'Astroshare | Ajouter une categorie'
@@ -34,12 +37,13 @@ export default function AddCategory() {
       image: categoryImage,
       uploadedAt: new Date(),
       createdAt: new Date(),
-      visibility: false
+      visibility: false,
     }
 
     try {
       setUploading(true)
       await uploadNewCategory(categoryToAdd)
+      updateCategories()
       setCategoryName("")
       setCategorySlug("")
       setCategoryDescription("")
@@ -63,7 +67,7 @@ export default function AddCategory() {
   return (
     <div className="dashboard-add-image">
       {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une catégorie</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une catégorie</p>
       <div className="dashboard-add-image__content">
         <div className="left">
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Titre de la catégorie" value={categoryName} onChange={(e) => { setCategoryName(e.target.value) }} />

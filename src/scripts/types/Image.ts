@@ -1,40 +1,7 @@
 import { Dayjs } from "dayjs";
 
-export type Ressource = {
-  type: string
-  name: string;
-  slug: string;
-  category: string;
-  downloadNames: string[];
-  level: string[];
-  description: string;
-  visibility: boolean;
-  filePreview?: any;
-  subtitle?: string;
-  notes?: string;
-  format?: string[];
-  image?: string;
-  links?: string[];
-  ref?: string;
-  tags?: string;
-  files?: any[];
-  totalDownloads?: number;
-  updatesCount?: number;
-  creadtedAt?: any;
-  updatedAt?: any;
-}
-
-export type RessourceCategory = {
-  name: string;
-  slug: string;
-  description: string;
-  longDescription: string;
-  icon?: any;
-  image?: any;
-  visibility: boolean
-}
-
 export type Image = {
+  ref?: string
   url?: string; // url to the image
   file?: any; // file of the image
   alt: string; // alt text for the image
@@ -67,5 +34,7 @@ export type Image = {
     stackingFrames?: number; // 100
     stackingTime?: string; // 1h - per frame
     stackingTimeTotal?: string; // 100h
-  }
+  },
+  viewers?: number; // number of downloads
+  slug?: string; // slug of the image
 }

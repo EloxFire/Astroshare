@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Image } from '../scripts/types'
 import '../styles/components/customImageDisplay.scss'
 import dayjs from 'dayjs'
 import CustomImageModal from './CustomImageModal'
+import { Image } from '../scripts/types/Image'
 
 interface CustomImageDisplayProps {
   images: Image[]

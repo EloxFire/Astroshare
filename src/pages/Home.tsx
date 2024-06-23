@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import { getMostDownloadedRessources } from '../scripts/helpers/api/ressources/getMostDownloadedRessources';
-import { Ressource } from '../scripts/types';
+import { useStats } from '../contexts/StatsContext';
 import MarsModel from '../components/MarsModel';
 import '../styles/pages/home.scss';
+import { Ressource } from '../scripts/types/Ressource';
 
 export default function Home() {
 
-  const [mostDownloadedRessources, setMostDownloadedRessources] = useState<Ressource[]>([])
-  const [mostDownloadedRessourcesLoading, setMostDownloadedRessourcesLoading] = useState<boolean>(true)
+  const { topRessources, statsLoading } = useStats()
+
 
   useEffect(() => {
     document.title = "Astroshare"
-  }, [])
-
-  useEffect(() => {
-    const fetchMostDownloaded = async () => {
-      const ressources = await getMostDownloadedRessources();
-      setMostDownloadedRessources(ressources)
-      setMostDownloadedRessourcesLoading(false)
-    }
-
-    fetchMostDownloaded().catch((err) => {
-      console.error(err)
-    })
   }, [])
 
   return (
@@ -40,10 +28,14 @@ export default function Home() {
           <h2>Ressources les plus téléchargées :</h2>
           <div className="home__left__content__list">
             {
-              mostDownloadedRessourcesLoading ?
-                <small>Chargement...</small>
+              statsLoading ?
+                <>
+                  <div className="loader" style={{ marginBottom: '2vh' }} />
+                  <div className="loader" style={{ marginBottom: '2vh' }} />
+                  <div className="loader" style={{ marginBottom: '2vh' }} />
+                </>
                 :
-                mostDownloadedRessources.slice(0, 2).map((ressource, ressource_index) => {
+                topRessources.map((ressource: Ressource, ressource_index: number) => {
                   return (
                     <Link className="home__left__content__list--link" key={ressource_index} to={`/ressources/${ressource.category}/${ressource.slug}`}>{ressource.name}</Link>
                   )

@@ -44,28 +44,48 @@ export const routes = {
     label: 'Politique de confidentialité',
   },
   dashboard: {
-    path: '/dashboard',
-    label: 'Dashboard',
-  },
-  dashboard_add_ressource: {
-    path: '/dashboard/add-ressource',
-    label: 'Ajouter une ressource',
-  },
-  dashboard_update_ressource: {
-    path: '/dashboard/update-ressource/:ressource_slug',
-    label: 'Modifier une ressource',
-  },
-  dashboard_ressources_list: {
-    path: '/dashboard/ressources-list',
-    label: 'Liste des ressources',
-  },
-  dashboard_add_image: {
-    path: '/dashboard/add-image',
-    label: 'Ajouter une image',
-  },
-  dahsboard_add_category: {
-    path: '/dashboard/add-category',
-    label: 'Créer une catégorie',
+    main: {
+      path: '/dashboard',
+      label: 'Dashboard',
+    },
+    ressources: {
+      add: {
+        path: '/dashboard/ressources/add',
+        label: 'Ajouter une ressource',
+      },
+      update: {
+        path: '/dashboard/ressources/:ressource_slug',
+        label: 'Modifier une ressource',
+      },
+      list: {
+        path: '/dashboard/ressources',
+        label: 'Liste des ressources',
+      },
+    },
+    images: {
+      add: {
+        path: '/dashboard/images/add',
+        label: 'Ajouter une image',
+      },
+      list: {
+        path: '/dashboard/images',
+        label: 'Liste des images',
+      }
+    },
+    categories: {
+      add: {
+        path: '/dashboard/categories/add',
+        label: 'Créer une catégorie',
+      },
+      update: {
+        path: '/dashboard/categories/:category_slug',
+        label: 'Modifier une catégorie',
+      },
+      list: {
+        path: '/dashboard/categories',
+        label: 'Liste des catégories',
+      }
+    },
   },
   login: {
     path: '/login',

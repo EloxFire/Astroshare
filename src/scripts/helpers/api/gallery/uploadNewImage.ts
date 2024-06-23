@@ -2,14 +2,14 @@ import dayjs from "dayjs";
 import { getFirestore, collection, addDoc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { dbCollections } from "../../constants";
-import { Image } from "../../../types";
+import { Image } from "../../../types/Image";
 
 export const uploadNewImage = async (image: any | Image) => { // TODO REMOVE ANY TYPE
   console.log("Adding new image to gallery");
 
   try {
     const storage = getStorage();
-    const storageRef = ref(storage, `gallery/${image.alt}-${dayjs().format("DD-MM-YYYY-HH-mm-ss")}`);
+    const storageRef = ref(storage, `gallery/${image.slug!}`);
 
     const file = await uploadBytes(storageRef, image.file)
     image.file = await getDownloadURL(file.metadata.ref!);

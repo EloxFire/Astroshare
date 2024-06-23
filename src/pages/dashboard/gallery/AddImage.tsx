@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { routes } from '../../routes'
+import { routes } from '../../../routes'
 import { FiChevronLeft } from 'react-icons/fi'
-import { uploadNewImage } from '../../scripts/helpers/api/gallery/uploadNewImage'
-import { imageProperties } from '../../scripts/helpers/helpers'
+import { uploadNewImage } from '../../../scripts/helpers/api/gallery/uploadNewImage'
+import { imageProperties } from '../../../scripts/helpers/helpers'
 import dayjs from 'dayjs'
-import '../../styles/pages/dashboard/addImage.scss'
+import '../../../styles/pages/dashboard/gallery/addImage.scss'
 
 export default function AddImage() {
 
@@ -70,7 +70,7 @@ export default function AddImage() {
   return (
     <div className="dashboard-add-image">
       {/* <Alert type='error' message='Test alert plutot longue pour voir le comportement avec un lmessage tres long ' /> */}
-      <p className="h3 title"><Link to={routes.dashboard.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une image</p>
+      <p className="h3 title"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Ajouter une image</p>
       <div className="dashboard-add-image__content">
         <div className="left">
           <input type='text' className="custom-input" style={{ marginBottom: '20px' }} placeholder="Titre de l'image" value={imageTitle} onChange={(e) => { setImageTitle(e.target.value) }} />
