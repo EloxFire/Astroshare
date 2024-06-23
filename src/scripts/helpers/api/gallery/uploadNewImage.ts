@@ -9,7 +9,7 @@ export const uploadNewImage = async (image: any | Image) => { // TODO REMOVE ANY
 
   try {
     const storage = getStorage();
-    const storageRef = ref(storage, `gallery/${image.alt}-${dayjs().format("DD-MM-YYYY-HH-mm-ss")}`);
+    const storageRef = ref(storage, `gallery/${image.slug!}`);
 
     const file = await uploadBytes(storageRef, image.file)
     image.file = await getDownloadURL(file.metadata.ref!);

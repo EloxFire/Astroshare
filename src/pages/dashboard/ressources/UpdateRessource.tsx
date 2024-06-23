@@ -19,6 +19,7 @@ export default function UpdateRessource() {
   const [ressourceLoading, setRessourceLoading] = useState<boolean>(true)
   const [currentRessource, setCurrentRessource] = useState<Ressource>()
 
+  const [initialRessourceSlug, setInitialRessourceSlug] = useState<string>("")
   const [ressourceName, setRessourceName] = useState<string>("")
   const [ressourceSlug, setRessourceSlug] = useState<string>("")
   const [ressourceCategory, setRessourceCategory] = useState<string>("")
@@ -44,6 +45,11 @@ export default function UpdateRessource() {
       if (ressource_slug !== undefined) {
         const r = await getRessourceBySlug(ressource_slug)
 
+        if (r.docs.length === 0) {
+          console.log("Ressource not found")
+          window.location.href = routes.dashboard.ressources.list.path
+        }
+
         setCurrentRessource(r.docs[0].data() as Ressource)
         setRessourceName(r.docs[0].data().name)
         setRessourceSlug(r.docs[0].data().slug)
@@ -54,6 +60,7 @@ export default function UpdateRessource() {
         setRessourceType(r.docs[0].data().type)
         setRessourceOptionnalProperties(r.docs[0].data())
         setRessourceLoading(false)
+        setInitialRessourceSlug(r.docs[0].data().slug)
       }
     }
 
@@ -118,9 +125,6 @@ export default function UpdateRessource() {
       return;
     }
 
-    console.log("RESSOURCE NAME", ressourceName);
-
-
     let ressourceToUpdate: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
@@ -134,16 +138,9 @@ export default function UpdateRessource() {
       updatedAt: new Date(),
     }
 
-    // const updatedRessource = { ...ressourceToUpdate, ...ressourceOptionnalProperties }
-
-    // updatedRessource.filePreview = ressourceFilePreview;
-    // updatedRessource.files = ressourceFiles;
-
-    console.log("RESSOURCE TO UPDATE :", ressourceToUpdate);
-
     try {
       setUploading(true)
-      await updateExistingRessource(ressourceToUpdate)
+      await updateExistingRessource(initialRessourceSlug, ressourceToUpdate)
       setUploading(false)
     } catch (error) {
 

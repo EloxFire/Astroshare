@@ -15,8 +15,8 @@ export default function CategoriesList() {
   const { updateCategories, visibleCategories, hiddenCategories } = useCategories()
   const { ressources } = useRessources()
 
-  const handleDelete = async (category_ref: string) => {
-    await deleteCategory(category_ref)
+  const handleDelete = async (category_ref: string, category_slug: string) => {
+    await deleteCategory(category_ref, category_slug)
     await updateCategories()
   }
 
@@ -54,7 +54,7 @@ export default function CategoriesList() {
                     properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
                     isVisible={category.visibility}
                     onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
-                    onDelete={() => handleDelete(category.ref!)}
+                    onDelete={() => handleDelete(category.ref!, category.slug)}
                   />
                 )
               })
@@ -89,7 +89,7 @@ export default function CategoriesList() {
                     properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
                     isVisible={category.visibility}
                     onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
-                    onDelete={() => handleDelete(category.ref!)}
+                    onDelete={() => handleDelete(category.ref!, category.slug)}
                   />
                 )
               })

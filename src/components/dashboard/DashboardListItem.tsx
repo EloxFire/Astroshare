@@ -13,7 +13,7 @@ interface Props {
   updateUrl?: string
   isVisible?: boolean
   onVisibilityChange?: () => void
-  onDelete: () => void
+  onDelete?: () => void
 }
 
 export default function DashboardListItem({ properties, updateUrl, isVisible, onVisibilityChange, onDelete }: Props) {
@@ -44,9 +44,13 @@ export default function DashboardListItem({ properties, updateUrl, isVisible, on
             {isVisible ? <FiEyeOff style={{ verticalAlign: "middle" }} /> : <FiEye style={{ verticalAlign: "middle" }} />}
           </button>
         )}
-        <button onClick={() => onDelete()} className="dashboard-list-item__actions__action dashboard-list-item__actions__action--red">
-          <FiTrash2 style={{ verticalAlign: "middle" }} />
-        </button>
+        {
+          onDelete && (
+            <button onClick={() => onDelete()} className="dashboard-list-item__actions__action dashboard-list-item__actions__action--red">
+              <FiTrash2 style={{ verticalAlign: "middle" }} />
+            </button>
+          )
+        }
       </td>
     </tr>
   )

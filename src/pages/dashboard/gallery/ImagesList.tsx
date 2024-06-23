@@ -3,17 +3,18 @@ import { useGallery } from '../../../contexts/GalleryContext'
 import { Link } from 'react-router-dom'
 import { routes } from '../../../routes'
 import { Image } from '../../../scripts/types/Image'
+import { deleteImage } from '../../../scripts/helpers/api/gallery/deleteImage'
 import DashboardListItem from '../../../components/dashboard/DashboardListItem'
-import '../../../styles/pages/dashboard/gallery/imagesList.scss'
 import dayjs from 'dayjs'
+import '../../../styles/pages/dashboard/gallery/imagesList.scss'
 
 export default function ImagesList() {
 
-  const { pictures } = useGallery()
+  const { pictures, updateGallery } = useGallery()
 
-  const handleDelete = async (image_ref: string) => {
-    // await deleteImage(image_ref)
-    // await updateGallery()
+  const handleDelete = async (image_ref: string, image_slug: string) => {
+    await deleteImage(image_ref, image_slug)
+    await updateGallery()
   }
 
   return (
@@ -47,7 +48,7 @@ export default function ImagesList() {
                   { label: 'Date', value: img.date ? dayjs(img.date).format('DD MMMM YYYY') : 'N/A' },
                   { label: 'Vues', value: img.viewers || 'N/A' }
                 ]}
-                onDelete={() => handleDelete(img.ref!)}
+                onDelete={img.slug ? () => handleDelete(img.ref!, img.slug!) : undefined}
               />
             ))}
           </tbody>

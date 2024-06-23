@@ -18,25 +18,30 @@ export function GalleryProvider({ children }: GalleryProviderProps) {
 
 
   useEffect(() => {
-    async function fetchStats() {
-      const data = await getImages();
-      // console.log(data.docs);
-
-      data.docs.forEach((doc: any) => {
-        setPictures((pictures: Image[]) => [...pictures, doc.data()]);
-      })
-      setPicturesLoading(false);
-    }
-
-    fetchStats().catch((err) => {
-      console.log(err);
-    })
+    (async () => {
+      await updateGallery();
+    })()
   }, []);
+
+  const updateGallery = async () => {
+    const data = await getImages();
+    setPicturesLoading(true);
+    let tempPictures: Image[] = [];
+    data.docs.forEach((doc: any) => {
+      tempPictures.push(doc.data());
+    })
+    const orderedPictures = tempPictures.sort((a: any, b: any) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    })
+    setPictures(orderedPictures);
+    setPicturesLoading(false);
+  }
 
 
   const value = {
     pictures,
     picturesLoading,
+    updateGallery
   }
 
   return (

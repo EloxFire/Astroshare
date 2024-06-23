@@ -23,7 +23,7 @@ export const uploadNewCategory = async (category: RessourceCategory) => {
 
     if (category.icon) {
       try {
-        const storageRef = ref(storage, `categories/${category.name}/icon-${category.name}`);
+        const storageRef = ref(storage, `categories/${category.slug}/icon-${category.slug}`);
 
         const file = await uploadBytes(storageRef, category.icon)
         const categoryIconUrl = await getDownloadURL(file.metadata.ref!);
@@ -40,7 +40,7 @@ export const uploadNewCategory = async (category: RessourceCategory) => {
 
     if (category.image) {
       try {
-        const storageRef = ref(storage, `categories/${category.name}/image-${category.name}`);
+        const storageRef = ref(storage, `categories/${category.slug}/image-${category.slug}`);
 
         const file = await uploadBytes(storageRef, category.image)
         const categoryImageUrl = await getDownloadURL(file.metadata.ref!);

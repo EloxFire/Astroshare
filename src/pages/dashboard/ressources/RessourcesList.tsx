@@ -54,7 +54,7 @@ export default function RessourcesList() {
                     isVisible={ressource.visibility}
                     updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
                     onVisibilityChange={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)}
-                    onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug)}
+                    onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug!)}
                   />
                 )
               })
@@ -90,7 +90,7 @@ export default function RessourcesList() {
                     isVisible={ressource.visibility}
                     updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
                     onVisibilityChange={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)}
-                    onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug)}
+                    onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug!)}
                   />
                 )
               })

@@ -1,17 +1,30 @@
 import { collection, deleteDoc, doc, getFirestore } from "firebase/firestore"
-import { dbCollections } from "../../constants"
+import { dbCollections, dbStorageNamespaces } from "../../constants"
+import { deleteObject, getStorage, listAll, ref } from "firebase/storage";
 
-export const deleteCategory = async (category_ref: string) => {
+export const deleteCategory = async (category_ref: string, category_slug: string) => {
   const db = getFirestore()
+  const storage = getStorage();
 
-  if (!category_ref) return console.error("Error deleting ressource: ressource_ref is undefined");
+  if (!category_ref || !category_slug) return console.error("Error deleting category: Missing parameter");
+
+  console.log(category_ref, category_slug);
+  
 
   try {
-    console.log("Deleting ressource " + category_ref);
+    console.log("Deleting category " + category_ref);
 
     // Delete ressource document
-    const ressourcesRef = collection(db, dbCollections.categories);
-    const docRef = await doc(ressourcesRef, category_ref);
+    const categoriesRef = collection(db, dbCollections.categories);
+    const docRef = await doc(categoriesRef, category_ref);
+
+    const storageRef = ref(storage, `${dbStorageNamespaces.categories}/${category_slug}/`);
+    const files = await listAll(storageRef)
+    files.items.forEach(async (fileRef) => {
+      await deleteObject(fileRef)
+    })
+    console.log("Category files deleted successfully !");
+
     await deleteDoc(docRef)
     console.log("Category document deleted successfully !");
 

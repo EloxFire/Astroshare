@@ -4,8 +4,11 @@ import { FiChevronLeft } from 'react-icons/fi'
 import { uploadNewCategory } from '../../../scripts/helpers/api/categories/uploadNewCategory'
 import { routes } from '../../../routes'
 import '../../../styles/pages/dashboard/categories/addCategory.scss'
+import { useCategories } from '../../../contexts/CategoriesContext'
 
 export default function AddCategory() {
+
+  const { updateCategories } = useCategories()
 
   useEffect(() => {
     document.title = 'Astroshare | Ajouter une categorie'
@@ -40,6 +43,7 @@ export default function AddCategory() {
     try {
       setUploading(true)
       await uploadNewCategory(categoryToAdd)
+      updateCategories()
       setCategoryName("")
       setCategorySlug("")
       setCategoryDescription("")

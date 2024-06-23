@@ -36,4 +36,5 @@ export type Image = {
     stackingTimeTotal?: string; // 100h
   },
   viewers?: number; // number of downloads
+  slug?: string; // slug of the image
 }
