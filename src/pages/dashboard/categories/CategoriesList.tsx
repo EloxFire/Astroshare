@@ -28,42 +28,64 @@ export default function CategoriesList() {
   return (
     <div className="categories-list-page">
       <p className="dashboard-title h3"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Retour au dashboard</p>
-
-      <div className="list visible-list">
-        <p className="dashboard-title h3">Catégories visibles</p>
-
-        {
-          visibleCategories.map((category: RessourceCategory) => {
-            return (
-              <DashboardListItem
-                key={`category-list-item-${category.name}`}
-                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
-                isVisible={category.visibility}
-                updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
-                onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
-                onDelete={() => handleDelete(category.ref!)}
-              />
-            )
-          })
-        }
+      <p className="dashboard-title h3">Catégories visibles</p>
+      <div className="list" style={{ marginBottom: '10vh' }}>
+        <table className="dashboard-list">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Description</th>
+              <th>Ressources</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              visibleCategories.map((category: RessourceCategory) => {
+                return (
+                  <DashboardListItem
+                    key={`category-list-item-${category.name}`}
+                    properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
+                    isVisible={category.visibility}
+                    updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
+                    onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
+                    onDelete={() => handleDelete(category.ref!)}
+                  />
+                )
+              })
+            }
+          </tbody>
+        </table>
       </div>
 
-      <div className="list non-visible-list">
-        <p className="dashboard-title h3">Catégories non visibles</p>
-        {
-          hiddenCategories.map((category: RessourceCategory) => {
-            return (
-              <DashboardListItem
-                key={`category-list-item-${category.name}`}
-                properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
-                isVisible={category.visibility}
-                updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
-                onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
-                onDelete={() => handleDelete(category.ref!)}
-              />
-            )
-          })
-        }
+      <p className="dashboard-title h3">Catégories non visibles</p>
+      <div className="list">
+        <table className="dashboard-list">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Description</th>
+              <th>Ressources</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              hiddenCategories.map((category: RessourceCategory) => {
+                return (
+                  <DashboardListItem
+                    key={`category-list-item-${category.name}`}
+                    properties={[{ label: 'Nom', value: category.name }, { label: 'Description', value: category.description }, { label: 'Nombre de ressources', value: ressources.filter((ressource: Ressource) => ressource.category === category.slug).length }]}
+                    isVisible={category.visibility}
+                    updateUrl={routes.dashboard.categories.update.path.replace(':category_slug', category.slug)}
+                    onVisibilityChange={() => handleVisibility(category.ref!, !category.visibility)}
+                    onDelete={() => handleDelete(category.ref!)}
+                  />
+                )
+              })
+            }
+          </tbody>
+        </table>
       </div>
     </div>
   )

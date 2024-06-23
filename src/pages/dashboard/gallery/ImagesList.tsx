@@ -21,9 +21,18 @@ export default function ImagesList() {
       <p className="dashboard-title h3"><Link to={routes.dashboard.main.path}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>Retour au dashboard</p>
       <p className="dashboard-title h3">Liste des images</p>
       <div className="list">
-        {
-          pictures.map((img: Image) => {
-            return (
+        <table className="dashboard-list">
+          <thead>
+            <tr>
+              <th>Aperçu</th>
+              <th>Nom</th>
+              <th>Date</th>
+              <th>Vues</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pictures.map((img: Image) => (
               <DashboardListItem
                 key={`category-list-item-${img.alt}`}
                 properties={[
@@ -34,9 +43,9 @@ export default function ImagesList() {
                 ]}
                 onDelete={() => handleDelete(img.ref!)}
               />
-            )
-          })
-        }
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   )

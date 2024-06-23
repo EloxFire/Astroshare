@@ -1,78 +1,74 @@
 @import '../../globals.scss';
 
-.dashboard-list-item{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid $white;
-  color: $white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.dashboard-list {
+  width: 100%;
+  border-collapse: collapse;
 
-  &__properties{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-start;
-    flex: 1;
-    gap: 70px;
-    padding-right: 200px;
+  th, td {
+    padding: 10px;
+    color: $white;
+    border: none;
+  }
 
-    &__property{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
+  th {
+    background-color: $black;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
 
-      &__label{
-        color: $white;
-        font-size: 15px;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin: 0;
-      }
+  tbody tr {
+    border-bottom: 1px solid $white;
+    transition: background-color 0.3s ease;
 
-      &__value{
-        color: $white;
-        font-size: 20px;
-        margin: 0;  
-      }
-
-      &__image{
-        width: 50px;
-      }
+    &:hover {
+      background-color: rgba($white, 0.1);
     }
   }
 
-  &__actions{
-    border-left: 1px solid $white;
-    padding-left: 20px;
+  .dashboard-list-item__property__image {
+    width: 50px;
+    display: block;
+    margin: auto;
+  }
+
+  .dashboard-list-item__property__value {
+    font-size: 20px;
+  }
+
+  .dashboard-list-item__actions {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    justify-content: flex-start;
+    height: 100%;
+  }
 
-    &__action{
-      width: 30px;
-      height: 30px;
-      border: none;
-      outline: none;
-      background-color: rgba($white, .2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      &:hover{
-        background-color: rgba($white, .5);
-      }
+  .dashboard-list-item__actions__action {
+    width: 30px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: rgba($white, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: rgba($white, .5);
+    }
 
+    &--red {
+      background-color: $red;
 
-      &--red{
-        background-color: $red;
-
-        &:hover{
-          background-color: rgba($red, .5);
-        }
+      &:hover {
+        background-color: rgba($red, .5);
       }
     }
   }
