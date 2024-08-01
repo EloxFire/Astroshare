@@ -2,8 +2,11 @@
 
 .mobile-app{
   @extend .global-page;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .title{
+  .header-title{
     font-size: 65px;
     text-transform: uppercase;
     font-family: 'Gilroy';
@@ -15,7 +18,7 @@
     }
   }
 
-  .subtitle{
+  .header-subtitle{
     font-size: 25px;
     font-family: 'AuxMono';
     font-weight: 500;
@@ -28,7 +31,7 @@
     }
   }
 
-  .tease{
+  .header-tease{
     font-size: 45px;
     text-transform: uppercase;
     font-family: 'Gilroy';
@@ -41,75 +44,83 @@
     }
   }
 
-  .banner-container{
-    padding-top: 5vh;
-    margin-bottom: 10vh;
-    // background-color: blue;
-    margin: 0 -150px 0 -150px;
-
-    img{
-      max-width: 100%;
-    }
-  }
-
   .content-container{
     margin-top: 15vh;
-    margin-bottom: 10vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
 
-    .row{
+    .first-panel, .second-panel{
       display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 15vh;
-      width: 85%;
-      height: 80vh;
+      margin-bottom: 10vh;
+    }
 
-      &.reverse{
-        flex-direction: row-reverse;
-
-        .content{
-          padding-left: 0;
-          padding-right: 50px;
-        }
-      }
-
+    .first-panel{
       img{
-        height: 100%;
+        max-height: 85vh;
       }
 
       .content{
-        flex: 1;
-        height: 100%;
-        padding-left: 50px;
-        display: flex;
-        flex-direction: column;
-        padding-top: 8vh;
-
-        .title{
+        padding-left: 60px;
+        h3{
           font-size: 35px;
           text-align: left;
-        }
-
-        .subtitle{
-          margin-top: 20px;
-          font-family: "Gilroy";
-          font-size: 35px;
-          text-align: left;
-          opacity: 1;
+          font-family: 'Gilroy';
           font-weight: 900;
-          letter-spacing: 0;
           text-transform: uppercase;
         }
 
-        .description{
-          &.low{
-            font-family: "AuxMono";
-            font-size: 15px;
-            opacity: .5;
+        h4{
+          font-size: 20px;
+          text-align: left;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .second-panel{
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .feature-card{
+        width: 280px;
+        background-color: rgba($white, 0.1);
+        border-radius: 10px;
+        border: 1px solid rgba($white, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .header{
+          border-bottom: 1px solid rgba($white, 0.1);
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 10px;
+
+          img{
+            max-width: 72px;
+          }
+        }
+
+        .body{
+          padding: 10px;
+          text-align: center;
+
+          p{
+            margin-top: 20px;
+            font-size: 20px;
+            line-height: 1.2;
+          }
+
+          h3{
+            font-size: 20px;
+            text-align: center;
+            font-family: 'Gilroy';
+            font-weight: 900;
+            text-transform: uppercase;
           }
         }
       }
