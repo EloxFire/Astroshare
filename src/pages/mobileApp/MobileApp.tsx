@@ -13,8 +13,10 @@ export default function MobileApp() {
       </motion.h2>
 
       <motion.h1 className='tease' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3, delay: .8, }}>Bientôt disponible</motion.h1>
-      <motion.div className="image-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8 }}>
-        <img src={'/images/promo/app/app-teaser.png'} alt="Images teaser de l'application" />
+      <motion.div className="content-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8 }}>
+        <div className="row">
+          <img src="/images/mobile-app/app-icon.png" alt="Astroshare app icon" />
+        </div>
       </motion.div>
     </div>
   )
