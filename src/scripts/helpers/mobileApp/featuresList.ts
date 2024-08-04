@@ -8,7 +8,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     img: '/images/icons/astro/CL+N.png',
     alt: "Icône représentant une nébuleuse et un amas d'étoiles ouvert",
     description: [
-      "Profitez d'une base de données de plus de 13000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, UGC, PGC",
+      "Profitez d'une base de données de plus de 13 000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, UGC, PGC",
       "Découvrez les détails de chaque objet, sa position, ses heures de lever et de coucher, les conditions d'observation, et plus encore !"
     ]
   },
