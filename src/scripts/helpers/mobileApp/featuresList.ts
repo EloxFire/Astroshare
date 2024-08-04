@@ -79,7 +79,7 @@ export const appFeaturesList: MobileAppFeature[] = [
   },
   {
     status: 'coming-soon',
-    title: 'Carte du ciel interactive',
+    title: 'Carte du ciel',
     subtitle: "// La voûte céleste en temps réel",
     alt: 'Icône de calendrier',
     background: 'url("/images/promo/app/tools/skymap.png")',

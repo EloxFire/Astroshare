@@ -14,6 +14,10 @@
   margin-bottom: 20px;
   position: relative;
 
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    height: 60px;
+  }
+
   &.variant{
     background-image: var(--button-background);
     background-size: cover;
@@ -52,9 +56,13 @@
       text-transform: uppercase;
       margin: 0;
 
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        font-size: 15px;
+      }
+
       &.variant{
         font-weight: 800;
-        font-size: 25px;
+        font-size: 20px;
       }
     }
 
@@ -64,6 +72,10 @@
       font-weight: 500;
       opacity: .5;
       margin: 0;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        font-size: 10px;
+      }
 
       &.variant{
         opacity: 1;

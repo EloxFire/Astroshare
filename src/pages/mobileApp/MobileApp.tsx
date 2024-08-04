@@ -14,7 +14,6 @@ export default function MobileApp() {
         <motion.h2 className="header-subtitle" initial={{ opacity: 0 }} animate={{ opacity: .5 }} transition={{ duration: 2, delay: .5, }}>
           &#47;&#47; Votre nouveau compagnon d'astronomie
         </motion.h2>
-        {/* <motion.h1 className='header-tease' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8, }}>Bientôt disponible</motion.h1> */}
       </div>
       <motion.div className="content-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8 }}>
         <div className="badge-holder">
@@ -42,7 +41,7 @@ export default function MobileApp() {
 
         <div className="second-panel">
           <h3 style={{ margin: 0 }}>Des fonctionnalités pertinentes</h3>
-          <p style={{ marginBottom: '5vh' }}>Découvrez en détails les fonctionnalités de l'application déja disponibles :</p>
+          <p className="panel-description" style={{ marginBottom: '5vh' }}>Découvrez en détails les fonctionnalités de l'application déja disponibles :</p>
 
           <div className="features" style={{ marginBottom: '10vh' }}>
             {
