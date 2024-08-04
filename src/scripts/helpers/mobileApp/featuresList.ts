@@ -74,7 +74,6 @@ export const appFeaturesList: MobileAppFeature[] = [
     background: 'url("/images/promo/app/tools/isstracker.png")',
     description: [
       "Découvrez la position de la Station Spatiale en temps réel, ainsi qu'une prévisualisation de sa trajectoire autour du globe.",
-      "*Repérez également les prochains passages de l'ISS au dessus de votre position afin de l'observer dans les meilleures conditions."
     ]
   },
   {
