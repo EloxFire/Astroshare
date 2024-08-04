@@ -2,8 +2,11 @@
 
 .mobile-app{
   @extend .global-page;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .title{
+  .header-title{
     font-size: 65px;
     text-transform: uppercase;
     font-family: 'Gilroy';
@@ -11,11 +14,11 @@
     text-align: center;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-      font-size: 48px;
+      font-size: 38px;
     }
   }
 
-  .subtitle{
+  .header-subtitle{
     font-size: 25px;
     font-family: 'AuxMono';
     font-weight: 500;
@@ -24,30 +27,221 @@
     opacity: .5;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-      font-size: 20px;
+      font-size: 15px;
     }
   }
 
-  .tease{
-    font-size: 45px;
-    text-transform: uppercase;
-    font-family: 'Gilroy';
-    font-weight: 900;
-    text-align: center;
-    margin-top: 10vh;
+  .content-container{
+    margin-top: 15vh;
+    width: 90%;
 
     @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
-      font-size: 48px;
+      margin-top: 8vh;
+      width: 100%;
+    }
+
+    .badge-holder{
+      margin-bottom: 20vh;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          margin-bottom: 10vh;
+        }
+
+      .title{
+        font-size: 50px;
+        text-align: center;
+        font-family: 'Gilroy';
+        font-weight: 900;
+        text-transform: uppercase;
+        margin: 0;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          font-size: 25px;
+        }
+
+        &::after{
+          content: '*';
+          font-size: 20px;
+          margin-left: 5px;
+          vertical-align: text-top;
+        }
+      }
+
+      .subtitle{
+        font-size: 15px;
+        text-align: center;
+        font-weight: 500;
+        opacity: .3;
+        margin: 0;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .first-panel, .second-panel, .third-panel{
+      .panel-description{
+        text-align: left;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          text-align: center;
+        }
+      }
+    }
+
+    .first-panel{
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20vh;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        flex-direction: column;
+      }
+
+      img{
+        max-height: 85vh;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
+          width: 100%;
+          align-self: center;
+          object-fit: contain;
+        }
+      }
+
+      .content{
+        padding-left: 60px;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          padding-left: 0;
+          text-align: center;
+          padding-top: 5vh;
+        }
+
+        h3{
+          font-size: 35px;
+          text-align: left;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          text-transform: uppercase;
+
+          @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+            font-size: 30px;
+            text-align: center;
+          }
+        }
+
+        h4{
+          font-size: 20px;
+          text-align: left;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          text-transform: uppercase;
+
+          @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+            font-size: 20px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    .second-panel{
+      display: flex;
+      flex-direction: column;
+
+      h3{
+        font-size: 35px;
+        text-align: left;
+        font-family: 'Gilroy';
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          font-size: 30px;
+          text-align: center;
+        }
+      }
+
+      .features{
+        display: flex;
+        flex-direction: column;
+
+        .feature{
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 80px;
+
+          .description-text{
+            margin: 0;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    .third-panel{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20vh;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        flex-direction: column;
+      }
+
+      h3{
+        font-size: 35px;
+        text-align: left;
+        font-family: 'Gilroy';
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          font-size: 30px;
+          text-align: center;
+        }
+      }
+
+      form{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+
+        input{
+          background-color: rgba($white, .05);
+          border: 1px solid rgba($white, .05);
+          border-radius: 10px;
+          padding: 10px;
+          font-size: 15px;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          margin-bottom: 20px;
+        }
+
+        button{
+          padding: 10px;
+          border-radius: 10px;
+          background-color: rgba($white, .05);
+          border: 1px solid rgba($white, .05);
+          color: $white;
+          font-size: 15px;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          text-transform: uppercase;
+          width: 400px;
+          align-self: center;
+
+          &:hover{
+            background-color: rgba($white, .3);
+          }
+
+          @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+            width: 100%;
+          }
+        }
+      }
     }
   }
-
-  .image-container{
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-
-    img{
-      max-width: 100%;
-    }
-  }
-
 }
