@@ -48,6 +48,34 @@
     margin-top: 15vh;
     width: 90%;
 
+    .badge-holder{
+      margin-bottom: 20vh;
+
+      .title{
+        font-size: 50px;
+        text-align: center;
+        font-family: 'Gilroy';
+        font-weight: 900;
+        text-transform: uppercase;
+        margin: 0;
+
+        &::after{
+          content: '*';
+          font-size: 20px;
+          margin-left: 5px;
+          vertical-align: text-top;
+        }
+      }
+
+      .subtitle{
+        font-size: 15px;
+        text-align: center;
+        font-weight: 500;
+        opacity: .3;
+        margin: 0;
+      }
+    }
+
     .first-panel, .second-panel{
       display: flex;
       flex-direction: row;

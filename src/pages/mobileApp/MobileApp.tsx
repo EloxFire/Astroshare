@@ -17,6 +17,12 @@ export default function MobileApp() {
         {/* <motion.h1 className='header-tease' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8, }}>Bientôt disponible</motion.h1> */}
       </div>
       <motion.div className="content-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8 }}>
+        <div className="badge-holder">
+          <p className="title">Bientôt disponible</p>
+          <p className="subtitle">*Disponibilité sur les appareils Android uniquement</p>
+          <p className="subtitle">Les appareils iOS seront pris en charge prochainement</p>
+        </div>
+
         <div className="first-panel">
           <img src="/images/promo/app/home.png" alt="Page d'accueil de l'application" />
           <div className="content">
