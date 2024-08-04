@@ -71,21 +71,21 @@ export default function MobileApp() {
           <div className="content">
             <h3>Une seule application, tous vos outils</h3>
             <p className="description">L'application idéale pour les passionnés d'astronomie.</p>
-            <p className="description">Profitez d'une application au design sobre et moderne capable de répondre à tous vos besoins pour la préparation et le déroulement de vos sessions d'observations astronomiques.</p>
+            <p className="description">Profitez d'une application au design sobre et moderne, capable de répondre à tous vos besoins pour la préparation et le déroulement de vos sessions d'observations astronomiques.</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Planification de soirée</h4>
-            <p className="description">Consultez la météo, calculez les phases de la lune recherchez les objets célestes que vous souhaitez observer.</p>
+            <p className="description">Consultez la météo, calculez les phases de la Lune recherchez les objets célestes que vous souhaitez observer.</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Mise en station</h4>
             <p className="description">Utilisez notre viseur polaire pour aligner votre monture avec l'étoile polaire.</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Catalogue d'objets</h4>
-            <p className="description">Profitez d'un catalogue de plus de 13000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, UGC, PGC</p>
+            <p className="description">Profitez d'un catalogue de plus de 13 000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, UGC, PGC</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Et plus encore !</h4>
-            <p className="description">Découvrez d'autres outils tout aussi passionants : Image du jour de la NASA, météo solaire, suivi de l'ISS, etc.</p>
+            <p className="description">Découvrez d'autres outils tout aussi passionnants : Image du jour de la NASA, météo solaire, suivi de l'ISS, etc.</p>
           </div>
         </div>
 
         <div className="second-panel">
           <h3 style={{ margin: 0 }}>Des fonctionnalités pertinentes</h3>
-          <p className="panel-description" style={{ marginBottom: '5vh' }}>Découvrez en détails les fonctionnalités de l'application déja disponibles :</p>
+          <p className="panel-description" style={{ marginBottom: '5vh' }}>Découvrez en détails les fonctionnalités de l'application déjà disponibles :</p>
 
           <div className="features" style={{ marginBottom: '10vh' }}>
             {
@@ -113,7 +113,7 @@ export default function MobileApp() {
           </div>
 
           <h3 style={{ margin: 0 }}>Un développement actif !</h3>
-          <p style={{ marginBottom: '5vh' }}>L'aplication Astroshare est un projet en cours de développement. Voici un apperçu des fonctionnalités à venir :</p>
+          <p style={{ marginBottom: '5vh' }}>L'application Astroshare est un projet en cours de développement. Voici un aperçu des fonctionnalités à venir :</p>
           <div className="features" style={{ marginBottom: '10vh' }}>
             {
               appFeaturesList.filter((feature) => feature.status === 'coming-soon').map((feature) => {
