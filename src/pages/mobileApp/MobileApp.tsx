@@ -142,7 +142,7 @@ export default function MobileApp() {
 
         <div className="third-panel">
           <h3 style={{ margin: 0 }}>Rejoingnez la bêta !</h3>
-          <p className="panel-description" style={{ marginBottom: '5vh' }}>Vous souhaitez tester l'application ? Rejoignez le programme de test d'Astroshare, et faites partie des premières personnes à utiliser l'application. Votre retour nous aide à améliorer l'application !</p>
+          <p className="panel-description" style={{ marginBottom: '5vh' }}>Vous souhaitez tester l'application ? Rejoignez le programme de test d'Astroshare, et faites partie des premières personnes à utiliser l'application. Votre retour nous aide à améliorer cette dernière !</p>
           <form onSubmit={handleSubmit}>
             <input ref={inputRef} onChange={(e) => setEmail(e.target.value)} value={email} type="email" placeholder="Votre adresse email" />
             <button disabled={loading} type="submit">{loading && <div className="loader small" style={{ marginRight: '10px' }} />} Rejoindre le programme</button>
