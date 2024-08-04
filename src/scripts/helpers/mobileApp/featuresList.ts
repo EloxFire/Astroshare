@@ -62,8 +62,8 @@ export const appFeaturesList: MobileAppFeature[] = [
     alt: "Image de la nébuleuse de la Trifide (crédits: NASA)",
     background: 'url("/images/promo/app/tools/apod.png")',
     description: [
-      "Découvrez la position de la Station Spatiale en temps réel, ainsi qu'une prévisualisation de sa trajectoire autour du globe.",
-      "*Repérez également les prochains passages de l'ISS au dessus de votre position afin de l'observer dans les méeilleures conditions."
+      "Explorez toujours plus loin avec la fonctionnalité d'image du jour de la NASA.",
+      "Profitez d'images et de vidéos uniques mises en avant par la NASA chaque jour. Découvrez de nouveaux horizons sous un angle unique !"
     ]
   },
   {
@@ -74,7 +74,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     background: 'url("/images/promo/app/tools/isstracker.png")',
     description: [
       "Découvrez la position de la Station Spatiale en temps réel, ainsi qu'une prévisualisation de sa trajectoire autour du globe.",
-      "*Repérez également les prochains passages de l'ISS au dessus de votre position afin de l'observer dans les méeilleures conditions."
+      "*Reérez également les prochains passages de l'ISS au dessus de votre position afin de l'observer dans les méeilleures conditions."
     ]
   },
   {
@@ -85,6 +85,17 @@ export const appFeaturesList: MobileAppFeature[] = [
     background: 'url("/images/promo/app/tools/skymap.png")',
     description: [
       "Profitez d'un planétarium interactif intégré à Astroshare. Visualisez la position de chaque objet du ciel en temps réel et préparez vous soirée en suivant les heures de lever et de coucher de chaque objet."
+    ]
+  },
+  {
+    status: 'coming-soon',
+    title: "ISS Tracker",
+    subtitle: "// Image du jour de la NASA",
+    alt: "Image de la nébuleuse de la Trifide (crédits: NASA)",
+    background: 'url("/images/promo/app/tools/isstracker.png")',
+    description: [
+      "(Mise à jour)",
+      "Repérez également les prochains passages de l'ISS au dessus de votre position afin de l'observer dans les méeilleures conditions."
     ]
   }
 ]

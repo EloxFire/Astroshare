@@ -82,7 +82,11 @@
 
     .first-panel, .second-panel, .third-panel{
       .panel-description{
-        text-align: center;
+        text-align: left;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          text-align: center;
+        }
       }
     }
 
