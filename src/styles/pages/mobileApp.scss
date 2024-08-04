@@ -80,7 +80,7 @@
       }
     }
 
-    .first-panel, .second-panel{
+    .first-panel, .second-panel, .third-panel{
       .panel-description{
         text-align: center;
       }
@@ -172,6 +172,69 @@
           .description-text{
             margin: 0;
             text-align: left;
+          }
+        }
+      }
+    }
+
+    .third-panel{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20vh;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        flex-direction: column;
+      }
+
+      h3{
+        font-size: 35px;
+        text-align: left;
+        font-family: 'Gilroy';
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          font-size: 30px;
+          text-align: center;
+        }
+      }
+
+      form{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+
+        input{
+          background-color: rgba($white, .05);
+          border: 1px solid rgba($white, .05);
+          border-radius: 10px;
+          padding: 10px;
+          font-size: 15px;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          margin-bottom: 20px;
+        }
+
+        button{
+          padding: 10px;
+          border-radius: 10px;
+          background-color: rgba($white, .05);
+          border: 1px solid rgba($white, .05);
+          color: $white;
+          font-size: 15px;
+          font-family: 'Gilroy';
+          font-weight: 900;
+          text-transform: uppercase;
+          width: 400px;
+          align-self: center;
+
+          &:hover{
+            background-color: rgba($white, .3);
+          }
+
+          @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+            width: 100%;
           }
         }
       }

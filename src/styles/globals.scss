@@ -188,6 +188,11 @@ code{
   display: inline-block;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
+
+  &.small{
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .dashboard-box{
