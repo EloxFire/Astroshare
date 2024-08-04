@@ -84,7 +84,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     alt: 'Icône de calendrier',
     background: 'url("/images/promo/app/tools/skymap.png")',
     description: [
-      "Profitez d'un planétarium interactif intégré à Astroshare. Visualisez la position de chaque objet du ciel en temps réel et préparez vous soirée en suivant les heures de lever et de coucher de chaque objet."
+      "Profitez d'un planétarium interactif intégré à Astroshare. Visualisez la position de chaque objet du ciel en temps réel et préparez vos soirée d'observation plus simplement."
     ]
   },
   {
