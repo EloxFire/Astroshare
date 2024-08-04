@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import '../../styles/pages/mobileApp.scss'
+import { appFeaturesList } from "../../scripts/helpers/mobileApp/featuresList";
+import MobileAppButton from "../../components/mobileApp/MobileAppButton";
 
 export default function MobileApp() {
 
@@ -33,39 +35,59 @@ export default function MobileApp() {
         </div>
 
         <div className="second-panel">
-          <div className="feature-card">
-            <div className="header"><img src="/images/icons/FiTelescope.png" alt="Mise en station" /></div>
-            <div className="body">
-              <h3>Mise en station</h3>
-              <p>Notre viseur polaire digital vous permet de d'aligner votre monture avec l'étoile polaire de manière simple et précise.</p>
-              <p>Profitez d'une mise à jours en temps réel du graphique pour une précision maximale. Plus besoin de chercher ailleur, Astroshare vous le permet.</p>
-            </div>
+          <h3 style={{ margin: 0 }}>Des fonctionnalités pertinentes</h3>
+          <p style={{ marginBottom: '5vh' }}>Découvrez en détails les fonctionnalités de l'application déja disponibles :</p>
+
+          <div className="features" style={{ marginBottom: '10vh' }}>
+            {
+              appFeaturesList.filter((feature) => feature.status === 'available').map((feature) => {
+                return (
+                  <div className="feature" key={`feature-${feature.title}`}>
+                    <MobileAppButton
+                      title={feature.title}
+                      subtitle={feature.subtitle}
+                      img={feature.img}
+                      alt={feature.alt}
+                      background={feature.background}
+                    />
+                    {feature.description &&
+                      feature.description.map((description, index) => {
+                        return (
+                          <p className="description-text" key={`feature-${feature.title}-description-${index}`}>{description}</p>
+                        )
+                      })
+                    }
+                  </div>
+                )
+              })
+            }
           </div>
 
-          <div className="feature-card">
-            <div className="header"><img src="/images/icons/FiSolarWind.png" alt="Météo solaire" /></div>
-            <div className="body">
-              <h3>Météo solaire</h3>
-              <p>Contemplez le Soleil sous toutes ses coutures et découvrez les conditions solaires actuelles.</p>
-              <p>Profitez d'images et de vidéos en temps quasi réel de tous les instruments disponibles en orbite autour du Soleil.</p>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <div className="header"><img src="/images/icons/FiIss.png" alt="Suivi de l'ISS" /></div>
-            <div className="body">
-              <h3>Suivi de l'ISS</h3>
-              <p>Découvrez la position de la Station Spatiale en temps réel, ainsi qu'une prévisualisation de sa trajectoire autour du globe.</p>
-              <p>Repérez également les prochains passages de l'ISS au dessus de votre position afin de l'observer dans les méeilleures conditions.</p>
-            </div>
-          </div>
-
-          <div className="feature-card">
-            <div className="header"><img src="/images/icons/astro/CL+N.png" alt="Catalogue d'objets" /></div>
-            <div className="body">
-              <h3>Catalogue d'objets</h3>
-              <p>13000</p>
-            </div>
+          <h3 style={{ margin: 0 }}>Un développement actif !</h3>
+          <p style={{ marginBottom: '5vh' }}>L'aplication Astroshare est un projet en cours de développement. Voici un apperçu des fonctionnalités à venir :</p>
+          <div className="features" style={{ marginBottom: '10vh' }}>
+            {
+              appFeaturesList.filter((feature) => feature.status === 'coming-soon').map((feature) => {
+                return (
+                  <div className="feature" key={`feature-${feature.title}`}>
+                    <MobileAppButton
+                      title={feature.title}
+                      subtitle={feature.subtitle}
+                      img={feature.img}
+                      alt={feature.alt}
+                      background={feature.background}
+                    />
+                    {feature.description &&
+                      feature.description.map((description, index) => {
+                        return (
+                          <p className="description-text" key={`feature-${feature.title}-description-${index}`}>{description}</p>
+                        )
+                      })
+                    }
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
       </motion.div>

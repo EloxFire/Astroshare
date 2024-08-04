@@ -51,7 +51,7 @@
     .first-panel, .second-panel{
       display: flex;
       flex-direction: row;
-      margin-bottom: 10vh;
+      margin-bottom: 20vh;
     }
 
     .first-panel{
@@ -80,47 +80,30 @@
     }
 
     .second-panel{
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      display: flex;
+      flex-direction: column;
 
-      .feature-card{
-        width: 280px;
-        background-color: rgba($white, 0.1);
-        border-radius: 10px;
-        border: 1px solid rgba($white, 0.1);
+      h3{
+        font-size: 35px;
+        text-align: left;
+        font-family: 'Gilroy';
+        font-weight: 900;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+      }
+
+      .features{
         display: flex;
         flex-direction: column;
-        align-items: center;
 
-        .header{
-          border-bottom: 1px solid rgba($white, 0.1);
-          width: 100%;
+        .feature{
           display: flex;
-          justify-content: center;
-          padding: 10px;
+          flex-direction: column;
+          margin-bottom: 80px;
 
-          img{
-            max-width: 72px;
-          }
-        }
-
-        .body{
-          padding: 10px;
-          text-align: center;
-
-          p{
-            margin-top: 20px;
-            font-size: 20px;
-            line-height: 1.2;
-          }
-
-          h3{
-            font-size: 20px;
-            text-align: center;
-            font-family: 'Gilroy';
-            font-weight: 900;
-            text-transform: uppercase;
+          .description-text{
+            margin: 0;
+            text-align: left;
           }
         }
       }
