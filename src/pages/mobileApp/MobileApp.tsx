@@ -34,7 +34,7 @@ export default function MobileApp() {
     }
 
     setLoading(true)
-    emailjs.send('Astroshare', 'astroshare_beta_request', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
+    emailjs.send('Astroshare', 'astroshare_beta_user', mail, 'user_OimdLZV4uZQJjsxfr0Cgc')
       .then((result) => {
         setResponse(true)
         setEmail('')
@@ -147,7 +147,7 @@ export default function MobileApp() {
             <input ref={inputRef} onChange={(e) => setEmail(e.target.value)} value={email} type="email" placeholder="Votre adresse email" />
             <button disabled={loading} type="submit">{loading && <div className="loader small" style={{ marginRight: '10px' }} />} Rejoindre le programme</button>
           </form>
-          {response === true && <p style={{ color: 'green' }}>Votre email a bien été envoyé !</p>}
+          {response === true && <p style={{ color: 'green' }}>Demande prise en compte, un email de confirmation vous a été envoyé !</p>}
           {response === false && <p style={{ color: 'red' }}>Une erreur est survenue, veuillez réessayer.</p>}
         </div>
       </motion.div>
