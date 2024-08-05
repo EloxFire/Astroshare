@@ -73,9 +73,9 @@ export default function MobileApp() {
             <p className="description">L'application idéale pour les passionnés d'astronomie.</p>
             <p className="description">Profitez d'une application au design sobre et moderne, capable de répondre à tous vos besoins pour la préparation et le déroulement de vos sessions d'observations astronomiques.</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Planification de soirée</h4>
-            <p className="description">Consultez la météo, calculez les phases de la Lune recherchez les objets célestes que vous souhaitez observer.</p>
+            <p className="description">Consultez la météo, calculez les phases de la Lune, recherchez les objets célestes que vous souhaitez observer.</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Mise en station</h4>
-            <p className="description">Utilisez notre viseur polaire pour aligner votre monture avec l'étoile polaire.</p>
+            <p className="description">Utilisez notre viseur polaire pour aligner votre monture avec l'axe terrestre.</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Catalogue d'objets</h4>
             <p className="description">Profitez d'un catalogue de plus de 13 000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, UGC, PGC</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Et plus encore !</h4>

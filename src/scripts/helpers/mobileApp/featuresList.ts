@@ -20,7 +20,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     alt: 'Icône du Soleil',
     description: [
       "Consultez la météo pour votre position actuelle ou n'importe où dans le monde de manière simple et gratuite. Découvrez si les conditions météorologiques sont favorables pour vos sessions d'observations !.",
-      "Plus aucun moment de ciel dégagé ne vous échappera. Alors, c'est l'heure de sortir de télescope !"
+      "Plus aucun moment de ciel dégagé ne vous échappera. Alors, c'est l'heure de sortir le télescope !"
     ]
   },
   {
@@ -63,7 +63,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     background: 'url("/images/promo/app/tools/apod.png")',
     description: [
       "Explorez toujours plus loin avec la fonctionnalité d'image du jour de la NASA.",
-      "Profitez d'images et de vidéos uniques mises en avant par la NASA chaque jour. Découvrez de nouveaux horizons sous un angle unique !"
+      "Profitez d'images et de vidéos uniques mises en avant chaque jour par la NASA. Découvrez de nouveaux horizons sous un angle unique !"
     ]
   },
   {
