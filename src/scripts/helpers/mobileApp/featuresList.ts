@@ -69,7 +69,7 @@ export const appFeaturesList: MobileAppFeature[] = [
   {
     status: 'available',
     title: "ISS Tracker",
-    subtitle: "// Image du jour de la NASA",
+    subtitle: "// Position de l'ISS en temps réel",
     alt: "Image de la nébuleuse de la Trifide (crédits: NASA)",
     background: 'url("/images/promo/app/tools/isstracker.png")',
     description: [
@@ -89,7 +89,7 @@ export const appFeaturesList: MobileAppFeature[] = [
   {
     status: 'coming-soon',
     title: "ISS Tracker",
-    subtitle: "// Image du jour de la NASA",
+    subtitle: "// Position de l'ISS en temps réel",
     alt: "Image de la nébuleuse de la Trifide (crédits: NASA)",
     background: 'url("/images/promo/app/tools/isstracker.png")',
     description: [
