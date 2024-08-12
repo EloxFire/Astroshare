@@ -166,12 +166,27 @@
 
       .features{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
 
         .feature{
           display: flex;
           flex-direction: column;
           margin-bottom: 80px;
+          max-width: 45%;
+
+          @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+            flex-direction: column;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 100%;
+          }
 
           .description-text{
             margin: 0;
