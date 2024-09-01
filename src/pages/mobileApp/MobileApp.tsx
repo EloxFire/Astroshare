@@ -4,7 +4,9 @@ import { useRef, useState } from "react";
 import { mailRegex } from "../../scripts/helpers/helpers";
 import MobileAppButton from "../../components/mobileApp/MobileAppButton";
 import emailjs from '@emailjs/browser';
+import Countdown from 'react-countdown';
 import '../../styles/pages/mobileApp.scss'
+import CountdownRenderer from "../../components/mobileApp/CountdownRenderer";
 
 export default function MobileApp() {
 
@@ -51,6 +53,11 @@ export default function MobileApp() {
       });
   }
 
+  // Renderer callback with condition
+  const renderer = ({ days, hours, minutes, seconds, completed }: any) => {
+    return <CountdownRenderer days={days} hours={hours} minutes={minutes} seconds={seconds} completed={completed} />;
+  };
+
   return (
     <div className="mobile-app">
       <div>
@@ -61,7 +68,12 @@ export default function MobileApp() {
       </div>
       <motion.div className="content-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8 }}>
         <div className="badge-holder">
-          <p className="title">Bientôt disponible</p>
+          <Countdown
+            date={new Date("2022-09-16T00:00:00")}
+            renderer={renderer}
+            zeroPadTime={2}
+            zeroPadDays={2}
+          />
           <p className="subtitle">*Disponibilité sur les appareils Android uniquement</p>
           <p className="subtitle">Les appareils iOS seront pris en charge prochainement</p>
         </div>
