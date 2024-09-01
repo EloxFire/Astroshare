@@ -8,7 +8,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     img: '/images/icons/astro/CL+N.png',
     alt: "Icône représentant une nébuleuse et un amas d'étoiles ouvert",
     description: [
-      "Profitez d'une base de données de plus de 13 000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, UGC, PGC",
+      "Profitez d'une base de données de plus de 13 000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, SAC, SIMBAD",
       "Découvrez les détails de chaque objet, sa position, ses heures de lever et de coucher, les conditions d'observation, et plus encore !"
     ]
   },
@@ -77,13 +77,13 @@ export const appFeaturesList: MobileAppFeature[] = [
     ]
   },
   {
-    status: 'coming-soon',
+    status: 'available',
     title: 'Carte du ciel',
     subtitle: "// La voûte céleste en temps réel",
     alt: 'Icône de calendrier',
     background: 'url("/images/promo/app/tools/skymap.png")',
     description: [
-      "Profitez d'un planétarium interactif intégré à Astroshare. Visualisez la position de chaque objet du ciel en temps réel et préparez vos soirée d'observation plus simplement."
+      "Visualisez la position de chaque objet du ciel en temps réel et préparez vos soirée d'observation plus simplement."
     ]
   },
   {
@@ -96,5 +96,16 @@ export const appFeaturesList: MobileAppFeature[] = [
       "(Mise à jour)",
       "Repérez également les prochains passages de l'ISS au-dessus de votre position afin de l'observer dans les meilleures conditions."
     ]
-  }
+  },
+  {
+    status: 'coming-soon',
+    title: 'Carte du ciel',
+    subtitle: "// La voûte céleste en temps réel",
+    alt: 'Icône de calendrier',
+    background: 'url("/images/promo/app/tools/skymap.png")',
+    description: [
+      '(Mise à jour)',
+      "Profitez un planétarium interactif intégré à Astroshare, déplacez vous dans le ciel du bout des doigts et découvrez les objets célestes qui vous entourent."
+    ]
+  },
 ]
