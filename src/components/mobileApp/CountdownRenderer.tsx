@@ -17,7 +17,7 @@ export default function CountdownRenderer({ days, hours, minutes, seconds, compl
           <div className="container">
             <p className="title">Lancement dans</p>
             <div className="countdown">
-              <img src="/images/icons/astro/CL+N.png" alt="Nébuleuse planétaire" />
+              {/* <img src="/images/icons/astro/CL+N.png" alt="Nébuleuse planétaire" /> */}
               <div className="values">
                 <div className="value">
                   <p className="number">{days}</p>

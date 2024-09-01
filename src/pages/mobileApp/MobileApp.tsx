@@ -69,10 +69,11 @@ export default function MobileApp() {
       <motion.div className="content-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 2, delay: .8 }}>
         <div className="badge-holder">
           <Countdown
-            date={new Date("2022-09-16T00:00:00")}
+            date={new Date("2024-09-16T00:00:00")}
             renderer={renderer}
             zeroPadTime={2}
             zeroPadDays={2}
+            autoStart
           />
           <p className="subtitle">*Disponibilité sur les appareils Android uniquement</p>
           <p className="subtitle">Les appareils iOS seront pris en charge prochainement</p>
