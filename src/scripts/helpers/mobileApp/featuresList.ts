@@ -41,7 +41,7 @@ export const appFeaturesList: MobileAppFeature[] = [
     img: '/images/icons/FiMoon.png',
     alt: 'Icône de la lune',
     description: [
-      "Profitez de notre outil de calcul des phases de la Lune ! Ce dernier vous permet de connaître toutes les informations de notre satellite pour une date donnée."
+      "Profitez de notre calendrier des phases de la Lune, ainsi que de notre outil de calcul des phases ! Ce dernier vous permet de connaître toutes les informations de notre satellite pour une date donnée."
     ]
   },
   {
@@ -74,6 +74,26 @@ export const appFeaturesList: MobileAppFeature[] = [
     background: 'url("/images/promo/app/tools/isstracker.png")',
     description: [
       "Découvrez la position de la Station Spatiale en temps réel, ainsi qu'une prévisualisation de sa trajectoire autour du globe.",
+    ]
+  },
+  {
+    status: 'available',
+    title: 'Starlink Tracker',
+    subtitle: "// Suivez les satellites Starlink",
+    alt: 'Icône de calendrier',
+    background: 'url("/images/promo/app/tools/starlinktracker.png")',
+    description: [
+      "Suivez les satellites Starlink en temps réel et découvrez leur position en orbite. Contemplez la progression fulgurante de la constellation !",
+    ]
+  },
+  {
+    status: 'available',
+    title: 'Lancements de fusées',
+    subtitle: "// Assistez aux prochains décollages",
+    alt: 'Icône de calendrier',
+    background: 'url("/images/promo/app/tools/launches.png")',
+    description: [
+      "Découvrez les prochains lancements de fusées et de satellites à partir de notre base de données mise à jour en temps réel. Ne manquez plus aucun décollage !",
     ]
   },
   {

@@ -18,7 +18,7 @@ export default function MobileApp() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const input = inputRef.current;
-    if (mailRegex.test(email) === false || email === '') {
+    if (!mailRegex.test(email) || email === '') {
       if (input) {
         // Set input border color to red
         input.style.borderColor = 'red';
@@ -92,7 +92,7 @@ export default function MobileApp() {
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Catalogue d'objets</h4>
             <p className="description">Profitez d'un catalogue de plus de 13 000 objets du ciel profond, provenants des catalogues : Messier, NGC, IC, SAC, SIMBAD</p>
             <h4 style={{ marginTop: '40px', opacity: .8 }}>Et plus encore !</h4>
-            <p className="description">Découvrez d'autres outils tout aussi passionnants : Image du jour de la NASA, météo solaire, suivi de l'ISS, etc.</p>
+            <p className="description">Découvrez d'autres outils tout aussi passionnants : Image du jour de la NASA, météo solaire, suivi de l'ISS, lancements de fusées...</p>
           </div>
         </div>
 
