@@ -55,6 +55,7 @@ export default function RessourcesList() {
                     // updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
                     onVisibilityChange={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)}
                     onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug!)}
+                    goToRessource={() => window.open(`/ressources/${ressource.category}/${ressource.slug}`, '_blank')}
                   />
                 )
               })
@@ -91,6 +92,7 @@ export default function RessourcesList() {
                     // updateUrl={routes.dashboard.ressources.update.path.replace(':ressource_slug', ressource.slug)}
                     onVisibilityChange={() => handleChangeVisibility(ressource.ref!, !ressource.visibility)}
                     onDelete={() => handleDeleteRessource(ressource.ref!, ressource.slug!)}
+                    goToRessource={() =>  window.open(`/ressources/${ressource.category}/${ressource.slug}`, '_blank')}
                   />
                 )
               })

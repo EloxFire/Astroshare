@@ -1,0 +1,64 @@
+.remark-h1{
+  font-family: 'Gilroy-Bold';
+  text-transform: uppercase;
+  margin-top: 60px;
+}
+
+.remark-h2, .remark-h3, .remark-h4, .remark-h5, .remark-h6{
+  font-family: 'Gilroy-Bold';
+  text-transform: uppercase;
+  margin-top: 80px;
+}
+
+.remark-code{
+  background-color: $white_no_opacity;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid $white_no_opacity;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  font-family: "Aux Mono";
+}
+
+.remark-thead {
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    display: none;
+  }
+}
+
+.remark-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 60px 0;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    margin: 30px 0;
+    display: block;
+  }
+}
+
+.remark-tr {
+  display: table-row;
+
+  // Mode responsive pour les petits écrans
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.remark-td {
+  padding: 8px;
+  display: table-cell;
+  font-size: 21px;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}

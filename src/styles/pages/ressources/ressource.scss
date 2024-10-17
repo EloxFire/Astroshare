@@ -1,5 +1,98 @@
 @import '../../globals.scss';
+@import '../../markdown.scss';
 
 .ressource{
   @extend .global-page;
+
+  .ressource__content{
+    max-width: 1224px;
+    margin: 40px auto 100px auto;
+  }
+
+  .ressource-infos{
+    background-color: $white_no_opacity;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid $white_no_opacity;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+      flex-direction: column;
+    }
+
+    .separator{
+      height: 1px;
+      width: 100%;
+      background-color: $white_twenty;
+      margin-bottom: 20px;
+    }
+
+    &__title{
+      font-size: 25px;
+      color: $white;
+      margin-bottom: 20px;
+      font-family: 'Gilroy-Black';
+      //text-transform: uppercase;
+    }
+
+    .part{
+      max-width: 50%;
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      img{
+        max-height: 30vh;
+        border-radius: 10px;
+        border: 1px solid $white_no_opacity;
+
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          margin-top: 20px;
+          max-width: 100%;
+        }
+      }
+
+      &.right{
+        @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+          align-items: center;
+        }
+      }
+    }
+  }
+
+
+  .ressource-info-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    align-items: flex-start;
+    gap: 5px;
+
+
+    p{
+      font-size: 15px !important;
+      color: $white;
+      font-family: 'Aux Mono';
+      margin: 0;
+      opacity: .8;
+    }
+
+    span {
+      font-family: 'Gilroy';
+      background-color: $white_no_opacity;
+      border: 1px solid $white_no_opacity;
+      padding: 2px 5px;
+      border-radius: 5px;
+      margin: 0 0 0 8px;
+    }
+  }
 }

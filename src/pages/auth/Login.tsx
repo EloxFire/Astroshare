@@ -43,6 +43,7 @@ export default function Login() {
       setAlert('Veuillez remplir tous les champs')
       setTimeout(() => {
         setAlert('')
+        setLoading(false) // To avoid brute force
       }, 3000)
       return
     }
@@ -51,7 +52,8 @@ export default function Login() {
       await signIn(email, password)
       setLoading(false)
       if (state && state.fromPage) {
-        navigate(state.fromPath)
+        console.log("FROM PAGE", state.fromPage)
+        window.location.href = state.fromPage
       } else {
         navigate(routes.home.path)
       }
@@ -60,9 +62,10 @@ export default function Login() {
       error.message.includes('auth/wrong-password') && setAlert('Mot de passe incorrect')
       error.message.includes('auth/invalid-email') && setAlert('Email invalide')
       error.message.includes('auth/invalid-login-credentials') && setAlert('Email ou mot de passe invalide')
+      error.message.includes('auth/invalid-credentials') && setAlert('Email ou mot de passe invalide')
       error.message.includes('auth/too-many-requests') && setAlert('Trop de tentatives, veuillez réessayer plus tard')
       error.message.includes('auth/network-request-failed') && setAlert('Impossible de se connecter à internet')
-      console.error(error.message)
+      console.error("SIGN IN ERROR :", error.message)
       setLoading(false)
 
       setTimeout(() => {

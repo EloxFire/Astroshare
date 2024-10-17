@@ -13,6 +13,7 @@ export const getVisitsCount = async () => {
     const countValue = countData.value;
     return countValue;
   } else {
-    throw new Error("Count document does not exist");
+    console.error("Count document error")
+    return 0;
   }
 }

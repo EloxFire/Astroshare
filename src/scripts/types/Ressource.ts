@@ -5,13 +5,14 @@ export type Ressource = {
   slug: string;
   category: string;
   downloadNames: string[];
-  level: string[];
+  level: string;
   description: string;
   visibility: boolean;
+  mardownContent?: string;
   filePreview?: any;
   subtitle?: string;
   notes?: string;
-  format?: string[];
+  format?: string;
   image?: string;
   links?: string[];
   tags?: string;

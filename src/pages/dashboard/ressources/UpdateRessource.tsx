@@ -131,7 +131,7 @@ export default function UpdateRessource() {
       category: ressourceCategory,
       downloadNames: ressourceDownloadNames.split(','),
       description: ressourceDescription,
-      level: ressourceLevel.split(','),
+      level: ressourceLevel,
       type: ressourceType,
       totalDownloads: currentRessource?.totalDownloads,
       visibility: currentRessource?.visibility!,

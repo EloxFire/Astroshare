@@ -29,6 +29,7 @@ export default function AddRessource() {
   const [ressourceType, setRessourceType] = useState<string>("")
   const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
   const [ressourceFilePreview, setRessourceFilePreview] = useState<any[]>([])
+  const [ressourceMarkdownContent, setRessourceMarkdownContent] = useState<string>("")
 
   const [selectedAdditionalProperty, setSelectedAdditionalProperty] = useState<string>("")
   const [additionnalPropertyValue, setAdditionnalPropertyValue] = useState<string>("")
@@ -105,6 +106,7 @@ export default function AddRessource() {
       description: ressourceDescription,
       level: ressourceLevel,
       files: ressourceFiles,
+      mardownContent: ressourceMarkdownContent,
       filePreview: ressourceFilePreview[0],
       type: ressourceType,
       totalDownloads: 0,
@@ -124,6 +126,7 @@ export default function AddRessource() {
       setRessourceSlug("")
       setRessourceCategory("")
       setRessourceDownloadNames("")
+      setRessourceMarkdownContent("")
       setRessourceDescription("")
       setRessourceLevel("")
       setRessourceFiles([])
@@ -164,6 +167,11 @@ export default function AddRessource() {
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(e.target.value) }} />
           <textarea className="custom-input" style={{ marginBottom: '20px' }} placeholder='Description de la ressource' cols={30} rows={5} value={ressourceDescription} onChange={(e) => { setRessourceDescription(e.target.value) }} />
+
+          {
+            ressourceType === "online" &&
+              <textarea className="custom-input" style={{marginBottom: '20px'}} placeholder='Contenu markdown de la ressource en ligne' cols={30} rows={5} value={ressourceMarkdownContent} onChange={(e) => { setRessourceMarkdownContent(e.target.value) }}/>
+          }
 
           <div className="additionnal-property">
             <p className="title">Ajouter une propriété optionnelle</p>
