@@ -13,7 +13,7 @@ export const getDownloadsCount = async () => {
     const countValue = countData.value;
     return countValue;
   } else {
-    console.error("Count document error")
+    console.error("Download count error")
     return 0;
   }
 }

@@ -13,7 +13,7 @@ export const getVisitsCount = async () => {
     const countValue = countData.value;
     return countValue;
   } else {
-    console.error("Count document error")
+    console.error("Total visits count error")
     return 0;
   }
 }
