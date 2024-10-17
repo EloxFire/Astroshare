@@ -54,10 +54,13 @@ export default function RessourceInfosBox({ ressource, onFileSelect, onClickDown
           <p>Description :</p>
           <span style={{backgroundColor: 'transparent', border: 'none'}}>{ressource.description}</span>
         </div>
-        <div className={"ressource-info-container"}>
-          <p>Notes suplémentaires :</p>
-          <span>{ressource.notes}</span>
-        </div>
+        {
+          ressource.notes && ressource.notes !== "" &&
+            <div className={"ressource-info-container"}>
+                <p>Notes suplémentaires :</p>
+                <span style={{backgroundColor: 'transparent', border: 'none'}}>{ressource.notes}</span>
+            </div>
+        }
 
         <div className={"separator"}/>
         <p

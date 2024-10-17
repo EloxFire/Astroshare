@@ -18,6 +18,11 @@
   font-weight: normal;
   font-size: 18px;
   font-family: "Aux Mono";
+  color: $white;
+
+  @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
+    font-size: 15px;
+  }
 }
 
 .remark-thead {
