@@ -2,9 +2,7 @@ import { useState } from 'react'
 import { FiChevronLeft } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext';
-import { routes } from '../../routes';
 import { Ressource } from '../../scripts/types/Ressource';
-import dayjs from 'dayjs';
 import DownloadModal from '../../components/DownloadModal';
 import '../../styles/pages/ressources/ressourceDetails.scss'
 import RessourceInfosBox from "../../components/RessourceInfosBox";
@@ -24,7 +22,7 @@ export default function RessourceDetails({ ressource }: RessourceDetailsProps) {
   return (
     <div className="ressource-details">
       <h1 className="h2 title ressource-details__left__title"><Link to={`/ressources/${ressource.category}`}><FiChevronLeft style={{ verticalAlign: 'middle' }} /></Link>{ressource.name}</h1>
-      <RessourceInfosBox ressource={ressource} onFileSelect={(e) => setSelectedPackage(e)} onClickDownload={(e) => setDownloadModal(e)} />
+      <RessourceInfosBox onlyDownload ressource={ressource} onFileSelect={(e) => setSelectedPackage(e)} onClickDownload={(e) => setDownloadModal(e)} />
       {
         downloadModal &&
         <DownloadModal
