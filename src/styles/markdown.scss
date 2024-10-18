@@ -1,12 +1,14 @@
 .remark-h1{
-  font-family: 'Gilroy-Bold';
+  font-family: 'Gilroy';
   text-transform: uppercase;
+  font-weight: 800;
 }
 
 .remark-h2, .remark-h3, .remark-h4, .remark-h5, .remark-h6{
-  font-family: 'Gilroy-Bold';
+  font-family: 'Gilroy', serif;
   text-transform: uppercase;
   margin-top: 60px;
+  font-weight: 700;
 }
 
 .remark-code{
@@ -17,7 +19,7 @@
   font-style: italic;
   font-weight: normal;
   font-size: 18px;
-  font-family: "Aux Mono";
+  font-family: "AuxMono";
   color: $white;
 
   @media screen and (max-width: map-get($breakpoints, 'tablet-min')) {
