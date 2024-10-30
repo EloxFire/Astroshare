@@ -5,6 +5,7 @@ import {Ressource} from "../scripts/types/Ressource";
 import {useAuth} from "../contexts/AuthContext";
 import {useNavigate} from "react-router-dom";
 import '../styles/pages/ressources/ressource.scss'
+import {getRessourceLevel} from "../scripts/helpers/ressources/getRessourceLevel";
 
 interface RessourceInfosBoxProps {
   ressource: Ressource,
@@ -33,9 +34,15 @@ export default function RessourceInfosBox({ ressource, onFileSelect, onClickDown
         <div className={"ressource-info-container"}>
           <p>Niveau :</p>
           {
+            typeof ressource.level !== 'number' ?
             ressource.level.split(',').map((level: string, index: number): ReactNode => (
               <span key={index}>{level}</span>
             ))
+              :
+              <>
+                {getRessourceLevel(ressource).element}
+                <span>{getRessourceLevel(ressource).label}</span>
+              </>
           }
         </div>
         <div className={"ressource-info-container"}>
@@ -95,7 +102,7 @@ export default function RessourceInfosBox({ ressource, onFileSelect, onClickDown
         </div>
       </div>
       <div className={"part right"}>
-        <img src={ressource.filePreview}/>
+        <img className={"ressource-illustration"} src={ressource.filePreview}/>
       </div>
     </div>
   );
