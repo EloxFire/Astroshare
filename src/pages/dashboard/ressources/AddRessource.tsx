@@ -25,7 +25,7 @@ export default function AddRessource() {
   const [ressourceCategory, setRessourceCategory] = useState<string>("")
   const [ressourceDownloadNames, setRessourceDownloadNames] = useState<string>("")
   const [ressourceDescription, setRessourceDescription] = useState<string>("")
-  const [ressourceLevel, setRessourceLevel] = useState<string>("")
+  const [ressourceLevel, setRessourceLevel] = useState<number>(1)
   const [ressourceType, setRessourceType] = useState<string>("")
   const [ressourceFiles, setRessourceFiles] = useState<any[]>([])
   const [ressourceFilePreview, setRessourceFilePreview] = useState<any[]>([])
@@ -80,7 +80,7 @@ export default function AddRessource() {
   }
 
   const addNewRessource = async () => {
-    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDownloadNames === "" || ressourceDescription === "" || ressourceLevel === "" || ressourceType === "" || ressourceFiles.length === 0) {
+    if (ressourceName === "" || ressourceSlug === "" || ressourceCategory === "" || ressourceDescription === "" || ressourceLevel === 0 || ressourceLevel > 5 || ressourceType === "") {
       console.log("Missing required fields");
       setError("Veuillez remplir tous les champs obligatoires")
       setTimeout(() => {
@@ -89,20 +89,22 @@ export default function AddRessource() {
       return;
     }
 
-    if (ressourceDownloadNames.split(',').length !== ressourceFiles.length) {
-      console.log("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement");
-      setError("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement")
-      setTimeout(() => {
-        setError("")
-      }, 3000)
-      return;
+    if(ressourceDownloadNames !== "" || ressourceFiles.length > 0) {
+      if (ressourceDownloadNames.split(',').length !== ressourceFiles.length) {
+        console.log("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement");
+        setError("Le nombre de fichiers ne correspond pas au nombre de noms de téléchargement")
+        setTimeout(() => {
+          setError("")
+        }, 3000)
+        return;
+      }
     }
 
     const ressourceToAdd: Ressource = {
       name: ressourceName,
       slug: ressourceSlug,
       category: ressourceCategory,
-      downloadNames: ressourceDownloadNames.split(','),
+      downloadNames: ressourceDownloadNames === "" ? [] : ressourceDownloadNames.split(','),
       description: ressourceDescription,
       level: ressourceLevel,
       files: ressourceFiles,
@@ -128,7 +130,7 @@ export default function AddRessource() {
       setRessourceDownloadNames("")
       setRessourceMarkdownContent("")
       setRessourceDescription("")
-      setRessourceLevel("")
+      setRessourceLevel(1)
       setRessourceFiles([])
       setRessourceFilePreview([])
       setRessourceOptionnalProperties({})
@@ -165,7 +167,7 @@ export default function AddRessource() {
           </select>
           {/* <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Catégorie de la ressource' value={ressourceCategory} onChange={(e) => { setRessourceCategory(e.target.value) }} /> */}
           <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Nom des fichiers de téléchargement' value={ressourceDownloadNames} onChange={(e) => { setRessourceDownloadNames(e.target.value) }} />
-          <input type="text" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(e.target.value) }} />
+          <input type="number" className="custom-input" style={{ marginBottom: '20px' }} placeholder='Niveau de la ressource' value={ressourceLevel} onChange={(e) => { setRessourceLevel(parseFloat(e.target.value)) }} />
           <textarea className="custom-input" style={{ marginBottom: '20px' }} placeholder='Description de la ressource' cols={30} rows={5} value={ressourceDescription} onChange={(e) => { setRessourceDescription(e.target.value) }} />
 
           {

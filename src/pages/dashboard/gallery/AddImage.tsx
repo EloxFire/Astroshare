@@ -6,6 +6,7 @@ import { uploadNewImage } from '../../../scripts/helpers/api/gallery/uploadNewIm
 import { imageProperties } from '../../../scripts/helpers/helpers'
 import dayjs from 'dayjs'
 import '../../../styles/pages/dashboard/gallery/addImage.scss'
+import {Image} from "../../../scripts/types/Image";
 
 export default function AddImage() {
 
@@ -27,7 +28,7 @@ export default function AddImage() {
       return;
     }
 
-    const imageToAdd = {
+    const imageToAdd: Image = {
       file: imageFile,
       alt: imageTitle,
       date: imageDate,

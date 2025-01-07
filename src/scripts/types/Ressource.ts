@@ -4,7 +4,7 @@ export type Ressource = {
   name: string;
   slug: string;
   category: string;
-  downloadNames: string[];
+  downloadNames?: string[];
   level: string | number;
   description: string;
   visibility: boolean;

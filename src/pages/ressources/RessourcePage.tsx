@@ -16,8 +16,13 @@ interface RessourcePageProps {
 
 export default function RessourcePage({ ressource }: RessourcePageProps) {
 
-  const [selectedPackage, setSelectedPackage] = useState<string>(ressource.files![0])
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null)
   const [downloadModal, setDownloadModal] = useState<boolean>(false)
+
+  const handleDownloadClick = (e: boolean) => {
+    setDownloadModal(e)
+    setSelectedPackage(ressource.files![0])
+  }
 
   return (
     <div className="ressource">
@@ -27,7 +32,7 @@ export default function RessourcePage({ ressource }: RessourcePageProps) {
         </Link>
         {ressource.name}
       </h1>
-      <RessourceInfosBox ressource={ressource} onFileSelect={(e) => setSelectedPackage(e)} onClickDownload={(e) => setDownloadModal(e)} />
+      <RessourceInfosBox onlyLive={!ressource.files} ressource={ressource} onFileSelect={(e) => setSelectedPackage(e)} onClickDownload={(e) => handleDownloadClick(e)} />
       <div className="ressource__content">
         <Markdown
           remarkPlugins={[remarkGfm]}
@@ -38,7 +43,7 @@ export default function RessourcePage({ ressource }: RessourcePageProps) {
         </Markdown>
       </div>
       {
-        downloadModal &&
+        downloadModal && ressource.files && ressource.downloadNames && selectedPackage &&
           <DownloadModal
               downloadUrl={selectedPackage}
               onClose={() => setDownloadModal(false)}

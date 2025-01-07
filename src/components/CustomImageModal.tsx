@@ -7,8 +7,8 @@ import { Image } from '../scripts/types/Image'
 interface CustomImageModalProps {
   slide: Image
   onClose: () => void
-  onNext?: () => void
-  onPrevious?: () => void
+  onNext: () => void
+  onPrevious: () => void
 }
 
 export default function CustomImageModal({ slide, onClose, onNext, onPrevious }: CustomImageModalProps) {
@@ -24,6 +24,12 @@ export default function CustomImageModal({ slide, onClose, onNext, onPrevious }:
     switch (e.key) {
       case "Escape":
         onClose()
+        break;
+      case "ArrowRight":
+        onNext()
+        break;
+      case "ArrowLeft":
+        onPrevious()
         break;
       default:
         break;

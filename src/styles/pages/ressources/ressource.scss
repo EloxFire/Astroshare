@@ -78,10 +78,10 @@
 .ressource-info-container{
   display: flex;
   flex-direction: row;
-  align-items: center;
   margin-bottom: 10px;
   align-items: flex-start;
   gap: 5px;
+  flex-wrap: wrap;
 
 
   p{
@@ -93,13 +93,20 @@
   }
 
   span {
-    font-family: 'Gilroy';
+    font-family: 'Gilroy', serif;
     font-weight: 400;
     background-color: $white_no_opacity;
     border: 1px solid $white_no_opacity;
     padding: 2px 5px;
     border-radius: 5px;
-    margin: 0 0 0 8px;
+    margin: 0 8px 0 0px;
+  }
+
+  .desc{
+    font-family: 'Gilroy', serif;
+    font-weight: 400;
+    opacity: 1;
+    font-size: 16px !important;
   }
 }
 

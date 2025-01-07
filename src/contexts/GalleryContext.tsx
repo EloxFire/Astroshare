@@ -33,6 +33,7 @@ export function GalleryProvider({ children }: GalleryProviderProps) {
     const orderedPictures = tempPictures.sort((a: any, b: any) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     })
+    // console.log("Found pictures :", orderedPictures.length);
     setPictures(orderedPictures);
     setPicturesLoading(false);
   }

@@ -9,7 +9,7 @@ export const uploadNewRessource = async (ressource: Ressource) => {
   const db = getFirestore();
 
   const tempRessource = ressource;
-  const filesToUpload = ressource.files!;
+  const filesToUpload = ressource.files;
   const filePreviewToUpload = ressource.filePreview!;
   const { files, filePreview, ...ressourceToUpload } = tempRessource;
 
@@ -22,38 +22,41 @@ export const uploadNewRessource = async (ressource: Ressource) => {
       ref: docRef.id
     });
     console.log("Ressource written with ID : ", docRef.id);
-    
-    
-    // Upload files to storage
-    try {
-      filesToUpload.forEach(async (file, file_index) => {
-        console.log("Uploading file :", ressource.downloadNames[file_index]);
-        
-        const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/files/version${ressource.updatesCount!}/${ressource.downloadNames[file_index]}`);
-        const fileRef = await uploadBytes(storageRef, file);
-        const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
-        console.log("File uploaded to storage:", fileRef.metadata.ref!);
-        await updateDoc(docRef, {
-          files: arrayUnion(fileUrl)
-        })
-        console.log(`File n°${file_index} url added to ressource document`);
-      })
-    } catch (error) {
-      console.error("Error uploading ressource files to storage:", error);
-    }
 
-    // Upload files to storage
-    try {
-      const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/illustration/version${ressource.updatesCount!}/illustration.jpg`);
-      const filePreviewRef = await uploadBytes(storageRef, filePreviewToUpload);
-      const filePreviewUrl = await getDownloadURL(filePreviewRef.metadata.ref!);
-      console.log("File uploaded to storage:", filePreviewRef.metadata.ref!);
-      updateDoc(docRef, {
-        filePreview: filePreviewUrl
-      })
-      console.log(`File preview url added to ressource document`);
-    } catch (error) {
-      console.error("Error uploading ressource file preview to storage:", error);
+    if(filesToUpload && ressource.downloadNames && filesToUpload.length === ressource.downloadNames.length) {
+      // Upload files to storage
+      try {
+        filesToUpload.forEach(async (file, file_index) => {
+          console.log("Uploading file :", ressource.downloadNames![file_index]);
+
+          const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/files/version${ressource.updatesCount!}/${ressource.downloadNames![file_index]}`);
+          const fileRef = await uploadBytes(storageRef, file);
+          const fileUrl = await getDownloadURL(fileRef.metadata.ref!);
+          console.log("File uploaded to storage:", fileRef.metadata.ref!);
+          await updateDoc(docRef, {
+            files: arrayUnion(fileUrl)
+          })
+          console.log(`File n°${file_index} url added to ressource document`);
+        })
+      } catch (error) {
+        console.error("Error uploading ressource files to storage:", error);
+      }
+
+      // Upload files to storage
+      try {
+        const storageRef = ref(storage, `${dbStorageNamespaces.ressources}/${ressource.slug}/illustration/version${ressource.updatesCount!}/illustration.jpg`);
+        const filePreviewRef = await uploadBytes(storageRef, filePreviewToUpload);
+        const filePreviewUrl = await getDownloadURL(filePreviewRef.metadata.ref!);
+        console.log("File uploaded to storage:", filePreviewRef.metadata.ref!);
+        updateDoc(docRef, {
+          filePreview: filePreviewUrl
+        })
+        console.log(`File preview url added to ressource document`);
+      } catch (error) {
+        console.error("Error uploading ressource file preview to storage:", error);
+      }
+    }else {
+      console.log("No files to upload, skipping");
     }
   } catch (error) {
     console.error("Error adding document:", error);

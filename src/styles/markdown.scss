@@ -1,7 +1,15 @@
+.remark-p{
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
 .remark-h1{
   font-family: 'Gilroy';
   text-transform: uppercase;
   font-weight: 800;
+  font-size: 38px;
 }
 
 .remark-h2, .remark-h3, .remark-h4, .remark-h5, .remark-h6{
@@ -9,6 +17,14 @@
   text-transform: uppercase;
   margin-top: 60px;
   font-weight: 700;
+}
+
+.remark-h2{
+  font-size: 32px;
+}
+
+.remark-h3{
+  font-size: 28px;
 }
 
 .remark-code{
@@ -66,5 +82,33 @@
     box-sizing: border-box;
     margin-bottom: 5px;
     text-align: center;
+  }
+}
+
+.remark-img{
+  max-width: 100%;
+}
+
+.remark-li{
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: 'Gilroy', serif;
+}
+
+.remark-blockquote{
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: 'Gilroy', serif;
+  border-left: 10px solid $white_twenty;
+  background-color: $white_no_opacity;
+  border-radius: 10px;
+  padding: 10px;
+
+  p{
+    margin-bottom: 0;
   }
 }
