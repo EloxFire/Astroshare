@@ -1,27 +1,69 @@
-# Astroshare
+# React + TypeScript + Vite
 
-🇫🇷 Astroshare est un site internet regroupant des ressources d'astronomie en ligne pour les astronomes amateurs, principalement débutants. Le site dispose aussi d'un outil de météo en direct et dans un futur proche, d'un outil de planification de soirées d'observation du ciel.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Astroshare est géré dans sa totalité par [Enzo Avagliano](https://enzoavagliano.fr)
+Currently, two official plugins are available:
 
-🇬🇧 Astroshare is a website bringing together online astronomy resources for amateur astronomers, mainly beginners. The site also has a live weather tool and in the near future, a tool for planning sky observation evenings.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Astroshare is managed entirely by [Enzo Avagliano](https://enzoavagliano.fr)
-## Usage
+## Expanding the ESLint configuration
 
-Astroshare est disponible à cette adresse : [https://astroshare.fr](https://astroshare.fr)
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## Roadmap
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-- ~~[ ]  Outils d'astronomie (Planificateur)~~ --> Déplacé vers : https://github.com/EloxFire/astroshare-planner
-- [ ]  Commentaires galerie photo
-- [ ]  Nouvelles ressources :
-    - [ ]  Fonctionnement du Système Solaire
-    - [ ]  Se repérer dans le ciel
-    - [ ]  Fiches mémo : Les constellations
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Authors
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- [@Eloxfire](https://www.github.com/eloxfire)
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```

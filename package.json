@@ -1,66 +1,31 @@
 {
   "name": "astroshare",
-  "author": "Enzo Avagliano",
-  "description": "Astroshare est un site internet regroupant des ressources d'astronomie gratuites à destination des astronomes débutants et amateurs.",
-  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@emailjs/browser": "^3.11.0",
-    "@react-three/drei": "^9.86.3",
-    "@react-three/fiber": "^8.14.4",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.40",
-    "@types/react": "^18.2.20",
-    "@types/react-dom": "^18.2.7",
-    "@types/three": "^0.156.0",
-    "@vercel/analytics": "^1.0.2",
-    "@wojtekmaj/react-datetimerange-picker": "^5.5.0",
-    "axios": "^1.6.7",
-    "country-flag-icons": "^1.5.9",
-    "dayjs": "^1.11.9",
-    "firebase": "^10.5.0",
-    "framer-motion": "^11.2.9",
-    "node-sass": "^9.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.10.1",
-    "react-markdown": "^9.0.1",
-    "react-page-scroller": "^3.0.1",
-    "react-router-dom": "^6.15.0",
-    "react-scripts": "5.0.1",
-    "react-use-gesture": "^9.1.3",
-    "remark-gfm": "^4.0.0",
-    "three": "^0.157.0",
-    "typescript": "^4.9.5",
-    "util": "^0.12.5",
-    "uuidv4": "^6.2.13",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.7.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^9.30.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "sass": "^1.89.2",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.4"
   }
 }

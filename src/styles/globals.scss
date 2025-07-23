@@ -1,198 +1,45 @@
-@import './colors.scss';
-@import './fonts.scss';
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
-// Responsive breakpoints
-// Those breakpoint are specific to the project
-// We only have 3 use cases : mobile, tablet and desktop
-// Mobile < 1024px < Tablet < 1224px < Desktop
-$breakpoints: (
-  'tablet-min': '1023px',
-  'tablet-max': '1224px',
-  'navbar-special': '1350px'
-);
+$black: #000000;
+$white: #FFFFFF;
+$accent: #F4C238;
 
-$navbar-height: 80px;
-$page-height: calc(100vh - 80px);
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Gilroy';
-  color: $white;
+body {
+  background-color: $black;
 }
 
-p {
-  font-size: 21px;
+.dm-mono-light {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.dm-mono-regular {
+  font-family: "DM Mono", monospace;
   font-weight: 400;
-  line-height: 1.5;
-  margin-bottom: 20px;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    font-size: 18px;
-  }
+  font-style: normal;
 }
 
-li{
-  list-style-position: inside;
+.dm-mono-medium {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
 }
 
-code{
-  font-family: 'Fira Code', monospace;
+.dm-mono-light-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
   font-style: italic;
-  font-size: 1rem;
-  background-color: rgba($white, 0.8);
-  padding: 2px 5px;
-  border-radius: 5px;
-  color: $black;
 }
 
-.global-page{
-  min-height: $page-height;
-  padding-top: 10vh;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    height: auto;
-    padding-top: 5vh;
-  }
+.dm-mono-regular-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
 }
 
-.h1 {
-  font-size: 48px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    font-size: 31px;
-  }
-}
-
-.h2 {
-  font-size: 36px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    font-size: 24px;
-  }
-}
-
-.h3 {
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    font-size: 18px;
-  }
-}
-
-.custom-input{
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 1.2rem;
-  border-bottom: 1px solid rgba($white, .5);
-  margin-bottom: 10px;
-  width: 100%;
-
-  &::placeholder{
-    // text-transform: uppercase;
-    font-weight: 700;
-  }
-}
-
-.custom-select{
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  padding: 8px 10px 5px 10px;
-  outline: none;
-  border: none;
-  border: 1px solid rgba($white, .5);
-  margin-bottom: 20px;
-  width: 100%;
-  color: $white;
-
-  &::placeholder{
-    font-weight: 700;
-  }
-
-  option{
-    color: $black;
-  }
-}
-
-.custom-button{
-  background-color: $white;
-  color: $black;
-  border: none;
-  outline: none;
-  border: 1px solid $black;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  text-decoration: none;
-  
-  @media screen and (max-width: map-get($breakpoints, 'tablet-max')) {
-    align-self: center;
-  }
-
-  &.small{
-    padding: 5px 10px;
-    font-size: 1rem;
-  }
-
-  &:hover{
-    background-color: $black;
-    color: $white;
-    border-color: $white;
-  }
-}
-
-.datetime_input{
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  padding: 8px 10px 5px 10px;
-  outline: none;
-  border: none;
-  border: 1px solid rgba($white, .5);
-  color: $white;
-  margin: 0;
-  margin-right: 10px;
-
-  &::placeholder{
-    font-weight: 700;
-  }
-
-  &::-webkit-calendar-picker-indicator {
-    filter: invert(1);
-  }
-}
-
-.loader{
-  width: 20px;
-  height: 20px;
-  border: 3px solid #FFF;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-.dashboard-box{
-  border: 1px solid rgba($white,.05);
-  padding: 20px;
-  border-radius: 10px;
-  background-color: rgba($white, .05);
+.dm-mono-medium-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: italic;
 }
