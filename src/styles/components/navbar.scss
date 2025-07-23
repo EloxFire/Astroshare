@@ -1,0 +1,16 @@
+@use '../globals';
+
+#navbar{
+  height: 60px;
+  border-bottom: 1px solid globals.$white;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .title{
+    font-family: globals.$gilroy-black-font;
+    font-size: 36px;
+    text-transform: uppercase;
+  }
+}

@@ -1,8 +1,9 @@
+import '../styles/components/navbar.scss';
 
 const Navbar = () => {
   return (
-    <div>
-
+    <div id={"navbar"}>
+      <p className={"title"}>Astroshare</p>
     </div>
   );
 };

@@ -1,8 +1,9 @@
+import '../styles/pages/home.scss'
 
 const Home = () => {
   return (
-    <div>
-
+    <div id={"home"}>
+      <h1>HOME TEST FONT</h1>
     </div>
   );
 };
