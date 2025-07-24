@@ -2,15 +2,18 @@
 
 #navbar{
   height: 60px;
-  border-bottom: 1px solid globals.$white;
-  padding: 0 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  //background-color: rgba(globals.$white, globals.$background-opacity-default);
+  //border: 1px solid rgba(globals.$white, globals.$border-opacity-default);
+  border-radius: globals.$radius-default;
 
   .title{
-    font-family: globals.$gilroy-black-font;
-    font-size: 36px;
+    font-family: globals.$gilroy-font;
+    font-size: 30px;
     text-transform: uppercase;
+    font-weight: 900;
+    line-height: 30px;
   }
 }

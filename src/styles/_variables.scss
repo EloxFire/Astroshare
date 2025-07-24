@@ -1,6 +1,13 @@
+// COLORS
 $black: #000000;
 $white: #FFFFFF;
 $accent: #F4C238;
+
+// FONTS
 $dmmono-font: "DM Mono", monospace;
-$gilroy-font: 'GilroyRegular', sans-serif;
-$gilroy-black-font: 'GilroyBlack', sans-serif;
+$gilroy-font: 'Gilroy', sans-serif;
+
+// VALUES AND SIZES
+$background-opacity-default: 0.05;
+$border-opacity-default: 0.1;
+$radius-default: 10px;

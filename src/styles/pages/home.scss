@@ -2,4 +2,20 @@
 
 #home{
   font-family: globals.$dmmono-font;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+
+  .title-container{
+    background-color: aliceblue;
+    flex: 1;
+  }
+
+  .illustration-container{
+    //background-color: antiquewhite;
+    min-height: inherit;
+    width: 50%;
+  }
 }

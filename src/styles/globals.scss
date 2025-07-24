@@ -1,7 +1,7 @@
 @use './variables';
 @forward './variables';
-@import './fonts';
 
 body {
   background-color: variables.$black;
+  padding: 10px 40px;
 }
