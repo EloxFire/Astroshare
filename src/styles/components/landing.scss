@@ -1,0 +1,52 @@
+@use '../globals.scss';
+
+.landing-container {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+    url('/images/m64_ifn.jpeg');
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  height: 100%;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid rgba($color: globals.$white, $alpha: 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .left, .right{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .left{
+    h1{
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-family: globals.$gilroy-font;
+    }
+
+    p{
+      font-size: 1.5rem;
+      font-family: globals.$gilroy-font;
+      position: relative;
+      padding-left: 40px;
+
+      &::before{
+        // Add an image
+        content: " ";
+        display: block;
+        width: 32px;
+        height: 32px;
+        background-image: url('/images/icons/star.png');
+        background-size: contain;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+}

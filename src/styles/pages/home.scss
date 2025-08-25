@@ -7,15 +7,17 @@
   align-items: center;
   justify-content: space-between;
   height: 90vh;
+  padding: 20px 0;
 
-  .title-container{
-    background-color: aliceblue;
+
+  .main-container{
+    background-image: url('/images/m64_ifn.jpeg');
+    background-size: cover;
+    background-position: center;
     flex: 1;
-  }
-
-  .illustration-container{
-    //background-color: antiquewhite;
-    min-height: inherit;
-    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba($color: globals.$white, $alpha: 0.3);
   }
 }

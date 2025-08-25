@@ -9,11 +9,51 @@
   //border: 1px solid rgba(globals.$white, globals.$border-opacity-default);
   border-radius: globals.$radius-default;
 
+  display: flex;
+  justify-content: space-between;
+
   .title{
     font-family: globals.$gilroy-font;
     font-size: 30px;
     text-transform: uppercase;
     font-weight: 900;
     line-height: 30px;
+  }
+
+  nav{
+    ul{
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li{
+        margin: 0 20px;
+
+        a{
+          text-decoration: none;
+          color: globals.$white;
+          transition: color 0.3s;
+          font-family: globals.$dmmono-font;
+          font-weight: 500;
+
+          &:hover{
+            color: globals.$accent;
+          }
+        }
+      }
+    }
+  }
+
+  .cta-download{
+    background-color: globals.$accent;
+    color: globals.$black;
+    border: none;
+    border-radius: globals.$radius-default;
+    padding: 10px 10px;
+    font-family: globals.$gilroy-font;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
   }
 }
