@@ -17,14 +17,16 @@
   .left, .right{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    // width: 50%;
   }
 
   .left{
     padding: 40px;
+    flex: 1;
+    // background-color: red;
 
     h1{
-      font-size: 3.8rem;
+      font-size: 4.2rem;
       text-transform: uppercase;
       font-family: globals.$gilroy-font;
       line-height: 1.1;
@@ -89,7 +91,7 @@
     height: 100%;
 
     img{
-      height: 75vh;
+      height: 65vh;
       margin-right: 40px;
     }
   }

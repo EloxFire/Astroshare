@@ -1,4 +1,4 @@
-import { Landing } from '../components/Landing';
+import { Landing } from '../components/sections/Landing';
 import '../styles/pages/home.scss'
 
 const Home = () => {
