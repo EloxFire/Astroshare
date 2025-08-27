@@ -1,4 +1,4 @@
-import '../styles/components/landing.scss'
+import '../../styles/components/sections/landing.scss'
 
 export const Landing = () => {
   return (

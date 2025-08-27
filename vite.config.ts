@@ -6,6 +6,10 @@ export default defineConfig({
   server: {
     host: true,
     open: true,
+    watch: {
+      usePolling: true,
+      interval: 100
+    }
   },
   plugins: [react()],
   esbuild: {

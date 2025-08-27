@@ -1,23 +1,11 @@
-@use '../globals';
+@use '../globals.scss';
 
 #home{
   font-family: globals.$dmmono-font;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 75vh;
-  padding: 20px 0;
+  flex-direction: column;
+  height: 80vh;
+  gap: 100px;
+  background-color: red;
 
-
-  .main-container{
-    background-image: url('/images/m64_ifn.jpeg');
-    background-size: cover;
-    background-position: center;
-    flex: 1;
-    height: 100%;
-    border-radius: 20px;
-    padding: 20px;
-    border: 1px solid rgba($color: globals.$white, $alpha: 0.3);
-  }
 }

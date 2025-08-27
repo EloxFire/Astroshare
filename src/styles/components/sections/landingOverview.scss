@@ -1,0 +1,41 @@
+@use '../../globals.scss';
+
+.landing-overview-container {
+  // background-color: red;
+  margin-bottom: 50px;
+  display: flex;
+  height: 80vh;
+
+  h2{
+    color: white;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-family: globals.$gilroy-font;
+    margin-bottom: 20px;
+
+    span{
+      text-decoration: underline;
+      text-decoration-color: globals.$accent;
+      text-decoration-thickness: 4px;
+      text-underline-offset: 4px;
+    }
+  }
+
+  .loc-left{
+    width: 50%;
+  }
+
+  .loc-right{
+    padding-top: 100px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .icons-container {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+    }
+  }
+}
