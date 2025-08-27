@@ -1,0 +1,21 @@
+@use '../../globals.scss';
+
+.simple-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  font-family: globals.$dmmono-font;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: globals.$black;
+  text-decoration: none;
+  background-color: globals.$accent;
+  padding: 15px 30px;
+  border-radius: 10px;
+  margin-top: 20px;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}

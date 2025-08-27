@@ -23,6 +23,24 @@
 
   .loc-left{
     width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .loc-cta-container{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .loc-cta-description{
+        font-size: 0.9rem;
+        color: rgba(globals.$white, .5);
+      }
+
+    }
+
   }
 
   .loc-right{

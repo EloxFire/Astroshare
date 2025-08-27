@@ -1,10 +1,9 @@
 import '../../styles/components/sections/landingOverview.scss';
-import { motion, useReducedMotion } from 'motion/react';
 import { BouncedIcon } from '../BouncedIcon';
+import { SimpleButton } from '../buttons/SimpleButton';
+import { urls } from '../../helpers/constants/urls';
 
 export const LandingOverview = () => {
-
-  const reduce = useReducedMotion();
 
   return (
     <div className="landing-overview-container">
@@ -14,6 +13,16 @@ export const LandingOverview = () => {
           <p>Fini les installations multiples : Astroshare réunit en une seule application tout ce dont vous avez besoin pour explorer le ciel.</p>
           <p>Suivez les satellites et les phénomènes célestes, consultez la météo en direct, accédez aux actualités du ciel et préparez vos nuits d’observation.</p>
           <p>Un outil complet, pensé pour simplifier la vie des passionnés comme des curieux.</p>
+        </div>
+
+        <div className="loc-cta-container">
+          <SimpleButton
+            text="Téléchargez l'application"
+            href={urls.playstore}
+            variant="primary"
+            icon="/images/icons/play-store-black.png"
+          />
+          <p className="loc-cta-description">Disponible gratuitement, sans publicité ni inscription obligatoire.</p>
         </div>
 
       </div>
@@ -28,18 +37,6 @@ export const LandingOverview = () => {
         </div>
           <BouncedIcon iconPath='/images/rivals/arrows.png' delay={0.5} />
           <BouncedIcon iconPath='/images/rivals/astroshare.png' delay={0.5} />
-        {/* <motion.img
-          src="/images/rivals/arrows.png"
-          alt="Arrows pointing from the different icons"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{
-            duration: 0.4,
-            delay: 0.5,
-            ease: [0.22, 1, 0.36, 1] // smooth ease-out
-          }}
-        /> */}
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import '../../styles/components/sections/landing.scss'
+import { SimpleButton } from '../buttons/SimpleButton'
 
 export const Landing = () => {
   return (
@@ -9,10 +10,12 @@ export const Landing = () => {
       
         <div className="landing-cta-container">
           <p>Du lever du Soleil aux galaxies lointaines, explorez le ciel comme jamais auparavant. Astroshare vous guide à chaque observation.</p>
-          <a href="/download" className="download-link">
-            <img src="/images/icons/play-store-black.png" alt="" aria-hidden="true" />
-            Téléchargez Astroshare
-          </a>
+          <SimpleButton
+            text="Téléchargez Astroshare"
+            href="/download"
+            variant="primary"
+            icon="/images/icons/play-store-black.png"
+          />
         </div>
       </div>
       <div className="right">
