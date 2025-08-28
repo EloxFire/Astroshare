@@ -1,5 +1,6 @@
 import { Landing } from '../components/sections/Landing';
 import { LandingOverview } from '../components/sections/LandingOverview';
+import { Reviews } from '../components/sections/Reviews';
 import '../styles/pages/home.scss'
 
 const Home = () => {
@@ -7,6 +8,7 @@ const Home = () => {
     <div>
       <Landing/>
       <LandingOverview/>
+      <Reviews/>
     </div>
   );
 };

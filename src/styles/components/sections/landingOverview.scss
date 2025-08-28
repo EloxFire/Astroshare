@@ -4,7 +4,7 @@
   // background-color: red;
   margin-bottom: 50px;
   display: flex;
-  height: 80vh;
+  height: 65vh;
 
   h2{
     color: white;
@@ -37,6 +37,9 @@
       .loc-cta-description{
         font-size: 0.9rem;
         color: rgba(globals.$white, .5);
+        font-weight: 500;
+        font-family: globals.$dmmono-font;
+        margin-top: 5px;
       }
 
     }
