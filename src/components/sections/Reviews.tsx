@@ -9,9 +9,21 @@ export const Reviews = () => {
 
       <div className="cards-container">
         <ReviewCard
-          author="John Doe"
-          date="2 days ago"
-          content="Great app! Really helps me with my daily tasks."
+          author="Stéphanie M."
+          date="16 septembre 2024"
+          content="Une application très complète et très utile pour les astronomes amateurs et pour préparer ses soirées d'observation"
+          rating={5}
+        />
+        <ReviewCard
+          author="Annaïck T."
+          date="11 octobre 2024"
+          content="Application relativement complète et facile d'utilisation. Que demander de plus."
+          rating={5}
+        />
+        <ReviewCard
+          author="Olivia M."
+          date="23 février 2025"
+          content="Application très complète et moderne, je recommande vivement !"
           rating={5}
         />
       </div>

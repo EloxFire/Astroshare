@@ -1,57 +1,71 @@
 @use '../../globals.scss';
 
 .review-card {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(globals.$white, .08);
+  border-radius: 10px;
+  border: 1px solid rgba(globals.$white, .1);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
 
-  .review-card-header {
+  .review-card-header{
     display: flex;
-    align-items: center;
-    margin-bottom: 12px;
+    justify-content: space-between;
 
-    .author-picto {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #eee;
+    .author-container{
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      margin-right: 12px;
-    }
+      gap: 20px;
 
-    .author-infos {
-      flex-grow: 1;
-
-      .author-name {
-        font-weight: bold;
+      .author-picto{
+        background-color: globals.$accent;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        &:before {
+          content: attr(data-author);
+          color: globals.$black;
+          font-size: 25px;
+          font-family: globals.$gilroy-font;
+          font-weight: 900;
+        }
       }
 
-      .review-date {
-        font-size: 12px;
-        color: #999;
+      .author-infos{
+        display: flex;
+        flex-direction: column;
+
+        .author-name{
+          font-family: globals.$dmmono-font;
+          font-weight: 700;
+          font-size: 24px;
+          color: globals.$white;
+        }
+
+        .review-date{
+          font-family: globals.$dmmono-font;
+          font-weight: 400;
+          font-size: 14px;
+          color: rgba(globals.$white, .5);
+        }
       }
     }
 
-    .rating {
+    .rating{
       display: flex;
-      align-items: center;
+      gap: 5px;
 
-      img {
-        width: 16px;
-        height: 16px;
-        margin-left: 4px;
+      .rating-star{
+        width: 25px;
+        height: 25px;
       }
     }
-  }
-
-  .review-card-content {
-    font-size: 14px;
-    color: #333;
   }
 }

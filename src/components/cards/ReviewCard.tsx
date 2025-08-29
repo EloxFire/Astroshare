@@ -12,19 +12,24 @@ export const ReviewCard = ({ author, date, content, rating }: ReviewCardProps) =
   return (
     <div className="review-card">
       <div className="review-card-header">
-        <div className="author-picto" data-author={author[0]} />
-        <div className="author-infos">
-          <div className="author-name">{author}</div>
-          <div className="review-date">{date}</div>
+        <div className='author-container'>
+          <div className="author-picto" data-author={author[0]} />
+          <div className="author-infos">
+            <div className="author-name">{author}</div>
+            <div className="review-date">{date}</div>
+          </div>
         </div>
         <div className="rating">
           {
             getReviewStars(rating).map((star, index) => (
               console.log(star),
-              <img key={index} src={`/images/icons/FiStar${star}.png`} alt={`${star} star`} />
+              <img className='rating-star' key={index} src={`/images/icons/FiStar${star}.png`} alt={`${star} star`} />
             ))
           }
         </div>
+      </div>
+      <div className="review-content">
+        <p>{content}</p>
       </div>
     </div>
   )
