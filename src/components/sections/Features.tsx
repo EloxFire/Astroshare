@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../../styles/components/sections/features.scss'
 import { featuresList } from '../../helpers/constants/featuresList';
+import type { FeaturedFeature } from '../../helpers/types/FeaturedFeature';
 
 export const Features = () => {
 
@@ -15,7 +16,7 @@ export const Features = () => {
         </div>
         <div className="menu-side">
           {
-            featuresList.map((feature, index) => {
+            featuresList.map((feature: FeaturedFeature) => {
               return (
                 <button className='menu-button' onClick={() => setSelectedFeature(feature.id)}>
                   <div className='menu-button-header'>
