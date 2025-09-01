@@ -4,6 +4,10 @@
 body {
   background-color: variables.$black;
   padding: 10px 40px;
+
+  @media screen and (max-width: 992px) {
+    padding: 10px 20px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

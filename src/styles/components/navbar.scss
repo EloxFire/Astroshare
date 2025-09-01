@@ -5,9 +5,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  //background-color: rgba(globals.$white, globals.$background-opacity-default);
-  //border: 1px solid rgba(globals.$white, globals.$border-opacity-default);
   border-radius: globals.$radius-default;
+  position: relative;
 
   display: flex;
   justify-content: space-between;
@@ -18,6 +17,10 @@
     text-transform: uppercase;
     font-weight: 900;
     line-height: 30px;
+
+    @media screen and (max-width: 992px) {
+      font-size: 24px;
+    }
   }
 
   nav{
@@ -55,5 +58,90 @@
     font-weight: 900;
     cursor: pointer;
     text-transform: uppercase;
+  }
+
+  // Hidden by default; shown only on small screens
+  .menu-toggle{
+    display: none;
+    background: transparent;
+    color: globals.$white;
+    border: 1px solid rgba(255,255,255, globals.$border-opacity-default);
+    border-radius: globals.$radius-default;
+    padding: 8px 12px;
+    font-family: globals.$dmmono-font;
+    cursor: pointer;
+  }
+
+  // Dropdown CTA sits inside nav; hide on desktop
+  .cta-download.dropdown{
+    display: none;
+  }
+}
+
+@media (max-width: 992px){
+  #navbar{
+    // keep title left; buttons on right
+    justify-content: space-between;
+    gap: 12px;
+
+    // show the toggle button
+    .menu-toggle{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    // hide the desktop CTA
+    > .cta-download{
+      display: none;
+    }
+
+    // dropdown menu container
+    nav.links{
+      display: none; // hidden until opened
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: rgba(0,0,0,0.85);
+      border: 1px solid rgba(globals.$white, globals.$border-opacity-default);
+      border-radius: globals.$radius-default;
+      padding: 8px;
+      z-index: 10;
+      min-width: 220px;
+
+      ul{
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0;
+        margin: 0;
+
+        li{
+          margin: 0;
+
+          a{
+            display: block;
+            padding: 10px 12px;
+            border-radius: globals.$radius-default;
+
+            &:hover{
+              background-color: rgba(255,255,255, globals.$background-opacity-default);
+            }
+          }
+        }
+      }
+
+      // show CTA inside dropdown
+      .cta-download.dropdown{
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        text-align: center;
+      }
+    }
+
+    nav.links.open{
+      display: block;
+    }
   }
 }
