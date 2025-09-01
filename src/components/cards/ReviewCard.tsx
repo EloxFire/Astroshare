@@ -23,7 +23,7 @@ export const ReviewCard = ({ author, date, content, rating }: ReviewCardProps) =
           {
             getReviewStars(rating).map((star, index) => (
               console.log(star),
-              <img className='rating-star' key={index} src={`/images/icons/FiStar${star}.png`} alt={`${star} star`} />
+              <img className='rating-star' key={index} src={`/images/icons/FiStar${star}.svg`} alt={`${star} star`} />
             ))
           }
         </div>

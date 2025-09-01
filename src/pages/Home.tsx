@@ -1,3 +1,4 @@
+import { Features } from '../components/sections/Features';
 import { Landing } from '../components/sections/Landing';
 import { LandingOverview } from '../components/sections/LandingOverview';
 import { Reviews } from '../components/sections/Reviews';
@@ -9,6 +10,7 @@ const Home = () => {
       <Landing/>
       <LandingOverview/>
       <Reviews/>
+      <Features/>
     </div>
   );
 };

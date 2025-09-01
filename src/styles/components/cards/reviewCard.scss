@@ -45,7 +45,7 @@
         .author-name{
           font-family: globals.$dmmono-font;
           font-weight: 700;
-          font-size: 24px;
+          font-size: 20px;
           color: globals.$white;
         }
 
@@ -65,6 +65,8 @@
       .rating-star{
         width: 25px;
         height: 25px;
+        /* Tint white SVG icons to #F4C238 via CSS filter */
+        filter: brightness(0) saturate(100%) invert(86%) sepia(27%) saturate(1086%) hue-rotate(349deg) brightness(100%) contrast(95%);
       }
     }
   }
