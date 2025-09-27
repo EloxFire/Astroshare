@@ -6,7 +6,7 @@ body {
   padding: 10px 40px;
 
   @media screen and (max-width: 992px) {
-    padding: 10px 20px;
+    padding: 10px 10px;
   }
 }
 
@@ -15,6 +15,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   font-family: variables.$gilroy-font;
+
+  @media screen and (max-width: 992px) {
+    font-size: 1.5rem;
+  }
 }
 
 p {

@@ -1,7 +1,6 @@
 @use '../../globals.scss';
 
 .landing-overview-container {
-  // background-color: red;
   margin-bottom: 50px;
   display: flex;
   height: 65vh;
@@ -21,11 +20,39 @@
     }
   }
 
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    h2{
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    
+  }
+
   .loc-left{
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      
+    }
+
+    .loc-description{
+      font-size: 1.2rem;
+      font-weight: 500;
+      font-family: globals.$gilroy-font;
+
+      @media screen and (max-width: 992px) {
+        font-size: 1rem;
+      }
+    }
 
     .loc-cta-container{
       height: 100%;
@@ -40,6 +67,11 @@
         font-weight: 500;
         font-family: globals.$dmmono-font;
         margin-top: 5px;
+
+        @media screen and (max-width: 992px) {
+          font-size: 0.7rem;
+          text-align: center;
+        }
       }
 
     }
@@ -57,6 +89,10 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
+    }
+
+    @media screen and (max-width: 992px) {
+      display: none;
     }
   }
 }

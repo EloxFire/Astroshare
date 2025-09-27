@@ -16,53 +16,68 @@
   margin-bottom: 80px;
   overflow: hidden;
 
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 40px;
+  }
+
   .left, .right{
     display: flex;
     flex-direction: column;
     // width: 50%;
+
+    @media screen and (max-width: 992px) {
+      width: 100%;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   .left{
     padding: 40px;
     flex: 1;
-    // background-color: red;
 
     h1{
       font-size: 4.2rem;
       text-transform: uppercase;
       font-family: globals.$gilroy-font;
       line-height: 1.1;
+
+      @media screen and (max-width: 992px) {
+        font-size: 2.5rem;
+      }
     }
 
     .subtitle{
       font-size: 1.5rem;
       font-family: globals.$gilroy-font;
       position: relative;
-      // padding-left: 40px;
 
-      // &::before{
-      //   // Add an image
-      //   content: " ";
-      //   display: block;
-      //   width: 32px;
-      //   height: 32px;
-      //   background-image: url('/images/icons/star.png');
-      //   background-size: contain;
-      //   background-position: center;
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      // }
+      @media screen and (max-width: 992px) {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        
+      }
     }
 
     .landing-cta-container{
       margin-top: 20vh;
       width: 70%;
 
+      @media screen and (max-width: 992px) {
+        margin-top: 5vh;
+        width: 100%;
+      }
+
       p{
         font-size: 1.5rem;
         font-family: globals.$gilroy-font;
         position: relative;
+
+        @media screen and (max-width: 992px) {
+          font-size: 1.2rem;
+        }
       }
     }
   }
@@ -72,9 +87,19 @@
     align-items: flex-end;
     height: 100%;
 
+    @media screen and (max-width: 992px) {
+      justify-content: center;
+      align-items: center;
+    }
+
     img{
       height: 65vh;
       margin-right: 40px;
+
+      @media screen and (max-width: 992px) {
+        height: 40vh;
+        margin: 0;
+      }
     }
   }
 }

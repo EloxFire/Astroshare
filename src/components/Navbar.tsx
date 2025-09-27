@@ -31,7 +31,7 @@ const Navbar = () => {
 					Télécharger Astroshare
 				</button>
 			</nav>
-			<button className={"cta-download"}>Télécharger Astroshare</button>
+			<button className={"cta-download"}>Téléchargez Astroshare</button>
 		</div>
 	);
 };

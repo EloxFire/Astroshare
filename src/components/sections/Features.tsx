@@ -24,7 +24,12 @@ export const Features = () => {
                     <img style={{rotate: selectedFeature === feature.id ? '45deg' : '0deg'}} src="/images/icons/FiPlus.png" alt="Plus icon" />
                   </div>
                   {
-                    selectedFeature === feature.id && <p className='button-content'>{feature.content}</p>
+                    selectedFeature === feature.id && (
+                      <>
+                        <p className='button-content'>{feature.content}</p>
+                        <img className='button-illustration' src={`/images/features/${feature.id}.png`} alt="Feature illustration" />
+                      </>
+                    )
                   }
                 </button>
               )

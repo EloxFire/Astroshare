@@ -11,6 +11,10 @@
   gap: 10px;
   flex: 1;
 
+  @media screen and (max-width: 992px) {
+    padding: 15px;
+  }
+
   .review-card-header{
     display: flex;
     justify-content: space-between;
@@ -36,6 +40,15 @@
           font-family: globals.$gilroy-font;
           font-weight: 900;
         }
+
+        @media screen and (max-width: 992px) {
+          width: 40px;
+          height: 40px;
+
+          &:before {
+            font-size: 20px;
+          }
+        }
       }
 
       .author-infos{
@@ -47,6 +60,10 @@
           font-weight: 700;
           font-size: 20px;
           color: globals.$white;
+
+          @media screen and (max-width: 992px) {
+            font-size: 16px;
+          }
         }
 
         .review-date{
@@ -54,6 +71,10 @@
           font-weight: 400;
           font-size: 14px;
           color: rgba(globals.$white, .5);
+
+          @media screen and (max-width: 992px) {
+            font-size: 12px;
+          }
         }
       }
     }
@@ -67,6 +88,24 @@
         height: 25px;
         /* Tint white SVG icons to #F4C238 via CSS filter */
         filter: brightness(0) saturate(100%) invert(86%) sepia(27%) saturate(1086%) hue-rotate(349deg) brightness(100%) contrast(95%);
+
+        @media screen and (max-width: 992px) {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .review-content{
+    .review-text{
+      font-family: globals.$gilroy-font;
+      font-weight: 400;
+      font-size: 1.2rem;
+      color: globals.$white;
+
+      @media screen and (max-width: 992px) {
+        font-size: 16px;
       }
     }
   }

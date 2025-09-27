@@ -10,9 +10,9 @@ export const LandingOverview = () => {
       <div className="loc-left">
         <h2>L'astronomie <span>sans contraintes</span></h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <p>Fini les installations multiples : Astroshare réunit en une seule application tout ce dont vous avez besoin pour explorer le ciel.</p>
-          <p>Suivez les satellites et les phénomènes célestes, consultez la météo en direct, accédez aux actualités du ciel et préparez vos nuits d’observation.</p>
-          <p>Un outil complet, pensé pour simplifier la vie des passionnés comme des curieux.</p>
+          <p className='loc-description'>Fini les installations multiples : Astroshare réunit en une seule application tout ce dont vous avez besoin pour explorer le ciel.</p>
+          <p className='loc-description'>Suivez les satellites et les phénomènes célestes, consultez la météo en direct, accédez aux actualités du ciel et préparez vos nuits d’observation.</p>
+          <p className='loc-description'>Un outil complet, pensé pour simplifier la vie des passionnés comme des curieux.</p>
         </div>
 
         <div className="loc-cta-container">

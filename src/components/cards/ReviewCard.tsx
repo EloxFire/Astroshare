@@ -29,7 +29,7 @@ export const ReviewCard = ({ author, date, content, rating }: ReviewCardProps) =
         </div>
       </div>
       <div className="review-content">
-        <p>{content}</p>
+        <p className='review-text'>{content}</p>
       </div>
     </div>
   )

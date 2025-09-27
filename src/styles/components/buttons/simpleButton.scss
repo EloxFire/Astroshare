@@ -5,17 +5,27 @@
   align-items: center;
   gap: 20px;
   font-family: globals.$dmmono-font;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: globals.$black;
   text-decoration: none;
   background-color: globals.$accent;
-  padding: 15px 30px;
+  padding: 10px 25px;
   border-radius: 10px;
   margin-top: 20px;
 
   img {
     width: 32px;
     height: 32px;
+  }
+
+  @media screen and (max-width: 992px) {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+
+    img {
+      width: 28px;
+      height: 28px;
+    }
   }
 }
