@@ -1,4 +1,5 @@
 import { routes } from '../helpers/routes';
+import { urls } from '../helpers/constants/urls';
 import '../styles/components/navbar.scss';
 import { useState } from 'react';
 
@@ -30,11 +31,11 @@ const Navbar = () => {
 						})
 					}
 				</ul>
-				<button className={"cta-download dropdown"} onClick={() => setIsOpen(false)}>
+				<a className={"cta-download dropdown"} target='_blank' rel="noopener noreferrer" href={urls.playstore}>
 					Télécharger Astroshare
-				</button>
+				</a>
 			</nav>
-			<button className={"cta-download"}>Téléchargez Astroshare</button>
+			<a className={"cta-download"} target='_blank' rel="noopener noreferrer" href={urls.playstore}>Téléchargez Astroshare</a>
 		</div>
 	);
 };

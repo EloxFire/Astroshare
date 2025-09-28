@@ -21,6 +21,7 @@ export const LandingOverview = () => {
             href={urls.playstore}
             variant="primary"
             icon="/images/icons/play-store-black.png"
+            target='_blank'
           />
           <p className="loc-cta-description">Disponible gratuitement, sans publicité ni inscription obligatoire.</p>
         </div>

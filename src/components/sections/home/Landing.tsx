@@ -15,6 +15,7 @@ export const Landing = () => {
             href="/download"
             variant="primary"
             icon="/images/icons/play-store-black.png"
+            target='_blank'
           />
         </div>
       </div>
