@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import '../../styles/components/sections/features.scss'
-import { featuresList } from '../../helpers/constants/featuresList';
-import type { FeaturedFeature } from '../../helpers/types/FeaturedFeature';
+import '../../../styles/components/sections/features.scss'
+import { featuresList } from '../../../helpers/constants/featuresList';
+import type { FeaturedFeature } from '../../../helpers/types/FeaturedFeature';
 
 export const Features = () => {
 

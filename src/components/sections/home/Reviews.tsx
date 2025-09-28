@@ -1,5 +1,5 @@
-import '../../styles/components/sections/reviews.scss'
-import { ReviewCard } from '../cards/ReviewCard'
+import { ReviewCard } from '../../cards/ReviewCard'
+import '../../../styles/components/sections/reviews.scss'
 
 export const Reviews = () => {
   return (

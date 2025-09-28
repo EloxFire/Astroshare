@@ -1,3 +1,4 @@
+import { routes } from '../helpers/routes';
 import '../styles/components/navbar.scss';
 import { useState } from 'react';
 
@@ -17,15 +18,17 @@ const Navbar = () => {
 			</button>
 			<nav id={"navbar-links"} className={`links ${isOpen ? 'open' : ''}`}>
 				<ul>
-					<li>
-						<a href="" onClick={() => setIsOpen(false)}>Accueil</a>
-					</li>
-					<li>
-						<a href="" onClick={() => setIsOpen(false)}>À propos</a>
-					</li>
-					<li>
-						<a href="" onClick={() => setIsOpen(false)}>Contact</a>
-					</li>
+					{
+						Object.keys(routes).map((key) => {
+							return (
+								<li key={key}>
+									<a href={routes[key as keyof typeof routes].path} onClick={() => setIsOpen(false)}>
+										{routes[key as keyof typeof routes].label}
+									</a>
+								</li>
+							)
+						})
+					}
 				</ul>
 				<button className={"cta-download dropdown"} onClick={() => setIsOpen(false)}>
 					Télécharger Astroshare

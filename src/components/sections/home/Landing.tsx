@@ -1,5 +1,5 @@
-import '../../styles/components/sections/landing.scss'
-import { SimpleButton } from '../buttons/SimpleButton'
+import '../../../styles/components/sections/landing.scss'
+import { SimpleButton } from '../../buttons/SimpleButton'
 
 export const Landing = () => {
   return (
