@@ -28,16 +28,20 @@ export const LandingOverview = () => {
 
       </div>
       <div className="loc-right">
-        <div className="icons-container">
-          <BouncedIcon iconPath='/images/rivals/goforliftof.png' delay={0} />
-          <BouncedIcon iconPath='/images/rivals/iss_detector.png' delay={0.1} />
-          <BouncedIcon iconPath='/images/rivals/moon_phases.png' delay={0.2} />
-          <BouncedIcon iconPath='/images/rivals/polar_clock.png' delay={0.3} />
-          <BouncedIcon iconPath='/images/rivals/meteo_blue.png' delay={0.4} />
-          <BouncedIcon iconPath='/images/rivals/stellarium.png' delay={0.5} />
+        <div className="loc-images-grid">
+          <img src="/images/features/cards/1.png" alt="Fonctionnalité : Météo et éphémérides" className='loc-image' />
+          <img src="/images/features/cards/2.png" alt="Fonctionnalité : Catalogue d'objets" className='loc-image' />
+          <img src="/images/features/cards/3.png" alt="Fonctionnalité : Calendrier lunaire" className='loc-image' />
+          <img src="/images/features/cards/4.png" alt="Fonctionnalité : Suivi de satellites ISS et Starlink" className='loc-image' />
+          <img src="/images/features/cards/5.png" alt="Fonctionnalité : Calendrier des lancements de fusées" className='loc-image' />
+          <img src="/images/features/cards/6.png" alt="Fonctionnalité : Carte du ciel en direct" className='loc-image' />
+          <img src="/images/features/cards/7.png" alt="Fonctionnalité : Image du jour de la NASA" className='loc-image' />
+          <img src="/images/features/cards/8.png" alt="Fonctionnalité : Calculateur astronomique" className='loc-image' />
+          <img src="/images/features/cards/9.png" alt="Fonctionnalité : Calculateur d'éclipses solaires et lunaires" className='loc-image' />
+          <img src="/images/features/cards/10.png" alt="Fonctionnalité : Météo solaire avancée" className='loc-image' />
+          <img src="/images/features/cards/11.png" alt="Fonctionnalité : Actualités spatiales" className='loc-image' />
+          <img src="/images/features/cards/12.png" alt="Fonctionnalité : Et bien plus encore à découvrir !" className='loc-image' />
         </div>
-          <BouncedIcon iconPath='/images/rivals/arrows.png' delay={0.5} />
-          <BouncedIcon iconPath='/images/rivals/astroshare.png' delay={0.5} />
       </div>
     </div>
   )
