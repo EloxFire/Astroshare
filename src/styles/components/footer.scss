@@ -1,0 +1,169 @@
+@use '../globals.scss';
+
+#footer {
+  padding: 48px 0 32px;
+  border-top: 1px solid rgba(globals.$white, globals.$border-opacity-default);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.1fr 2fr;
+    gap: 48px;
+    align-items: flex-start;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 360px;
+  }
+
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: globals.$gilroy-font;
+    color: globals.$white;
+  }
+
+  .footer-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    font-family: globals.$gilroy-font;
+    font-weight: 400;
+    color: rgba(globals.$white, 0.85);
+
+    &.small {
+      font-size: 0.85rem;
+    }
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      transition: transform 150ms ease, opacity 150ms ease;
+
+      &:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &.inline {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 12px;
+    }
+  }
+
+  .footer-link {
+    font-size: 0.95rem;
+    font-family: globals.$gilroy-font;
+    color: rgba(globals.$white, 0.9);
+    text-decoration: none;
+    transition: color 150ms ease;
+
+    &:hover {
+      color: globals.$white;
+      text-decoration: underline;
+    }
+
+    &.accent {
+      color: globals.$accent;
+
+      &:hover {
+        color: rgba(globals.$accent, 0.85);
+      }
+    }
+  }
+
+  .footer-logo {
+    width: 200px;
+  }
+
+  .store-badge {
+    width: 160px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(globals.$white, globals.$border-opacity-default);
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1024px) {
+  #footer {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      max-width: none;
+    }
+
+    .footer-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  #footer {
+    padding: 40px 0 28px;
+    gap: 32px;
+
+    .footer-columns {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .store-badge {
+      width: 140px;
+    }
+  }
+}

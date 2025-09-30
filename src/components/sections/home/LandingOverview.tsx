@@ -1,5 +1,4 @@
 import '../../../styles/components/sections/landingOverview.scss';
-import { BouncedIcon } from '../../BouncedIcon';
 import { SimpleButton } from '../../buttons/SimpleButton';
 import { urls } from '../../../helpers/constants/urls';
 

@@ -3,6 +3,7 @@ import Home from "./pages/Home.tsx";
 import {routes} from "./helpers/routes.ts";
 import Navbar from "./components/Navbar.tsx";
 import About from "./pages/About.tsx";
+import Footer from "./components/Footer.tsx";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Home/>} path={routes.home.path} />
         <Route element={<About/>} path={routes.about.path} />
       </Routes>
+      <Footer/>
     </>
   )
 }

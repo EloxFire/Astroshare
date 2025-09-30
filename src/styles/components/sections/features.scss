@@ -87,6 +87,10 @@
             height: 25px;
             transition: transform 0.3s ease;
 
+            &.accent {
+              filter: brightness(0) saturate(100%) invert(86%) sepia(27%) saturate(1086%) hue-rotate(349deg) brightness(100%) contrast(95%);
+            }
+
             @media screen {
               width: 20px;
               height: 20px;
