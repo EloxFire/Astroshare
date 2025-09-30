@@ -21,6 +21,7 @@ const Navbar = () => {
 				<ul>
 					{
 						Object.keys(routes).map((key) => {
+							if(!routes[key as keyof typeof routes].navbarVisible) return null;
 							return (
 								<li key={key}>
 									<a href={routes[key as keyof typeof routes].path} onClick={() => setIsOpen(false)}>

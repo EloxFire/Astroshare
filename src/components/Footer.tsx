@@ -1,3 +1,4 @@
+import { routes } from '../helpers/routes';
 import '../styles/components/footer.scss';
 
 const Footer = () => {
@@ -48,9 +49,10 @@ const Footer = () => {
           <div className="footer-column">
             <p className="footer-title">Produit</p>
             <ul className="footer-links">
-              <li><a className="footer-link" href="#fonctionnalités">Fonctionnalités</a></li>
-              <li><a className="footer-link" href="/pricing">Tarifs</a></li>
-              <li><a className="footer-link" href="/roadmap">Feuille de route</a></li>
+              <li><a className="footer-link" href={routes.home.sections.features}>Fonctionnalités</a></li>
+              <li><a className="footer-link" href={routes.pricing.path}>{routes.pricing.label}</a></li>
+              {/* <li><a className="footer-link" href="/roadmap">Feuille de route</a></li> */}
+              <li><a className="footer-link" href="/roadmap">Résiliation</a></li>
             </ul>
           </div>
 
@@ -78,17 +80,13 @@ const Footer = () => {
             <p className="footer-description">
               Emportez Astroshare partout avec vous et planifiez vos sessions facilement.
             </p>
-            <a href="https://play.google.com/store/apps/details?id=fr.eavagliano.astroshare" className="store-link" aria-label="Télécharger sur l'App Store" target="_blank" rel="noopener noreferrer">
+            <a href={routes.playstore.path} className="store-link" aria-label="Télécharger sur l'App Store" target="_blank" rel="noopener noreferrer">
               <img
                 className="store-badge"
                 src="/images/google-play-badge.png"
                 alt="Télécharger sur Google Play"
               />
             </a>
-            <div className="footer-links inline">
-              <a href="/subscribe" className="footer-link">Abonnement</a>
-              <a href="/unsubscribe" className="footer-link">Résiliation</a>
-            </div>
           </div>
         </div>
       </div>
