@@ -16,20 +16,21 @@ jobs:
           echo "Starting deployment process..."
           echo "Branch: ${GITHUB_REF##*/}"
           echo ""
+
           
+          - name: CHECKOUT CODE
+          uses: actions/checkout@v3
+          
+          - name: SETUP SSH
+          uses: webfactory/ssh-agent@v0.9.0
+          with:
+            ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+            
       - name: Check loaded SSH keys
         run: ssh-add -l
 
       - name: Test SSH connection
         run: ssh -v -o StrictHostKeyChecking=no root@${{ secrets.VPS_HOST }} "echo ✅ Connected"
-
-      - name: CHECKOUT CODE
-        uses: actions/checkout@v3
-
-      - name: SETUP SSH
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
       - name: SETUP DEPLOYMENT VARIABLES
         run: |
