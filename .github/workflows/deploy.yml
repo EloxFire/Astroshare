@@ -41,6 +41,11 @@ jobs:
           npm install
           npm run build
 
-      - name: DEPLOY DIST TO VPS
-        run: |
-          scp -o StrictHostKeyChecking=no -r dist/* root@${{ secrets.VPS_HOST }}:$REMOTE_PATH/
+      - name: Deploy files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: root
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "dist/*"
+          target: $REMOTE_PATH
