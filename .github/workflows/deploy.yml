@@ -11,15 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: INIT
+        run: |
+          echo "Starting deployment process..."
+          echo "Branch: ${GITHUB_REF##*/}"
+          echo ""
+          
+      - name: Check loaded SSH keys
+        run: ssh-add -l
+
+      - name: Test SSH connection
+        run: ssh -v -o StrictHostKeyChecking=no root@${{ secrets.VPS_HOST }} "echo ✅ Connected"
+
+      - name: CHECKOUT CODE
         uses: actions/checkout@v3
 
-      - name: Setup SSH
+      - name: SETUP SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
 
-      - name: Set deployment variables
+      - name: SETUP DEPLOYMENT VARIABLES
         run: |
           BRANCH=${GITHUB_REF##*/}
           echo "BRANCH=$BRANCH" >> $GITHUB_ENV
@@ -30,11 +42,11 @@ jobs:
             echo "REMOTE_PATH=/var/www/dev.astroshare.fr" >> $GITHUB_ENV
           fi
 
-      - name: Build project
+      - name: BUILD PROJECT
         run: |
           npm install
           npm run build
 
-      - name: Deploy dist to VPS
+      - name: DEPLOY DIST TO VPS
         run: |
           scp -o StrictHostKeyChecking=no -r dist/* root@${{ secrets.VPS_HOST }}:$REMOTE_PATH/
