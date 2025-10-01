@@ -1,0 +1,40 @@
+name: Deploy Astroshare frontend to VPS
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Set deployment variables
+        run: |
+          BRANCH=${GITHUB_REF##*/}
+          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
+
+          if [ "$BRANCH" = "main" ]; then
+            echo "REMOTE_PATH=/var/www/astroshare.fr" >> $GITHUB_ENV
+          else
+            echo "REMOTE_PATH=/var/www/dev.astroshare.fr" >> $GITHUB_ENV
+          fi
+
+      - name: Build project
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
+
+      - name: Deploy dist to VPS
+        run: |
+          scp -o StrictHostKeyChecking=no -r dist/* root@${{ secrets.VPS_HOST }}:$REMOTE_PATH/
