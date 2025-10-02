@@ -1,3 +1,4 @@
+import { routes } from '../../../helpers/routes'
 import '../../../styles/components/sections/landing.scss'
 import { SimpleButton } from '../../buttons/SimpleButton'
 
@@ -12,7 +13,7 @@ export const Landing = () => {
           <p>Du lever du Soleil aux galaxies lointaines, explorez le ciel comme jamais auparavant. Astroshare vous guide à chaque observation.</p>
           <SimpleButton
             text="Téléchargez Astroshare"
-            href="/download"
+            href={routes.playstore.path}
             variant="primary"
             icon="/images/icons/play-store-black.png"
             target='_blank'
