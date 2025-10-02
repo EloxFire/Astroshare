@@ -1,6 +1,6 @@
+import { routes } from '../../../helpers/routes';
 import '../../../styles/components/sections/landingOverview.scss';
 import { SimpleButton } from '../../buttons/SimpleButton';
-import { urls } from '../../../helpers/constants/urls';
 
 export const LandingOverview = () => {
 
@@ -17,7 +17,7 @@ export const LandingOverview = () => {
         <div className="loc-cta-container">
           <SimpleButton
             text="Téléchargez l'application"
-            href={urls.playstore}
+            href={routes.playstore.path}
             variant="primary"
             icon="/images/icons/play-store-black.png"
             target='_blank'
