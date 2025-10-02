@@ -1,4 +1,4 @@
-name: Deploy API to VPS
+name: Deploy FRONTEND to VPS
 
 on:
   push:
@@ -43,11 +43,11 @@ jobs:
             echo "🔁 Git Pull"
             git fetch origin
             git checkout $BRANCH
-            git pull origin $BRANCH
+            git pull --ff-only origin $BRANCH
 
             echo "📦 Node.js version"
             nvm install
-            nvm use lts/jod
+            nvm use --lts
 
             echo "📦 Installing dependencies"
             npm install
