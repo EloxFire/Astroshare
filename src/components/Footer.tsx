@@ -46,12 +46,12 @@ const Footer = () => {
         </div>
 
         <div className="footer-columns">
-          <div className="footer-column">
+          {/* <div className="footer-column">
             <p className="footer-title">Produit</p>
             <ul className="footer-links">
               <li><a className="footer-link" href={routes.home.sections.features}>Fonctionnalités</a></li>
               <li><a className="footer-link" href={routes.pricing.path}>{routes.pricing.label}</a></li>
-              {/* <li><a className="footer-link" href="/roadmap">Feuille de route</a></li> */}
+              {/* <li><a className="footer-link" href="/roadmap">Feuille de route</a></li>
               <li><a className="footer-link" href="/roadmap">Résiliation</a></li>
             </ul>
           </div>
@@ -63,7 +63,7 @@ const Footer = () => {
               <li><a className="footer-link" href="/guides">Guides d'observation</a></li>
               <li><a className="footer-link" href="/faq">FAQ</a></li>
             </ul>
-          </div>
+          </div> */}
 
           <div className="footer-column">
             <p className="footer-title">Contact</p>
@@ -96,9 +96,8 @@ const Footer = () => {
           © {currentYear} Astroshare. Tous droits réservés.
         </p>
         <div className="legal-links">
-          <a className="footer-link" href="/terms-of-service">CGU</a>
-          <a className="footer-link" href="/privacy-policy">Politique de confidentialité</a>
-          <a className="footer-link" href="/cookie-policy">Cookies</a>
+          <a className="footer-link" href={routes.cgv.path}>{routes.cgv.label}</a>
+          <a className="footer-link" href={routes.privacy.path}>{routes.privacy.label}</a>
         </div>
       </div>
     </footer>

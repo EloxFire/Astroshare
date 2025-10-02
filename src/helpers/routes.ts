@@ -25,6 +25,18 @@ export const routes = {
     navbarVisible: true,
     sections: {}
   },
+  cgv: {
+    path: '/cgv',
+    label: 'CGV',
+    navbarVisible: false,
+    sections: {}
+  },
+  privacy: {
+    path: '/politique-de-confidentialite',
+    label: 'Politique de confidentialité',
+    navbarVisible: false,
+    sections: {}
+  },
   playstore: {
     path: 'https://play.google.com/store/apps/details?id=com.astroshare.app',
     label: 'Play Store',

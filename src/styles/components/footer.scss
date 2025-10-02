@@ -23,8 +23,9 @@
 
   .footer-columns {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
     gap: 32px;
+    justify-content: flex-end;
   }
 
   .footer-column {
@@ -143,6 +144,7 @@
 
     .footer-columns {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: flex-start;
     }
   }
 }
@@ -155,6 +157,7 @@
     .footer-columns {
       grid-template-columns: 1fr;
       gap: 24px;
+      justify-content: flex-start;
     }
 
     .footer-bottom {
