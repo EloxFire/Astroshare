@@ -38,7 +38,7 @@ export const routes = {
     sections: {}
   },
   playstore: {
-    path: 'https://play.google.com/store/apps/details?id=com.astroshare.app',
+    path: 'https://play.google.com/store/apps/details?id=fr.eavagliano.astroshare',
     label: 'Play Store',
     navbarVisible: false,
     sections: {}

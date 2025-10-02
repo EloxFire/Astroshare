@@ -1,5 +1,4 @@
 import { routes } from '../helpers/routes';
-import { urls } from '../helpers/constants/urls';
 import '../styles/components/navbar.scss';
 import { useState } from 'react';
 
@@ -32,11 +31,11 @@ const Navbar = () => {
 						})
 					}
 				</ul>
-				<a className={"cta-download dropdown"} target='_blank' rel="noopener noreferrer" href={urls.playstore}>
+				<a className={"cta-download dropdown"} target='_blank' rel="noopener noreferrer" href={routes.playstore.path}>
 					Télécharger Astroshare
 				</a>
 			</nav>
-			<a className={"cta-download"} target='_blank' rel="noopener noreferrer" href={urls.playstore}>Téléchargez Astroshare</a>
+			<a className={"cta-download"} target='_blank' rel="noopener noreferrer" href={routes.playstore.path}>Téléchargez Astroshare</a>
 		</div>
 	);
 };
