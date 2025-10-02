@@ -1,4 +1,4 @@
-import { routes } from '../helpers/routes';
+// import { routes } from '../helpers/routes';
 import '../styles/pages/about.scss';
 
 const birthDate = new Date(2000, 11, 9);
@@ -17,38 +17,38 @@ const calculateAge = (date: Date) => {
   return age;
 };
 
-const featureHighlights = [
-  {
-    title: 'ISS et Starlink en direct',
-    description:
-      "Suivre les passages de l'ISS et des trains Starlink en temps réel pour ne jamais manquer un rendez-vous orbital.",
-    image: '/images/features/3.png',
-  },
-  {
-    title: 'Météo astro et solaire',
-    description:
-      "Préparer chaque nuit d'observation avec des prévisions météo, seeing et activité solaire pensées pour le terrain.",
-    image: '/images/features/1.png',
-  },
-  {
-    title: 'Événements à ne pas manquer',
-    description:
-      'Anticiper éclipses, conjonctions et lancements grâce à une sélection des prochains spectacles célestes.',
-    image: '/images/features/5.png',
-  },
-  {
-    title: 'Guides clairs et pratiques',
-    description:
-      'Apprendre pas à pas avec des contenus concis pour aligner son instrument, choisir ses cibles et progresser.',
-    image: '/images/features/0.png',
-  },
-  {
-    title: 'Expérience personnalisable',
-    description:
-      'Activer le mode nuit, sauvegarder ses lieux favoris et recevoir des alertes adaptées à sa pratique.',
-    image: '/images/features/6.png',
-  },
-];
+// const featureHighlights = [
+//   {
+//     title: 'ISS et Starlink en direct',
+//     description:
+//       "Suivre les passages de l'ISS et des trains Starlink en temps réel pour ne jamais manquer un rendez-vous orbital.",
+//     image: '/images/features/3.png',
+//   },
+//   {
+//     title: 'Météo astro et solaire',
+//     description:
+//       "Préparer chaque nuit d'observation avec des prévisions météo, seeing et activité solaire pensées pour le terrain.",
+//     image: '/images/features/1.png',
+//   },
+//   {
+//     title: 'Événements à ne pas manquer',
+//     description:
+//       'Anticiper éclipses, conjonctions et lancements grâce à une sélection des prochains spectacles célestes.',
+//     image: '/images/features/5.png',
+//   },
+//   {
+//     title: 'Guides clairs et pratiques',
+//     description:
+//       'Apprendre pas à pas avec des contenus concis pour aligner son instrument, choisir ses cibles et progresser.',
+//     image: '/images/features/0.png',
+//   },
+//   {
+//     title: 'Expérience personnalisable',
+//     description:
+//       'Activer le mode nuit, sauvegarder ses lieux favoris et recevoir des alertes adaptées à sa pratique.',
+//     image: '/images/features/6.png',
+//   },
+// ];
 
 const About = () => {
   const age = calculateAge(birthDate);
