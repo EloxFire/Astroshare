@@ -1,4 +1,4 @@
-name: Deploy Frontend to VPS
+name: Deploy ASTROSHARE FRONTEND to VPS
 
 on:
   push:
@@ -33,19 +33,34 @@ jobs:
           if [ "$BRANCH" = "main" ]; then
             echo "REMOTE_PATH=/var/www/astroshare.fr" >> $GITHUB_ENV
           else
+            echo "${{ secrets.ENV_DEV }}" > .env
             echo "REMOTE_PATH=/var/www/dev.astroshare.fr" >> $GITHUB_ENV
           fi
 
-      - name: BUILD PROJECT
+      - name: Deploy via SSH as root
         run: |
-          npm install
-          npm run build
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.VPS_HOST }} << EOF
+            set -e
+            cd $REMOTE_PATH
 
-      - name: Deploy files
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: root
-          key: ${{ secrets.VPS_SSH_KEY }}
-          source: "dist/*"
-          target: $REMOTE_PATH
+            echo "📦 Loading NVM"
+            export NVM_DIR="\$HOME/.nvm"
+            [ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh"
+
+            echo "🔁 Git Pull"
+            git fetch origin
+            git checkout $BRANCH
+            git pull origin $BRANCH
+
+            echo "📦 Node.js version"
+            nvm install
+            nvm use lts/jod
+
+            echo "📦 Installing dependencies"
+            npm install
+
+            echo "🏗 Building project"
+            npm run build
+
+            echo "🚀 Build successful !"
+          EOF
