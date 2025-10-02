@@ -22,7 +22,7 @@ export const routes = {
   contact: {
     path: '/contact',
     label: 'Contact',
-    navbarVisible: true,
+    navbarVisible: false,
     sections: {}
   },
   cgv: {
