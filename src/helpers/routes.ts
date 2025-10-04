@@ -16,7 +16,7 @@ export const routes = {
   pricing: {
     path: '/tarifs',
     label: 'Tarifs',
-    navbarVisible: false,
+    navbarVisible: true,
     sections: {}
   },
   contact: {

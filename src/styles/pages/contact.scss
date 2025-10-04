@@ -1,0 +1,108 @@
+@use '../globals.scss';
+
+#contact {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 0 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.contact-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  p {
+    max-width: 640px;
+    color: rgba(globals.$white, 0.78);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 36px;
+  border-radius: globals.$radius-default;
+  background: rgba(globals.$white, globals.$background-opacity-default);
+  border: 1px solid rgba(globals.$white, globals.$border-opacity-default);
+  box-shadow: 0 22px 48px rgba(globals.$black, 0.35);
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    label {
+      font-family: globals.$dmmono-font;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(globals.$white, 0.75);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: globals.$radius-default;
+      border: 1px solid rgba(globals.$white, globals.$border-opacity-default);
+      background: rgba(globals.$black, 0.35);
+      color: globals.$white;
+      font-size: 1rem;
+      font-family: globals.$gilroy-font;
+
+      &::placeholder {
+        color: rgba(globals.$white, 0.45);
+      }
+
+      &:focus {
+        outline: 2px solid rgba(globals.$accent, 0.65);
+        border-color: rgba(globals.$accent, 0.8);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 160px;
+    }
+  }
+
+  button {
+    align-self: flex-start;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 999px;
+    background-color: globals.$accent;
+    color: globals.$black;
+    font-family: globals.$gilroy-font;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(globals.$accent, 0.35);
+    }
+
+    &:focus {
+      outline: 2px solid rgba(globals.$accent, 0.8);
+      outline-offset: 3px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #contact {
+    padding: 60px 0 90px;
+  }
+
+  .contact-form {
+    padding: 28px 24px;
+  }
+}

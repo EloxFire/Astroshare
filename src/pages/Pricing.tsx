@@ -1,3 +1,4 @@
+import { routes } from '../helpers/routes';
 import '../styles/pages/pricing.scss';
 
 const plans = [
@@ -7,7 +8,7 @@ const plans = [
     price: '2,49€',
     period: 'par mois',
     description: 'Flexibilité totale avec un paiement mensuel.',
-    ctaLabel: 'Je m\'abonne',
+    ctaLabel: 'Voir dans l\'app',
     supportText: 'Résiliable à tout moment.'
   },
   {
@@ -16,7 +17,7 @@ const plans = [
     price: '23,90€',
     period: 'par an',
     description: 'Le meilleur rapport qualité-prix pour Astroshare PRO.',
-    ctaLabel: 'Je m\'abonne',
+    ctaLabel: 'Voir dans l\'app',
     supportText: 'Économisez 20 % par rapport au mensuel.',
     highlight: true
   },
@@ -26,7 +27,7 @@ const plans = [
     price: '119€',
     period: 'paiement unique',
     description: 'Un accès illimité sans abonnement.',
-    ctaLabel: 'Je m\'abonne',
+    ctaLabel: 'Voir dans l\'app',
     supportText: 'Investissement unique dans votre passion.'
   }
 ];
@@ -49,12 +50,28 @@ const featureHighlights = [
     alt: "Carte prévisionnelle des passages de l'ISS"
   },
   {
-    id: 'celestial-events',
-    title: 'Éclipses et conjonctions',
+    id: 'eclipses',
+    title: 'Éclipses solaires et lunaires',
     description:
-      'Anticipez les alignements planétaires et phénomènes lumineux pour vos sorties nocturnes.',
+      'Calculateur précis des éclipses pour ne jamais manquer un événement céleste majeur.',
     image: '/images/features/5.png',
-    alt: "Illustration d'éclipse et de conjonction planétaire"
+    alt: "Illustration d'éclipse solaire"
+  },
+  {
+    id: 'planetary-conjunctions',
+    title: 'Conjonctions planétaires',
+    description:
+      'Repérez les alignements rares entre planètes pour des observations uniques.',
+    image: '/images/features/4.png',
+    alt: 'Schéma de conjonction planétaire'
+  },
+  {
+    id: 'regular-updates',
+    title: 'Mises à jour régulières',
+    description:
+      "Nous enrichissons constamment Astroshare PRO avec de nouvelles fonctionnalités.",
+    image: '/images/features/1.png',
+    alt: 'Icône de mise à jour'
   }
 ];
 
@@ -65,6 +82,19 @@ const Pricing = () => {
         <img className='hero-logo' src="/images/logos/astroshare_pro.png" alt="Logo Astroshare PRO" />
         <h2>Explorez l'univers toujours plus loin !</h2>
         <p className='hero-description'>Découvrez nos offres premium et profitez d'une expérience inégalée pour préparer vos soirées d'observation du ciel.</p>
+      </div>
+
+      <div id="free-tier" className="highlighted-tier">
+        <p className="plan-price">
+          <span className="amount">0€</span>
+          <span className="period">pour toujours</span>
+        </p>
+        <p>
+          Astroshare est une application <strong>gratuite</strong>, sans obligation d'achat ou d'inscription et le restera <strong>toujours</strong>.
+        </p>
+        <p>
+          Si vous souhaitez <strong>soutenir le développement</strong> d'Astroshare et accéder à des <strong>fonctionnalités avancées</strong>, vous pouvez considérer l'une de nos offres Astroshare PRO. Chaque contribution nous aide à <strong>améliorer l'application</strong> et à offrir une meilleure expérience à toute la communauté.
+        </p>
       </div>
 
       <div className="pricing-table">
@@ -95,7 +125,7 @@ const Pricing = () => {
             }
             <p className="plan-description">{plan.description}</p>
             <p className="plan-support">{plan.supportText}</p>
-            <a className="plan-cta" href={`/subscribe?plan=${plan.id}`}>{plan.ctaLabel}</a>
+            <a className="plan-cta" target='_blank' href={routes.playstore.path}>{plan.ctaLabel}</a>
           </article>
         ))}
       </div>
@@ -140,9 +170,12 @@ const Pricing = () => {
           </a>
         </div>
         <div className="pro-visual">
-          <div className="visual-placeholder" aria-hidden="true">
-            <span>Visuel partenaire à venir</span>
-          </div>
+          <img
+            src="/images/astronomy_club.jpg"
+            alt="Membres d'un club d'astronomie observant le ciel"
+            className="visual-image"
+            loading="lazy"
+          />
         </div>
       </div>
 
