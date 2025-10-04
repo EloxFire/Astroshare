@@ -56,14 +56,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-column">
+          {/* <div className="footer-column">
             <p className="footer-title">Ressources</p>
             <ul className="footer-links">
-              {/* <li><a className="footer-link" href="/blog">Blog</a></li> */}
+              <li><a className="footer-link" href="/blog">Blog</a></li>
               <li><a className="footer-link" href="/guides">Nos guides</a></li>
               <li><a className="footer-link" href="/faq">FAQ</a></li>
             </ul>
-          </div>
+          </div> */}
 
           <div className="footer-column">
             <p className="footer-title">Contact</p>
