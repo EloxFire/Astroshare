@@ -42,5 +42,11 @@ export const routes = {
     label: 'Play Store',
     navbarVisible: false,
     sections: {}
+  },
+  systemstatus: {
+    path: 'https://monitor.enzoavagliano.fr/status/astroshare',
+    label: 'État des services',
+    navbarVisible: false,
+    sections: {}
   }
 }

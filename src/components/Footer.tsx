@@ -51,6 +51,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><a className="footer-link" href={routes.home.sections.features}>Fonctionnalités</a></li>
               <li><a className="footer-link" href={routes.pricing.path}>{routes.pricing.label}</a></li>
+              <li><a className="footer-link" target='_blank' href={routes.systemstatus.path}>{routes.systemstatus.label}</a></li>
               {/* <li><a className="footer-link" href="/roadmap">Feuille de route</a></li>
               <li><a className="footer-link" href="/roadmap">Résiliation</a></li> */}
             </ul>
