@@ -48,5 +48,11 @@ export const routes = {
     label: 'État des services',
     navbarVisible: false,
     sections: {}
+  },
+  roadmap: {
+    path: 'https://wekan.enzoavagliano.fr/b/XXye857PD2CoHnP2J/astroshare',
+    label: 'Feuille de route',
+    navbarVisible: false,
+    sections: {}
   }
 }
