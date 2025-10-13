@@ -22,34 +22,6 @@ const Home = () => {
     }
   }, [location.hash]);
 
-
-  useEffect(() => {
-    // SCRIPT BREVO POUR POP-UP NEWSLETTER
-    const script = document.createElement("script");
-    script.src = "https://cdn.brevo.com/js/sdk-loader.js";
-    script.async = true;
-    document.head.appendChild(script);
-
-    // Initialiser Brevo une fois le SDK chargé
-    const initScript = document.createElement("script");
-    initScript.innerHTML = `
-      window.Brevo = window.Brevo || [];
-      Brevo.push([
-          "init",
-          {
-              client_key: "87zrwgglz6gnvar1um5auqux"
-          }
-      ]);
-    `;
-    document.head.appendChild(initScript);
-
-    // Nettoyage : retirer les scripts si on quitte la page
-    return () => {
-      document.head.removeChild(script);
-      document.head.removeChild(initScript);
-    };
-  }, []);
-
   return (
     <div>
       <Landing/>
