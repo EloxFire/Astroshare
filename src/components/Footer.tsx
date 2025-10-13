@@ -71,9 +71,10 @@ const Footer = () => {
             <p className="footer-description">
               Des questions ? Écrivez-nous, l'équipe vous répond sous 24&nbsp;h.
             </p>
-            <a className="footer-link accent" href="mailto:contact@astroshare.com">
-              contact@astroshare.com
-            </a>
+            <ul className="footer-links">
+              <li><a className="footer-link accent" href="mailto:contact@astroshare.com">contact@astroshare.com</a></li>
+            </ul>
+            
           </div>
 
           <div className="footer-column">
