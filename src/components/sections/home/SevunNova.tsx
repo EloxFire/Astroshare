@@ -62,7 +62,7 @@ export const SevunNova = () => {
           <p className="sevun-nova-price-label">Après un premier paiement de 349 €</p>
           <div className="sevun-nova-price-divider" />
           <a
-            href="https://sevun.fr/nova"
+            href="https://sevun.fr/s/sn"
             className="sevun-nova-cta"
             target="_blank"
             rel="noopener noreferrer"
