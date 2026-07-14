@@ -221,6 +221,26 @@
   }
 }
 
+// DownloadDropdown inside a plan card
+.plan-card .download-dropdown {
+  margin-top: auto;
+
+  .dd-trigger {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: globals.$radius-default;
+    background-color: globals.$accent;
+    color: globals.$black;
+    font-family: globals.$gilroy-font;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 180ms ease;
+
+    &:hover { background-color: rgba(globals.$accent, 0.75); }
+  }
+}
+
 .feature-showcase {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);

@@ -75,7 +75,7 @@
   }
 
   // Dropdown CTA sits inside nav; hide on desktop
-  .cta-download.dropdown{
+  .download-dropdown.dropdown{
     display: none;
   }
 }
@@ -94,7 +94,7 @@
     }
 
     // hide the desktop CTA
-    > .cta-download{
+    > .download-dropdown:not(.dropdown){
       display: none;
     }
 
@@ -134,11 +134,8 @@
       }
 
       // show CTA inside dropdown
-      .cta-download.dropdown{
+      .download-dropdown.dropdown{
         display: block;
-        width: 100%;
-        margin-top: 8px;
-        text-align: center;
       }
     }
 

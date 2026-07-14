@@ -1,11 +1,11 @@
-import { routes } from '../helpers/routes';
 import '../styles/pages/pricing.scss';
+import { DownloadDropdown } from '../components/buttons/DownloadDropdown';
 
 const plans = [
   {
     id: 'monthly',
     title: 'Mensuel',
-    price: '2,49€',
+    price: '3.99€',
     period: 'par mois',
     description: 'Flexibilité totale avec un paiement mensuel.',
     ctaLabel: 'Voir dans l\'app',
@@ -14,7 +14,7 @@ const plans = [
   {
     id: 'yearly',
     title: 'Annuel',
-    price: '23,90€',
+    price: '29,99€',
     period: 'par an',
     description: 'Le meilleur rapport qualité-prix pour Astroshare PRO.',
     ctaLabel: 'Voir dans l\'app',
@@ -24,7 +24,7 @@ const plans = [
   {
     id: 'lifetime',
     title: 'Licence à vie',
-    price: '119€',
+    price: '179€',
     period: 'paiement unique',
     description: 'Un accès illimité sans abonnement.',
     ctaLabel: 'Voir dans l\'app',
@@ -125,7 +125,7 @@ const Pricing = () => {
             }
             <p className="plan-description">{plan.description}</p>
             <p className="plan-support">{plan.supportText}</p>
-            <a className="plan-cta" target='_blank' href={routes.playstore.path}>{plan.ctaLabel}</a>
+            <DownloadDropdown label={plan.ctaLabel} className="plan-cta" />
           </article>
         ))}
       </div>

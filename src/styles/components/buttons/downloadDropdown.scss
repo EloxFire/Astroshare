@@ -1,0 +1,121 @@
+@use '../../globals.scss';
+
+.download-dropdown {
+  position: relative;
+  display: inline-block;
+
+  // ── Trigger ──────────────────────────────────────────
+  .dd-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s ease;
+
+    &:hover { opacity: 0.85; }
+
+    .dd-chevron {
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      &.open { transform: rotate(180deg); }
+    }
+  }
+
+  // ── Dropdown panel ───────────────────────────────────
+  .dd-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 160px;
+    background-color: #111;
+    border: 1px solid rgba(globals.$white, 0.15);
+    border-radius: globals.$radius-default;
+    padding: 6px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .dd-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: globals.$white;
+    font-family: globals.$dmmono-font;
+    font-size: 0.9rem;
+    transition: background-color 0.15s ease;
+
+    &:hover {
+      background-color: rgba(globals.$white, globals.$background-opacity-default);
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      filter: invert(1); // icons are black, invert for dark menu
+    }
+  }
+
+  // ── Primary variant (Landing) ─────────────────────────
+  &.primary {
+    margin-top: 20px;
+
+    .dd-trigger {
+      font-family: globals.$dmmono-font;
+      font-size: 1rem;
+      font-weight: 500;
+      color: globals.$black;
+      background-color: globals.$accent;
+      padding: 10px 25px;
+      border-radius: globals.$radius-default;
+
+      .dd-chevron path { stroke: globals.$black; }
+    }
+
+    @media screen and (max-width: 992px) {
+      .dd-trigger {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+      }
+    }
+  }
+
+  // ── Navbar variant ────────────────────────────────────
+  &.navbar {
+    .dd-trigger {
+      background-color: globals.$accent;
+      color: globals.$black;
+      border-radius: globals.$radius-default;
+      padding: 10px;
+      font-family: globals.$gilroy-font;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+
+      .dd-chevron path { stroke: globals.$black; }
+    }
+
+    // inside mobile nav the panel opens below and fills width
+    &.dropdown {
+      width: 100%;
+      margin-top: 8px;
+
+      .dd-trigger {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .dd-menu {
+        left: 0;
+        right: 0;
+        min-width: unset;
+      }
+    }
+  }
+}

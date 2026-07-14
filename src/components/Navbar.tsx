@@ -1,6 +1,7 @@
 import { routes } from '../helpers/routes';
 import '../styles/components/navbar.scss';
 import { useState } from 'react';
+import { DownloadDropdown } from './buttons/DownloadDropdown';
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +32,9 @@ const Navbar = () => {
 						})
 					}
 				</ul>
-				<a className={"cta-download dropdown"} target='_blank' rel="noopener noreferrer" href={routes.playstore.path}>
-					Télécharger Astroshare
-				</a>
+				<DownloadDropdown label="Télécharger" variant="navbar" className="dropdown" />
 			</nav>
-			<a className={"cta-download"} target='_blank' rel="noopener noreferrer" href={routes.playstore.path}>Téléchargez Astroshare</a>
+			<DownloadDropdown label="Téléchargez Astroshare" variant="navbar" />
 		</div>
 	);
 };

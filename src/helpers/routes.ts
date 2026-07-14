@@ -43,6 +43,12 @@ export const routes = {
     navbarVisible: false,
     sections: {}
   },
+  appstore: {
+    path: 'https://apps.apple.com/fr/app/astroshare/id6737229342',
+    label: 'App Store',
+    navbarVisible: false,
+    sections: {}
+  },
   systemstatus: {
     path: 'https://monitor.enzoavagliano.fr/status/astroshare',
     label: 'État des services',

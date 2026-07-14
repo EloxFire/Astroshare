@@ -1,6 +1,5 @@
-import { routes } from '../../../helpers/routes';
 import '../../../styles/components/sections/landingOverview.scss';
-import { SimpleButton } from '../../buttons/SimpleButton';
+import { DownloadDropdown } from '../../buttons/DownloadDropdown';
 
 export const LandingOverview = () => {
 
@@ -15,13 +14,7 @@ export const LandingOverview = () => {
         </div>
 
         <div className="loc-cta-container">
-          <SimpleButton
-            text="Téléchargez l'application"
-            href={routes.playstore.path}
-            variant="primary"
-            icon="/images/icons/play-store-black.png"
-            target='_blank'
-          />
+          <DownloadDropdown label="Téléchargez l'application" variant="primary" />
           <p className="loc-cta-description">Disponible gratuitement, sans publicité ni inscription obligatoire.</p>
         </div>
 

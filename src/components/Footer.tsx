@@ -82,13 +82,14 @@ const Footer = () => {
             <p className="footer-description">
               Emportez Astroshare partout avec vous et planifiez vos sessions facilement.
             </p>
-            <a href={routes.playstore.path} className="store-link" aria-label="Télécharger sur l'App Store" target="_blank" rel="noopener noreferrer">
-              <img
-                className="store-badge"
-                src="/images/google-play-badge.png"
-                alt="Télécharger sur Google Play"
-              />
-            </a>
+            <div className="store-badges">
+              <a href={routes.playstore.path} className="store-link" aria-label="Télécharger sur Google Play" target="_blank" rel="noopener noreferrer">
+                <img className="store-badge" src="/images/google-play-badge.png" alt="Télécharger sur Google Play" />
+              </a>
+              <a href={routes.appstore.path} className="store-link" aria-label="Télécharger sur l'App Store" target="_blank" rel="noopener noreferrer">
+                <img className="store-badge" src="/images/app-store-badge.png" alt="Télécharger sur l'App Store" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
