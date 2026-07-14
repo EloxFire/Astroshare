@@ -56,15 +56,15 @@ export const Cgv = () => {
           <p>Astroshare propose un accès gratuit et des fonctionnalités supplémentaires payantes :</p>
           <ul>
             <li>
-              <strong>Abonnement mensuel</strong> : 2,49 € / mois, sans engagement, renouvelé
+              <strong>Abonnement mensuel</strong> : 3,99 € / mois, sans engagement, renouvelé
               automatiquement chaque mois.
             </li>
             <li>
-              <strong>Abonnement annuel</strong> : 23,90 € / an, réglé en une seule fois, renouvelé
+              <strong>Abonnement annuel</strong> : 29,99 € / an, réglé en une seule fois, renouvelé
               automatiquement chaque année.
             </li>
             <li>
-              <strong>Achat unique (licence à vie)</strong> : 119 €, paiement en une fois, donnant accès
+              <strong>Achat unique (licence à vie)</strong> : 179 €, paiement en une fois, donnant accès
               définitif aux fonctionnalités premium ainsi qu’à toutes les mises à jour futures de
               l’application.
             </li>
@@ -88,8 +88,8 @@ export const Cgv = () => {
         <section id="commande-paiement" className="cgv-section">
           <h2>4. Commande &amp; Paiement</h2>
           <p>
-            Les achats sont réalisés directement au sein de l’Application via la solution de paiement
-            sécurisée <strong>Stripe</strong>. En souscrivant à un abonnement, vous autorisez le prélèvement
+            Les achats sont réalisés directement au sein de l’Application via les solutions natives de paiement
+            sécurisée <strong>Apple et Google</strong>. En souscrivant à un abonnement, vous autorisez le prélèvement
             automatique à chaque échéance (mensuelle ou annuelle) jusqu’à résiliation.
           </p>
           <p>
