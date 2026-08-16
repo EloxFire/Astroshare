@@ -56,10 +56,10 @@ export const SevunNova = () => {
 
         <div className="sevun-nova-right">
           <div className="sevun-nova-price">
+            <span className="price-period">À partir de</span>
             <span className="price-amount">69 €</span>
             <span className="price-period">/ mois</span>
           </div>
-          <p className="sevun-nova-price-label">Après un premier paiement de 349 €</p>
           <div className="sevun-nova-price-divider" />
           <a
             href="https://sevun.fr/s/sn"
