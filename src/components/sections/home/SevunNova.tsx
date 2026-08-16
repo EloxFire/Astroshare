@@ -41,7 +41,7 @@ export const SevunNova = () => {
               </div>
               <p className="pillar-desc">Abonnement au magazine Ciel &amp; Espace numérique</p>
             </div>
-          </div>
+          </div>  
 
           <div className="sevun-nova-partners">
             <img src="/images/logos/sevun-white.png"         alt="Sevun"                           className="partner-logo partner-sevun" />
@@ -62,7 +62,7 @@ export const SevunNova = () => {
           </div>
           <div className="sevun-nova-price-divider" />
           <a
-            href="https://sevun.fr/s/sn"
+            href="https://nova.sevun.fr/"
             className="sevun-nova-cta"
             target="_blank"
             rel="noopener noreferrer"
